@@ -38,8 +38,1087 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["cc","./EducationProgress
 
 System.register("chunks:///_virtual/FutureTransitionEvents.ts",["cc"],(function(e){var t;return{setters:[function(e){t=e.cclegacy}],execute:function(){t._RF.push({},"1bb75W6CGdEr6QQLgXa51ed","FutureTransitionEvents",void 0);e("FUTURE_TRANSITION_EVENTS",[{id:"timeline-2026-unknown-future",title:"已知的过去利用好了吗？",description:"接下来的是未知的未来。此后，人生机遇会从随机池中浮现，交易所也可能出现从未见过的新股票；没有人知道下一次机会会在哪一年到来。",yearMin:2026,yearMax:2026,weight:1,forced:!0,options:[{id:"step-into-unknown",label:"走进未知的未来",result:{skills:{information:3},stats:{happiness:2},addFlags:["future-timeline-unlocked"]}}]}]);t._RF.pop()}}}));
 
-System.register("chunks:///_virtual/GameBootstrap.ts",["./rollupPluginModLoBabelHelpers.js","cc","./IdentityConfig.ts","./StartupConfig.ts","./GameSession.ts","./ExplorationConfig.ts","./OpportunitySystem.ts","./OpenOpportunitySystem.ts","./StatChangeAnimator.ts","./Motion.ts","./UITheme.ts"],(function(e){var t,n,s,i,r,o,a,c,u,h,l,f,d,w,m,p,y,v,g,x,T,S,k,C,E,B,M;return{setters:[function(e){t=e.inheritsLoose,n=e.extends},function(e){s=e.cclegacy,i=e._decorator,r=e.UITransform,o=e.view,a=e.Vec3,c=e.Node,u=e.Color,h=e.BlockInputEvents,l=e.UIOpacity,f=e.Graphics,d=e.Label,w=e.Button,m=e.Component},function(e){p=e.IDENTITIES},function(e){y=e.NO_DEFECT,v=e.MEMORIES,g=e.TALENTS,x=e.DEFECTS},function(e){T=e.GameSession},function(e){S=e.EXPLORATION_ACTIONS},function(e){k=e.OpportunitySystem},function(e){C=e.OpenOpportunitySystem},function(e){E=e.StatChangeAnimator},function(e){B=e.Motion},function(e){M=e.UITheme}],execute:function(){var R;s._RF.push({},"0d86a6jClRO66SLf+UnVpcB","GameBootstrap",void 0);var P=i.ccclass;e("GameBootstrap",P("GameBootstrap")(R=function(e){function s(){for(var t,n=arguments.length,s=new Array(n),i=0;i<n;i++)s[i]=arguments[i];return(t=e.call.apply(e,[this].concat(s))||this).session=new T,t.opportunitySystem=new k,t.openOpportunities=new C,t.uiRoot=new c("RestartLifeUI"),t.designSize=new a(1280,720,1),t.statAnimator=void 0,t.selectedIdentity=void 0,t.selectedTalent=void 0,t.revealedDefect=void 0,t.talentRefreshesRemaining=3,t.marketPage=0,t}t(s,e);var i=s.prototype;return i.onLoad=function(){this.node.addChild(this.uiRoot),this.uiRoot.addComponent(r).setContentSize(1280,720),this.updateResponsiveScale(),o.on("canvas-resize",this.updateResponsiveScale,this),this.statAnimator=new E(this.uiRoot),this.showHome()},i.onDestroy=function(){o.off("canvas-resize",this.updateResponsiveScale,this)},i.updateResponsiveScale=function(){var e=this.node.getComponent(r);if(e){var t=Math.min(e.width/this.designSize.x,e.height/this.designSize.y);this.uiRoot.setScale(Math.max(.25,t),Math.max(.25,t),1)}},i.showHome=function(){var e=this;this.clearScreen(),this.createText("编年",new a(0,245),18,M.gold,"center"),this.createText("重新活一次",new a(0,180),58,M.text,"center"),this.createText("如果人生可以重启，你会如何书写下一页？",new a(0,112),21,M.muted,"center"),this.createButton("开始重来",new a(0,35),new a(380,70),(function(){e.selectedIdentity=void 0,e.selectedTalent=void 0,e.revealedDefect=void 0,e.talentRefreshesRemaining=3,e.showIdentitySelection()}),"primary"),this.session.hasContinuableSave()&&this.createButton("继续人生",new a(0,-48),new a(380,56),(function(){return e.restoreLife()}),"secondary"),this.session.hasArchive()&&this.createTextButton("人生档案",new a(-82,-126),(function(){return e.showArchive()})),this.createTextButton("设置",new a(this.session.hasArchive()?82:0,-126),(function(){return e.showToast("设置将在后续版本中开放。")})),this.createText("每一次选择，都会在多年后留下回声。",new a(0,-225),15,M.quiet,"center")},i.showIdentitySelection=function(){var e=this;this.clearScreen(),this.createText("选择初始家庭身份",new a(0,270),39,M.text,"center"),this.createText("首局固定开放农村务工家庭与小城普通家庭；完成迁移、教育或商业成就，可以解锁其他起点。",new a(0,218),17,M.muted,"center",1080),this.session.familyUnlockStatuses().forEach((function(t,n){var s=t.identity,i=t.unlocked,r=t.requirement,o=n%2==0?-250:250,c=120-130*Math.floor(n/2),u=i?s.name+" · "+s.difficulty+"\n"+e.identitySummary(s):"🔒 "+s.name+" · "+s.difficulty+"\n"+(null!=r?r:"完成对应人生目标后解锁");e.createButton(u,new a(o,c),new a(440,110),(function(){i?(e.selectedIdentity=s,e.showAttributeGuide()):e.showActionMessage("家庭尚未解锁",null!=r?r:"请先完成对应的人生目标。",(function(){return e.showIdentitySelection()}))}),i?"secondary":"ghost")})),this.createTextButton("返回",new a(-520,285),(function(){return e.showHome()}))},i.showAttributeGuide=function(){var e=this;this.clearScreen(),this.createText("属性会怎样改变人生？",new a(0,270),38,M.text,"center"),this.createPanel(new a(-285,48),new a(520,300),M.surface),this.createPanel(new a(285,48),new a(520,300),M.surface),this.createText("基础属性",new a(-500,150),22,M.goldSoft,"left",200),this.createText("智力：升学、复杂职业与判断\n情商：关系、沟通和冲突处理\n体质：健康损耗与恢复能力\n执行力：工作、创业与行动成功率\n魅力：社交、表达和重要关系\n运气：高风险事件的额外波动",new a(-500,35),17,M.text,"left",430,225),this.createText("成长能力",new a(70,150),22,M.info,"left",200),this.createText("学习：升学与持续成长\n技术：技术职业、软件与智能行业\n商业：收入、交易、销售和创业\n表达：内容行业、沟通与影响力\n管理：晋升、团队和项目扩张\n信息：发现机会、研究风险与判断趋势",new a(70,35),17,M.text,"left",430,225),this.createText("品质越高，天赋的净收益越强；普通天赋更容易伴随轻度短板。",new a(0,-155),16,M.muted,"center",1e3),this.createButton("我了解了，选择天赋",new a(0,-220),new a(320,58),(function(){e.showTalentSelection(e.rollTalentOffers())}),"primary"),this.createTextButton("返回",new a(-520,285),(function(){return e.showIdentitySelection()}))},i.showTalentSelection=function(e){var t=this;this.clearScreen(),this.createText("选择一项天赋",new a(0,260),39,M.text,"center"),this.createText("普通 65% · 稀有 28% · 传奇 7%；刷新可以重新抽取全部候选。",new a(0,205),17,M.muted,"center"),this.createText("轻度短板概率：普通 55% · 稀有 18% · 传奇 0%",new a(0,168),15,M.quiet,"center"),e.forEach((function(e,n){var s=e.talent,i=e.defect,r=350*(n-1),o=i.id===y.id?"":"\n\n伴生短板："+i.name+"\n影响："+t.effectSummary(i.result);t.createTalentButton(s.name+" · "+t.rarityName(s.rarity)+"\n"+s.description+"\n\n天赋优势："+t.effectSummary(s.result)+o,new a(r,10),new a(316,220),s.rarity,(function(){t.selectedTalent=s,t.revealedDefect=i,t.showMemorySelection(t.session.pickDistinct(v,3))}))}));var n=this.talentRefreshesRemaining>0?"免费刷新天赋（剩余 "+this.talentRefreshesRemaining+"/3）":"免费刷新次数已用完";this.createButton(n,new a(0,-155),new a(290,48),(function(){t.talentRefreshesRemaining<=0?t.showToast("本局的 3 次免费刷新已经用完。"):(t.talentRefreshesRemaining-=1,t.showTalentSelection(t.rollTalentOffers()))}),this.talentRefreshesRemaining>0?"secondary":"ghost"),this.createText("刷新只更换候选天赋，不消耗任何属性、金钱或记忆碎片。",new a(0,-210),14,M.quiet,"center",800),this.createTextButton("返回属性说明",new a(-500,285),(function(){return t.showAttributeGuide()}))},i.rollTalentOffers=function(){var e=this,t=new Set;return Array.from({length:3},(function(){var n=e.session.rollPercentage(),s=n<7?"legendary":n<35?"rare":"common",i=g.filter((function(e){return e.rarity===s&&!t.has(e.id)})),r=e.session.pickDistinct(i,1)[0];t.add(r.id);var o="common"===s?55:"rare"===s?18:0,a=y;if(e.session.rollPercentage()<o){var c=e.session.pickDistinct(x.filter((function(e){return e.id!==y.id})),1)[0];a=e.balanceDefect(c,"common"===s?.5:.25)}return{talent:e.balanceTalent(r),defect:a}}))},i.balanceDefect=function(e,t){var s=function(e){if(e){var n={};return Object.entries(e).forEach((function(e){var s=e[0],i=e[1];n[s]=Math.round(i*t)})),n}};return n({},e,{result:n({},e.result,{attributes:s(e.result.attributes),skills:s(e.result.skills),stats:s(e.result.stats)})})},i.balanceTalent=function(e){var t,s="legendary"===e.rarity?1.75:"rare"===e.rarity?1.35:1,i=function(e){if(e){var t={};return Object.entries(e).forEach((function(e){var n=e[0],i=e[1];t[n]=Math.round(i*s)})),t}},r=n({},e.result,{attributes:i(e.result.attributes),skills:i(e.result.skills),stats:i(e.result.stats)});"second-choice"===e.id&&(r.attributes=n({},null!=(t=r.attributes)?t:{},{luck:10,execution:6}));return n({},e,{result:r})},i.showMemorySelection=function(e){var t=this;this.clearScreen(),this.createText("带回一枚记忆碎片",new a(0,260),39,M.text,"center"),this.createText("记忆会立刻提供属性、资源或时代信号。卡片中的效果会真实写入本局人生。",new a(0,205),18,M.muted,"center",1e3),e.forEach((function(e,n){var s=350*(n-1);t.createButton(e.text+"\n"+t.accuracyName(e.accuracy)+"\n效果："+e.effectText,new a(s,30),new a(310,180),(function(){return t.beginLife(e)}))}))},i.beginLife=function(e){if(this.selectedIdentity&&this.selectedTalent&&this.revealedDefect){this.session.start(this.selectedIdentity.id,"original",Date.now());var t=this.session.applyStartup(this.selectedTalent,this.revealedDefect,e);this.showEvent(t,this.session.getCurrentEvent())}},i.restoreLife=function(){var e=this.session.tryRestore();e?(this.selectedIdentity=p.find((function(t){return t.id===e.identityId})),this.selectedTalent=g.find((function(t){return t.id===e.talentId})),this.revealedDefect=x.find((function(t){return t.id===e.defectId})),this.showEvent(e,this.session.getCurrentEvent())):this.showToast("暂无可继续的人生。")},i.showArchive=function(){var e,t,n,s,i,r,o,c,u=this,h=this.session.loadArchive(),l=this.session.getReport();if(h&&l){this.selectedIdentity=p.find((function(e){return e.id===h.identityId})),this.selectedTalent=g.find((function(e){return e.id===h.talentId})),this.revealedDefect=x.find((function(e){return e.id===h.defectId})),this.clearScreen(),this.createPageHeader("人生档案",h.year+" 年 · "+h.age+" 岁 · "+(h.completed?"本局已结算":"本局进行中"),(function(){return u.showHome()})),this.createPanel(new a(-300,70),new a(500,245),M.surface),this.createPanel(new a(300,70),new a(500,245),M.surface),this.createText("出身："+(null!=(e=null==(t=this.selectedIdentity)?void 0:t.name)?e:"未记录")+"\n天赋："+(null!=(n=null==(s=this.selectedTalent)?void 0:s.name)?n:"未记录")+"\n缺陷："+(null!=(i=null==(r=this.revealedDefect)?void 0:r.name)?i:"未记录")+"\n记忆："+(null!=(o=null==(c=v.find((function(e){return e.id===h.memoryId})))?void 0:c.text)?o:"未记录")+"\n学历："+this.educationName(h.education.level)+"\n职业："+this.careerName(h.career.track)+" · "+this.careerLevelName(h.career.level),new a(-520,70),17,M.text,"left",440,215),this.createText("现金："+this.money(h.stats.funds)+"\n总资产："+this.money(this.session.totalAssetValue())+"\n健康 / 幸福："+h.stats.health+" / "+h.stats.happiness+"\n最强维度："+l.strongestDimension+"\n最大取舍："+l.greatestSacrifice+"\n人生关键词："+l.lifeKeywords.join(" · "),new a(80,70),17,M.text,"left",440,215);var f=l.timeline.slice(-5).map((function(e){return e.year+"｜"+e.event+"："+e.choice})).join("\n")||"尚未留下关键事件记录。";this.createText("最近的重要选择",new a(-500,-82),20,M.goldSoft,"left",300),this.createText(f,new a(-500,-170),15,M.muted,"left",1e3,150),h.completed||this.createButton("继续这段人生",new a(0,-270),new a(260,48),(function(){return u.showEvent(h,u.session.getCurrentEvent())}),"primary")}else this.showToast("还没有可读取的人生记录。")},i.showEvent=function(e,t){var n=this;if(e.completed)this.showEnding(e);else{if(this.clearScreen(),this.createLifeDashboard(e,t),!t){var s,i,r=this.session.getYearInfo();this.createText("这一年，你想把时间交给什么？",new a(0,78),28,M.text,"center"),this.createText((null!=(s=null==r?void 0:r.headline)?s:"人生继续")+" · "+(null!=(i=null==r?void 0:r.summary)?i:"新的机会正在靠近。"),new a(0,35),16,M.muted,"center",970);var o=e.year>=2026?"未来建议："+this.focusAdvice(e):"当前重心："+this.focusName(e.lifeFocus);return this.createText(o+"  ·  "+(e.age<18?"预计年收入 "+this.money(e.finance.familyAllowanceAnnual+("work"===e.lifeFocus&&"unemployed"===e.career.track?.15:0))+" · 年开支 ¥0":"预计年收入 "+this.money(e.finance.salaryAnnual+("work"===e.lifeFocus&&"unemployed"===e.career.track?1.2:0))+" · 预计年开支 "+this.money(e.finance.livingCostAnnual+("social"===e.lifeFocus?.4:0))),new a(0,0),16,M.info,"center",1080),this.createButton(this.focusButtonLabel(e,"study"),new a(-360,-75),new a(210,82),(function(){return n.setFocus("study")}),"study"===e.lifeFocus?"primary":"secondary"),this.createButton(this.focusButtonLabel(e,"work"),new a(-120,-75),new a(210,82),(function(){return n.setFocus("work")}),"work"===e.lifeFocus?"primary":"secondary"),this.createButton(this.focusButtonLabel(e,"rest"),new a(120,-75),new a(210,82),(function(){return n.setFocus("rest")}),"rest"===e.lifeFocus?"primary":"secondary"),this.createButton(this.focusButtonLabel(e,"social"),new a(360,-75),new a(210,82),(function(){return n.setFocus("social")}),"social"===e.lifeFocus?"primary":"secondary"),void(e.age<80?(this.createText("手动推进时间；遇到升学、毕业或重要事件会自动停下",new a(0,-137),15,M.quiet,"center"),[1,2,3].forEach((function(e,t){return n.createButton("度过 "+e+" 年",new a(185*(t-1),-190),new a(158,50),(function(){return n.advanceTime(e)}),0===t?"primary":"secondary")}))):this.createButton("返回主页",new a(0,-190),new a(300,52),(function(){return n.showHome()}),"primary"))}this.createEventModal(e,t)}},i.createLifeDashboard=function(e,t){var n=this;this.createText(""+e.year,new a(-510,284),34,M.gold,"left",180),this.createText(e.age+" 岁 · "+(e.year>=2026?"未知的未来":"已知的过去"),new a(-398,284),16,M.muted,"left",360),this.createPanel(new a(0,248),new a(1130,2),M.line),this.createText("过去",new a(350,284),13,M.quiet,"center",70),this.createText("2026",new a(425,284),13,M.gold,"center",70),this.createText("未来",new a(500,284),13,M.quiet,"center",70),this.createChip("现金 "+this.money(e.stats.funds),new a(-405,210),220,M.goldSoft),this.createChip("知识 "+e.stats.knowledge,new a(-170,210),190,M.info),this.createChip("信息 "+e.skills.information,new a(35,210),190,M.gain),this.createButton("人生面板",new a(300,210),new a(110,38),(function(){return n.showLifePanel(e,t)}),"ghost"),this.createButton("探索",new a(425,210),new a(100,38),(function(){return n.showExploration(e,t)}),"ghost"),this.createButton("恢复状态",new a(545,210),new a(120,38),(function(){return n.showWellbeing(e,t)}),"ghost"),this.createStatBar("健康",e.stats.health,new a(-380,158),M.gain),this.createStatBar("压力",e.stats.pressure,new a(0,158),M.loss),this.createStatBar("幸福",e.stats.happiness,new a(380,158),M.gold),this.showWarnings(e)},i.createEventModal=function(e,t){var n=this,s=new c("OpportunityScrim");s.addComponent(r).setContentSize(1280,720),this.drawRoundedRect(s,1280,720,0,new u(8,7,12,210)),s.addComponent(h),this.uiRoot.addChild(s);var i=this.createPanel(new a(0,-15),new a(1060,550),M.surfaceRaised,"OpportunityModal");i.addComponent(l).opacity=255;var o="opportunity"===t.interaction?"限时机遇 · 错过后不再停留":"milestone"===t.interaction||t.forced?"人生节点 · 需要回应":"information"===t.interaction||t.informational?"信息更新":"生活选择";this.createTextOn(i,o,new a(0,225),16,t.informational?M.info:t.forced?M.gold:M.info,"center"),t.declineAllowed&&this.createButtonOn(i,"暂不进入",new a(455,225),new a(110,36),(function(){return n.tryDecline(t)}),"ghost"),this.createTextOn(i,t.title,new a(110,165),34,M.text,"center",620,52);var f=this.session.educationAdmissionPreview(t.id);this.createTextOn(i,f?t.description+"\n"+f:t.description,new a(110,100),18,M.muted,"center",620,f?104:72),this.createTextOn(i,"现金 "+this.money(e.stats.funds)+"\n现金流 "+this.money(e.finance.lastCashflow)+"\n健康 "+e.stats.health+" · 压力 "+e.stats.pressure+"\n幸福 "+e.stats.happiness+" · 知识 "+e.stats.knowledge+"\n\n技术 "+e.skills.technology+" · 商业 "+e.skills.business+"\n信息 "+e.skills.information+"\n\n"+this.pressureRule(e.stats.pressure),new a(-380,15),16,M.text,"left",250,330);var d=t.options.length>=5,w=d?58:t.options.length>=3?78:88,m=d?65:t.options.length>=3?20:5;t.options.forEach((function(e,s){var r=n.optionImpact(e.result),o=r?e.label+"\n"+r:e.label;n.createButtonOn(i,o,new a(110,m-s*w),new a(620,d?50:62),(function(){return n.tryChoose(e.id,t)}),0===s?"primary":"secondary")})),t.declineAllowed&&this.createTextOn(i,"选择“暂不进入”后，本次机会会结束，时间线才可继续推进。",new a(110,-225),14,M.quiet,"center",620,32),B.modalEnter(i)},i.showExploration=function(e,t){var n=this;this.clearScreen(),this.createText("主动探索",new a(-500,280),38,M.text,"left",400),this.createText("有些信息不会主动出现，需要前往对应场所了解。",new a(-500,225),17,M.muted,"left",820),S.forEach((function(s,i){var r=n.openOpportunities.isAvailable(e,s),o=i%2==0?-270:270,c=125-126*Math.floor(i/2),u=n.openOpportunities.requirementText(s),h=r?s.description+"\n解锁条件："+u:"尚未解锁："+u;n.createPanel(new a(o,c),new a(500,108),r?M.surface:M.ink850),n.createText(s.name,new a(o-215,c+27),21,r?M.goldSoft:M.quiet,"left",260),n.createText(h,new a(o-215,c-18),14,r?M.muted:M.quiet,"left",330,48),n.createButton(r?"进入":"暂未解锁",new a(o+184,c),new a(106,42),(function(){r&&("market"===s.domain?n.showMarket(n.session.snapshot(),t):"industry"===s.domain?n.showIndustryProjects(n.session.snapshot(),t):"startup"===s.domain?n.showStartup(n.session.snapshot(),t):"city"===s.domain?n.showCity(n.session.snapshot(),t):"housing"===s.domain?n.showHousing(n.session.snapshot(),t):"education"===s.domain&&n.showEducationAdvance(n.session.snapshot(),t))}),r?"primary":"ghost")})),this.createTextButton("返回",new a(0,-265),(function(){return n.showEvent(n.session.snapshot(),t)}))},i.showDomainArchitecture=function(e,t,n,s){var i=this;this.clearScreen(),this.createText(e,new a(0,190),40,new u(252,214,108),"center"),this.createText(t,new a(0,125),20,new u(220,226,240),"center"),this.createText("该模块已接入开放机遇架构。",new a(0,50),25,new u(252,214,108),"center"),this.createText("后续会在这里展开专属行动、条件校验、结果结算与长期资产或关系影响。",new a(0,5),18,new u(220,226,240),"center",960),this.createText("当前阶段保留入口与解锁规则，避免未完成的内容伪装成可操作功能。",new a(0,-35),16,new u(150,205,255),"center",960),this.createButton("返回开放机遇",new a(0,-150),new a(280,60),(function(){return i.showExploration(n,s)}))},i.showStartup=function(e,t){var n=this;if(this.clearScreen(),this.createPageHeader("创业孵化器",e.startup.active?"推进成功会提高项目估值；失败会降低估值并增加压力。退出时按估值的 70% 变现。":"先看懂行业、投入、适配能力和收益路径，再选择项目。",(function(){return n.showExploration(n.session.snapshot(),t)})),e.startup.active){var s,i,r;this.createPanel(new a(0,70),new a(720,120),M.surface);var o=null!=(s=null==(i=e.assets.find((function(e){return"startup"===e.type})))?void 0:i.value)?s:0;this.createText("项目："+this.startupName(null!=(r=e.startup.project)?r:"")+"  ·  阶段："+this.startupStageName(e.startup.stage)+"\n当前估值 "+this.money(o)+" · 推进成功率 "+this.session.startupSuccessRate()+"% · 现在退出可回收约 "+this.money(.7*o),new a(0,70),18,M.text,"center",660,82),this.createButton("继续推进 · 每年一次",new a(-145,-35),new a(250,58),(function(){return n.tryExplorer((function(){return n.session.advanceStartup()}),(function(){return n.showStartup(n.session.snapshot(),t)}))}),"primary"),this.createButton("退出项目",new a(145,-35),new a(250,58),(function(){return n.tryExplorer((function(){return n.session.exitStartup()}),(function(){return n.showStartup(n.session.snapshot(),t)}))}))}else["ecommerce","local-service","content","software","emerging"].forEach((function(e,s){var i=n.session.startupPreview(e),r=300*(s%3-1),o=83-155*Math.floor(s/3);n.createButton(i.name+" · "+i.industry+"\n投入 "+n.money(i.cost)+" · "+i.risk+"风险\n适配："+i.suitedSkill+" · 当前成功率 "+n.session.startupChance(e)+"%\n"+i.returnPath,new a(r,o),new a(278,132),(function(){return n.tryExplorer((function(){return n.session.startProject(e)}),(function(){return n.showStartup(n.session.snapshot(),t)}))}))}))},i.showCity=function(e,t){var n=this;this.clearScreen(),this.createPageHeader("城市迁移","当前："+this.cityName(e.education.city)+" · 每一笔迁移成本和迁移后的年度开支都在下方列明。",(function(){return n.showExploration(n.session.snapshot(),t)})),["rural","county","city","metropolis"].forEach((function(s,i){var r=n.session.migrationPreview(s),o=s===e.education.city,c=o?n.cityName(s)+" · 当前居住\n年度生活费 "+n.money(r.annualAfter):n.cityName(s)+"\n迁移共 "+n.money(r.total)+"\n交通 "+n.money(r.transport)+" · 押金 "+n.money(r.deposit)+" · 过渡 "+n.money(r.transition)+"\n年度生活费 "+n.money(r.annualAfter);n.createButton(c,new a(275*(i-1.5),25),new a(250,132),(function(){o||n.tryExplorer((function(){return n.session.migrateCity(s)}),(function(){return n.showCity(n.session.snapshot(),t)}))}),o?"primary":"secondary")})),this.createText("迁移成本会立即从现金扣除；年度生活费从下一次年度结算开始影响现金流。",new a(0,-100),16,M.info,"center",1e3)},i.showHousing=function(e,t){var n,s,i=this,r=null!=(n=null==(s=e.assets.find((function(e){return"housing"===e.type})))?void 0:s.value)?n:0;this.clearScreen(),this.createPageHeader("房产市场",this.cityName(e.education.city)+" · 持有 "+e.housingHoldings.length+" 套 · 现有估值 "+this.money(r)+" · 买卖税费均为房价的 3%",(function(){return i.showExploration(i.session.snapshot(),t)})),this.session.housingProducts().forEach((function(e,n){var s=i.session.housingPrice(e.id),r=Math.round(1.03*s*10)/10;i.createButton(e.name+"\n房价 "+i.money(s)+" · 含税共 "+i.money(r)+"\n"+e.description,new a(360*(n-1),75),new a(330,122),(function(){return i.tryExplorer((function(){return i.session.buyHousing(e.id)}),(function(){return i.showHousing(i.session.snapshot(),t)}))}),0===n?"primary":"secondary")})),this.createText("我的住房（出售到账 = 当前估值 × 97%）",new a(-520,-38),18,M.goldSoft,"left",500),0===e.housingHoldings.length&&this.createText("暂无住房资产。购房款会转为房产持仓，不会从资产面板消失。",new a(0,-115),17,M.muted,"center",1e3),e.housingHoldings.slice(0,3).forEach((function(e,n){i.createButton(e.name+"\n"+e.purchaseYear+"年购入 "+i.money(e.purchasePrice)+"\n现值 "+i.money(e.currentValue)+" · 出售",new a(360*(n-1),-135),new a(330,90),(function(){return i.tryExplorer((function(){return i.session.sellHousing(e.id)}),(function(){return i.showHousing(i.session.snapshot(),t)}))}),"ghost")}))},i.showIndustryProjects=function(e,t){var n=this;this.clearScreen();var s=e.industryProjects.filter((function(e){return"active"===e.status}));if(this.createPageHeader("行业项目","只在对应事件中投入；投入资金会形成持仓，并按行业阶段逐年结算。当前 "+s.length+" 个项目。",(function(){return n.showExploration(n.session.snapshot(),t)})),0===s.length){var i=this.session.industryProjectConfigs().slice(0,4).map((function(e){return e.name+"（"+e.industry+"，最低 "+n.money(e.minimumInvestment)+"）"})).join(" · ");return this.createText("目前没有在投项目。\n当前年份可关注："+(i||"暂无开放行业窗口"),new a(0,55),18,M.muted,"center",1e3,100),void this.createText("行业机会会作为限时事件出现；早期进入、成熟期持有、拥挤期退出构成完整的收益路径。",new a(0,-55),16,M.info,"center",1e3)}s.slice(0,6).forEach((function(e,s){var i=Math.round(10*(e.currentValue-e.investedPrincipal))/10;n.createButton(e.name+" · "+e.industry+"\n"+e.startYear+"年投入 "+n.money(e.investedPrincipal)+"\n现值 "+n.money(e.currentValue)+" · 浮动"+(i>=0?"+":"")+n.money(i)+"\n退出（扣2%）",new a(360*(s%3-1),85-150*Math.floor(s/3)),new a(330,126),(function(){return n.tryExplorer((function(){return n.session.exitIndustryProject(e.id)}),(function(){return n.showIndustryProjects(n.session.snapshot(),t)}))}),i>=0?"primary":"secondary")}))},i.showEducationAdvance=function(e,t){var n=this;this.clearScreen(),this.createPageHeader("教育与进修","学历："+this.educationName(e.education.level)+" · 知识："+e.stats.knowledge+" · 每年限一项进修",(function(){return n.showExploration(n.session.snapshot(),t)})),this.createButton("自学技术",new a(-280,20),new a(200,70),(function(){return n.tryExplorer((function(){return n.session.selfStudy("technology")}),(function(){return n.showEducationAdvance(n.session.snapshot(),t)}))})),this.createButton("商业考证\n¥1.5 万",new a(0,20),new a(220,70),(function(){return n.tryExplorer((function(){return n.session.certificate("business")}),(function(){return n.showEducationAdvance(n.session.snapshot(),t)}))})),this.createButton("考研深造\n¥8 万",new a(280,20),new a(220,70),(function(){return n.tryExplorer((function(){return n.session.graduateSchool()}),(function(){return n.showEducationAdvance(n.session.snapshot(),t)}))}))},i.showWellbeing=function(e,t){var n=this;this.clearScreen(),this.createPageHeader("恢复状态","压力 "+e.stats.pressure+" · 幸福 "+e.stats.happiness+" · 健康 "+e.stats.health,(function(){return n.showEvent(n.session.snapshot(),t)})),this.createText(e.lastWellbeingYear===e.year?"今年已经恢复过一次。":"每年可安排一次恢复行动。",new a(0,135),17,M.info,"center",900),this.createButton("留出空白\n压力↓ · 幸福、健康↑",new a(-310,15),new a(260,100),(function(){return n.tryWellbeing("pause",t)})),this.createButton("身心照护\n¥1.5万 · 压力↓健康↑",new a(0,15),new a(260,100),(function(){return n.tryWellbeing("care",t)})),this.createButton("陪伴重要的人\n¥8千 · 幸福↑压力↓",new a(310,15),new a(260,100),(function(){return n.tryWellbeing("connection",t)}))},i.tryWellbeing=function(e,t){var n=this,s=this.session.snapshot();try{var i,r=this.session.recoverWellbeing(e);this.showWellbeing(r,t),null==(i=this.statAnimator)||i.playAnimation(s,r)}catch(e){this.showActionMessage("恢复安排",e instanceof Error?e.message:"当前无法完成恢复安排。",(function(){return n.showWellbeing(n.session.snapshot(),t)}))}},i.tryExplorer=function(e,t){try{e(),t()}catch(e){this.showActionMessage("操作提示",e instanceof Error?e.message:"当前无法完成操作。",t)}},i.showMarket=function(e,t){var n=this;this.clearScreen(),this.createText("交易所",new a(-500,280),38,M.text,"left",300);var s=e.age<18?"未成年：只能查看和研究，18岁开放交易":this.session.canTradeMarket()?"交易账户已开通":"尚未确认风险：暂不能买卖";this.createText(e.year+" · "+s,new a(-500,230),16,this.session.canTradeMarket()?M.info:M.loss,"left",780),e.age>=18&&!this.session.canTradeMarket()&&this.createButton("阅读风险并开通",new a(465,245),new a(190,42),(function(){return n.tryMarketAction((function(){return n.session.acceptMarketRisk()}),t)}),"primary"),this.createChip("可用资金 "+this.money(e.stats.funds),new a(-330,185),300,M.goldSoft),this.createChip("持仓市值 "+this.money(this.session.marketValue()),new a(0,185),270,M.info),this.createChip("已实现盈亏 "+this.money(e.market.realizedProfit),new a(300,185),290,e.market.realizedProfit>=0?M.gain:M.loss),this.createText("投资规律："+(this.session.marketInsightNames().join(" · ")||"尚未形成"),new a(0,145),16,M.info,"center",1040,30),this.createText("工资 "+this.money(e.finance.salaryAnnual)+" · 生活成本 "+this.money(e.finance.livingCostAnnual)+" · 贷款 "+this.money(e.finance.loanBalance)+" / "+this.money(e.finance.loanLimit),new a(0,112),15,M.quiet,"center",1040,30);var i=this.session.marketInstruments();0===i.length&&this.createText("当前年份尚无公开交易品种。继续生活，留意时代变化。",new a(0,20),22,M.muted,"center");var r=Math.max(1,Math.ceil(i.length/4));this.marketPage=Math.min(this.marketPage,r-1),i.slice(4*this.marketPage,4*this.marketPage+4).forEach((function(e,s){return n.createMarketCard(e,s,t)})),this.createButton("贷款 ¥10万",new a(-450,-250),new a(150,42),(function(){return n.tryMarketAction((function(){return n.session.takeLoan(10)}),t)}),"ghost"),this.createButton("还款 ¥10万",new a(-280,-250),new a(150,42),(function(){return n.tryMarketAction((function(){return n.session.repayLoan(10)}),t)}),"ghost"),r>1&&(this.createButton("上一页",new a(-80,-250),new a(110,42),(function(){n.marketPage=(n.marketPage-1+r)%r,n.showMarket(n.session.snapshot(),t)}),"ghost"),this.createText(this.marketPage+1+" / "+r,new a(0,-250),15,M.muted,"center",70),this.createButton("下一页",new a(80,-250),new a(110,42),(function(){n.marketPage=(n.marketPage+1)%r,n.showMarket(n.session.snapshot(),t)}),"ghost")),this.createButton("返回探索",new a(350,-250),new a(140,42),(function(){return n.showExploration(n.session.snapshot(),t)}),"ghost"),this.createButton(t?"返回事件":"返回人生",new a(515,-250),new a(150,42),(function(){return n.showEvent(n.session.snapshot(),t)}),"primary")},i.createMarketCard=function(e,t,n){var s,i,r,o=this,c=this.session.snapshot(),u=c.market.positions.find((function(t){return t.instrumentId===e.id})),h=c.market.discoveredInstrumentIds.includes(e.id),l=this.session.canResearchMarket(e.id),f=this.session.marketChange(e.id),d=this.sparkline(this.session.marketHistory(e.id,6).map((function(e){return e.price}))),w=(f.amount>=0?"▲":"▼")+" "+(f.percent>=0?"+":"")+f.percent+"% / "+(f.amount>=0?"+":"")+this.money(f.amount),m=t%2==0?-285:285,p=30-135*Math.floor(t/2),y=this.createPanel(new a(m,p),new a(540,118),M.surface);this.createTextOn(y,e.name+" · "+(null!=(s=e.sector)?s:this.marketKindName(e.kind)),new a(-245,40),18,M.goldSoft,"left",330,26),this.createTextOn(y,"风险 "+(null!=(i=e.risk)?i:"中")+" · 每份 "+this.money(this.session.marketPrice(e.id))+" · "+w,new a(-245,14),14,f.amount>=0?M.gain:M.loss,"left",390,22),this.createTextOn(y,"近年趋势 "+d+" · 持有 "+(null!=(r=null==u?void 0:u.quantity)?r:0)+"份"+(u?" · 成本 "+this.money(u.averageCost):"")+"\n"+(h?e.description:"研究条件："+this.marketRequirements(e)),new a(-245,-27),13,M.quiet,"left",390,50),h?(this.createButton(this.session.canTradeMarket()?"买入":"未开通",new a(m+164,p),new a(84,44),(function(){o.session.canTradeMarket()&&o.tryMarketAction((function(){return o.session.buyMarket(e.id,1)}),n)}),this.session.canTradeMarket()?"primary":"ghost"),this.createButton("卖出",new a(m+255,p),new a(84,44),(function(){return o.tryMarketAction((function(){return o.session.sellMarket(e.id,1)}),n)}),"secondary")):this.createButton(l?"研究":"条件不足",new a(m+210,p),new a(100,44),(function(){l&&o.tryMarketAction((function(){return o.session.researchMarket(e.id)}),n)}),l?"primary":"ghost")},i.tryMarketAction=function(e,t){try{e(),this.showMarket(this.session.snapshot(),t)}catch(e){this.showMarketMessage(e instanceof Error?e.message:"操作失败。",t)}},i.tryChoose=function(e,t){var n=this,s=this.session.snapshot();try{var i,r=this.session.choose(e);this.showEvent(r,this.session.getCurrentEvent()),null==(i=this.statAnimator)||i.playAnimation(s,r)}catch(e){this.clearScreen(),this.createText("资金提示",new a(0,100),36,new u(252,214,108),"center"),this.createText(e instanceof Error?e.message:"当前无法完成选择。",new a(0,35),20,new u(220,226,240),"center",950),this.createButton("返回当前事件",new a(0,-80),new a(280,60),(function(){return n.showEvent(n.session.snapshot(),t)}))}},i.tryDecline=function(e){var t=this,n=this.session.snapshot();try{var s,i=this.session.declineCurrentEvent();this.showEvent(i,this.session.getCurrentEvent()),null==(s=this.statAnimator)||s.playAnimation(n,i)}catch(n){this.showActionMessage("事件提示",n instanceof Error?n.message:"当前无法结束该事件。",(function(){return t.showEvent(t.session.snapshot(),e)}))}},i.advanceTime=function(e){var t,n=this.session.snapshot(),s=this.session.continueYears(e);this.showEvent(s,this.session.getCurrentEvent()),null==(t=this.statAnimator)||t.playAnimation(n,s)},i.showWarnings=function(e){var t=[];e.stats.health<=40&&t.push("⚠ 健康状况堪忧"),e.stats.pressure>=60&&t.push("⚠ 压力持续偏高，健康与幸福正在受损"),e.finance.lastCashflow<0&&t.push("⚠ 现金流为负"),t.length&&this.createText(t.join("  "),new a(0,123),15,M.loss,"center",1e3,26)},i.setFocus=function(e){var t=this;try{var n=this.session.setLifeFocus(e);this.showEvent(n,this.session.getCurrentEvent())}catch(e){this.showActionMessage("人生安排提示",e instanceof Error?e.message:"当前无法设置这一年度重心。",(function(){return t.showEvent(t.session.snapshot(),t.session.getCurrentEvent())}))}},i.showMarketMessage=function(e,t){var n=this;this.clearScreen(),this.createText("交易提示",new a(0,100),36,new u(252,214,108),"center"),this.createText(e,new a(0,35),20,new u(220,226,240),"center"),this.createButton("返回市场",new a(0,-80),new a(250,60),(function(){return n.showMarket(n.session.snapshot(),t)}))},i.showCareer=function(e,t){var n,s,i,r=this;this.clearScreen(),this.createPageHeader("职业发展",this.careerName(e.career.track)+" · "+this.careerLevelName(e.career.level),(function(){return r.showLifePanel(r.session.snapshot(),t)})),this.createPanel(new a(0,55),new a(820,210),M.surface);var o=this.session.promotionRequirement(),c=null!=o&&o.next?this.careerLevelName(o.next):"已到最高级别";this.createText("当前行业："+(e.career.industry||"尚未确定")+"\n年工资："+this.money(e.finance.salaryAnnual)+"\n晋升评分："+Math.round(this.session.promotionScore())+" / "+(null!=(n=null==o?void 0:o.requiredScore)?n:"-")+"\n本级任职："+(null!=(s=null==o?void 0:o.years)?s:0)+" / "+(null!=(i=null==o?void 0:o.requiredYears)?i:0)+" 年\n下一职级："+c,new a(0,65),19,M.text,"center",740,165),this.createText("晋升在每年结算时自动评估，无需申请。评分由职业技能 40%＋智力 40%＋执行力 20% 构成。",new a(0,-95),16,M.info,"center",940,48)},i.showActionMessage=function(e,t,n){this.clearScreen(),this.createPanel(new a(0,20),new a(720,300),M.surface),this.createText(e,new a(0,90),32,M.gold,"center",640),this.createText(t,new a(0,25),18,M.muted,"center",620,76),this.createButton("返回",new a(0,-78),new a(230,52),n,"primary")},i.showLifePanel=function(e,t){var n,s,i,r,o,c,u=this;this.clearScreen(),this.createPageHeader("人生面板",e.year+" 年 · "+e.age+" 岁",(function(){return u.showEvent(e,t)})),this.createPanel(new a(-290,65),new a(520,250),M.surface),this.createPanel(new a(290,65),new a(520,250),M.surface),this.createText("身份  "+(null!=(n=null==(s=this.selectedIdentity)?void 0:s.name)?n:"未记录")+"\n天赋  "+(null!=(i=null==(r=this.selectedTalent)?void 0:r.name)?i:"未记录")+"\n缺陷  "+(null!=(o=null==(c=this.revealedDefect)?void 0:c.name)?o:"未记录")+"\n中学  "+this.highSchoolName(e.education.highSchoolTrack)+"\n学历  "+this.educationName(e.education.level)+"\n升学评估  "+this.session.learningIndex()+" · 专注学习 "+e.education.studyYears+" 年\n城市  "+this.cityName(e.education.city),new a(-500,65),17,M.text,"left",420,220),this.createText("职业  "+this.careerName(e.career.track)+" · "+this.careerLevelName(e.career.level)+"\n年收入  "+this.money(e.finance.salaryAnnual)+"\n年生活开支  "+this.money(e.finance.livingCostAnnual)+"\n预计年度净现金流  "+this.money(e.finance.salaryAnnual-e.finance.livingCostAnnual-.05*e.finance.loanBalance)+"\n贷款  "+this.money(e.finance.loanBalance)+" / "+this.money(e.finance.loanLimit)+"\n总资产  "+this.money(this.session.totalAssetValue())+"\n家庭  "+e.stats.familyBond+" · 伴侣 "+e.relationships.partner,new a(40,65),17,M.text,"left",470,220),this.createText("知识 "+e.stats.knowledge+"  ·  学习 "+e.skills.learning+"  ·  技术 "+e.skills.technology+"  ·  商业 "+e.skills.business+"  ·  表达 "+e.skills.expression+"  ·  管理 "+e.skills.management+"  ·  信息 "+e.skills.information,new a(0,-92),16,M.muted,"center",1040,32);var h=e.discoveredSignalIds.map((function(e){return u.opportunitySystem.signalText(e)})).join(" · ")||"暂未发现",l=e.opportunities.map((function(e){return u.opportunitySystem.chainName(e.chainId)+"（"+(e.entered?"已进入":"已观察")+"）"})).join(" · ")||"暂未进入";this.createText("时代信号："+h+"\n机遇进展："+l,new a(0,-145),15,M.info,"center",1040,64),this.createButton("职业发展",new a(-130,-225),new a(220,50),(function(){return u.showCareer(u.session.snapshot(),t)})),this.createButton("年度现金流",new a(130,-225),new a(220,50),(function(){return u.showFinanceHistory(u.session.snapshot(),t)}))},i.showFinanceHistory=function(e,t){var n=this;this.clearScreen(),this.createPageHeader("年度现金流","每一年度分别记录收入、生活开支、贷款利息、净现金流与年末现金。",(function(){return n.showLifePanel(n.session.snapshot(),t)}));var s=e.finance.history.slice(-12).reverse();0!==s.length?s.forEach((function(e,t){var s=t<6?-300:300,i=145-t%6*68,r=e.livingExpense+e.housingExpense+e.interestExpense;n.createPanel(new a(s,i),new a(540,56),M.surface),n.createText(e.year+"｜收入 "+n.money(e.salaryIncome+e.otherIncome)+" · 开支 "+n.money(r)+" · 净额 "+(e.netCashflow>=0?"+":"")+n.money(e.netCashflow)+" · 年末 "+n.money(e.closingCash),new a(s,i),14,e.netCashflow>=0?M.gain:M.loss,"center",510,42)})):this.createText("尚未完成第一个年度结算。",new a(0,40),20,M.muted,"center")},i.showEnding=function(e){var t=this,n=e.ending,s=this.session.getReport();if(n&&s){this.clearScreen(),this.createText("人生结算",new a(0,290),17,M.gold,"center"),this.createText(""+n.score,new a(0,225),66,M.goldSoft,"center"),this.createText("综合评分",new a(0,160),15,M.quiet,"center"),this.createText(n.title,new a(0,115),34,M.text,"center"),this.createText(n.description,new a(0,75),18,M.muted,"center",1e3),this.createPanel(new a(0,0),new a(980,105),M.surface);var i=this.session.newlyUnlockedFamilyNames(),r=i.length>0?"\n新家庭已解锁："+i.join("、"):"";this.createText(s.summary+"\n最强维度："+s.strongestDimension+" · 最大取舍："+s.greatestSacrifice+"\n抓住的机遇："+(s.opportunities.join("、")||"暂无")+r,new a(0,0),16,i.length>0?M.goldSoft:M.info,"center",920,86),this.createText("选择一项重来传承",new a(0,-73),21,M.gold,"center"),this.session.getInheritanceChoices().forEach((function(e,n){t.createButton(e.name+"\n"+e.description,new a(340*(n-1),-165),new a(300,88),(function(){return t.selectInheritance(e)}),1===n?"primary":"secondary")}))}else this.showHome()},i.selectInheritance=function(e){var t=this;this.session.chooseInheritance(e),this.clearScreen(),this.createText("已选择："+e.name,new a(0,60),30,u.WHITE,"center");var n=this.session.newlyUnlockedFamilyNames();this.createText(n.length>0?"它会在下一次重来时与你同行。\n已永久解锁家庭："+n.join("、"):"它会在下一次重来时与你同行。",new a(0,10),20,new u(220,226,240),"center"),this.createButton("再次重来",new a(0,-100),new a(280,70),(function(){return t.showHome()}))},i.showToast=function(e){var t=this;this.clearScreen(),this.createText(e,new a(0,30),26,u.WHITE,"center"),this.createButton("返回主页",new a(0,-90),new a(260,70),(function(){return t.showHome()}))},i.createPageHeader=function(e,t,n){this.createText(e,new a(-500,276),36,M.text,"left",520,54),this.createText(t,new a(-500,228),16,M.muted,"left",820,42),this.createButton("返回",new a(515,270),new a(120,42),n,"ghost"),this.createPanel(new a(0,198),new a(1080,2),M.line)},i.clearScreen=function(){this.uiRoot.removeAllChildren();var e=new c("InkBackground");e.addComponent(r).setContentSize(1280,720),this.drawRoundedRect(e,1280,720,0,M.ink900);var t=new c("InkSurface");t.addComponent(r).setContentSize(1218,658),t.setPosition(0,0),this.drawRoundedRect(t,1218,658,22,M.ink850,M.line),e.addChild(t),this.uiRoot.addChild(e)},i.createPanel=function(e,t,n,s){void 0===n&&(n=M.surface),void 0===s&&(s="Panel");var i=new c(s);return i.addComponent(r).setContentSize(t.x,t.y),i.setPosition(e),this.drawRoundedRect(i,t.x,t.y,t.y<=38?12:16,n,M.line),this.uiRoot.addChild(i),i},i.drawRoundedRect=function(e,t,n,s,i,r){var o=e.addComponent(f);o.fillColor=i,s>0?o.roundRect(-t/2,-n/2,t,n,s):o.rect(-t/2,-n/2,t,n),o.fill(),r&&(o.strokeColor=r,o.lineWidth=1,s>0?o.roundRect(-t/2,-n/2,t,n,s):o.rect(-t/2,-n/2,t,n),o.stroke())},i.createChip=function(e,t,n,s){var i=this.createPanel(t,new a(n,34),M.surface);this.createTextOn(i,e,a.ZERO,15,s,"center",n-16,28)},i.createStatBar=function(e,t,n,s){var i=this.createPanel(n,new a(300,36),M.surface),o=new c("BarFill");o.addComponent(r).setContentSize(Math.max(4,190*Math.max(0,Math.min(t,100))/100),5),o.setPosition((o.getComponent(r).width-190)/2-52,-8),this.drawRoundedRect(o,o.getComponent(r).width,5,3,s),i.addChild(o),this.createTextOn(i,e,new a(-122,7),14,M.muted,"left",60,24),this.createTextOn(i,""+Math.round(t),new a(115,7),14,s,"center",46,24)},i.createText=function(e,t,n,s,i,o,a){void 0===o&&(o=0),void 0===a&&(a=0);var u=new c("Text"),h=o||1100,l=a||this.measureTextHeight(e,n,h);u.addComponent(r).setContentSize(h,l),u.setPosition(this.textPosition(t,h,i));var f=u.addComponent(d);return this.configureLabel(f,e,n,s,i,a>0),this.uiRoot.addChild(u),B.screenEnter(u),u},i.createTextOn=function(e,t,n,s,i,o,a,u){void 0===a&&(a=0),void 0===u&&(u=0);var h=new c("Text"),l=a||900,f=u||this.measureTextHeight(t,s,l);h.addComponent(r).setContentSize(l,f),h.setPosition(this.textPosition(n,l,o));var w=h.addComponent(d);return this.configureLabel(w,t,s,i,o,u>0),e.addChild(h),h},i.configureLabel=function(e,t,n,s,i,r){e.string=t,e.fontSize=n,e.lineHeight=Math.round(1.35*n),e.color=s,e.fontFamily=n>=30?M.serif:M.sans,e.horizontalAlign="left"===i?d.HorizontalAlign.LEFT:d.HorizontalAlign.CENTER,e.verticalAlign=d.VerticalAlign.CENTER,e.overflow=r?d.Overflow.SHRINK:d.Overflow.CLAMP,e.enableWrapText=!0},i.measureTextHeight=function(e,t,n){var s=Math.round(1.35*t),i=Math.max(1,n/t),r=e.split("\n").reduce((function(e,t){var n=Array.from(t).reduce((function(e,t){return e+(/[\u0000-\u00ff]/.test(t)?.55:1)}),0);return e+Math.max(1,Math.ceil(n/i))}),0);return Math.max(30,r*s+8)},i.textPosition=function(e,t,n){return"left"===n?new a(e.x+t/2,e.y,e.z):e},i.createButton=function(e,t,n,s,i){return void 0===i&&(i="secondary"),this.createButtonInternal(this.uiRoot,e,t,n,s,i)},i.createButtonOn=function(e,t,n,s,i,r){return void 0===r&&(r="secondary"),this.createButtonInternal(e,t,n,s,i,r)},i.createButtonInternal=function(e,t,n,s,i,o){var h,l=new c("ChoiceButton");l.addComponent(r).setContentSize(s.x,s.y),l.setPosition(n);var f="primary"===o?M.gold:"ghost"===o?M.ink850:M.surfaceRaised,m="primary"===o?M.goldSoft:M.line;this.drawRoundedRect(l,s.x,s.y,s.y<=52?12:16,f,m);var p=l.addComponent(w);p.transition=w.Transition.COLOR,p.target=l,p.normalColor=u.WHITE,p.pressedColor="primary"===o?M.goldSoft:M.line,l.on(c.EventType.TOUCH_END,i,this),e.addChild(l);var y=this.createTextOn(l,t,a.ZERO,s.y>=75?17:18,"primary"===o?M.ink900:M.text,"center",s.x-24);null==(h=y.getComponent(r))||h.setContentSize(s.x-24,s.y-14);var v=y.getComponent(d);return v&&(v.overflow=d.Overflow.SHRINK),e===this.uiRoot&&B.screenEnter(l,.04),l},i.createTalentButton=function(e,t,n,s,i){var o=new c("TalentButton");o.addComponent(r).setContentSize(n.x,n.y),o.setPosition(t);var h="legendary"===s?new u(83,61,31):"rare"===s?new u(39,62,88):M.surfaceRaised,l="legendary"===s?M.goldSoft:"rare"===s?M.info:M.line;this.drawRoundedRect(o,n.x,n.y,16,h,l);var f=o.addComponent(w);f.transition=w.Transition.COLOR,f.target=o,f.normalColor=u.WHITE,f.pressedColor=l,o.on(c.EventType.TOUCH_END,i,this),this.uiRoot.addChild(o);var m=this.createTextOn(o,e,a.ZERO,16,M.text,"center",n.x-24,n.y-18).getComponent(d);return m&&(m.overflow=d.Overflow.SHRINK),B.screenEnter(o,.04),o},i.createTextButton=function(e,t,n){this.createText(e,t,17,M.info,"center",150).on(c.EventType.TOUCH_END,n,this)},i.createTextButtonOn=function(e,t,n,s){this.createTextOn(e,t,n,16,M.info,"center",380).on(c.EventType.TOUCH_END,s,this)},i.identitySummary=function(e){var t,n=this,s=[].concat(Object.entries(e.attributeModifiers),Object.entries(null!=(t=e.skillModifiers)?t:{})).map((function(e){var t=e[0],s=e[1];return n.nameOf(t)+"+"+s})),i=s.length?" · "+s.join(" · "):"";return"资源 "+this.money(e.initialFamilyResources)+" · 年资助 "+this.money(e.familyAllowanceAnnual)+i+"\n机会："+e.opportunityFocus},i.effectSummary=function(e){var t,n,s,i=this;return[].concat(Object.entries(null!=(t=e.attributes)?t:{}),Object.entries(null!=(n=e.skills)?n:{}),Object.entries(null!=(s=e.stats)?s:{})).filter((function(e){return 0!==e[1]})).slice(0,3).map((function(e){var t=e[0],n=e[1];return i.nameOf(t)+(n>0?"+":"")+n})).join(" · ")||"开启特殊人生路径"},i.optionImpact=function(e){var t,n,s=this,i=[],r=function(e,t){void 0===t&&(t="value"),Object.entries(null!=e?e:{}).forEach((function(e){var n=e[0],r=e[1];0!==r&&i.push(s.nameOf(n)+(r>0?"+":"")+("money"===t?s.money(r):r))}))};r(e.attributes),r(e.skills),Object.entries(null!=(t=e.stats)?t:{}).forEach((function(e){var t=e[0],n=e[1];if(n){var r="funds"===t||"familyResources"===t;i.push(s.nameOf(t)+(n>0?"+":"")+(r?s.money(n):n))}}));var o={father:"父亲关系",mother:"母亲关系",friend:"朋友关系",partner:"伴侣关系",mentor:"导师关系"};return Object.entries(null!=(n=e.relationships)?n:{}).forEach((function(e){var t,n=e[0],s=e[1];s&&i.push((null!=(t=o[n])?t:n)+(s>0?"+":"")+s)})),e.projectInvestment&&i.unshift("行业投入-"+this.money(e.projectInvestment.amount)+"（转为项目资产）"),i.join(" · ")||"仅记录信息，不改变数值"},i.sparkline=function(e){if(0===e.length)return"暂无";var t=Math.min.apply(Math,e),n=Math.max.apply(Math,e);return t===n?e.map((function(){return"▄"})).join(""):e.map((function(e){return"▁▂▃▄▅▆▇█"[Math.min(7,Math.floor((e-t)/(n-t)*7))]})).join("")},i.marketRequirements=function(e){var t,n=this,s=null!=(t=e.prerequisites)?t:[];return 0===s.length?"无额外条件":s.map((function(e){var t=e.match(/^(attributes|skills|stats)\.([a-zA-Z]+)(>=|<=)(\d+)$/);return t?""+n.nameOf(t[2])+t[3]+t[4]:e.startsWith("flags.")?"flags.computer-intro"===e?"先接触电脑与互联网信息":"完成对应前置事件":e})).join("、")},i.focusName=function(e){return{study:"学习成长",work:"专注工作",rest:"游玩休息",social:"陪伴生活"}[e]},i.focusButtonLabel=function(e,t){return e.age<18?{study:"学习成长\n升学分+2 · 知识+3",work:"实践劳动\n零用钱+¥1,500 · 执行/商业+1",rest:"游玩休息\n健康+3 · 压力-8 · 幸福+5",social:"陪伴生活\n朋友关系+3 · 幸福+6 · 压力-5"}[t]:"study"===t?"学习成长\n工资×0.90 · 学习+2 · 信息+1":"work"===t&&"unemployed"===e.career.track?"兼职实践\n年收入+¥12,000 · 职业能力↑":"work"===t?"专注工作\n工资×1.25 · 职业技能↑ · 压力+3":"rest"===t?"游玩休息\n工资×0.70 · 健康+3 · 幸福+5":"陪伴生活\n工资×0.85 · 现金-¥4,000 · 幸福+6"},i.focusAdvice=function(e){return e.stats.health<45||e.stats.pressure>=70||e.stats.happiness<35?"优先休息，避免健康或幸福崩溃":"unemployed"===e.career.track?"优先学习，提高毕业后的职业选择空间":e.finance.lastCashflow<0||e.stats.funds<2*e.finance.livingCostAnnual?"优先工作，先修复现金流":e.skills.information<35||e.skills.technology<35?"学习能提高未来行业与机会判断":e.stats.familyBond<45||e.stats.happiness<50?"陪伴生活能修复家庭关系与幸福感":"资源健康，可根据长期目标选择工作、学习或生活平衡"},i.pressureRule=function(e){return e<40?"平稳（无额外损耗）":e<60?"紧绷（每年幸福 -1）":e<80?"高压（每年幸福 -4、健康 -4；收入可能下降）":"濒临崩溃（每年幸福 -8、健康 -9、知识 -2；收入大幅下降）"},i.startupName=function(e){var t;return null!=(t={ecommerce:"电商店铺","local-service":"本地服务",content:"内容工作室",software:"软件工具",emerging:"智能自动化"}[e])?t:"创业项目"},i.startupStageName=function(e){return e?{launch:"启动期",stable:"稳定期",expansion:"扩张期"}[e]:"未启动"},i.statusSummary=function(e){var t=e.stats;return"现金 "+this.money(t.funds)+"   健康 "+t.health+"   压力 "+t.pressure+"   幸福 "+t.happiness+"   知识 "+t.knowledge+"   信息 "+t.informationValue},i.money=function(e){return"¥"+Math.round(1e4*e).toLocaleString("zh-CN")},i.rarityName=function(e){return{common:"普通",rare:"稀有",legendary:"传奇"}[e]},i.accuracyName=function(e){return{clear:"清晰记忆","fairly-clear":"较清晰记忆",blurred:"模糊记忆",fragmentary:"残缺记忆"}[e]},i.educationName=function(e){return{primary:"小学",middle:"初中",high:"高中",vocational:"中专",college:"专科",undergraduate:"本科","first-tier":"一本",211:"211",985:"985",graduate:"研究生"}[e]},i.highSchoolName=function(e){return e?{vocational:"中专",general:"普高",key:"重点高中"}[e]:"未录取"},i.cityName=function(e){return{rural:"农村",county:"县城",city:"普通城市",metropolis:"大城市"}[e]},i.majorName=function(e){return{engineering:"计算机和工程",business:"商业和经济",media:"人文和传媒",research:"教育和研究","public-service":"公共管理",general:"综合方向"}[e]},i.careerName=function(e){return{technology:"技术研发",product:"产品运营",sales:"销售商务",education:"教育研究",media:"内容传媒","public-service":"公共服务",unemployed:"待业/探索"}[e]},i.careerLevelName=function(e){return{junior:"初级",middle:"中级",senior:"高级",core:"核心人物"}[e]},i.assetName=function(e){return{savings:"储蓄",housing:"住房",emerging:"新兴资产",startup:"创业项目"}[e]},i.marketKindName=function(e){var t;return null!=(t={stock:"股票",fund:"基金",bond:"债券"}[e])?t:"投资品种"},i.nameOf=function(e){var t;return null!=(t={intelligence:"智力",emotionalIntelligence:"情商",constitution:"体质",execution:"执行力",charm:"魅力",luck:"运气",learning:"学习",technology:"技术",business:"商业",expression:"表达",management:"管理",information:"信息",funds:"现金",familyResources:"家庭资源",health:"健康",pressure:"压力",happiness:"幸福",knowledge:"知识",informationValue:"信息值",familyBond:"家庭关系",worldShift:"时代认知"}[e])?t:"未分类属性"},s}(m))||R);s._RF.pop()}}}));
-
+System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.ts", "./StartupConfig.ts", "./GameSession.ts", "./ExplorationConfig.ts", "./OpportunitySystem.ts", "./OpenOpportunitySystem.ts", "./StatChangeAnimator.ts", "./Motion.ts", "./UITheme.ts"], function (exports_1, context_1) {
+    "use strict";
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var cc_1, IdentityConfig_1, StartupConfig_1, GameSession_1, ExplorationConfig_1, OpportunitySystem_1, OpenOpportunitySystem_1, StatChangeAnimator_1, Motion_1, UITheme_1, ccclass, GameBootstrap;
+    var __moduleName = context_1 && context_1.id;
+    return {
+        setters: [
+            function (cc_1_1) {
+                cc_1 = cc_1_1;
+            },
+            function (IdentityConfig_1_1) {
+                IdentityConfig_1 = IdentityConfig_1_1;
+            },
+            function (StartupConfig_1_1) {
+                StartupConfig_1 = StartupConfig_1_1;
+            },
+            function (GameSession_1_1) {
+                GameSession_1 = GameSession_1_1;
+            },
+            function (ExplorationConfig_1_1) {
+                ExplorationConfig_1 = ExplorationConfig_1_1;
+            },
+            function (OpportunitySystem_1_1) {
+                OpportunitySystem_1 = OpportunitySystem_1_1;
+            },
+            function (OpenOpportunitySystem_1_1) {
+                OpenOpportunitySystem_1 = OpenOpportunitySystem_1_1;
+            },
+            function (StatChangeAnimator_1_1) {
+                StatChangeAnimator_1 = StatChangeAnimator_1_1;
+            },
+            function (Motion_1_1) {
+                Motion_1 = Motion_1_1;
+            },
+            function (UITheme_1_1) {
+                UITheme_1 = UITheme_1_1;
+            }
+        ],
+        execute: function () {
+            cc_1.cclegacy._RF.push({}, "0d86a6jClRO66SLf+UnVpcB", "GameBootstrap", undefined);
+            ccclass = cc_1._decorator.ccclass;
+            GameBootstrap = class GameBootstrap extends cc_1.Component {
+                constructor() {
+                    super(...arguments);
+                    this.session = new GameSession_1.GameSession();
+                    this.opportunitySystem = new OpportunitySystem_1.OpportunitySystem();
+                    this.openOpportunities = new OpenOpportunitySystem_1.OpenOpportunitySystem();
+                    this.uiRoot = new cc_1.Node('RestartLifeUI');
+                    this.designSize = new cc_1.Vec3(1280, 720, 1);
+                    this.talentRefreshesRemaining = 3;
+                    this.marketPage = 0;
+                    this.industryPage = 0;
+                }
+                onLoad() {
+                    this.node.addChild(this.uiRoot);
+                    this.uiRoot.addComponent(cc_1.UITransform).setContentSize(1280, 720);
+                    this.updateResponsiveScale();
+                    cc_1.view.on('canvas-resize', this.updateResponsiveScale, this);
+                    this.statAnimator = new StatChangeAnimator_1.StatChangeAnimator(this.uiRoot);
+                    this.showHome();
+                }
+                onDestroy() { cc_1.view.off('canvas-resize', this.updateResponsiveScale, this); }
+                /** Keep the complete 16:9 game board inside phones and desktop windows without cropping. */
+                updateResponsiveScale() {
+                    const transform = this.node.getComponent(cc_1.UITransform);
+                    if (!transform)
+                        return;
+                    const scale = Math.min(transform.width / this.designSize.x, transform.height / this.designSize.y);
+                    this.uiRoot.setScale(Math.max(.25, scale), Math.max(.25, scale), 1);
+                }
+                showHome() {
+                    this.clearScreen();
+                    this.createText('编年', new cc_1.Vec3(0, 245), 18, UITheme_1.UITheme.gold, 'center');
+                    this.createText('重新活一次', new cc_1.Vec3(0, 180), 58, UITheme_1.UITheme.text, 'center');
+                    this.createText('如果人生可以重启，你会如何书写下一页？', new cc_1.Vec3(0, 112), 21, UITheme_1.UITheme.muted, 'center');
+                    this.createButton('开始重来', new cc_1.Vec3(0, 35), new cc_1.Vec3(380, 70), () => {
+                        this.selectedIdentity = undefined;
+                        this.selectedTalent = undefined;
+                        this.revealedDefect = undefined;
+                        this.talentRefreshesRemaining = 3;
+                        this.showIdentitySelection();
+                    }, 'primary', false);
+                    if (this.session.hasContinuableSave())
+                        this.createButton('继续人生', new cc_1.Vec3(0, -48), new cc_1.Vec3(380, 56), () => this.restoreLife(), 'secondary', false);
+                    if (this.session.hasArchive())
+                        this.createTextButton('人生档案', new cc_1.Vec3(-82, -126), () => this.showArchive());
+                    this.createTextButton('设置', new cc_1.Vec3(this.session.hasArchive() ? 82 : 0, -126), () => this.showToast('设置将在后续版本中开放。'));
+                    this.createText('每一次选择，都会在多年后留下回声。', new cc_1.Vec3(0, -225), 15, UITheme_1.UITheme.quiet, 'center');
+                }
+                showIdentitySelection() {
+                    this.clearScreen();
+                    this.createText('选择初始家庭身份', new cc_1.Vec3(0, 270), 39, UITheme_1.UITheme.text, 'center');
+                    this.createText('首局固定开放农村务工家庭与小城普通家庭；完成迁移、教育或商业成就，可以解锁其他起点。', new cc_1.Vec3(0, 218), 17, UITheme_1.UITheme.muted, 'center', 1080);
+                    const statuses = this.session.familyUnlockStatuses();
+                    statuses.forEach(({ identity, unlocked, requirement }, index) => {
+                        const x = index % 2 === 0 ? -250 : 250;
+                        const y = 120 - Math.floor(index / 2) * 130;
+                        const cardText = unlocked
+                            ? `${identity.name} · ${identity.difficulty}\n${this.identitySummary(identity)}`
+                            : `🔒 ${identity.name} · ${identity.difficulty}\n${requirement !== null && requirement !== void 0 ? requirement : '完成对应人生目标后解锁'}`;
+                        this.createButton(cardText, new cc_1.Vec3(x, y), new cc_1.Vec3(440, 110), () => {
+                            if (!unlocked) {
+                                this.showActionMessage('家庭尚未解锁', requirement !== null && requirement !== void 0 ? requirement : '请先完成对应的人生目标。', () => this.showIdentitySelection());
+                                return;
+                            }
+                            this.selectedIdentity = identity;
+                            this.showAttributeGuide();
+                        }, unlocked ? 'secondary' : 'ghost');
+                    });
+                    this.createTextButton('返回', new cc_1.Vec3(-520, 285), () => this.showHome());
+                }
+                showAttributeGuide() {
+                    this.clearScreen();
+                    this.createText('属性会怎样改变人生？', new cc_1.Vec3(0, 270), 38, UITheme_1.UITheme.text, 'center');
+                    this.createPanel(new cc_1.Vec3(-285, 48), new cc_1.Vec3(520, 300), UITheme_1.UITheme.surface);
+                    this.createPanel(new cc_1.Vec3(285, 48), new cc_1.Vec3(520, 300), UITheme_1.UITheme.surface);
+                    this.createText('基础属性', new cc_1.Vec3(-500, 150), 22, UITheme_1.UITheme.goldSoft, 'left', 200);
+                    this.createText('智力：升学、复杂职业与判断\n情商：关系、沟通和冲突处理\n体质：健康损耗与恢复能力\n执行力：工作、创业与行动成功率\n魅力：社交、表达和重要关系\n运气：高风险事件的额外波动', new cc_1.Vec3(-500, 35), 17, UITheme_1.UITheme.text, 'left', 430, 225);
+                    this.createText('成长能力', new cc_1.Vec3(70, 150), 22, UITheme_1.UITheme.info, 'left', 200);
+                    this.createText('学习：升学与持续成长\n技术：技术职业、软件与智能行业\n商业：收入、交易、销售和创业\n表达：内容行业、沟通与影响力\n管理：晋升、团队和项目扩张\n信息：发现机会、研究风险与判断趋势', new cc_1.Vec3(70, 35), 17, UITheme_1.UITheme.text, 'left', 430, 225);
+                    this.createText('品质越高，天赋的净收益越强；普通天赋更容易伴随轻度短板。', new cc_1.Vec3(0, -155), 16, UITheme_1.UITheme.muted, 'center', 1000);
+                    this.createButton('我了解了，选择天赋', new cc_1.Vec3(0, -220), new cc_1.Vec3(320, 58), () => {
+                        this.showTalentSelection(this.rollTalentOffers());
+                    }, 'primary', false);
+                    this.createTextButton('返回', new cc_1.Vec3(-520, 285), () => this.showIdentitySelection());
+                }
+                showTalentSelection(offers) {
+                    this.clearScreen();
+                    this.createText('选择一项天赋', new cc_1.Vec3(0, 260), 39, UITheme_1.UITheme.text, 'center');
+                    this.createText('普通 65% · 稀有 28% · 传奇 7%；刷新可以重新抽取全部候选。', new cc_1.Vec3(0, 205), 17, UITheme_1.UITheme.muted, 'center');
+                    this.createText('轻度短板概率：普通 55% · 稀有 18% · 传奇 0%', new cc_1.Vec3(0, 168), 15, UITheme_1.UITheme.quiet, 'center');
+                    offers.forEach(({ talent, defect }, index) => {
+                        const x = (index - 1) * 350;
+                        const defectText = defect.id === StartupConfig_1.NO_DEFECT.id ? '' : `\n\n伴生短板：${defect.name}\n影响：${this.effectSummary(defect.result)}`;
+                        this.createTalentButton(`${talent.name} · ${this.rarityName(talent.rarity)}\n${talent.description}\n\n天赋优势：${this.effectSummary(talent.result)}${defectText}`, new cc_1.Vec3(x, 10), new cc_1.Vec3(316, 220), talent.rarity, () => {
+                            this.selectedTalent = talent;
+                            this.revealedDefect = defect;
+                            this.showMemorySelection(this.session.pickDistinct(StartupConfig_1.MEMORIES, 3));
+                        });
+                    });
+                    const refreshText = this.talentRefreshesRemaining > 0
+                        ? `免费刷新天赋（剩余 ${this.talentRefreshesRemaining}/3）`
+                        : '免费刷新次数已用完';
+                    this.createButton(refreshText, new cc_1.Vec3(0, -155), new cc_1.Vec3(290, 48), () => {
+                        if (this.talentRefreshesRemaining <= 0) {
+                            this.showToast('本局的 3 次免费刷新已经用完。');
+                            return;
+                        }
+                        this.talentRefreshesRemaining -= 1;
+                        this.showTalentSelection(this.rollTalentOffers());
+                    }, this.talentRefreshesRemaining > 0 ? 'secondary' : 'ghost', false);
+                    this.createText('刷新只更换候选天赋，不消耗任何属性、金钱或记忆碎片。', new cc_1.Vec3(0, -210), 14, UITheme_1.UITheme.quiet, 'center', 800);
+                    this.createTextButton('返回属性说明', new cc_1.Vec3(-500, 285), () => this.showAttributeGuide());
+                }
+                /** Each slot rolls independently, making rerolls meaningful without hiding the published odds. */
+                rollTalentOffers() {
+                    const usedTalentIds = new Set();
+                    return Array.from({ length: 3 }, () => {
+                        const rarityRoll = this.session.rollPercentage();
+                        const rarity = rarityRoll < 7 ? 'legendary' : rarityRoll < 35 ? 'rare' : 'common';
+                        const talentPool = StartupConfig_1.TALENTS.filter((item) => item.rarity === rarity && !usedTalentIds.has(item.id));
+                        const talent = this.session.pickDistinct(talentPool, 1)[0];
+                        usedTalentIds.add(talent.id);
+                        const defectChance = rarity === 'common' ? 55 : rarity === 'rare' ? 18 : 0;
+                        let defect = StartupConfig_1.NO_DEFECT;
+                        if (this.session.rollPercentage() < defectChance) {
+                            const baseDefect = this.session.pickDistinct(StartupConfig_1.DEFECTS.filter((item) => item.id !== StartupConfig_1.NO_DEFECT.id), 1)[0];
+                            defect = this.balanceDefect(baseDefect, rarity === 'common' ? .5 : .25);
+                        }
+                        return { talent: this.balanceTalent(talent), defect };
+                    });
+                }
+                /** Low-quality drawbacks remain readable and directional, but never erase the talent itself. */
+                balanceDefect(defect, multiplier) {
+                    const scale = (values) => {
+                        if (!values)
+                            return undefined;
+                        const scaled = {};
+                        Object.entries(values).forEach(([key, value]) => { scaled[key] = Math.round(value * multiplier); });
+                        return scaled;
+                    };
+                    return Object.assign(Object.assign({}, defect), { result: Object.assign(Object.assign({}, defect.result), { attributes: scale(defect.result.attributes), skills: scale(defect.result.skills), stats: scale(defect.result.stats) }) });
+                }
+                /** Higher rarity always means higher net value; legendary talents also keep their unique flag. */
+                balanceTalent(talent) {
+                    var _a;
+                    const multiplier = talent.rarity === 'legendary' ? 1.75 : talent.rarity === 'rare' ? 1.35 : 1;
+                    const scale = (values) => {
+                        if (!values)
+                            return undefined;
+                        const scaled = {};
+                        Object.entries(values).forEach(([key, value]) => { scaled[key] = Math.round(value * multiplier); });
+                        return scaled;
+                    };
+                    const result = Object.assign(Object.assign({}, talent.result), { attributes: scale(talent.result.attributes), skills: scale(talent.result.skills), stats: scale(talent.result.stats) });
+                    if (talent.id === 'second-choice') {
+                        result.attributes = Object.assign(Object.assign({}, ((_a = result.attributes) !== null && _a !== void 0 ? _a : {})), { luck: 10, execution: 6 });
+                    }
+                    return Object.assign(Object.assign({}, talent), { result });
+                }
+                showMemorySelection(choices) {
+                    this.clearScreen();
+                    this.createText('带回一枚记忆碎片', new cc_1.Vec3(0, 260), 39, UITheme_1.UITheme.text, 'center');
+                    this.createText('记忆会立刻提供属性、资源或时代信号。卡片中的效果会真实写入本局人生。', new cc_1.Vec3(0, 205), 18, UITheme_1.UITheme.muted, 'center', 1000);
+                    choices.forEach((memory, index) => {
+                        const x = (index - 1) * 350;
+                        this.createButton(`${memory.text}\n${this.accuracyName(memory.accuracy)}\n效果：${memory.effectText}`, new cc_1.Vec3(x, 30), new cc_1.Vec3(310, 180), () => this.beginLife(memory));
+                    });
+                }
+                beginLife(memory) {
+                    if (!this.selectedIdentity || !this.selectedTalent || !this.revealedDefect)
+                        return;
+                    this.session.start(this.selectedIdentity.id, 'original', Date.now());
+                    const state = this.session.applyStartup(this.selectedTalent, this.revealedDefect, memory);
+                    this.showEvent(state, this.session.getCurrentEvent());
+                }
+                restoreLife() {
+                    const state = this.session.tryRestore();
+                    if (!state) {
+                        this.showToast('暂无可继续的人生。');
+                        return;
+                    }
+                    this.selectedIdentity = IdentityConfig_1.IDENTITIES.find((item) => item.id === state.identityId);
+                    this.selectedTalent = StartupConfig_1.TALENTS.find((item) => item.id === state.talentId);
+                    this.revealedDefect = StartupConfig_1.DEFECTS.find((item) => item.id === state.defectId);
+                    this.showEvent(state, this.session.getCurrentEvent());
+                }
+                showArchive() {
+                    var _a, _b, _c, _d, _e, _f, _g, _h;
+                    const state = this.session.loadArchive();
+                    const report = this.session.getReport();
+                    if (!state || !report) {
+                        this.showToast('还没有可读取的人生记录。');
+                        return;
+                    }
+                    this.selectedIdentity = IdentityConfig_1.IDENTITIES.find((item) => item.id === state.identityId);
+                    this.selectedTalent = StartupConfig_1.TALENTS.find((item) => item.id === state.talentId);
+                    this.revealedDefect = StartupConfig_1.DEFECTS.find((item) => item.id === state.defectId);
+                    this.clearScreen();
+                    this.createPageHeader('人生档案', `${state.year} 年 · ${state.age} 岁 · ${state.completed ? '本局已结算' : '本局进行中'}`, () => this.showHome());
+                    this.createPanel(new cc_1.Vec3(-300, 70), new cc_1.Vec3(500, 245), UITheme_1.UITheme.surface);
+                    this.createPanel(new cc_1.Vec3(300, 70), new cc_1.Vec3(500, 245), UITheme_1.UITheme.surface);
+                    this.createText(`出身：${(_b = (_a = this.selectedIdentity) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : '未记录'}\n天赋：${(_d = (_c = this.selectedTalent) === null || _c === void 0 ? void 0 : _c.name) !== null && _d !== void 0 ? _d : '未记录'}\n缺陷：${(_f = (_e = this.revealedDefect) === null || _e === void 0 ? void 0 : _e.name) !== null && _f !== void 0 ? _f : '未记录'}\n记忆：${(_h = (_g = StartupConfig_1.MEMORIES.find((item) => item.id === state.memoryId)) === null || _g === void 0 ? void 0 : _g.text) !== null && _h !== void 0 ? _h : '未记录'}\n学历：${this.educationName(state.education.level)}\n职业：${this.careerName(state.career.track)} · ${this.careerLevelName(state.career.level)}`, new cc_1.Vec3(-520, 70), 17, UITheme_1.UITheme.text, 'left', 440, 215);
+                    this.createText(`现金：${this.money(state.stats.funds)}\n总资产：${this.money(this.session.totalAssetValue())}\n健康 / 幸福：${state.stats.health} / ${state.stats.happiness}\n最强维度：${report.strongestDimension}\n最大取舍：${report.greatestSacrifice}\n人生关键词：${report.lifeKeywords.join(' · ')}`, new cc_1.Vec3(80, 70), 17, UITheme_1.UITheme.text, 'left', 440, 215);
+                    const timeline = report.timeline.slice(-5).map((item) => `${item.year}｜${item.event}：${item.choice}`).join('\n') || '尚未留下关键事件记录。';
+                    this.createText('最近的重要选择', new cc_1.Vec3(-500, -82), 20, UITheme_1.UITheme.goldSoft, 'left', 300);
+                    this.createText(timeline, new cc_1.Vec3(-500, -170), 15, UITheme_1.UITheme.muted, 'left', 1000, 150);
+                    if (!state.completed)
+                        this.createButton('继续这段人生', new cc_1.Vec3(0, -270), new cc_1.Vec3(260, 48), () => this.showEvent(state, this.session.getCurrentEvent()), 'primary', false);
+                }
+                showEvent(state, event) {
+                    var _a, _b;
+                    if (state.completed) {
+                        this.showEnding(state);
+                        return;
+                    }
+                    this.clearScreen();
+                    this.createLifeDashboard(state, event);
+                    if (!event) {
+                        const yearInfo = this.session.getYearInfo();
+                        this.createText('这一年，你想把时间交给什么？', new cc_1.Vec3(0, 78), 28, UITheme_1.UITheme.text, 'center');
+                        this.createText(`${(_a = yearInfo === null || yearInfo === void 0 ? void 0 : yearInfo.headline) !== null && _a !== void 0 ? _a : '人生继续'} · ${(_b = yearInfo === null || yearInfo === void 0 ? void 0 : yearInfo.summary) !== null && _b !== void 0 ? _b : '新的机会正在靠近。'}`, new cc_1.Vec3(0, 35), 16, UITheme_1.UITheme.muted, 'center', 970);
+                        const advice = state.year >= 2026 ? `未来建议：${this.focusAdvice(state)}` : `当前重心：${this.focusName(state.lifeFocus)}`;
+                        const sideIncome = state.lifeFocus === 'work' && state.career.track === 'unemployed' ? (state.age < 18 ? .15 : 1.2) : 0;
+                        const focusExpense = state.age >= 18 && state.lifeFocus === 'social' ? .4 : 0;
+                        const cashflow = state.age < 18
+                            ? `预计年收入 ${this.money(state.finance.familyAllowanceAnnual + sideIncome)} · 年开支 ¥0`
+                            : `预计年收入 ${this.money(state.finance.salaryAnnual + sideIncome)} · 预计年开支 ${this.money(state.finance.livingCostAnnual + focusExpense)}`;
+                        this.createText(`${advice}  ·  ${cashflow}`, new cc_1.Vec3(0, 0), 16, state.finance.salaryAnnual < state.finance.livingCostAnnual ? UITheme_1.UITheme.loss : UITheme_1.UITheme.info, 'center', 1080);
+                        this.createButton(this.focusButtonLabel(state, 'study'), new cc_1.Vec3(-360, -75), new cc_1.Vec3(210, 82), () => this.setFocus('study'), state.lifeFocus === 'study' ? 'primary' : 'secondary');
+                        this.createButton(this.focusButtonLabel(state, 'work'), new cc_1.Vec3(-120, -75), new cc_1.Vec3(210, 82), () => this.setFocus('work'), state.lifeFocus === 'work' ? 'primary' : 'secondary');
+                        this.createButton(this.focusButtonLabel(state, 'rest'), new cc_1.Vec3(120, -75), new cc_1.Vec3(210, 82), () => this.setFocus('rest'), state.lifeFocus === 'rest' ? 'primary' : 'secondary');
+                        this.createButton(this.focusButtonLabel(state, 'social'), new cc_1.Vec3(360, -75), new cc_1.Vec3(210, 82), () => this.setFocus('social'), state.lifeFocus === 'social' ? 'primary' : 'secondary');
+                        if (state.age < 80) {
+                            this.createText('手动推进时间；遇到升学、毕业或重要事件会自动停下', new cc_1.Vec3(0, -137), 15, UITheme_1.UITheme.quiet, 'center');
+                            [1, 2, 3].forEach((years, index) => this.createButton(`度过 ${years} 年`, new cc_1.Vec3((index - 1) * 185, -190), new cc_1.Vec3(158, 50), () => this.advanceTime(years), index === 0 ? 'primary' : 'secondary'));
+                        }
+                        else
+                            this.createButton('返回主页', new cc_1.Vec3(0, -190), new cc_1.Vec3(300, 52), () => this.showHome(), 'primary', false);
+                        return;
+                    }
+                    this.createEventModal(state, event);
+                }
+                /** The life dashboard remains visible under an opportunity modal, so every choice has context. */
+                createLifeDashboard(state, event) {
+                    this.createText(`${state.year}`, new cc_1.Vec3(-510, 284), 34, UITheme_1.UITheme.gold, 'left', 180);
+                    this.createText(`${state.age} 岁 · ${state.year >= 2026 ? '未知的未来' : '已知的过去'}`, new cc_1.Vec3(-398, 284), 16, UITheme_1.UITheme.muted, 'left', 360);
+                    this.createPanel(new cc_1.Vec3(0, 248), new cc_1.Vec3(1130, 2), UITheme_1.UITheme.line);
+                    this.createText('过去', new cc_1.Vec3(350, 284), 13, UITheme_1.UITheme.quiet, 'center', 70);
+                    this.createText('2026', new cc_1.Vec3(425, 284), 13, UITheme_1.UITheme.gold, 'center', 70);
+                    this.createText('未来', new cc_1.Vec3(500, 284), 13, UITheme_1.UITheme.quiet, 'center', 70);
+                    this.createChip(`现金 ${this.money(state.stats.funds)}`, new cc_1.Vec3(-405, 210), 220, UITheme_1.UITheme.goldSoft);
+                    this.createChip(`知识 ${state.stats.knowledge}`, new cc_1.Vec3(-170, 210), 190, UITheme_1.UITheme.info);
+                    this.createChip(`信息 ${state.skills.information}`, new cc_1.Vec3(35, 210), 190, UITheme_1.UITheme.gain);
+                    this.createButton('人生面板', new cc_1.Vec3(300, 210), new cc_1.Vec3(110, 38), () => this.showLifePanel(state, event), 'ghost', false);
+                    this.createButton('探索', new cc_1.Vec3(425, 210), new cc_1.Vec3(100, 38), () => this.showExploration(state, event), 'ghost', false);
+                    this.createButton('恢复状态', new cc_1.Vec3(545, 210), new cc_1.Vec3(120, 38), () => this.showWellbeing(state, event), 'ghost', false);
+                    this.createStatBar('健康', state.stats.health, new cc_1.Vec3(-380, 158), UITheme_1.UITheme.gain);
+                    this.createStatBar('压力', state.stats.pressure, new cc_1.Vec3(0, 158), UITheme_1.UITheme.loss);
+                    this.createStatBar('幸福', state.stats.happiness, new cc_1.Vec3(380, 158), UITheme_1.UITheme.gold);
+                    this.showWarnings(state);
+                }
+                createEventModal(state, event) {
+                    const scrim = new cc_1.Node('OpportunityScrim');
+                    scrim.addComponent(cc_1.UITransform).setContentSize(1280, 720);
+                    this.drawRoundedRect(scrim, 1280, 720, 0, new cc_1.Color(8, 7, 12, 210));
+                    scrim.addComponent(cc_1.BlockInputEvents);
+                    this.uiRoot.addChild(scrim);
+                    const modal = this.createPanel(new cc_1.Vec3(0, -15), new cc_1.Vec3(1060, 550), UITheme_1.UITheme.surfaceRaised, 'OpportunityModal');
+                    modal.addComponent(cc_1.UIOpacity).opacity = 255;
+                    const eventKind = event.interaction === 'opportunity' ? '限时机遇 · 错过后不再停留'
+                        : event.interaction === 'milestone' || event.forced ? '人生节点 · 需要回应'
+                            : event.interaction === 'information' || event.informational ? '信息更新' : '生活选择';
+                    this.createTextOn(modal, eventKind, new cc_1.Vec3(0, 225), 16, event.informational ? UITheme_1.UITheme.info : event.forced ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'center');
+                    if (event.declineAllowed)
+                        this.createButtonOn(modal, '暂不进入', new cc_1.Vec3(455, 225), new cc_1.Vec3(110, 36), () => this.tryDecline(event), 'ghost');
+                    this.createTextOn(modal, event.title, new cc_1.Vec3(110, 165), 34, UITheme_1.UITheme.text, 'center', 620, 52);
+                    const admissionPreview = this.session.educationAdmissionPreview(event.id);
+                    this.createTextOn(modal, admissionPreview ? `${event.description}\n${admissionPreview}` : event.description, new cc_1.Vec3(110, 100), 18, UITheme_1.UITheme.muted, 'center', 620, admissionPreview ? 104 : 72);
+                    this.createTextOn(modal, `现金 ${this.money(state.stats.funds)}\n现金流 ${this.money(state.finance.lastCashflow)}\n健康 ${state.stats.health} · 压力 ${state.stats.pressure}\n幸福 ${state.stats.happiness} · 知识 ${state.stats.knowledge}\n\n技术 ${state.skills.technology} · 商业 ${state.skills.business}\n信息 ${state.skills.information}\n\n${this.pressureRule(state.stats.pressure)}`, new cc_1.Vec3(-380, 15), 16, UITheme_1.UITheme.text, 'left', 250, 330);
+                    const compact = event.options.length >= 5;
+                    const optionGap = compact ? 58 : event.options.length >= 3 ? 78 : 88;
+                    const optionStart = compact ? 65 : event.options.length >= 3 ? 20 : 5;
+                    event.options.forEach((option, index) => {
+                        const impact = this.optionImpact(option.result);
+                        const label = impact ? `${option.label}\n${impact}` : option.label;
+                        this.createButtonOn(modal, label, new cc_1.Vec3(110, optionStart - index * optionGap), new cc_1.Vec3(620, compact ? 50 : 62), () => this.tryChoose(option.id, event), index === 0 ? 'primary' : 'secondary');
+                    });
+                    if (event.declineAllowed)
+                        this.createTextOn(modal, '选择“暂不进入”后，本次机会会结束，时间线才可继续推进。', new cc_1.Vec3(110, -225), 14, UITheme_1.UITheme.quiet, 'center', 620, 32);
+                    Motion_1.Motion.modalEnter(modal);
+                }
+                showExploration(state, activeEvent) {
+                    this.clearScreen();
+                    this.createText('主动探索', new cc_1.Vec3(-500, 280), 38, UITheme_1.UITheme.text, 'left', 400);
+                    this.createText('有些信息不会主动出现，需要前往对应场所了解。', new cc_1.Vec3(-500, 225), 17, UITheme_1.UITheme.muted, 'left', 820);
+                    ExplorationConfig_1.EXPLORATION_ACTIONS.forEach((action, index) => {
+                        const available = this.openOpportunities.isAvailable(state, action);
+                        const x = index % 2 === 0 ? -270 : 270;
+                        const y = 125 - Math.floor(index / 2) * 126;
+                        const requirement = this.openOpportunities.requirementText(action);
+                        const detail = available
+                            ? `${action.description}\n解锁条件：${requirement}`
+                            : `尚未解锁：${requirement}`;
+                        this.createPanel(new cc_1.Vec3(x, y), new cc_1.Vec3(500, 108), available ? UITheme_1.UITheme.surface : UITheme_1.UITheme.ink850);
+                        this.createText(action.name, new cc_1.Vec3(x - 215, y + 27), 21, available ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.quiet, 'left', 260);
+                        this.createText(detail, new cc_1.Vec3(x - 215, y - 18), 14, available ? UITheme_1.UITheme.muted : UITheme_1.UITheme.quiet, 'left', 330, 48);
+                        this.createButton(available ? '进入' : '暂未解锁', new cc_1.Vec3(x + 184, y), new cc_1.Vec3(106, 42), () => {
+                            if (!available)
+                                return;
+                            if (action.domain === 'market') {
+                                this.showMarket(this.session.snapshot(), activeEvent);
+                            }
+                            else if (action.domain === 'industry')
+                                this.showIndustryProjects(this.session.snapshot(), activeEvent);
+                            else if (action.domain === 'startup')
+                                this.showStartup(this.session.snapshot(), activeEvent);
+                            else if (action.domain === 'city')
+                                this.showCity(this.session.snapshot(), activeEvent);
+                            else if (action.domain === 'housing')
+                                this.showHousing(this.session.snapshot(), activeEvent);
+                            else if (action.domain === 'education')
+                                this.showEducationAdvance(this.session.snapshot(), activeEvent);
+                        }, available ? 'primary' : 'ghost', false);
+                    });
+                    this.createTextButton('返回', new cc_1.Vec3(0, -265), () => this.showEvent(this.session.snapshot(), activeEvent));
+                }
+                showDomainArchitecture(name, description, state, activeEvent) {
+                    this.clearScreen();
+                    this.createText(name, new cc_1.Vec3(0, 190), 40, new cc_1.Color(252, 214, 108), 'center');
+                    this.createText(description, new cc_1.Vec3(0, 125), 20, new cc_1.Color(220, 226, 240), 'center');
+                    this.createText('该模块已接入开放机遇架构。', new cc_1.Vec3(0, 50), 25, new cc_1.Color(252, 214, 108), 'center');
+                    this.createText('后续会在这里展开专属行动、条件校验、结果结算与长期资产或关系影响。', new cc_1.Vec3(0, 5), 18, new cc_1.Color(220, 226, 240), 'center', 960);
+                    this.createText('当前阶段保留入口与解锁规则，避免未完成的内容伪装成可操作功能。', new cc_1.Vec3(0, -35), 16, new cc_1.Color(150, 205, 255), 'center', 960);
+                    this.createButton('返回开放机遇', new cc_1.Vec3(0, -150), new cc_1.Vec3(280, 60), () => this.showExploration(state, activeEvent), 'secondary', false);
+                }
+                showStartup(state, activeEvent) {
+                    var _a, _b, _c;
+                    this.clearScreen();
+                    this.createPageHeader('创业孵化器', state.startup.active ? '推进成功会提高项目估值；失败会降低估值并增加压力。退出时按估值的 70% 变现。' : '先看懂行业、投入、适配能力和收益路径，再选择项目。', () => this.showExploration(this.session.snapshot(), activeEvent));
+                    if (!state.startup.active) {
+                        ['ecommerce', 'local-service', 'content', 'software', 'emerging'].forEach((type, index) => {
+                            const preview = this.session.startupPreview(type);
+                            const x = (index % 3 - 1) * 300;
+                            const y = 83 - Math.floor(index / 3) * 155;
+                            this.createButton(`${preview.name} · ${preview.industry}\n投入 ${this.money(preview.cost)} · ${preview.risk}风险\n适配：${preview.suitedSkill} · 当前成功率 ${this.session.startupChance(type)}%\n${preview.returnPath}`, new cc_1.Vec3(x, y), new cc_1.Vec3(278, 132), () => this.tryExplorer(() => this.session.startProject(type), () => this.showStartup(this.session.snapshot(), activeEvent)));
+                        });
+                    }
+                    else {
+                        this.createPanel(new cc_1.Vec3(0, 70), new cc_1.Vec3(720, 120), UITheme_1.UITheme.surface);
+                        const holding = (_b = (_a = state.assets.find((asset) => asset.type === 'startup')) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : 0;
+                        this.createText(`项目：${this.startupName((_c = state.startup.project) !== null && _c !== void 0 ? _c : '')}  ·  阶段：${this.startupStageName(state.startup.stage)}\n当前估值 ${this.money(holding)} · 推进成功率 ${this.session.startupSuccessRate()}% · 现在退出可回收约 ${this.money(holding * .7)}`, new cc_1.Vec3(0, 70), 18, UITheme_1.UITheme.text, 'center', 660, 82);
+                        this.createButton('继续推进 · 每年一次', new cc_1.Vec3(-145, -35), new cc_1.Vec3(250, 58), () => this.tryExplorer(() => this.session.advanceStartup(), () => this.showStartup(this.session.snapshot(), activeEvent)), 'primary');
+                        this.createButton('退出项目', new cc_1.Vec3(145, -35), new cc_1.Vec3(250, 58), () => this.tryExplorer(() => this.session.exitStartup(), () => this.showStartup(this.session.snapshot(), activeEvent)));
+                    }
+                }
+                showCity(state, activeEvent) {
+                    this.clearScreen();
+                    this.createPageHeader('城市迁移', `当前：${this.cityName(state.education.city)} · 每一笔迁移成本和迁移后的年度开支都在下方列明。`, () => this.showExploration(this.session.snapshot(), activeEvent));
+                    ['rural', 'county', 'city', 'metropolis'].forEach((city, index) => {
+                        const preview = this.session.migrationPreview(city);
+                        const current = city === state.education.city;
+                        const label = current
+                            ? `${this.cityName(city)} · 当前居住\n年度生活费 ${this.money(preview.annualAfter)}`
+                            : `${this.cityName(city)}\n迁移共 ${this.money(preview.total)}\n交通 ${this.money(preview.transport)} · 押金 ${this.money(preview.deposit)} · 过渡 ${this.money(preview.transition)}\n年度生活费 ${this.money(preview.annualAfter)}`;
+                        this.createButton(label, new cc_1.Vec3((index - 1.5) * 275, 25), new cc_1.Vec3(250, 132), () => {
+                            if (current)
+                                return;
+                            this.tryExplorer(() => this.session.migrateCity(city), () => this.showCity(this.session.snapshot(), activeEvent));
+                        }, current ? 'primary' : 'secondary');
+                    });
+                    this.createText('迁移成本会立即从现金扣除；年度生活费从下一次年度结算开始影响现金流。', new cc_1.Vec3(0, -100), 16, UITheme_1.UITheme.info, 'center', 1000);
+                }
+                showHousing(state, activeEvent) {
+                    var _a, _b;
+                    const value = (_b = (_a = state.assets.find((asset) => asset.type === 'housing')) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : 0;
+                    this.clearScreen();
+                    this.createPageHeader('房产市场', `${this.cityName(state.education.city)} · 持有 ${state.housingHoldings.length} 套 · 现有估值 ${this.money(value)} · 买卖税费均为房价的 3%`, () => this.showExploration(this.session.snapshot(), activeEvent));
+                    this.session.housingProducts().forEach((product, index) => {
+                        const price = this.session.housingPrice(product.id);
+                        const total = Math.round(price * 1.03 * 10) / 10;
+                        this.createButton(`${product.name}\n房价 ${this.money(price)} · 含税共 ${this.money(total)}\n${product.description}`, new cc_1.Vec3((index - 1) * 360, 75), new cc_1.Vec3(330, 122), () => this.tryExplorer(() => this.session.buyHousing(product.id), () => this.showHousing(this.session.snapshot(), activeEvent)), index === 0 ? 'primary' : 'secondary');
+                    });
+                    this.createText('我的住房（出售到账 = 当前估值 × 97%）', new cc_1.Vec3(-520, -38), 18, UITheme_1.UITheme.goldSoft, 'left', 500);
+                    if (state.housingHoldings.length === 0)
+                        this.createText('暂无住房资产。购房款会转为房产持仓，不会从资产面板消失。', new cc_1.Vec3(0, -115), 17, UITheme_1.UITheme.muted, 'center', 1000);
+                    state.housingHoldings.slice(0, 3).forEach((holding, index) => {
+                        this.createButton(`${holding.name}\n${holding.purchaseYear}年购入 ${this.money(holding.purchasePrice)}\n现值 ${this.money(holding.currentValue)} · 出售`, new cc_1.Vec3((index - 1) * 360, -135), new cc_1.Vec3(330, 90), () => this.tryExplorer(() => this.session.sellHousing(holding.id), () => this.showHousing(this.session.snapshot(), activeEvent)), 'ghost');
+                    });
+                }
+                showIndustryProjects(state, activeEvent) {
+                    this.clearScreen();
+                    const holdings = state.industryProjects;
+                    const active = holdings.filter((holding) => holding.status === 'active');
+                    const invested = holdings.reduce((sum, holding) => sum + holding.investedPrincipal, 0);
+                    const activeValue = active.reduce((sum, holding) => sum + holding.currentValue, 0);
+                    const realized = holdings.filter((holding) => holding.status !== 'active').reduce((sum, holding) => sum + holding.realizedReturn, 0);
+                    const unrealized = active.reduce((sum, holding) => sum + holding.currentValue - holding.investedPrincipal, 0);
+                    const net = Math.round((realized + unrealized) * 10) / 10;
+                    this.createPageHeader('行业项目 · 投资账本', `历史投入 ${this.money(invested)} · 在投市值 ${this.money(activeValue)} · 累计盈亏 ${net >= 0 ? '+' : ''}${this.money(net)}`, () => this.showExploration(this.session.snapshot(), activeEvent));
+                    if (holdings.length === 0) {
+                        const available = this.session.industryProjectConfigs().slice(0, 4).map((item) => `${item.name}（${item.industry}，最低 ${this.money(item.minimumInvestment)}）`).join(' · ');
+                        this.createText(`尚无投资记录。\n当前年份可关注：${available || '暂无开放行业窗口'}`, new cc_1.Vec3(0, 55), 18, UITheme_1.UITheme.muted, 'center', 1000, 100);
+                        this.createText('行业机会会作为限时事件出现；早期进入、成熟期持有、拥挤期退出构成完整的收益路径。', new cc_1.Vec3(0, -55), 16, UITheme_1.UITheme.info, 'center', 1000);
+                        return;
+                    }
+                    this.createText(`持有中 ${active.length} · 已结束 ${holdings.length - active.length}；已退出或失败的项目会永久保留，便于复盘。`, new cc_1.Vec3(0, 174), 15, UITheme_1.UITheme.muted, 'center', 1050);
+                    const pageCount = Math.max(1, Math.ceil(holdings.length / 6));
+                    this.industryPage = Math.min(this.industryPage, pageCount - 1);
+                    holdings.slice(this.industryPage * 6, this.industryPage * 6 + 6).forEach((holding, index) => {
+                        const activeProfit = Math.round((holding.currentValue - holding.investedPrincipal) * 10) / 10;
+                        const profit = holding.status === 'active' ? activeProfit : holding.realizedReturn;
+                        const status = holding.status === 'active' ? '持有中' : holding.status === 'exited' ? '已退出' : '项目失败';
+                        const valueLine = holding.status === 'active'
+                            ? `现值 ${this.money(holding.currentValue)} · 浮动${profit >= 0 ? '+' : ''}${this.money(profit)}`
+                            : holding.status === 'exited'
+                                ? `退出回款 ${this.money(holding.investedPrincipal + holding.realizedReturn)} · 已实现${profit >= 0 ? '+' : ''}${this.money(profit)}`
+                                : `回收 ¥0 · 已实现${this.money(profit)}`;
+                        const text = `${holding.name} · ${holding.industry}\n${holding.startYear}年投入 ${this.money(holding.investedPrincipal)} · ${status}\n${valueLine}${holding.status === 'active' ? '\n再次点击退出（扣2%）' : '\n记录已归档，不会消失'}`;
+                        const position = new cc_1.Vec3((index % 3 - 1) * 360, 82 - Math.floor(index / 3) * 150);
+                        if (holding.status === 'active') {
+                            this.createButton(text, position, new cc_1.Vec3(330, 126), () => this.tryExplorer(() => this.session.exitIndustryProject(holding.id), () => this.showIndustryProjects(this.session.snapshot(), activeEvent)), profit >= 0 ? 'primary' : 'secondary');
+                        }
+                        else {
+                            const panel = this.createPanel(position, new cc_1.Vec3(330, 126), UITheme_1.UITheme.surfaceRaised, 'ArchivedInvestment');
+                            this.createTextOn(panel, text, cc_1.Vec3.ZERO, 16, profit >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 306, 110);
+                        }
+                    });
+                    if (pageCount > 1) {
+                        this.createButton('上一页', new cc_1.Vec3(-78, -248), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage - 1 + pageCount) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
+                        this.createText(`${this.industryPage + 1} / ${pageCount}`, new cc_1.Vec3(0, -248), 15, UITheme_1.UITheme.muted, 'center', 60);
+                        this.createButton('下一页', new cc_1.Vec3(78, -248), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage + 1) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
+                    }
+                }
+                showEducationAdvance(state, activeEvent) {
+                    this.clearScreen();
+                    this.createPageHeader('教育与进修', `学历：${this.educationName(state.education.level)} · 知识：${state.stats.knowledge} · 每年限一项进修`, () => this.showExploration(this.session.snapshot(), activeEvent));
+                    this.createButton('自学技术', new cc_1.Vec3(-280, 20), new cc_1.Vec3(200, 70), () => this.tryExplorer(() => this.session.selfStudy('technology'), () => this.showEducationAdvance(this.session.snapshot(), activeEvent)));
+                    this.createButton('商业考证\n¥1.5 万', new cc_1.Vec3(0, 20), new cc_1.Vec3(220, 70), () => this.tryExplorer(() => this.session.certificate('business'), () => this.showEducationAdvance(this.session.snapshot(), activeEvent)));
+                    this.createButton('考研深造\n¥8 万', new cc_1.Vec3(280, 20), new cc_1.Vec3(220, 70), () => this.tryExplorer(() => this.session.graduateSchool(), () => this.showEducationAdvance(this.session.snapshot(), activeEvent)));
+                }
+                showWellbeing(state, activeEvent) {
+                    this.clearScreen();
+                    this.createPageHeader('恢复状态', `压力 ${state.stats.pressure} · 幸福 ${state.stats.happiness} · 健康 ${state.stats.health}`, () => this.showEvent(this.session.snapshot(), activeEvent));
+                    this.createText(state.lastWellbeingYear === state.year ? '今年已经恢复过一次。' : '每年可安排一次恢复行动。', new cc_1.Vec3(0, 135), 17, UITheme_1.UITheme.info, 'center', 900);
+                    this.createButton('留出空白\n压力↓ · 幸福、健康↑', new cc_1.Vec3(-310, 15), new cc_1.Vec3(260, 100), () => this.tryWellbeing('pause', activeEvent));
+                    this.createButton('身心照护\n¥1.5万 · 压力↓健康↑', new cc_1.Vec3(0, 15), new cc_1.Vec3(260, 100), () => this.tryWellbeing('care', activeEvent));
+                    this.createButton('陪伴重要的人\n¥8千 · 幸福↑压力↓', new cc_1.Vec3(310, 15), new cc_1.Vec3(260, 100), () => this.tryWellbeing('connection', activeEvent));
+                }
+                tryWellbeing(kind, activeEvent) {
+                    var _a;
+                    const before = this.session.snapshot();
+                    try {
+                        const after = this.session.recoverWellbeing(kind);
+                        this.showWellbeing(after, activeEvent);
+                        (_a = this.statAnimator) === null || _a === void 0 ? void 0 : _a.playAnimation(before, after);
+                    }
+                    catch (error) {
+                        this.showActionMessage('恢复安排', error instanceof Error ? error.message : '当前无法完成恢复安排。', () => this.showWellbeing(this.session.snapshot(), activeEvent));
+                    }
+                }
+                tryExplorer(action, refresh) { try {
+                    action();
+                    refresh();
+                }
+                catch (error) {
+                    this.showActionMessage('操作提示', error instanceof Error ? error.message : '当前无法完成操作。', refresh);
+                } }
+                showMarket(state, activeEvent) {
+                    this.clearScreen();
+                    this.createText('交易所', new cc_1.Vec3(-500, 280), 38, UITheme_1.UITheme.text, 'left', 300);
+                    const tradeStatus = state.age < 18 ? '未成年：只能查看和研究，18岁开放交易' : this.session.canTradeMarket() ? '交易账户已开通' : '尚未确认风险：暂不能买卖';
+                    this.createText(`${state.year} · ${tradeStatus}`, new cc_1.Vec3(-500, 230), 16, this.session.canTradeMarket() ? UITheme_1.UITheme.info : UITheme_1.UITheme.loss, 'left', 780);
+                    if (state.age >= 18 && !this.session.canTradeMarket())
+                        this.createButton('阅读风险并开通', new cc_1.Vec3(465, 245), new cc_1.Vec3(190, 42), () => this.tryMarketAction(() => this.session.acceptMarketRisk(), activeEvent), 'primary');
+                    this.createChip(`可用资金 ${this.money(state.stats.funds)}`, new cc_1.Vec3(-330, 185), 300, UITheme_1.UITheme.goldSoft);
+                    this.createChip(`持仓市值 ${this.money(this.session.marketValue())}`, new cc_1.Vec3(0, 185), 270, UITheme_1.UITheme.info);
+                    this.createChip(`已实现盈亏 ${this.money(state.market.realizedProfit)}`, new cc_1.Vec3(300, 185), 290, state.market.realizedProfit >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss);
+                    this.createText(`投资规律：${this.session.marketInsightNames().join(' · ') || '尚未形成'}`, new cc_1.Vec3(0, 145), 16, UITheme_1.UITheme.info, 'center', 1040, 30);
+                    this.createText(`工资 ${this.money(state.finance.salaryAnnual)} · 生活成本 ${this.money(state.finance.livingCostAnnual)} · 贷款 ${this.money(state.finance.loanBalance)} / ${this.money(state.finance.loanLimit)}`, new cc_1.Vec3(0, 112), 15, UITheme_1.UITheme.quiet, 'center', 1040, 30);
+                    const listed = this.session.marketInstruments();
+                    if (listed.length === 0)
+                        this.createText('当前年份尚无公开交易品种。继续生活，留意时代变化。', new cc_1.Vec3(0, 20), 22, UITheme_1.UITheme.muted, 'center');
+                    const pageCount = Math.max(1, Math.ceil(listed.length / 4));
+                    this.marketPage = Math.min(this.marketPage, pageCount - 1);
+                    listed.slice(this.marketPage * 4, this.marketPage * 4 + 4).forEach((instrument, index) => this.createMarketCard(instrument, index, activeEvent));
+                    this.createButton('贷款 ¥10万', new cc_1.Vec3(-450, -250), new cc_1.Vec3(150, 42), () => this.tryMarketAction(() => this.session.takeLoan(10), activeEvent), 'ghost');
+                    this.createButton('还款 ¥10万', new cc_1.Vec3(-280, -250), new cc_1.Vec3(150, 42), () => this.tryMarketAction(() => this.session.repayLoan(10), activeEvent), 'ghost');
+                    if (pageCount > 1) {
+                        this.createButton('上一页', new cc_1.Vec3(-80, -250), new cc_1.Vec3(110, 42), () => { this.marketPage = (this.marketPage - 1 + pageCount) % pageCount; this.showMarket(this.session.snapshot(), activeEvent); }, 'ghost', false);
+                        this.createText(`${this.marketPage + 1} / ${pageCount}`, new cc_1.Vec3(0, -250), 15, UITheme_1.UITheme.muted, 'center', 70);
+                        this.createButton('下一页', new cc_1.Vec3(80, -250), new cc_1.Vec3(110, 42), () => { this.marketPage = (this.marketPage + 1) % pageCount; this.showMarket(this.session.snapshot(), activeEvent); }, 'ghost', false);
+                    }
+                    this.createButton('返回探索', new cc_1.Vec3(350, -250), new cc_1.Vec3(140, 42), () => this.showExploration(this.session.snapshot(), activeEvent), 'ghost', false);
+                    this.createButton(activeEvent ? '返回事件' : '返回人生', new cc_1.Vec3(515, -250), new cc_1.Vec3(150, 42), () => this.showEvent(this.session.snapshot(), activeEvent), 'primary', false);
+                }
+                createMarketCard(instrument, index, activeEvent) {
+                    var _a, _b, _c;
+                    const state = this.session.snapshot();
+                    const position = state.market.positions.find((item) => item.instrumentId === instrument.id);
+                    const researched = state.market.discoveredInstrumentIds.includes(instrument.id);
+                    const researchable = this.session.canResearchMarket(instrument.id);
+                    const change = this.session.marketChange(instrument.id);
+                    const trend = this.sparkline(this.session.marketHistory(instrument.id, 6).map((item) => item.price));
+                    const movement = `${change.amount >= 0 ? '▲' : '▼'} ${change.percent >= 0 ? '+' : ''}${change.percent}% / ${change.amount >= 0 ? '+' : ''}${this.money(change.amount)}`;
+                    const x = index % 2 === 0 ? -285 : 285;
+                    const y = 30 - Math.floor(index / 2) * 135;
+                    const card = this.createPanel(new cc_1.Vec3(x, y), new cc_1.Vec3(540, 118), UITheme_1.UITheme.surface);
+                    this.createTextOn(card, `${instrument.name} · ${(_a = instrument.sector) !== null && _a !== void 0 ? _a : this.marketKindName(instrument.kind)}`, new cc_1.Vec3(-245, 40), 18, UITheme_1.UITheme.goldSoft, 'left', 330, 26);
+                    this.createTextOn(card, `风险 ${(_b = instrument.risk) !== null && _b !== void 0 ? _b : '中'} · 每份 ${this.money(this.session.marketPrice(instrument.id))} · ${movement}`, new cc_1.Vec3(-245, 14), 14, change.amount >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'left', 390, 22);
+                    this.createTextOn(card, `近年趋势 ${trend} · 持有 ${(_c = position === null || position === void 0 ? void 0 : position.quantity) !== null && _c !== void 0 ? _c : 0}份${position ? ` · 成本 ${this.money(position.averageCost)}` : ''}\n${researched ? instrument.description : `研究条件：${this.marketRequirements(instrument)}`}`, new cc_1.Vec3(-245, -27), 13, UITheme_1.UITheme.quiet, 'left', 390, 50);
+                    if (!researched) {
+                        this.createButton(researchable ? '研究' : '条件不足', new cc_1.Vec3(x + 210, y), new cc_1.Vec3(100, 44), () => {
+                            if (researchable)
+                                this.tryMarketAction(() => this.session.researchMarket(instrument.id), activeEvent);
+                        }, researchable ? 'primary' : 'ghost');
+                        return;
+                    }
+                    this.createButton(this.session.canTradeMarket() ? '买入' : '未开通', new cc_1.Vec3(x + 164, y), new cc_1.Vec3(84, 44), () => {
+                        if (this.session.canTradeMarket())
+                            this.tryMarketAction(() => this.session.buyMarket(instrument.id, 1), activeEvent);
+                    }, this.session.canTradeMarket() ? 'primary' : 'ghost');
+                    this.createButton('卖出', new cc_1.Vec3(x + 255, y), new cc_1.Vec3(84, 44), () => this.tryMarketAction(() => this.session.sellMarket(instrument.id, 1), activeEvent), 'secondary');
+                }
+                tryMarketAction(action, activeEvent) {
+                    try {
+                        action();
+                        this.showMarket(this.session.snapshot(), activeEvent);
+                    }
+                    catch (error) {
+                        this.showMarketMessage(error instanceof Error ? error.message : '操作失败。', activeEvent);
+                    }
+                }
+                tryChoose(optionId, event) {
+                    var _a;
+                    const before = this.session.snapshot();
+                    try {
+                        const after = this.session.choose(optionId);
+                        this.showEvent(after, this.session.getCurrentEvent());
+                        (_a = this.statAnimator) === null || _a === void 0 ? void 0 : _a.playAnimation(before, after);
+                    }
+                    catch (error) {
+                        this.clearScreen();
+                        this.createText('资金提示', new cc_1.Vec3(0, 100), 36, new cc_1.Color(252, 214, 108), 'center');
+                        this.createText(error instanceof Error ? error.message : '当前无法完成选择。', new cc_1.Vec3(0, 35), 20, new cc_1.Color(220, 226, 240), 'center', 950);
+                        this.createButton('返回当前事件', new cc_1.Vec3(0, -80), new cc_1.Vec3(280, 60), () => this.showEvent(this.session.snapshot(), event), 'secondary', false);
+                    }
+                }
+                tryDecline(event) {
+                    var _a;
+                    const before = this.session.snapshot();
+                    try {
+                        const after = this.session.declineCurrentEvent();
+                        this.showEvent(after, this.session.getCurrentEvent());
+                        (_a = this.statAnimator) === null || _a === void 0 ? void 0 : _a.playAnimation(before, after);
+                    }
+                    catch (error) {
+                        this.showActionMessage('事件提示', error instanceof Error ? error.message : '当前无法结束该事件。', () => this.showEvent(this.session.snapshot(), event));
+                    }
+                }
+                advanceTime(years) { var _a; const before = this.session.snapshot(); const after = this.session.continueYears(years); this.showEvent(after, this.session.getCurrentEvent()); (_a = this.statAnimator) === null || _a === void 0 ? void 0 : _a.playAnimation(before, after); }
+                showWarnings(state) {
+                    const warnings = [];
+                    if (state.stats.health <= 40)
+                        warnings.push('⚠ 健康状况堪忧');
+                    if (state.stats.pressure >= 60)
+                        warnings.push('⚠ 压力持续偏高，健康与幸福正在受损');
+                    if (state.finance.lastCashflow < 0)
+                        warnings.push('⚠ 现金流为负');
+                    if (warnings.length)
+                        this.createText(warnings.join('  '), new cc_1.Vec3(0, 123), 15, UITheme_1.UITheme.loss, 'center', 1000, 26);
+                }
+                setFocus(focus) {
+                    try {
+                        const state = this.session.setLifeFocus(focus);
+                        this.showEvent(state, this.session.getCurrentEvent());
+                    }
+                    catch (error) {
+                        this.showActionMessage('人生安排提示', error instanceof Error ? error.message : '当前无法设置这一年度重心。', () => this.showEvent(this.session.snapshot(), this.session.getCurrentEvent()));
+                    }
+                }
+                showMarketMessage(message, activeEvent) {
+                    this.clearScreen();
+                    this.createText('交易提示', new cc_1.Vec3(0, 100), 36, new cc_1.Color(252, 214, 108), 'center');
+                    this.createText(message, new cc_1.Vec3(0, 35), 20, new cc_1.Color(220, 226, 240), 'center');
+                    this.createButton('返回市场', new cc_1.Vec3(0, -80), new cc_1.Vec3(250, 60), () => this.showMarket(this.session.snapshot(), activeEvent), 'secondary', false);
+                }
+                showCareer(state, activeEvent) {
+                    var _a, _b, _c;
+                    this.clearScreen();
+                    this.createPageHeader('职业发展', `${this.careerName(state.career.track)} · ${this.careerLevelName(state.career.level)}`, () => this.showLifePanel(this.session.snapshot(), activeEvent));
+                    this.createPanel(new cc_1.Vec3(0, 55), new cc_1.Vec3(820, 210), UITheme_1.UITheme.surface);
+                    const requirement = this.session.promotionRequirement();
+                    const next = (requirement === null || requirement === void 0 ? void 0 : requirement.next) ? this.careerLevelName(requirement.next) : '已到最高级别';
+                    this.createText(`当前行业：${state.career.industry || '尚未确定'}\n年工资：${this.money(state.finance.salaryAnnual)}\n晋升评分：${Math.round(this.session.promotionScore())} / ${(_a = requirement === null || requirement === void 0 ? void 0 : requirement.requiredScore) !== null && _a !== void 0 ? _a : '-'}\n本级任职：${(_b = requirement === null || requirement === void 0 ? void 0 : requirement.years) !== null && _b !== void 0 ? _b : 0} / ${(_c = requirement === null || requirement === void 0 ? void 0 : requirement.requiredYears) !== null && _c !== void 0 ? _c : 0} 年\n下一职级：${next}`, new cc_1.Vec3(0, 65), 19, UITheme_1.UITheme.text, 'center', 740, 165);
+                    this.createText('晋升在每年结算时自动评估，无需申请。评分由职业技能 40%＋智力 40%＋执行力 20% 构成。', new cc_1.Vec3(0, -95), 16, UITheme_1.UITheme.info, 'center', 940, 48);
+                }
+                showActionMessage(title, message, back) {
+                    this.clearScreen();
+                    this.createPanel(new cc_1.Vec3(0, 20), new cc_1.Vec3(720, 300), UITheme_1.UITheme.surface);
+                    this.createText(title, new cc_1.Vec3(0, 90), 32, UITheme_1.UITheme.gold, 'center', 640);
+                    this.createText(message, new cc_1.Vec3(0, 25), 18, UITheme_1.UITheme.muted, 'center', 620, 76);
+                    this.createButton('返回', new cc_1.Vec3(0, -78), new cc_1.Vec3(230, 52), back, 'primary', false);
+                }
+                showLifePanel(state, activeEvent) {
+                    var _a, _b, _c, _d, _e, _f;
+                    this.clearScreen();
+                    this.createPageHeader('人生面板', `${state.year} 年 · ${state.age} 岁`, () => this.showEvent(state, activeEvent));
+                    this.createPanel(new cc_1.Vec3(-290, 65), new cc_1.Vec3(520, 250), UITheme_1.UITheme.surface);
+                    this.createPanel(new cc_1.Vec3(290, 65), new cc_1.Vec3(520, 250), UITheme_1.UITheme.surface);
+                    this.createText(`身份  ${(_b = (_a = this.selectedIdentity) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : '未记录'}\n天赋  ${(_d = (_c = this.selectedTalent) === null || _c === void 0 ? void 0 : _c.name) !== null && _d !== void 0 ? _d : '未记录'}\n缺陷  ${(_f = (_e = this.revealedDefect) === null || _e === void 0 ? void 0 : _e.name) !== null && _f !== void 0 ? _f : '未记录'}\n中学  ${this.highSchoolName(state.education.highSchoolTrack)}\n学历  ${this.educationName(state.education.level)}\n升学评估  ${this.session.learningIndex()} · 专注学习 ${state.education.studyYears} 年\n城市  ${this.cityName(state.education.city)}`, new cc_1.Vec3(-500, 65), 17, UITheme_1.UITheme.text, 'left', 420, 220);
+                    this.createText(`职业  ${this.careerName(state.career.track)} · ${this.careerLevelName(state.career.level)}\n年收入  ${this.money(state.finance.salaryAnnual)}\n年生活开支  ${this.money(state.finance.livingCostAnnual)}\n预计年度净现金流  ${this.money(state.finance.salaryAnnual - state.finance.livingCostAnnual - state.finance.loanBalance * .05)}\n贷款  ${this.money(state.finance.loanBalance)} / ${this.money(state.finance.loanLimit)}\n总资产  ${this.money(this.session.totalAssetValue())}\n家庭  ${state.stats.familyBond} · 伴侣 ${state.relationships.partner}`, new cc_1.Vec3(40, 65), 17, UITheme_1.UITheme.text, 'left', 470, 220);
+                    this.createText(`知识 ${state.stats.knowledge}  ·  学习 ${state.skills.learning}  ·  技术 ${state.skills.technology}  ·  商业 ${state.skills.business}  ·  表达 ${state.skills.expression}  ·  管理 ${state.skills.management}  ·  信息 ${state.skills.information}`, new cc_1.Vec3(0, -92), 16, UITheme_1.UITheme.muted, 'center', 1040, 32);
+                    const signals = state.discoveredSignalIds.map((id) => this.opportunitySystem.signalText(id)).join(' · ') || '暂未发现';
+                    const opportunities = state.opportunities.map((item) => `${this.opportunitySystem.chainName(item.chainId)}（${item.entered ? '已进入' : '已观察'}）`).join(' · ') || '暂未进入';
+                    this.createText(`时代信号：${signals}\n机遇进展：${opportunities}`, new cc_1.Vec3(0, -145), 15, UITheme_1.UITheme.info, 'center', 1040, 64);
+                    this.createButton('职业发展', new cc_1.Vec3(-130, -225), new cc_1.Vec3(220, 50), () => this.showCareer(this.session.snapshot(), activeEvent), 'secondary', false);
+                    this.createButton('年度现金流', new cc_1.Vec3(130, -225), new cc_1.Vec3(220, 50), () => this.showFinanceHistory(this.session.snapshot(), activeEvent), 'secondary', false);
+                }
+                showFinanceHistory(state, activeEvent) {
+                    this.clearScreen();
+                    this.createPageHeader('年度现金流', '每一年度分别记录收入、生活开支、贷款利息、净现金流与年末现金。', () => this.showLifePanel(this.session.snapshot(), activeEvent));
+                    const rows = state.finance.history.slice(-12).reverse();
+                    if (rows.length === 0) {
+                        this.createText('尚未完成第一个年度结算。', new cc_1.Vec3(0, 40), 20, UITheme_1.UITheme.muted, 'center');
+                        return;
+                    }
+                    rows.forEach((row, index) => {
+                        const x = index < 6 ? -300 : 300;
+                        const y = 145 - (index % 6) * 68;
+                        const expenses = row.livingExpense + row.housingExpense + row.interestExpense;
+                        this.createPanel(new cc_1.Vec3(x, y), new cc_1.Vec3(540, 56), UITheme_1.UITheme.surface);
+                        this.createText(`${row.year}｜收入 ${this.money(row.salaryIncome + row.otherIncome)} · 开支 ${this.money(expenses)} · 净额 ${row.netCashflow >= 0 ? '+' : ''}${this.money(row.netCashflow)} · 年末 ${this.money(row.closingCash)}`, new cc_1.Vec3(x, y), 14, row.netCashflow >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 510, 42);
+                    });
+                }
+                showEnding(state) {
+                    const ending = state.ending;
+                    const report = this.session.getReport();
+                    if (!ending || !report) {
+                        this.showHome();
+                        return;
+                    }
+                    this.clearScreen();
+                    this.createText('人生结算', new cc_1.Vec3(0, 290), 17, UITheme_1.UITheme.gold, 'center');
+                    this.createText(`${ending.score}`, new cc_1.Vec3(0, 225), 66, UITheme_1.UITheme.goldSoft, 'center');
+                    this.createText('综合评分', new cc_1.Vec3(0, 160), 15, UITheme_1.UITheme.quiet, 'center');
+                    this.createText(ending.title, new cc_1.Vec3(0, 115), 34, UITheme_1.UITheme.text, 'center');
+                    this.createText(ending.description, new cc_1.Vec3(0, 75), 18, UITheme_1.UITheme.muted, 'center', 1000);
+                    this.createPanel(new cc_1.Vec3(0, 0), new cc_1.Vec3(980, 105), UITheme_1.UITheme.surface);
+                    const newFamilies = this.session.newlyUnlockedFamilyNames();
+                    const unlockText = newFamilies.length > 0 ? `\n新家庭已解锁：${newFamilies.join('、')}` : '';
+                    this.createText(`${report.summary}\n最强维度：${report.strongestDimension} · 最大取舍：${report.greatestSacrifice}\n抓住的机遇：${report.opportunities.join('、') || '暂无'}${unlockText}`, new cc_1.Vec3(0, 0), 16, newFamilies.length > 0 ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.info, 'center', 920, 86);
+                    this.createText('选择一项重来传承', new cc_1.Vec3(0, -73), 21, UITheme_1.UITheme.gold, 'center');
+                    this.session.getInheritanceChoices().forEach((reward, index) => {
+                        this.createButton(`${reward.name}\n${reward.description}`, new cc_1.Vec3((index - 1) * 340, -165), new cc_1.Vec3(300, 88), () => this.selectInheritance(reward), index === 1 ? 'primary' : 'secondary');
+                    });
+                }
+                selectInheritance(reward) {
+                    this.session.chooseInheritance(reward);
+                    this.clearScreen();
+                    this.createText(`已选择：${reward.name}`, new cc_1.Vec3(0, 60), 30, cc_1.Color.WHITE, 'center');
+                    const unlocked = this.session.newlyUnlockedFamilyNames();
+                    this.createText(unlocked.length > 0 ? `它会在下一次重来时与你同行。\n已永久解锁家庭：${unlocked.join('、')}` : '它会在下一次重来时与你同行。', new cc_1.Vec3(0, 10), 20, new cc_1.Color(220, 226, 240), 'center');
+                    this.createButton('再次重来', new cc_1.Vec3(0, -100), new cc_1.Vec3(280, 70), () => this.showHome(), 'secondary', false);
+                }
+                showToast(message) {
+                    this.clearScreen();
+                    this.createText(message, new cc_1.Vec3(0, 30), 26, cc_1.Color.WHITE, 'center');
+                    this.createButton('返回主页', new cc_1.Vec3(0, -90), new cc_1.Vec3(260, 70), () => this.showHome(), 'secondary', false);
+                }
+                /** Shared alignment grid for every secondary page. */
+                createPageHeader(title, subtitle, back) {
+                    this.createText(title, new cc_1.Vec3(-500, 276), 36, UITheme_1.UITheme.text, 'left', 520, 54);
+                    this.createText(subtitle, new cc_1.Vec3(-500, 228), 16, UITheme_1.UITheme.muted, 'left', 820, 42);
+                    this.createButton('返回', new cc_1.Vec3(515, 270), new cc_1.Vec3(120, 42), back, 'ghost', false);
+                    this.createPanel(new cc_1.Vec3(0, 198), new cc_1.Vec3(1080, 2), UITheme_1.UITheme.line);
+                }
+                clearScreen() {
+                    this.resetPendingChoice();
+                    this.uiRoot.removeAllChildren();
+                    const background = new cc_1.Node('InkBackground');
+                    background.addComponent(cc_1.UITransform).setContentSize(1280, 720);
+                    this.drawRoundedRect(background, 1280, 720, 0, UITheme_1.UITheme.ink900);
+                    // A quiet second layer prevents the backdrop from collapsing into featureless black.
+                    const inner = new cc_1.Node('InkSurface');
+                    inner.addComponent(cc_1.UITransform).setContentSize(1218, 658);
+                    inner.setPosition(0, 0);
+                    this.drawRoundedRect(inner, 1218, 658, 22, UITheme_1.UITheme.ink850, UITheme_1.UITheme.line);
+                    background.addChild(inner);
+                    this.uiRoot.addChild(background);
+                }
+                createPanel(position, size, color = UITheme_1.UITheme.surface, name = 'Panel') {
+                    const node = new cc_1.Node(name);
+                    node.addComponent(cc_1.UITransform).setContentSize(size.x, size.y);
+                    node.setPosition(position);
+                    this.drawRoundedRect(node, size.x, size.y, size.y <= 38 ? 12 : 16, color, UITheme_1.UITheme.line);
+                    this.uiRoot.addChild(node);
+                    return node;
+                }
+                /** Uses Graphics rather than an empty Sprite: runtime UI therefore has real card surfaces in Creator. */
+                drawRoundedRect(node, width, height, radius, fill, stroke) {
+                    const graphics = node.addComponent(cc_1.Graphics);
+                    graphics.fillColor = fill;
+                    if (radius > 0)
+                        graphics.roundRect(-width / 2, -height / 2, width, height, radius);
+                    else
+                        graphics.rect(-width / 2, -height / 2, width, height);
+                    graphics.fill();
+                    if (stroke) {
+                        graphics.strokeColor = stroke;
+                        graphics.lineWidth = 1;
+                        if (radius > 0)
+                            graphics.roundRect(-width / 2, -height / 2, width, height, radius);
+                        else
+                            graphics.rect(-width / 2, -height / 2, width, height);
+                        graphics.stroke();
+                    }
+                }
+                createChip(text, position, width, color) {
+                    const chip = this.createPanel(position, new cc_1.Vec3(width, 34), UITheme_1.UITheme.surface);
+                    this.createTextOn(chip, text, cc_1.Vec3.ZERO, 15, color, 'center', width - 16, 28);
+                }
+                createStatBar(name, value, position, color) {
+                    const bar = this.createPanel(position, new cc_1.Vec3(300, 36), UITheme_1.UITheme.surface);
+                    const fill = new cc_1.Node('BarFill');
+                    fill.addComponent(cc_1.UITransform).setContentSize(Math.max(4, 190 * Math.max(0, Math.min(value, 100)) / 100), 5);
+                    fill.setPosition(-52 + (fill.getComponent(cc_1.UITransform).width - 190) / 2, -8);
+                    this.drawRoundedRect(fill, fill.getComponent(cc_1.UITransform).width, 5, 3, color);
+                    bar.addChild(fill);
+                    this.createTextOn(bar, name, new cc_1.Vec3(-122, 7), 14, UITheme_1.UITheme.muted, 'left', 60, 24);
+                    this.createTextOn(bar, `${Math.round(value)}`, new cc_1.Vec3(115, 7), 14, color, 'center', 46, 24);
+                }
+                createText(text, position, fontSize, color, align, width = 0, height = 0) {
+                    const node = new cc_1.Node('Text');
+                    const textWidth = width || 1100;
+                    const textHeight = height || this.measureTextHeight(text, fontSize, textWidth);
+                    node.addComponent(cc_1.UITransform).setContentSize(textWidth, textHeight);
+                    node.setPosition(this.textPosition(position, textWidth, align));
+                    const label = node.addComponent(cc_1.Label);
+                    this.configureLabel(label, text, fontSize, color, align, height > 0);
+                    this.uiRoot.addChild(node);
+                    Motion_1.Motion.screenEnter(node);
+                    return node;
+                }
+                createTextOn(parent, text, position, fontSize, color, align, width = 0, height = 0) {
+                    const node = new cc_1.Node('Text');
+                    const textWidth = width || 900;
+                    const textHeight = height || this.measureTextHeight(text, fontSize, textWidth);
+                    node.addComponent(cc_1.UITransform).setContentSize(textWidth, textHeight);
+                    node.setPosition(this.textPosition(position, textWidth, align));
+                    const label = node.addComponent(cc_1.Label);
+                    this.configureLabel(label, text, fontSize, color, align, height > 0);
+                    parent.addChild(node);
+                    return node;
+                }
+                /**
+                 * Cocos CLAMP cuts wrapped text when the transform still has a single-line height.
+                 * Reserve the required number of lines for flowing copy; fixed cards use SHRINK so
+                 * dynamic descriptions and large currency values remain completely visible.
+                 */
+                configureLabel(label, text, fontSize, color, align, constrained) {
+                    label.string = text;
+                    label.fontSize = fontSize;
+                    label.lineHeight = Math.round(fontSize * 1.35);
+                    label.color = color;
+                    label.fontFamily = fontSize >= 30 ? UITheme_1.UITheme.serif : UITheme_1.UITheme.sans;
+                    label.horizontalAlign = align === 'left' ? cc_1.Label.HorizontalAlign.LEFT : cc_1.Label.HorizontalAlign.CENTER;
+                    label.verticalAlign = cc_1.Label.VerticalAlign.CENTER;
+                    label.overflow = constrained ? cc_1.Label.Overflow.SHRINK : cc_1.Label.Overflow.CLAMP;
+                    label.enableWrapText = true;
+                }
+                /** Estimate wrapped Chinese/Latin line count before Label performs its first layout. */
+                measureTextHeight(text, fontSize, width) {
+                    const lineHeight = Math.round(fontSize * 1.35);
+                    const lineCapacity = Math.max(1, width / fontSize);
+                    const lines = text.split('\n').reduce((total, paragraph) => {
+                        const units = Array.from(paragraph).reduce((sum, character) => sum + (/[\u0000-\u00ff]/.test(character) ? .55 : 1), 0);
+                        return total + Math.max(1, Math.ceil(units / lineCapacity));
+                    }, 0);
+                    return Math.max(30, lines * lineHeight + 8);
+                }
+                /** Left-aligned call sites pass the desired left edge, while Cocos positions nodes by their centre anchor. */
+                textPosition(position, width, align) {
+                    return align === 'left' ? new cc_1.Vec3(position.x + width / 2, position.y, position.z) : position;
+                }
+                createButton(text, position, size, onClick, kind = 'secondary', confirmOnSecondClick = true) {
+                    return this.createButtonInternal(this.uiRoot, text, position, size, onClick, kind, confirmOnSecondClick);
+                }
+                createButtonOn(parent, text, position, size, onClick, kind = 'secondary', confirmOnSecondClick = true) {
+                    return this.createButtonInternal(parent, text, position, size, onClick, kind, confirmOnSecondClick);
+                }
+                createButtonInternal(parent, text, position, size, onClick, kind, confirmOnSecondClick) {
+                    var _a;
+                    const node = new cc_1.Node('ChoiceButton');
+                    node.addComponent(cc_1.UITransform).setContentSize(size.x, size.y);
+                    node.setPosition(position);
+                    this.paintButton(node, size, kind, false);
+                    const button = node.addComponent(cc_1.Button);
+                    button.transition = cc_1.Button.Transition.COLOR;
+                    button.target = node;
+                    button.normalColor = cc_1.Color.WHITE;
+                    button.pressedColor = kind === 'primary' ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.line;
+                    node.on(cc_1.Node.EventType.TOUCH_END, () => {
+                        if (confirmOnSecondClick)
+                            this.armChoice(node, () => this.paintButton(node, size, kind, false), () => this.paintButton(node, size, kind, true), onClick);
+                        else {
+                            this.resetPendingChoice();
+                            onClick();
+                        }
+                    }, this);
+                    parent.addChild(node);
+                    const buttonLabel = this.createTextOn(node, text, cc_1.Vec3.ZERO, size.y >= 75 ? 17 : 18, kind === 'primary' ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.text, 'center', size.x - 24);
+                    (_a = buttonLabel.getComponent(cc_1.UITransform)) === null || _a === void 0 ? void 0 : _a.setContentSize(size.x - 24, size.y - 14);
+                    const label = buttonLabel.getComponent(cc_1.Label);
+                    if (label)
+                        label.overflow = cc_1.Label.Overflow.SHRINK;
+                    if (parent === this.uiRoot)
+                        Motion_1.Motion.screenEnter(node, .04);
+                    return node;
+                }
+                /** First click only arms and highlights a choice; a second click on the same node confirms it. */
+                armChoice(node, reset, select, confirm) {
+                    var _a;
+                    if (((_a = this.pendingChoice) === null || _a === void 0 ? void 0 : _a.node) === node) {
+                        const pending = this.pendingChoice;
+                        this.pendingChoice = undefined;
+                        pending.reset();
+                        confirm();
+                        return;
+                    }
+                    this.resetPendingChoice();
+                    select();
+                    this.pendingChoice = { node, reset };
+                }
+                resetPendingChoice() {
+                    var _a;
+                    const pending = this.pendingChoice;
+                    this.pendingChoice = undefined;
+                    if ((_a = pending === null || pending === void 0 ? void 0 : pending.node) === null || _a === void 0 ? void 0 : _a.isValid)
+                        pending.reset();
+                }
+                paintButton(node, size, kind, selected) {
+                    var _a;
+                    const graphics = (_a = node.getComponent(cc_1.Graphics)) !== null && _a !== void 0 ? _a : node.addComponent(cc_1.Graphics);
+                    graphics.clear();
+                    const fill = selected
+                        ? kind === 'primary' ? new cc_1.Color(255, 210, 128, 255) : new cc_1.Color(65, 77, 99, 255)
+                        : kind === 'primary' ? UITheme_1.UITheme.gold : kind === 'ghost' ? UITheme_1.UITheme.ink850 : UITheme_1.UITheme.surfaceRaised;
+                    const stroke = selected ? UITheme_1.UITheme.goldSoft : kind === 'primary' ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.line;
+                    const radius = size.y <= 52 ? 12 : 16;
+                    graphics.fillColor = fill;
+                    graphics.roundRect(-size.x / 2, -size.y / 2, size.x, size.y, radius);
+                    graphics.fill();
+                    graphics.strokeColor = stroke;
+                    graphics.lineWidth = selected ? 4 : 1;
+                    graphics.roundRect(-size.x / 2, -size.y / 2, size.x, size.y, radius);
+                    graphics.stroke();
+                }
+                createTalentButton(text, position, size, rarity, onClick) {
+                    const node = new cc_1.Node('TalentButton');
+                    node.addComponent(cc_1.UITransform).setContentSize(size.x, size.y);
+                    node.setPosition(position);
+                    const fill = rarity === 'legendary' ? new cc_1.Color(83, 61, 31) : rarity === 'rare' ? new cc_1.Color(39, 62, 88) : UITheme_1.UITheme.surfaceRaised;
+                    const stroke = rarity === 'legendary' ? UITheme_1.UITheme.goldSoft : rarity === 'rare' ? UITheme_1.UITheme.info : UITheme_1.UITheme.line;
+                    this.drawRoundedRect(node, size.x, size.y, 16, fill, stroke);
+                    const button = node.addComponent(cc_1.Button);
+                    button.transition = cc_1.Button.Transition.COLOR;
+                    button.target = node;
+                    button.normalColor = cc_1.Color.WHITE;
+                    button.pressedColor = stroke;
+                    node.on(cc_1.Node.EventType.TOUCH_END, () => this.armChoice(node, () => this.paintTalentButton(node, size, fill, stroke, false), () => this.paintTalentButton(node, size, fill, stroke, true), onClick), this);
+                    this.uiRoot.addChild(node);
+                    const labelNode = this.createTextOn(node, text, cc_1.Vec3.ZERO, 16, UITheme_1.UITheme.text, 'center', size.x - 24, size.y - 18);
+                    const label = labelNode.getComponent(cc_1.Label);
+                    if (label)
+                        label.overflow = cc_1.Label.Overflow.SHRINK;
+                    Motion_1.Motion.screenEnter(node, .04);
+                    return node;
+                }
+                paintTalentButton(node, size, fill, stroke, selected) {
+                    var _a;
+                    const graphics = (_a = node.getComponent(cc_1.Graphics)) !== null && _a !== void 0 ? _a : node.addComponent(cc_1.Graphics);
+                    graphics.clear();
+                    graphics.fillColor = selected ? new cc_1.Color(Math.min(255, fill.r + 24), Math.min(255, fill.g + 24), Math.min(255, fill.b + 24), 255) : fill;
+                    graphics.roundRect(-size.x / 2, -size.y / 2, size.x, size.y, 16);
+                    graphics.fill();
+                    graphics.strokeColor = selected ? UITheme_1.UITheme.goldSoft : stroke;
+                    graphics.lineWidth = selected ? 4 : 1;
+                    graphics.roundRect(-size.x / 2, -size.y / 2, size.x, size.y, 16);
+                    graphics.stroke();
+                }
+                createTextButton(text, position, onClick) {
+                    const button = this.createText(text, position, 17, UITheme_1.UITheme.info, 'center', 150);
+                    button.on(cc_1.Node.EventType.TOUCH_END, onClick, this);
+                }
+                createTextButtonOn(parent, text, position, onClick) {
+                    const button = this.createTextOn(parent, text, position, 16, UITheme_1.UITheme.info, 'center', 380);
+                    button.on(cc_1.Node.EventType.TOUCH_END, onClick, this);
+                }
+                identitySummary(identity) {
+                    var _a;
+                    const bonuses = [...Object.entries(identity.attributeModifiers), ...Object.entries((_a = identity.skillModifiers) !== null && _a !== void 0 ? _a : {})].map(([key, value]) => `${this.nameOf(key)}+${value}`);
+                    const bonusText = bonuses.length ? ` · ${bonuses.join(' · ')}` : '';
+                    return `资源 ${this.money(identity.initialFamilyResources)} · 年资助 ${this.money(identity.familyAllowanceAnnual)}${bonusText}\n机会：${identity.opportunityFocus}`;
+                }
+                effectSummary(result) {
+                    var _a, _b, _c;
+                    const entries = [...Object.entries((_a = result.attributes) !== null && _a !== void 0 ? _a : {}), ...Object.entries((_b = result.skills) !== null && _b !== void 0 ? _b : {}), ...Object.entries((_c = result.stats) !== null && _c !== void 0 ? _c : {})];
+                    const visible = entries.filter(([, value]) => value !== 0).slice(0, 3).map(([key, value]) => `${this.nameOf(key)}${value > 0 ? '+' : ''}${value}`);
+                    return visible.join(' · ') || '开启特殊人生路径';
+                }
+                optionImpact(result) {
+                    var _a, _b;
+                    const changes = [];
+                    const append = (items, kind = 'value') => {
+                        Object.entries(items !== null && items !== void 0 ? items : {}).forEach(([key, value]) => {
+                            if (value === 0)
+                                return;
+                            changes.push(`${this.nameOf(key)}${value > 0 ? '+' : ''}${kind === 'money' ? this.money(value) : value}`);
+                        });
+                    };
+                    append(result.attributes);
+                    append(result.skills);
+                    Object.entries((_a = result.stats) !== null && _a !== void 0 ? _a : {}).forEach(([key, value]) => {
+                        if (!value)
+                            return;
+                        const moneyValue = key === 'funds' || key === 'familyResources';
+                        changes.push(`${this.nameOf(key)}${value > 0 ? '+' : ''}${moneyValue ? this.money(value) : value}`);
+                    });
+                    const relationshipNames = { father: '父亲关系', mother: '母亲关系', friend: '朋友关系', partner: '伴侣关系', mentor: '导师关系' };
+                    Object.entries((_b = result.relationships) !== null && _b !== void 0 ? _b : {}).forEach(([key, value]) => { var _a; if (value)
+                        changes.push(`${(_a = relationshipNames[key]) !== null && _a !== void 0 ? _a : key}${value > 0 ? '+' : ''}${value}`); });
+                    if (result.projectInvestment)
+                        changes.unshift(`行业投入-${this.money(result.projectInvestment.amount)}（转为项目资产）`);
+                    return changes.join(' · ') || '仅记录信息，不改变数值';
+                }
+                sparkline(values) {
+                    if (values.length === 0)
+                        return '暂无';
+                    const blocks = '▁▂▃▄▅▆▇█';
+                    const min = Math.min(...values);
+                    const max = Math.max(...values);
+                    if (min === max)
+                        return values.map(() => '▄').join('');
+                    return values.map((value) => blocks[Math.min(7, Math.floor((value - min) / (max - min) * 7))]).join('');
+                }
+                marketRequirements(instrument) {
+                    var _a;
+                    const conditions = (_a = instrument.prerequisites) !== null && _a !== void 0 ? _a : [];
+                    if (conditions.length === 0)
+                        return '无额外条件';
+                    return conditions.map((condition) => {
+                        const match = condition.match(/^(attributes|skills|stats)\.([a-zA-Z]+)(>=|<=)(\d+)$/);
+                        if (match)
+                            return `${this.nameOf(match[2])}${match[3]}${match[4]}`;
+                        if (condition.startsWith('flags.'))
+                            return condition === 'flags.computer-intro' ? '先接触电脑与互联网信息' : '完成对应前置事件';
+                        return condition;
+                    }).join('、');
+                }
+                focusName(focus) {
+                    return { study: '学习成长', work: '专注工作', rest: '游玩休息', social: '陪伴生活' }[focus];
+                }
+                focusButtonLabel(state, focus) {
+                    if (state.age < 18)
+                        return {
+                            study: '学习成长\n升学分+2 · 知识+3',
+                            work: '实践劳动\n零用钱+¥1,500 · 执行/商业+1',
+                            rest: '游玩休息\n健康+3 · 压力-8 · 幸福+5',
+                            social: '陪伴生活\n朋友关系+3 · 幸福+6 · 压力-5',
+                        }[focus];
+                    if (state.career.track === 'unemployed')
+                        return {
+                            study: '学习成长\n学习+2 · 信息+1 · 求职准备',
+                            work: '兼职实践\n年收入+¥12,000 · 职业能力↑',
+                            rest: '游玩休息\n健康+3 · 压力-8 · 幸福+5',
+                            social: '陪伴生活\n现金-¥4,000 · 幸福+6 · 压力-5',
+                        }[focus];
+                    if (focus === 'study')
+                        return '学习成长\n工资×0.90 · 学习+2 · 信息+1';
+                    if (focus === 'work')
+                        return '专注工作\n工资×1.25 · 职业技能↑ · 压力+3';
+                    if (focus === 'rest')
+                        return '游玩休息\n工资×0.70 · 健康+3 · 幸福+5';
+                    return '陪伴生活\n工资×0.85 · 现金-¥4,000 · 幸福+6';
+                }
+                focusAdvice(state) {
+                    if (state.stats.health < 45 || state.stats.pressure >= 70 || state.stats.happiness < 35)
+                        return '优先休息，避免健康或幸福崩溃';
+                    if (state.career.track === 'unemployed')
+                        return '优先学习，提高毕业后的职业选择空间';
+                    if (state.finance.lastCashflow < 0 || state.stats.funds < state.finance.livingCostAnnual * 2)
+                        return '优先工作，先修复现金流';
+                    if (state.skills.information < 35 || state.skills.technology < 35)
+                        return '学习能提高未来行业与机会判断';
+                    if (state.stats.familyBond < 45 || state.stats.happiness < 50)
+                        return '陪伴生活能修复家庭关系与幸福感';
+                    return '资源健康，可根据长期目标选择工作、学习或生活平衡';
+                }
+                pressureRule(pressure) {
+                    if (pressure < 40)
+                        return '平稳（无额外损耗）';
+                    if (pressure < 60)
+                        return '紧绷（每年幸福 -1）';
+                    if (pressure < 80)
+                        return '高压（每年幸福 -4、健康 -4；收入可能下降）';
+                    return '濒临崩溃（每年幸福 -8、健康 -9、知识 -2；收入大幅下降）';
+                }
+                startupName(type) { var _a; return (_a = { ecommerce: '电商店铺', 'local-service': '本地服务', content: '内容工作室', software: '软件工具', emerging: '智能自动化' }[type]) !== null && _a !== void 0 ? _a : '创业项目'; }
+                startupStageName(stage) { return stage ? ({ launch: '启动期', stable: '稳定期', expansion: '扩张期' })[stage] : '未启动'; }
+                statusSummary(state) {
+                    const stats = state.stats;
+                    return `现金 ${this.money(stats.funds)}   健康 ${stats.health}   压力 ${stats.pressure}   幸福 ${stats.happiness}   知识 ${stats.knowledge}   信息 ${stats.informationValue}`;
+                }
+                /** All economy values are stored in ten-thousand-yuan units and shown as RMB. */
+                money(amount) { return `¥${Math.round(amount * 10000).toLocaleString('zh-CN')}`; }
+                rarityName(rarity) { return { common: '普通', rare: '稀有', legendary: '传奇' }[rarity]; }
+                accuracyName(accuracy) { return { clear: '清晰记忆', 'fairly-clear': '较清晰记忆', blurred: '模糊记忆', fragmentary: '残缺记忆' }[accuracy]; }
+                educationName(level) { return ({ primary: '小学', middle: '初中', high: '高中', vocational: '中专', college: '专科', undergraduate: '本科', 'first-tier': '一本', '211': '211', '985': '985', graduate: '研究生' })[level]; }
+                highSchoolName(track) { return track ? ({ vocational: '中专', general: '普高', key: '重点高中' })[track] : '未录取'; }
+                cityName(city) { return ({ rural: '农村', county: '县城', city: '普通城市', metropolis: '大城市' })[city]; }
+                majorName(major) { return ({ engineering: '计算机和工程', business: '商业和经济', media: '人文和传媒', research: '教育和研究', 'public-service': '公共管理', general: '综合方向' })[major]; }
+                careerName(track) { return ({ technology: '技术研发', product: '产品运营', sales: '销售商务', education: '教育研究', media: '内容传媒', 'public-service': '公共服务', unemployed: '待业/探索' })[track]; }
+                careerLevelName(level) { return ({ junior: '初级', middle: '中级', senior: '高级', core: '核心人物' })[level]; }
+                assetName(type) { return ({ savings: '储蓄', housing: '住房', emerging: '新兴资产', startup: '创业项目' })[type]; }
+                marketKindName(kind) { var _a; return (_a = { stock: '股票', fund: '基金', bond: '债券' }[kind]) !== null && _a !== void 0 ? _a : '投资品种'; }
+                nameOf(key) { var _a; return (_a = { intelligence: '智力', emotionalIntelligence: '情商', constitution: '体质', execution: '执行力', charm: '魅力', luck: '运气', learning: '学习', technology: '技术', business: '商业', expression: '表达', management: '管理', information: '信息', funds: '现金', familyResources: '家庭资源', health: '健康', pressure: '压力', happiness: '幸福', knowledge: '知识', informationValue: '信息值', familyBond: '家庭关系', worldShift: '时代认知' }[key]) !== null && _a !== void 0 ? _a : '未分类属性'; }
+            };
+            exports_1("GameBootstrap", GameBootstrap);
+            exports_1("GameBootstrap", GameBootstrap = __decorate([
+                ccclass('GameBootstrap')
+            ], GameBootstrap));
+            cc_1.cclegacy._RF.pop();
+        }
+    };
+});
 System.register("chunks:///_virtual/GameEvents.ts",["cc","./EducationEvents.ts","./IndependentLifeEvents.ts","./OpportunityEvents.ts","./StarterEvents.ts","./LaterLifeEvents.ts","./FutureTransitionEvents.ts","./FamilyOpportunityEvents.ts","./IndustryOpportunityEvents.ts","./CareerPathEvents.ts"],(function(t){var n,E,e,s,T,i,u,c,N,o;return{setters:[function(t){n=t.cclegacy},function(t){E=t.EDUCATION_EVENTS},function(t){e=t.INDEPENDENT_LIFE_EVENTS},function(t){s=t.OPPORTUNITY_EVENTS},function(t){T=t.STARTER_EVENTS},function(t){i=t.LATER_LIFE_EVENTS},function(t){u=t.FUTURE_TRANSITION_EVENTS},function(t){c=t.FAMILY_OPPORTUNITY_EVENTS},function(t){N=t.INDUSTRY_OPPORTUNITY_EVENTS},function(t){o=t.CAREER_PATH_EVENTS}],execute:function(){n._RF.push({},"b01b4LRUYhJxqS9Z6q/SNs7","GameEvents",void 0);t("GAME_EVENTS",[].concat(T,E,c,e,o,s,N,u,i));n._RF.pop()}}}));
 
 System.register("chunks:///_virtual/GameSession.ts",["./rollupPluginModLoBabelHelpers.js","cc","./IdentityConfig.ts","./GameEvents.ts","./YearConfig.ts","./InheritanceConfig.ts","./DelayedEventQueue.ts","./EventMatcher.ts","./SaveManager.ts","./EndingResolver.ts","./LegacyManager.ts","./ReportGenerator.ts","./SeededRandom.ts","./GameStateManager.ts","./MarketSystem.ts","./InvestmentMemoryManager.ts","./EducationProgressionSystem.ts","./FinanceSystem.ts","./CareerSystem.ts","./StartupSystem.ts","./CitySystem.ts","./HousingSystem.ts","./FamilyUnlockManager.ts","./IndustryProjectSystem.ts","./WealthSystem.ts"],(function(t){var e,s,i,n,a,r,h,o,u,c,l,f,d,v,p,m,g,y,w,k,E,M,S,I,C;return{setters:[function(t){e=t.createClass},function(t){s=t.cclegacy},function(t){i=t.IDENTITIES},function(t){n=t.GAME_EVENTS},function(t){a=t.getYearConfig},function(t){r=t.INHERITANCE_REWARDS},function(t){h=t.DelayedEventQueue},function(t){o=t.EventMatcher},function(t){u=t.SaveManager},function(t){c=t.EndingResolver},function(t){l=t.LegacyManager},function(t){f=t.ReportGenerator},function(t){d=t.SeededRandom},function(t){v=t.GameStateManager},function(t){p=t.MarketSystem},function(t){m=t.InvestmentMemoryManager},function(t){g=t.EducationProgressionSystem},function(t){y=t.FinanceSystem},function(t){w=t.CareerSystem},function(t){k=t.StartupSystem},function(t){E=t.CitySystem},function(t){M=t.HousingSystem},function(t){S=t.FamilyUnlockManager},function(t){I=t.IndustryProjectSystem},function(t){C=t.totalAssetValue}],execute:function(){s._RF.push({},"80fccRowfBOLIj+dIUkGmhy","GameSession",void 0);t("GameSession",function(){function t(){this.stateManager=new v,this.eventMatcher=new o,this.saves=new u,this.delayedEvents=new h,this.endings=new c,this.reports=new f,this.legacy=new l,this.market=new p,this.investmentMemory=new m,this.education=new g,this.finance=new y,this.careers=new w,this.startups=new k,this.cities=new E,this.housing=new M,this.familyUnlocks=new S,this.industryProjects=new I,this.random=new d(Date.now()),this.currentEvent=void 0,this.latestOutcome=void 0,this.state=void 0,this.newlyUnlockedFamilyIds=[]}var s=t.prototype;return s.start=function(t,e,s){var n;void 0===e&&(e="original"),void 0===s&&(s=Date.now());var a=i.find((function(e){return e.id===t}));if(!a)throw new Error("未找到所选家庭身份。");if(!this.familyUnlocks.isUnlocked(t))throw new Error("该家庭尚未解锁："+(null!=(n=a.unlockDescription)?n:"请先完成人生目标。"));this.newlyUnlockedFamilyIds=[],this.random=new d(s),this.state=this.stateManager.createNewGame(e,a,s),this.state.market.insightIds=this.investmentMemory.load();var r=this.legacy.load();return r&&this.stateManager.applyChange(this.state,r.result),this.matchNextEvent(),this.save(),this.snapshot()},s.getCurrentEvent=function(){return this.currentEvent},s.pickDistinct=function(t,e){var s=this;return[].concat(t).sort((function(){return s.random.next()-.5})).slice(0,e)},s.rollPercentage=function(){return 100*this.random.next()},s.getLatestOutcome=function(){return this.latestOutcome},s.applyStartup=function(t,e,s){if(!this.state)throw new Error("人生尚未开始。");return this.stateManager.applyChange(this.state,t.result),this.stateManager.applyChange(this.state,e.result),this.stateManager.applyChange(this.state,s.result),this.state.talentId=t.id,this.state.defectId=e.id,this.state.memoryId=s.id,this.save(),this.snapshot()},s.choose=function(t){var e,s,i,n,a,r;if(!this.state||!this.currentEvent)throw new Error("当前没有可选择的事件。");var h=this.currentEvent.options.find((function(e){return e.id===t}));if(!h)throw new Error("该选项已经失效，请重新选择。");if(Math.max(0,-(null!=(e=null==(s=h.result.stats)?void 0:s.funds)?e:0))+(null!=(i=null==(n=h.result.projectInvestment)?void 0:n.amount)?i:0)>this.state.stats.funds)throw new Error("现金不足，无法承担这项选择。现金流良好时可先前往交易所申请贷款。");if(Math.max(0,-(null!=(a=null==(r=h.result.stats)?void 0:r.familyResources)?a:0))>this.state.stats.familyResources)throw new Error("家庭资源不足，无法推动这项家庭决策。");return this.resolve(this.currentEvent,h),this.save(),this.snapshot()},s.declineCurrentEvent=function(){if(!this.state||!this.currentEvent)throw new Error("当前没有待处理事件。");var t=this.currentEvent;if(!t.declineAllowed)throw new Error("这不是可以直接错过的商业机会，请选择一种具体处理方式。");return this.resolve(t,{id:"decline-opportunity",label:"不采取行动",result:{}}),this.save(),this.snapshot()},s.continueYear=function(){return this.continueYears(this.random.int(1,3))},s.continueYears=function(t){if(!this.state)throw new Error("人生尚未开始。");if(this.currentEvent)throw new Error("请先处理当前事件。");for(var e=Math.max(1,Math.min(3,Math.floor(t))),s=0;s<e&&!this.state.completed&&(this.finishYear(1),this.matchNextEvent(!0),!this.currentEvent);s+=1);return this.save(),this.snapshot()},s.setLifeFocus=function(t){if(!this.state)throw new Error("人生尚未开始。");if("work"===t&&"unemployed"===this.state.career.track)throw new Error("你还没有正式工作。当前可以优先学习、休息或社交，等待毕业后的职业节点。");return this.state.lifeFocus=t,this.finance.refresh(this.state),this.save(),this.snapshot()},s.recoverWellbeing=function(t){var e,s;if(!this.state)throw new Error("人生尚未开始。");if(this.state.lastWellbeingYear===this.state.year)throw new Error("今年已经安排过一次恢复行动。把下一次留给新的年份。");var i={pause:{stats:{pressure:-14,happiness:8,health:3}},care:{stats:{funds:-1.5,pressure:-20,happiness:6,health:8},addFlags:["wellbeing-care"]},connection:{stats:{funds:-.8,pressure:-10,happiness:12,familyBond:4},relationships:{friend:4,partner:2}}}[t],n=Math.max(0,-(null!=(e=null==(s=i.stats)?void 0:s.funds)?e:0));if(n>this.state.stats.funds)throw new Error("这项恢复安排需要 ¥"+Math.round(1e4*n).toLocaleString("zh-CN")+"。");return this.stateManager.applyChange(this.state,i),this.state.lastWellbeingYear=this.state.year,this.save(),this.snapshot()},s.getYearInfo=function(){return this.state?a(this.state.year):void 0},s.marketInstruments=function(){return this.state?this.market.instruments(this.state):[]},s.canResearchMarket=function(t){return!!this.state&&this.market.canResearch(this.state,this.market.find(t,this.state))},s.canTradeMarket=function(){return!!this.state&&this.market.canTrade(this.state)},s.acceptMarketRisk=function(){if(!this.state)throw new Error("人生尚未开始。");return this.market.acceptRisk(this.state),this.save(),this.snapshot()},s.researchMarket=function(t){if(!this.state)throw new Error("人生尚未开始。");var e=this.market.research(this.state,t),s=this.market.insightIdsFor(e);return this.state.market.insightIds=this.investmentMemory.remember([].concat(this.state.market.insightIds,s)),this.save(),e},s.buyMarket=function(t,e){if(!this.state)throw new Error("人生尚未开始。");return this.market.buy(this.state,t,e),this.save(),this.snapshot()},s.sellMarket=function(t,e){if(!this.state)throw new Error("人生尚未开始。");return this.market.sell(this.state,t,e),this.save(),this.snapshot()},s.marketValue=function(){return this.state?this.market.portfolioValue(this.state):0},s.totalAssetValue=function(){return this.state?C(this.state):0},s.marketChange=function(t){if(!this.state)return{amount:0,percent:0};var e=this.market.find(t,this.state);return this.market.change(e,this.state.year)},s.marketHistory=function(t,e){if(void 0===e&&(e=5),!this.state)return[];var s=this.market.find(t,this.state);return this.market.history(s,this.state.year,e)},s.marketInsightNames=function(){return this.state?this.market.insightNames(this.state.market.insightIds):[]},s.learningIndex=function(){return this.state?this.education.learningIndex(this.state):0},s.educationAdmissionPreview=function(t){if(this.state)return"education-subject-direction"===t?this.education.highSchoolPreview(this.state):"education-entrance-exam"===t?this.education.universityPreview(this.state):void 0},s.takeLoan=function(t){if(!this.state)throw new Error("人生尚未开始。");return this.finance.takeLoan(this.state,t),this.save(),this.snapshot()},s.repayLoan=function(t){if(!this.state)throw new Error("人生尚未开始。");return this.finance.repayLoan(this.state,t),this.save(),this.snapshot()},s.promotionScore=function(){return this.state?this.careers.promotionScore(this.state.attributes,this.state.skills,this.state.career.track):0},s.promotionRequirement=function(){return this.state?this.careers.requirement(this.state):void 0},s.startProject=function(t){if(!this.state)throw new Error("人生尚未开始。");return this.startups.startProject(this.state,t),this.save(),this.snapshot()},s.startupPreview=function(t){return this.startups.preview(t)},s.startupChance=function(t){return this.state?this.startups.successRate(this.state,t):0},s.startupSuccessRate=function(){return this.state?this.startups.successRate(this.state):0},s.advanceStartup=function(){var t=this;return this.useAnnualAction("startup-advance","创业项目每年只能推进一次。",(function(){return t.startups.advanceStage(t.state)}))},s.exitStartup=function(){if(!this.state)throw new Error("人生尚未开始。");return this.startups.exit(this.state),this.save(),this.snapshot()},s.migrateCity=function(t){if(!this.state)throw new Error("人生尚未开始。");return this.cities.migrate(this.state,t),this.finance.refresh(this.state),this.save(),this.snapshot()},s.migrationPreview=function(t){if(!this.state)throw new Error("人生尚未开始。");return this.cities.preview(this.state,t)},s.housingProducts=function(){return this.state?this.housing.products(this.state.education.city):[]},s.housingPrice=function(t){if(!this.state)return 0;var e=this.housing.products(this.state.education.city).find((function(e){return e.id===t}));return e?this.housing.price(e,this.state.year):0},s.buyHousing=function(t){if(!this.state)throw new Error("人生尚未开始。");return this.housing.buy(this.state,t),this.save(),this.snapshot()},s.sellHousing=function(t){if(!this.state)throw new Error("人生尚未开始。");return this.housing.sell(this.state,t),this.save(),this.snapshot()},s.industryProjectConfigs=function(){return this.state?this.industryProjects.available(this.state):[]},s.exitIndustryProject=function(t){if(!this.state)throw new Error("人生尚未开始。");return this.industryProjects.exit(this.state,t),this.save(),this.snapshot()},s.graduateSchool=function(){var t=this;return this.useAnnualAction("education-action","今年已经安排过一次进修。",(function(){t.education.applyGraduateSchool(t.state),t.finance.refresh(t.state)}))},s.certificate=function(t){var e=this;return this.useAnnualAction("education-action","今年已经安排过一次进修。",(function(){return e.education.applyCertificate(e.state,t)}))},s.selfStudy=function(t){var e=this;return this.useAnnualAction("education-action","今年已经安排过一次进修。",(function(){return e.education.applySelfStudy(e.state,t)}))},s.marketPrice=function(t){return this.state?this.market.price(this.market.find(t,this.state),this.state.year):0},s.getReport=function(){return this.state?this.reports.generate(this.state):void 0},s.familyUnlockStatuses=function(){return this.familyUnlocks.statuses()},s.newlyUnlockedFamilyNames=function(){return this.newlyUnlockedFamilyIds.map((function(t){var e;return null==(e=i.find((function(e){return e.id===t})))?void 0:e.name})).filter((function(t){return!!t}))},s.hasArchive=function(){return this.saves.hasSave()},s.hasContinuableSave=function(){return this.saves.hasContinuableSave()},s.loadArchive=function(){return this.tryRestore()},s.getInheritanceChoices=function(){var t=this;return[].concat(r).sort((function(){return t.random.next()-.5})).slice(0,3)},s.chooseInheritance=function(t){this.legacy.save(t)},s.tryRestore=function(){var t=this.saves.load();if(t)return this.state=t,this.education.repairMilestones(this.state),this.state.market.insightIds=this.investmentMemory.remember(this.state.market.insightIds),this.finance.refresh(this.state),this.random=new d(t.seed+t.year+t.triggeredEventIds.length),this.currentEvent=n.find((function(e){return e.id===t.activeEventId})),this.newlyUnlockedFamilyIds=t.completed?this.familyUnlocks.evaluate(t):[],this.currentEvent||t.completed||this.matchNextEvent(),this.save(),this.snapshot()},s.snapshot=function(){if(!this.state)throw new Error("人生尚未开始。");return JSON.parse(JSON.stringify(this.state))},s.resolve=function(t,e){this.state&&(e.result.projectInvestment&&this.industryProjects.invest(this.state,e.result.projectInvestment.projectId,e.result.projectInvestment.amount),this.stateManager.applyChange(this.state,e.result),this.latestOutcome=void 0,"education-subject-direction"===t.id&&this.education.resolveHighSchool(this.state),"education-entrance-exam"===t.id&&this.education.resolveUniversity(this.state),this.finance.refresh(this.state),this.state.triggeredEventIds.includes(t.id)||this.state.triggeredEventIds.push(t.id),this.state.lifeLog.push({year:this.state.year,eventId:t.id,optionId:e.id}),this.currentEvent=void 0,this.state.activeEventId=void 0)},s.finishYear=function(t){if(void 0===t&&(t=this.random.int(1,3)),this.state)if(this.state.age>=80)this.completeLife();else{var e=Math.min(t,80-this.state.age);this.state.year<2026&&this.state.year+e>2026&&(e=2026-this.state.year);var s=this.nextRequiredYear();void 0!==s&&this.state.year<s&&this.state.year+e>s&&(e=s-this.state.year);for(var i=0;i<e;i+=1){if(this.applyLifeFocus(),this.stateManager.advanceYears(this.state,1),this.state.age>=18&&this.state.finance.lastCashflow<0&&this.state.stats.funds<=0){this.state.flags.includes("cashflow-collapse")||this.state.flags.push("cashflow-collapse"),this.completeLife();break}if(this.state.stats.happiness<=0){this.state.flags.includes("happiness-collapse")||this.state.flags.push("happiness-collapse"),this.completeLife();break}}this.state.age>=80&&this.completeLife()}},s.matchNextEvent=function(t){var e;if(void 0===t&&(t=!1),!(!this.state||this.state.age>=80||this.state.completed)){this.market.revealFutureInstrument(this.state,this.random);var s=this.eventMatcher.pick(this.state,n.filter((function(t){return t.forced})),this.random);if(s)this.currentEvent=s;else{var i=this.delayedEvents.takeDue(this.state);if(i)this.currentEvent=n.find((function(t){return t.id===i.eventId}));else if(t&&this.random.next()<this.eventDensity){var a=this.random.next()<.28?this.eventMatcher.pick(this.state,n.filter((function(t){return"opportunity"===t.interaction})),this.random):void 0;this.currentEvent=null!=a?a:this.eventMatcher.pick(this.state,n.filter((function(t){return!t.forced&&"opportunity"!==t.interaction})),this.random)}else this.currentEvent=void 0}this.state.activeEventId=null==(e=this.currentEvent)?void 0:e.id}},s.applyLifeFocus=function(){if(this.state){var t=this.state.lifeFocus;if("study"===t)this.stateManager.applyChange(this.state,this.state.age<18?{education:{studyHabit:2,academicScore:2,studyYears:1},skills:{learning:2},stats:{knowledge:3,pressure:3,happiness:-1}}:{skills:{learning:2,information:1},stats:{knowledge:2,pressure:2,happiness:-1}});else if("work"===t)if("unemployed"===this.state.career.track)this.stateManager.applyChange(this.state,this.state.age<18?{attributes:{execution:1},skills:{business:1},stats:{pressure:2,happiness:-1}}:{skills:{management:1,business:1,information:1},stats:{pressure:3,happiness:-1}});else{var e="technology"===this.state.career.track?{technology:2,information:1}:"product"===this.state.career.track?{management:2,business:1,information:1}:"sales"===this.state.career.track?{business:2,expression:1}:"education"===this.state.career.track?{learning:2,expression:1}:"media"===this.state.career.track?{expression:2,information:1}:{management:1,learning:1,information:1},s="education"===this.state.career.track?2:0;this.stateManager.applyChange(this.state,{skills:e,stats:{pressure:3,happiness:-1,knowledge:s}})}else"rest"===t?this.stateManager.applyChange(this.state,{stats:{health:3,pressure:-8,happiness:5}}):"social"===t&&this.stateManager.applyChange(this.state,{relationships:{friend:3},stats:{happiness:6,pressure:-5},skills:{expression:1}})}},s.save=function(){this.state&&this.saves.save(this.state)},s.useAnnualAction=function(t,e,s){if(!this.state)throw new Error("人生尚未开始。");if(this.state.annualActionYears[t]===this.state.year)throw new Error(e);return s(),this.state.annualActionYears[t]=this.state.year,this.save(),this.snapshot()},s.completeLife=function(){this.state&&!this.state.completed&&(this.state.completed=!0,this.state.ending=this.endings.resolve(this.state),this.newlyUnlockedFamilyIds=this.familyUnlocks.evaluate(this.state),this.currentEvent=void 0,this.state.activeEventId=void 0)},s.nextRequiredYear=function(){if(this.state)return this.state.flags.includes("high-school-placement")?this.state.flags.includes("university-entry")?this.state.flags.includes("career-started")?void 0:2013:2010:2008},e(t,[{key:"eventDensity",get:function(){return this.state?this.state.age<15?.7:this.state.age<22?.9:this.state.age<40?1:.6:0}}]),t}());s._RF.pop()}}}));
@@ -60,8 +1139,88 @@ System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["cc","./Indus
 
 System.register("chunks:///_virtual/IndustryProjectConfig.ts",["cc"],(function(e){var i;return{setters:[function(e){i=e.cclegacy}],execute:function(){e("industryProject",(function(e){var i=t.find((function(i){return i.id===e}));if(!i)throw new Error("未找到对应的行业项目。");return i})),i._RF.push({},"8f7dbTuVUhGx7snqskiyR8R","IndustryProjectConfig",void 0);var t=e("INDUSTRY_PROJECTS",[{id:"online-retail-fulfillment",name:"区域网店仓配中心",industry:"电子商务与物流",description:"为早期网店提供仓储、包装和跨城发货。",yearMin:2010,idealUntil:2013,crowdedFrom:2016,yearMax:2020,minimumInvestment:10,growthRate:.22,matureRate:.07,declineRate:-.08,risk:"中"},{id:"smartphone-app-studio",name:"智能手机应用工作室",industry:"移动互联网",description:"开发工具、生活服务和移动内容应用。",yearMin:2010,idealUntil:2014,crowdedFrom:2017,yearMax:2021,minimumInvestment:15,growthRate:.26,matureRate:.05,declineRate:-.16,risk:"高"},{id:"mobile-payment-service",name:"商户移动支付服务",industry:"金融科技",description:"帮助线下商户接入移动支付和数字化账务。",yearMin:2013,idealUntil:2016,crowdedFrom:2019,yearMax:2023,minimumInvestment:20,growthRate:.2,matureRate:.06,declineRate:-.1,risk:"中"},{id:"local-delivery-platform",name:"本地生活配送平台",industry:"O2O本地服务",description:"依靠补贴和运力连接餐饮商户与消费者。",yearMin:2014,idealUntil:2015,crowdedFrom:2017,yearMax:2020,minimumInvestment:20,growthRate:.3,matureRate:-.02,declineRate:-.28,risk:"高"},{id:"short-video-studio",name:"短视频内容工作室",industry:"内容传媒",description:"通过短视频、广告和直播建立内容品牌。",yearMin:2016,idealUntil:2019,crowdedFrom:2022,yearMax:2028,minimumInvestment:12,growthRate:.24,matureRate:.08,declineRate:-.12,risk:"高"},{id:"battery-materials-line",name:"动力电池材料产线",industry:"新能源",description:"为新能源汽车产业链提供电池材料和回收服务。",yearMin:2017,idealUntil:2021,crowdedFrom:2024,yearMax:2032,minimumInvestment:40,growthRate:.23,matureRate:.04,declineRate:-.18,risk:"高"},{id:"chip-equipment-supplier",name:"半导体设备供应商",industry:"半导体",description:"提供设备零部件、检测和工程服务，研发周期较长。",yearMin:2018,idealUntil:2025,crowdedFrom:2032,yearMax:2040,minimumInvestment:35,growthRate:.18,matureRate:.09,declineRate:-.08,risk:"高"},{id:"remote-collaboration-suite",name:"远程协作软件",industry:"云服务",description:"为企业提供远程办公和在线协作工具。",yearMin:2020,idealUntil:2021,crowdedFrom:2023,yearMax:2027,minimumInvestment:18,growthRate:.28,matureRate:.02,declineRate:-.22,risk:"高"},{id:"vertical-ai-service",name:"垂直行业AI服务",industry:"人工智能",description:"把生成式AI用于企业流程、客服和专业生产。",yearMin:2022,idealUntil:2028,crowdedFrom:2033,yearMax:2042,minimumInvestment:25,growthRate:.22,matureRate:.08,declineRate:-.12,risk:"高"},{id:"low-altitude-operations",name:"低空设备运维服务",industry:"低空经济",description:"提供无人机检测、维修、调度和行业运营。",yearMin:2024,idealUntil:2030,crowdedFrom:2036,yearMax:2045,minimumInvestment:30,growthRate:.17,matureRate:.08,declineRate:-.1,risk:"高"},{id:"industrial-agent-platform",name:"工业智能体平台",industry:"企业智能化",description:"将智能体接入生产、供应链和企业决策。",yearMin:2027,idealUntil:2034,crowdedFrom:2040,yearMax:2048,minimumInvestment:30,growthRate:.18,matureRate:.07,declineRate:-.12,risk:"高"},{id:"distributed-storage-network",name:"分布式储能网络",industry:"能源基础设施",description:"聚合工商业储能并参与电力调度。",yearMin:2029,idealUntil:2037,crowdedFrom:2045,yearMax:2055,minimumInvestment:45,growthRate:.16,matureRate:.08,declineRate:-.07,risk:"中"},{id:"active-aging-service",name:"主动养老服务平台",industry:"银发经济",description:"围绕居住、照护、康复和文化生活提供长期服务。",yearMin:2031,idealUntil:2040,crowdedFrom:2050,yearMax:2062,minimumInvestment:22,growthRate:.14,matureRate:.09,declineRate:-.05,risk:"中"},{id:"robot-maintenance-network",name:"机器人维护网络",industry:"机器人服务",description:"为家庭和企业机器人提供维修、零件和升级。",yearMin:2034,idealUntil:2042,crowdedFrom:2050,yearMax:2060,minimumInvestment:28,growthRate:.17,matureRate:.08,declineRate:-.09,risk:"中"},{id:"bio-manufacturing-materials",name:"生物制造材料项目",industry:"生物制造",description:"利用生物工艺生产新材料，审批和研发风险较高。",yearMin:2037,idealUntil:2045,crowdedFrom:2053,yearMax:2064,minimumInvestment:40,growthRate:.19,matureRate:.07,declineRate:-.15,risk:"高"},{id:"climate-adaptation-engineering",name:"气候适应工程服务",industry:"城市韧性",description:"为城市提供防灾、节水、降温和基础设施改造。",yearMin:2041,idealUntil:2050,crowdedFrom:2058,yearMax:2070,minimumInvestment:35,growthRate:.14,matureRate:.08,declineRate:-.05,risk:"中"},{id:"urban-renewal-services",name:"老城更新综合服务",industry:"城市更新",description:"参与老旧社区改造、适老化和公共设施运营。",yearMin:2046,idealUntil:2055,crowdedFrom:2063,yearMax:2072,minimumInvestment:30,growthRate:.13,matureRate:.07,declineRate:-.04,risk:"中"},{id:"longevity-health-management",name:"长期健康管理网络",industry:"健康服务",description:"围绕慢病管理、康复和个体化健康建立持续服务。",yearMin:2051,idealUntil:2060,crowdedFrom:2068,yearMax:2072,minimumInvestment:25,growthRate:.13,matureRate:.08,declineRate:-.04,risk:"中"},{id:"succession-advisory",name:"家业传承顾问服务",industry:"专业服务",description:"帮助家庭企业完成治理、接班和资产安排。",yearMin:2058,idealUntil:2066,crowdedFrom:2070,yearMax:2072,minimumInvestment:20,growthRate:.12,matureRate:.07,declineRate:-.03,risk:"中"}]);i._RF.pop()}}}));
 
-System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./rollupPluginModLoBabelHelpers.js","cc","./IndustryProjectConfig.ts"],(function(r){var t,e,n,a;return{setters:[function(r){t=r.createForOfIteratorHelperLoose},function(r){e=r.cclegacy},function(r){n=r.INDUSTRY_PROJECTS,a=r.industryProject}],execute:function(){e._RF.push({},"b48actic3BFaLwRP9ep0wmi","IndustryProjectSystem",void 0);r("IndustryProjectSystem",function(){function r(){}var e=r.prototype;return e.available=function(r){return n.filter((function(t){return r.year>=t.yearMin&&r.year<=t.yearMax}))},e.invest=function(r,t,e){var n=a(t);if(r.age<18)throw new Error("年满18岁后才能以本人名义投资行业项目。");if(r.year<n.yearMin||r.year>n.yearMax)throw new Error("该项目当前不在开放窗口。");if(e<n.minimumInvestment)throw new Error("最低投入为 ¥"+(1e4*n.minimumInvestment).toLocaleString("zh-CN")+"。");if(r.stats.funds<e)throw new Error("现金不足，无法完成项目投资。");r.stats.funds-=e;var i={id:t+"-"+r.year+"-"+(r.industryProjects.length+1),projectId:t,name:n.name,industry:n.industry,startYear:r.year,investedPrincipal:e,currentValue:e,status:"active",realizedReturn:0};return r.industryProjects.push(i),i},e.settleYear=function(r){for(var e,n=t(r.industryProjects.filter((function(r){return"active"===r.status})));!(e=n()).done;){var i=e.value,u=a(i.projectId),o=r.year<=u.idealUntil?u.growthRate:r.year<u.crowdedFrom?u.matureRate:u.declineRate,s=i.startYear>=u.crowdedFrom?-.08:0,c=this.deterministicVariance(r.seed,i.projectId,r.year,u.risk),d=Math.max(-.65,o+s+c);i.currentValue=Math.max(0,Math.round(i.currentValue*(1+d)*10)/10),i.currentValue<=.08*i.investedPrincipal&&(i.status="failed")}},e.exit=function(r,t){var e=r.industryProjects.find((function(r){return r.id===t}));if(!e||"active"!==e.status)throw new Error("该项目当前无法退出。");var n=Math.round(.02*e.currentValue*10)/10,a=Math.max(0,e.currentValue-n);return r.stats.funds+=a,e.realizedReturn=Math.round(10*(a-e.investedPrincipal))/10,e.status="exited",e},e.deterministicVariance=function(r,e,n,a){for(var i,u=(r^n)>>>0,o=t(e);!(i=o()).done;){var s=i.value;u=Math.imul(u^s.charCodeAt(0),16777619)>>>0}return(u%10001/1e4-.5)*("高"===a?.24:.12)},r}());e._RF.pop()}}}));
-
+System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjectConfig.ts"], function (exports_1, context_1) {
+    "use strict";
+    var IndustryProjectConfig_1, IndustryProjectSystem;
+    var __moduleName = context_1 && context_1.id;
+    return {
+        setters: [
+            function (IndustryProjectConfig_1_1) {
+                IndustryProjectConfig_1 = IndustryProjectConfig_1_1;
+            }
+        ],
+        execute: function () {
+            IndustryProjectSystem = class IndustryProjectSystem {
+                available(state) {
+                    return IndustryProjectConfig_1.INDUSTRY_PROJECTS.filter((item) => state.year >= item.yearMin && state.year <= item.yearMax);
+                }
+                invest(state, projectId, amount) {
+                    const project = IndustryProjectConfig_1.industryProject(projectId);
+                    if (state.age < 18)
+                        throw new Error('年满18岁后才能以本人名义投资行业项目。');
+                    if (state.year < project.yearMin || state.year > project.yearMax)
+                        throw new Error('该项目当前不在开放窗口。');
+                    if (amount < project.minimumInvestment)
+                        throw new Error(`最低投入为 ¥${(project.minimumInvestment * 10000).toLocaleString('zh-CN')}。`);
+                    if (state.stats.funds < amount)
+                        throw new Error('现金不足，无法完成项目投资。');
+                    state.stats.funds -= amount;
+                    const holding = {
+                        id: `${projectId}-${state.year}-${state.industryProjects.length + 1}`,
+                        projectId,
+                        name: project.name,
+                        industry: project.industry,
+                        startYear: state.year,
+                        investedPrincipal: amount,
+                        currentValue: amount,
+                        status: 'active',
+                        realizedReturn: 0,
+                    };
+                    state.industryProjects.push(holding);
+                    return holding;
+                }
+                settleYear(state) {
+                    for (const holding of state.industryProjects.filter((item) => item.status === 'active')) {
+                        const config = IndustryProjectConfig_1.industryProject(holding.projectId);
+                        const baseRate = state.year <= config.idealUntil
+                            ? config.growthRate
+                            : state.year < config.crowdedFrom
+                                ? config.matureRate
+                                : config.declineRate;
+                        const lateEntryPenalty = holding.startYear >= config.crowdedFrom ? -.08 : 0;
+                        const variance = this.deterministicVariance(state.seed, holding.projectId, state.year, config.risk);
+                        const rate = Math.max(-.65, baseRate + lateEntryPenalty + variance);
+                        holding.currentValue = Math.max(0, Math.round(holding.currentValue * (1 + rate) * 10) / 10);
+                        if (holding.currentValue <= holding.investedPrincipal * .08) {
+                            holding.currentValue = 0;
+                            holding.realizedReturn = -holding.investedPrincipal;
+                            holding.status = 'failed';
+                        }
+                    }
+                }
+                exit(state, holdingId) {
+                    const holding = state.industryProjects.find((item) => item.id === holdingId);
+                    if (!holding || holding.status !== 'active')
+                        throw new Error('该项目当前无法退出。');
+                    const exitCost = Math.round(holding.currentValue * .02 * 10) / 10;
+                    const proceeds = Math.max(0, holding.currentValue - exitCost);
+                    state.stats.funds += proceeds;
+                    holding.realizedReturn = Math.round((proceeds - holding.investedPrincipal) * 10) / 10;
+                    holding.status = 'exited';
+                    return holding;
+                }
+                deterministicVariance(seed, id, year, risk) {
+                    let hash = (seed ^ year) >>> 0;
+                    for (const char of id)
+                        hash = Math.imul(hash ^ char.charCodeAt(0), 16777619) >>> 0;
+                    const normalized = (hash % 10001) / 10000 - .5;
+                    return normalized * (risk === '高' ? .24 : .12);
+                }
+            };
+            exports_1("IndustryProjectSystem", IndustryProjectSystem);
+        }
+    };
+});
 System.register("chunks:///_virtual/InheritanceConfig.ts",["cc"],(function(e){var i;return{setters:[function(e){i=e.cclegacy}],execute:function(){i._RF.push({},"2bd6dC0lYxHdJ+Yjg1UXfPb","InheritanceConfig",void 0);e("INHERITANCE_REWARDS",[{id:"legacy-learning",name:"学习传承",description:"下一局学习能力 +3。",result:{skills:{learning:3}}},{id:"legacy-information",name:"信息传承",description:"下一局信息能力 +3。",result:{skills:{information:3}}},{id:"legacy-health",name:"健康传承",description:"下一局初始健康 +5。",result:{stats:{health:5}}},{id:"legacy-family",name:"家庭传承",description:"下一局初始家庭关系 +5。",result:{stats:{familyBond:5}}},{id:"legacy-execution",name:"行动传承",description:"下一局执行力 +2。",result:{attributes:{execution:2}}},{id:"legacy-funds",name:"资源传承",description:"下一局个人资金 +5。",result:{stats:{funds:5}}}]);i._RF.pop()}}}));
 
 System.register("chunks:///_virtual/InvestmentMemoryManager.ts",["cc"],(function(t){var e,r;return{setters:[function(t){e=t.cclegacy,r=t.sys}],execute:function(){e._RF.push({},"edf86bBn1BPl65GhFIyw71Y","InvestmentMemoryManager",void 0);var n="restart-life.investment-insights.v1";t("InvestmentMemoryManager",function(){function t(){}var e=t.prototype;return e.load=function(){try{var t,e=JSON.parse(null!=(t=r.localStorage.getItem(n))?t:"[]");return Array.isArray(e)?e.filter((function(t){return"string"==typeof t})):[]}catch(t){return[]}},e.remember=function(t){var e=[].concat(new Set([].concat(this.load(),t)));return r.localStorage.setItem(n,JSON.stringify(e)),e},t}());e._RF.pop()}}}));
@@ -96,8 +1255,121 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["cc","./GameEvents.ts",
 
 System.register("chunks:///_virtual/RequirementFormatter.ts",["cc"],(function(e){var t;return{setters:[function(e){t=e.cclegacy}],execute:function(){t._RF.push({},"ea7a8aFSmVCeJ1mBQNN69eU","RequirementFormatter",void 0);e("RequirementFormatter",function(){function e(){}var t=e.prototype;return t.formatAll=function(e){var t=this;return void 0===e&&(e=[]),0===e.length?"无特殊条件":e.map((function(e){return t.format(e)})).join("；")},t.format=function(e){if(e.startsWith("flags."))return"需要经历："+this.flagName(e.slice(6));var t=e.match(/^(attributes|skills|stats)\.([a-zA-Z]+)\s*(>=|<=|==|>|<)\s*(-?\d+)$/);if(!t)return"需要满足前置条件";var n=t[1],r=t[2],i=t[3],a=t[4],o=Number(a),u={">=":"≥","<=":"≤","==":"=",">":">","<":"<"}[i];return"stats"===n&&"funds"===r?"可用现金 "+u+" "+this.money(o):this.nameOf(n,r)+" "+u+" "+o},t.money=function(e){return"¥"+Math.round(1e4*e).toLocaleString("zh-CN")},t.nameOf=function(e,t){var n;return null!=(n={intelligence:"智力",emotionalIntelligence:"情商",constitution:"体质",execution:"执行力",charm:"魅力",luck:"运气",learning:"学习能力",technology:"技术能力",business:"商业能力",expression:"表达能力",management:"管理能力",information:"信息能力",familyResources:"家庭资源",health:"健康",pressure:"压力",happiness:"幸福",knowledge:"知识",familyBond:"家庭关系",romance:"感情关系",informationValue:"信息值",worldShift:"世界偏移"}[t])?n:"相应能力"},t.flagName=function(e){var t;return null!=(t={"career-started":"拥有正式工作","middle-school":"完成初中阶段","university-entry":"完成大学录取","computer-intro":"接触过电脑"}[e])?t:"相应的人生经历"},e}());t._RF.pop()}}}));
 
-System.register("chunks:///_virtual/SaveManager.ts",["./rollupPluginModLoBabelHelpers.js","cc","./EducationProgressionSystem.ts","./IdentityConfig.ts"],(function(e){var n,t,a,i,l;return{setters:[function(e){n=e.createForOfIteratorHelperLoose},function(e){t=e.cclegacy,a=e.sys},function(e){i=e.EducationProgressionSystem},function(e){l=e.familyFlagsFor}],execute:function(){t._RF.push({},"a7030rWs+tDV5Wgc2ZIN1jJ","SaveManager",void 0);var s="restart-life.save.v1";e("SaveManager",function(){function e(){this.education=new i}var t=e.prototype;return t.save=function(e){a.localStorage.setItem(s,JSON.stringify(e))},t.load=function(){var e=a.localStorage.getItem(s);if(e)try{var t,i,r,o,u,c,d,g,y=JSON.parse(e);if(1!==y.version)return;null!=y.career||(y.career={track:"unemployed",level:"junior",workIntensity:"normal",industry:"",yearsAtLevel:0}),null!=(t=y.career).yearsAtLevel||(t.yearsAtLevel=0),null!=(i=y.stats).knowledge||(i.knowledge=10),null!=y.education||(y.education={level:"primary",city:"county",studyHabit:20,academicScore:50,studyYears:0}),null!=(r=y.education).studyHabit||(r.studyHabit=20),null!=(o=y.education).academicScore||(o.academicScore=50);var h=Math.min(10,Math.max(0,y.age-8)),v=y.education.studyHabit<=4&&y.education.academicScore<=4;if(null!=(u=y.education).studyYears||(u.studyYears=v?h:Math.min(h,Math.max(0,Math.round((y.education.studyHabit-20)/2)))),v&&(y.education.studyHabit=Math.min(100,20+2*y.education.studyYears),y.education.academicScore=Math.min(100,50+2*y.education.studyYears),y.flags.includes("high-school-placement")&&this.education.resolveHighSchool(y),y.flags.includes("university-entry")&&this.education.resolveUniversity(y)),null!=y.lifeFocus||(y.lifeFocus="unemployed"===y.career.track?"study":"work"),null!=y.finance||(y.finance={familyAllowanceAnnual:.5,salaryAnnual:0,livingCostAnnual:0,loanBalance:0,loanLimit:0,lastCashflow:0,history:[]}),null!=(c=y.finance).history||(c.history=[]),null!=y.startup||(y.startup={active:!1}),null!=y.assets||(y.assets=[]),null!=y.housingHoldings||(y.housingHoldings=[]),0===y.housingHoldings.length){var m=y.assets.find((function(e){return"housing"===e.type&&e.value>0}));m&&y.housingHoldings.push({id:"legacy-housing-"+y.year,productId:"legacy",city:y.education.city,name:"旧存档住房",purchaseYear:y.year,purchasePrice:m.value,currentValue:m.value})}null!=y.industryProjects||(y.industryProjects=[]),null!=y.market||(y.market={discoveredInstrumentIds:[],positions:[],realizedProfit:0,insightIds:[],generatedInstruments:[]}),null!=(d=y.market).insightIds||(d.insightIds=[]),null!=(g=y.market).generatedInstruments||(g.generatedInstruments=[]),null!=y.relationships||(y.relationships={father:50,mother:50,friend:30,partner:0,mentor:0}),null!=y.discoveredSignalIds||(y.discoveredSignalIds=[]),null!=y.opportunities||(y.opportunities=[]),null!=y.lifeLog||(y.lifeLog=[]),null!=y.completed||(y.completed=!1),null!=y.delayedEvents||(y.delayedEvents=[]),null!=y.unlockedAchievementIds||(y.unlockedAchievementIds=[]),null!=y.lastWellbeingYear||(y.lastWellbeingYear=-1),null!=y.annualActionYears||(y.annualActionYears={});for(var f,p=n(l(y.identityId));!(f=p()).done;){var I=f.value;y.flags.includes(I)||y.flags.push(I)}return y.completed&&y.age<80&&(y.completed=!1,y.ending=void 0),y}catch(e){return}},t.clear=function(){a.localStorage.removeItem(s)},t.hasSave=function(){return void 0!==this.load()},t.hasContinuableSave=function(){var e=this.load();return!!e&&!e.completed},e}());t._RF.pop()}}}));
-
+System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressionSystem.ts", "./IdentityConfig.ts"], function (exports_1, context_1) {
+    "use strict";
+    var cc_1, EducationProgressionSystem_1, IdentityConfig_1, SAVE_KEY, SaveManager;
+    var __moduleName = context_1 && context_1.id;
+    return {
+        setters: [
+            function (cc_1_1) {
+                cc_1 = cc_1_1;
+            },
+            function (EducationProgressionSystem_1_1) {
+                EducationProgressionSystem_1 = EducationProgressionSystem_1_1;
+            },
+            function (IdentityConfig_1_1) {
+                IdentityConfig_1 = IdentityConfig_1_1;
+            }
+        ],
+        execute: function () {
+            SAVE_KEY = 'restart-life.save.v1';
+            SaveManager = class SaveManager {
+                constructor() {
+                    this.education = new EducationProgressionSystem_1.EducationProgressionSystem();
+                }
+                save(state) {
+                    cc_1.sys.localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+                }
+                load() {
+                    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1;
+                    var _2, _3, _4, _5, _6, _7, _8, _9;
+                    const raw = cc_1.sys.localStorage.getItem(SAVE_KEY);
+                    if (!raw)
+                        return undefined;
+                    try {
+                        const state = JSON.parse(raw);
+                        if (state.version !== 1)
+                            return undefined;
+                        // Additive schema migration keeps development saves playable as new systems appear.
+                        (_a = state.career) !== null && _a !== void 0 ? _a : (state.career = { track: 'unemployed', level: 'junior', workIntensity: 'normal', industry: '', yearsAtLevel: 0 });
+                        (_b = (_2 = state.career).yearsAtLevel) !== null && _b !== void 0 ? _b : (_2.yearsAtLevel = 0);
+                        (_c = (_3 = state.stats).knowledge) !== null && _c !== void 0 ? _c : (_3.knowledge = 10);
+                        (_d = state.education) !== null && _d !== void 0 ? _d : (state.education = { level: 'primary', city: 'county', studyHabit: 20, academicScore: 50, studyYears: 0 });
+                        (_e = (_4 = state.education).studyHabit) !== null && _e !== void 0 ? _e : (_4.studyHabit = 20);
+                        (_f = (_5 = state.education).academicScore) !== null && _f !== void 0 ? _f : (_5.academicScore = 50);
+                        const elapsedSchoolYears = Math.min(10, Math.max(0, state.age - 8));
+                        // The previous build accidentally replaced both values with 2 whenever "学习成长" settled.
+                        const hasOverwrittenEducation = state.education.studyHabit <= 4 && state.education.academicScore <= 4;
+                        (_g = (_6 = state.education).studyYears) !== null && _g !== void 0 ? _g : (_6.studyYears = hasOverwrittenEducation
+                            ? elapsedSchoolYears
+                            : Math.min(elapsedSchoolYears, Math.max(0, Math.round((state.education.studyHabit - 20) / 2))));
+                        if (hasOverwrittenEducation) {
+                            state.education.studyHabit = Math.min(100, 20 + state.education.studyYears * 2);
+                            state.education.academicScore = Math.min(100, 50 + state.education.studyYears * 2);
+                            if (state.flags.includes('high-school-placement'))
+                                this.education.resolveHighSchool(state);
+                            if (state.flags.includes('university-entry'))
+                                this.education.resolveUniversity(state);
+                        }
+                        (_h = state.lifeFocus) !== null && _h !== void 0 ? _h : (state.lifeFocus = state.career.track === 'unemployed' ? 'study' : 'work');
+                        (_j = state.finance) !== null && _j !== void 0 ? _j : (state.finance = { familyAllowanceAnnual: 0.5, salaryAnnual: 0, livingCostAnnual: 0, loanBalance: 0, loanLimit: 0, lastCashflow: 0, history: [] });
+                        (_k = (_7 = state.finance).history) !== null && _k !== void 0 ? _k : (_7.history = []);
+                        (_l = state.startup) !== null && _l !== void 0 ? _l : (state.startup = { active: false });
+                        (_m = state.assets) !== null && _m !== void 0 ? _m : (state.assets = []);
+                        (_o = state.housingHoldings) !== null && _o !== void 0 ? _o : (state.housingHoldings = []);
+                        if (state.housingHoldings.length === 0) {
+                            const legacyHousing = state.assets.find((asset) => asset.type === 'housing' && asset.value > 0);
+                            if (legacyHousing)
+                                state.housingHoldings.push({ id: `legacy-housing-${state.year}`, productId: 'legacy', city: state.education.city, name: '旧存档住房', purchaseYear: state.year, purchasePrice: legacyHousing.value, currentValue: legacyHousing.value });
+                        }
+                        (_p = state.industryProjects) !== null && _p !== void 0 ? _p : (state.industryProjects = []);
+                        state.industryProjects.forEach((holding) => {
+                            var _a;
+                            (_a = holding.realizedReturn) !== null && _a !== void 0 ? _a : (holding.realizedReturn = holding.status === 'failed' ? -holding.investedPrincipal : 0);
+                            if (holding.status === 'failed') {
+                                holding.currentValue = 0;
+                                holding.realizedReturn = -holding.investedPrincipal;
+                            }
+                        });
+                        (_q = state.market) !== null && _q !== void 0 ? _q : (state.market = { discoveredInstrumentIds: [], positions: [], realizedProfit: 0, insightIds: [], generatedInstruments: [] });
+                        (_r = (_8 = state.market).insightIds) !== null && _r !== void 0 ? _r : (_8.insightIds = []);
+                        (_s = (_9 = state.market).generatedInstruments) !== null && _s !== void 0 ? _s : (_9.generatedInstruments = []);
+                        (_t = state.relationships) !== null && _t !== void 0 ? _t : (state.relationships = { father: 50, mother: 50, friend: 30, partner: 0, mentor: 0 });
+                        (_u = state.discoveredSignalIds) !== null && _u !== void 0 ? _u : (state.discoveredSignalIds = []);
+                        (_v = state.opportunities) !== null && _v !== void 0 ? _v : (state.opportunities = []);
+                        (_w = state.lifeLog) !== null && _w !== void 0 ? _w : (state.lifeLog = []);
+                        (_x = state.completed) !== null && _x !== void 0 ? _x : (state.completed = false);
+                        (_y = state.delayedEvents) !== null && _y !== void 0 ? _y : (state.delayedEvents = []);
+                        (_z = state.unlockedAchievementIds) !== null && _z !== void 0 ? _z : (state.unlockedAchievementIds = []);
+                        (_0 = state.lastWellbeingYear) !== null && _0 !== void 0 ? _0 : (state.lastWellbeingYear = -1);
+                        (_1 = state.annualActionYears) !== null && _1 !== void 0 ? _1 : (state.annualActionYears = {});
+                        for (const flag of IdentityConfig_1.familyFlagsFor(state.identityId))
+                            if (!state.flags.includes(flag))
+                                state.flags.push(flag);
+                        // Earlier builds ended every run at 2026. Reopen those premature endings under the 80-year life span.
+                        if (state.completed && state.age < 80) {
+                            state.completed = false;
+                            state.ending = undefined;
+                        }
+                        return state;
+                    }
+                    catch (_10) {
+                        return undefined;
+                    }
+                }
+                clear() {
+                    cc_1.sys.localStorage.removeItem(SAVE_KEY);
+                }
+                hasSave() { return this.load() !== undefined; }
+                hasContinuableSave() {
+                    const state = this.load();
+                    return !!state && !state.completed;
+                }
+            };
+            exports_1("SaveManager", SaveManager);
+        }
+    };
+});
 System.register("chunks:///_virtual/SeededRandom.ts",["cc"],(function(t){var e;return{setters:[function(t){e=t.cclegacy}],execute:function(){e._RF.push({},"ce4edKafq5J1KWVOrigEJ9H","SeededRandom",void 0);t("SeededRandom",function(){function t(t){this.state=void 0,this.state=t>>>0}var e=t.prototype;return e.next=function(){this.state+=1831565813;var t=this.state;return t=Math.imul(t^t>>>15,1|t),(((t^=t+Math.imul(t^t>>>7,61|t))^t>>>14)>>>0)/4294967296},e.int=function(t,e){return Math.floor(this.next()*(e-t+1))+t},t}());e._RF.pop()}}}));
 
 System.register("chunks:///_virtual/StarterEvents.ts",["cc","./EventTemplates.ts"],(function(e){var s,i,t;return{setters:[function(e){s=e.cclegacy},function(e){i=e.buildTemplateEvents,t=e.seedSeries}],execute:function(){s._RF.push({},"c7315itELxNY6FcjExifJ3M","StarterEvents",void 0);e("STARTER_EVENTS",[{id:"childhood-first-computer",title:"家里的旧电脑",description:"亲戚送来一台旧电脑。你可以把它当成玩具，也可以开始了解它。",yearMin:2e3,yearMax:2002,weight:100,options:[{id:"learn",label:"学习电脑基础",result:{skills:{technology:8,information:3},stats:{knowledge:6,pressure:5,happiness:-3},addFlags:["computer-intro"]}},{id:"play",label:"和朋友一起玩游戏",result:{attributes:{charm:2},stats:{happiness:6,pressure:-3}}}]},{id:"childhood-reading-habit",title:"放学后的时间",description:"老师建议你建立阅读习惯，但朋友约你去踢球。",yearMin:2001,yearMax:2004,weight:90,options:[{id:"read",label:"去图书馆读书",result:{skills:{learning:6,information:2},attributes:{intelligence:2},stats:{knowledge:7,pressure:5,happiness:-4},addFlags:["reading-habit"]}},{id:"sports",label:"和朋友去踢球",result:{attributes:{constitution:3,charm:2},stats:{happiness:4,pressure:-3,health:2}}}]},{id:"childhood-family-shop",title:"周末的家庭小店",description:"家里需要一个人帮忙照看店铺。你会如何安排这个周末？",yearMin:2003,yearMax:2006,weight:70,prerequisites:["stats.familyResources>=10"],options:[{id:"help",label:"帮忙招待顾客",result:{skills:{business:5,expression:2},attributes:{execution:2},stats:{knowledge:1,pressure:2,happiness:-1},addFlags:["family-business-experience"]}},{id:"study",label:"坚持完成作业",result:{skills:{learning:4},stats:{knowledge:5,pressure:5,happiness:-3}}}]},{id:"childhood-online-community",title:"网络社区的邀请码",description:"同学邀请你加入一个小小的网络社区，里面有人分享编程和写作。",yearMin:2004,yearMax:2006,weight:80,prerequisites:["flags.computer-intro"],options:[{id:"join",label:"注册并持续分享",result:{skills:{technology:4,expression:4,information:4},stats:{knowledge:4,pressure:3,happiness:-1},addFlags:["online-community"]}},{id:"observe",label:"先旁观一段时间",result:{skills:{information:3},stats:{knowledge:2,pressure:-1,happiness:1}}}]}]),e("STARTER_CONTENT_EVENTS",i("childhood",[].concat(t("computer",2e3,3,3),t("reading",2e3,3,4),t("family",2001,4,5),t("social",2001,3,5),t("hobby",2002,4,5),t("era",2002,3,5),t("health",2001,3,5),t("reflection",2003,3,4))));s._RF.pop()}}}));
