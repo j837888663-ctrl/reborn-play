@@ -1,51 +1,32 @@
-body {
-  cursor: default;
-  padding: 0;
-  border: 0;
-  margin: 0;
-
-  text-align: center;
-  background-color: white;
-  font-family: Helvetica, Verdana, Arial, sans-serif;
-}
-
-body, canvas, div {
-  outline: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  -khtml-user-select: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-/* Remove spin of input type number */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-  -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
-
-canvas {
-  background-color: rgba(0, 0, 0, 0);
-}
-
-#GameDiv {
-    margin: 0 auto;
-    position:relative;
-    border:5px solid black;
-    border-radius: 10px;
-    box-shadow: 0 5px 50px #333
-}
-
-#Cocos3dGameContainer, #GameCanvas {
-  width: 100%;
-  height: 100%;
-}
-
 :root {
-  --safe-top: env(safe-area-inset-top);
-  --safe-right: env(safe-area-inset-right);
-  --safe-bottom: env(safe-area-inset-bottom);
-  --safe-left: env(safe-area-inset-left);
+  color-scheme: dark;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
 }
+
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #090b12; }
+body { position: fixed; inset: 0; font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; overscroll-behavior: none; }
+body, canvas, div { outline: none; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
+
+#GameDiv { position: fixed; inset: 0; width: 100vw !important; height: 100dvh !important; margin: 0; background: #090b12; }
+#Cocos3dGameContainer, #GameCanvas { width: 100% !important; height: 100% !important; }
+#GameCanvas { display: block; background: #090b12; touch-action: none; }
+
+#boot-screen { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: calc(20px + var(--safe-top)) calc(20px + var(--safe-right)) calc(20px + var(--safe-bottom)) calc(20px + var(--safe-left)); background: radial-gradient(circle at 50% 38%, #20213a 0, #10111d 38%, #090b12 75%); opacity: 1; transition: opacity .24s ease; }
+#boot-screen.is-ready { opacity: 0; pointer-events: none; }
+.boot-card { width: min(78vw, 360px); text-align: center; }
+.boot-mark { width: 58px; height: 58px; margin: 0 auto 14px; display: grid; place-items: center; border: 1px solid rgba(244, 201, 112, .5); border-radius: 17px; color: #f4c970; font: 700 28px/1 Georgia, serif; background: rgba(244, 201, 112, .08); }
+.boot-title { color: #f5f1e8; font-size: 24px; font-weight: 700; letter-spacing: .12em; }
+.boot-message { min-height: 22px; margin-top: 12px; color: #a9afc3; font-size: 14px; }
+.boot-track { height: 3px; margin-top: 20px; overflow: hidden; border-radius: 99px; background: rgba(255,255,255,.09); }
+.boot-track span { display: block; width: 42%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, transparent, #f4c970, transparent); animation: boot-progress 1.15s ease-in-out infinite; }
+#boot-retry { margin-top: 18px; min-width: 140px; padding: 10px 18px; border: 1px solid rgba(244,201,112,.55); border-radius: 10px; color: #f5f1e8; background: rgba(244,201,112,.12); font: inherit; }
+#boot-screen.has-error .boot-track span { animation-play-state: paused; opacity: .35; }
+#rotate-hint { display: none; position: fixed; z-index: 900; left: 50%; top: calc(10px + var(--safe-top)); transform: translateX(-50%); padding: 7px 12px; border-radius: 999px; color: #e6dfcf; background: rgba(9,11,18,.82); font-size: 12px; white-space: nowrap; pointer-events: none; }
+
+@keyframes boot-progress { from { transform: translateX(-110%); } to { transform: translateX(340%); } }
+@media (orientation: portrait) and (max-width: 900px) { #rotate-hint { display: block; } }
+@media (prefers-reduced-motion: reduce) { .boot-track span { animation-duration: 2.4s; } }

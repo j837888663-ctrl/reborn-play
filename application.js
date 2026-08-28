@@ -50,7 +50,9 @@ System.register([], function (_export, _context) {
                 }
               }
             }).then(function () {
-              return cc.game.run();
+              return cc.game.run(function () {
+                if (window.__restartLifeReady) window.__restartLifeReady();
+              });
             });
           }
         }]);
