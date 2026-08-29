@@ -13,6 +13,9 @@ System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_
 
 
 
+
+
+
 System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.ts", "./ConditionEvaluator.ts"], function (exports_1, context_1) {
     "use strict";
     var AchievementConfig_1, ConditionEvaluator_1, AchievementSystem;
@@ -40,6 +43,9 @@ System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.
 
 
 
+
+
+
 System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var AssetSystem;
@@ -60,6 +66,9 @@ System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, con
         }
     };
 });
+
+
+
 
 
 
@@ -130,6 +139,9 @@ System.register("chunks:///_virtual/CareerPathEvents.ts",[], function (exports_1
 
 
 
+
+
+
 System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var LEVELS, THRESHOLDS, TENURE, CareerSystem;
@@ -178,6 +190,9 @@ System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 
 
@@ -234,6 +249,9 @@ System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], functi
 
 
 
+
+
+
 System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var WealthSystem_1, ConditionEvaluator;
@@ -279,6 +297,9 @@ System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"]
 
 
 
+
+
+
 System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_1, context_1) {
     "use strict";
     var DelayedEventQueue;
@@ -301,6 +322,9 @@ System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -399,6 +423,9 @@ System.register("chunks:///_virtual/EducationEvents.ts",["./EventTemplates.ts"],
         }
     };
 });
+
+
+
 
 
 
@@ -551,6 +578,9 @@ System.register("chunks:///_virtual/EducationProgressionSystem.ts",["./Education
 
 
 
+
+
+
 System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var LEVEL_RANK, EducationSystem;
@@ -581,6 +611,9 @@ System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1,
 
 
 
+
+
+
 System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var item, ENDINGS;
@@ -597,6 +630,9 @@ System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 
 
@@ -637,6 +673,9 @@ System.register("chunks:///_virtual/EndingResolver.ts",["./EndingConfig.ts", "./
         }
     };
 });
+
+
+
 
 
 
@@ -683,6 +722,9 @@ System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"]
         }
     };
 });
+
+
+
 
 
 
@@ -756,6 +798,9 @@ System.register("chunks:///_virtual/EventTemplates.ts",[], function (exports_1, 
 
 
 
+
+
+
 System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var EXPLORATION_ACTIONS;
@@ -778,6 +823,9 @@ System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -892,6 +940,9 @@ System.register("chunks:///_virtual/FamilyOpportunityEvents.ts",[], function (ex
 
 
 
+
+
+
 System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityConfig.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var cc_1, IdentityConfig_1, WealthSystem_1, FAMILY_UNLOCK_KEY, CAREER_RANK, FamilyUnlockManager;
@@ -962,6 +1013,9 @@ System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityCo
         }
     };
 });
+
+
+
 
 
 
@@ -1138,6 +1192,9 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
 
 
 
+
+
+
 System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var FUTURE_TRANSITION_EVENTS;
@@ -1166,7 +1223,10 @@ System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exp
 
 
 
-System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.ts", "./StartupConfig.ts", "./GameSession.ts", "./ExplorationConfig.ts", "./OpportunitySystem.ts", "./OpenOpportunitySystem.ts", "./StatChangeAnimator.ts", "./Motion.ts", "./UITheme.ts"], function (exports_1, context_1) {
+
+
+
+System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.ts", "./StartupConfig.ts", "./InheritanceConfig.ts", "./GameSession.ts", "./ExplorationConfig.ts", "./OpportunitySystem.ts", "./OpenOpportunitySystem.ts", "./StatChangeAnimator.ts", "./Motion.ts", "./UITheme.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1174,7 +1234,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
-    var cc_1, IdentityConfig_1, StartupConfig_1, GameSession_1, ExplorationConfig_1, OpportunitySystem_1, OpenOpportunitySystem_1, StatChangeAnimator_1, Motion_1, UITheme_1, ccclass, GameBootstrap;
+    var cc_1, IdentityConfig_1, StartupConfig_1, InheritanceConfig_1, GameSession_1, ExplorationConfig_1, OpportunitySystem_1, OpenOpportunitySystem_1, StatChangeAnimator_1, Motion_1, UITheme_1, WealthSystem_1, ccclass, GameBootstrap;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [
@@ -1186,6 +1246,9 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
             },
             function (StartupConfig_1_1) {
                 StartupConfig_1 = StartupConfig_1_1;
+            },
+            function (InheritanceConfig_1_1) {
+                InheritanceConfig_1 = InheritanceConfig_1_1;
             },
             function (GameSession_1_1) {
                 GameSession_1 = GameSession_1_1;
@@ -1207,6 +1270,9 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
             },
             function (UITheme_1_1) {
                 UITheme_1 = UITheme_1_1;
+            },
+            function (WealthSystem_1_1) {
+                WealthSystem_1 = WealthSystem_1_1;
             }
         ],
         execute: function () {
@@ -1220,9 +1286,10 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.openOpportunities = new OpenOpportunitySystem_1.OpenOpportunitySystem();
                     this.uiRoot = new cc_1.Node('RestartLifeUI');
                     this.designSize = new cc_1.Vec3(1280, 720, 1);
-                    this.talentRefreshesRemaining = 1;
+                    this.talentRefreshesRemaining = 3;
                     this.marketPage = 0;
                     this.industryPage = 0;
+                    this.renderRevision = 0;
                 }
                 onLoad() {
                     var _a;
@@ -1253,7 +1320,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         this.selectedIdentity = undefined;
                         this.selectedTalent = undefined;
                         this.revealedDefect = undefined;
-                        this.talentRefreshesRemaining = 1;
+                        this.talentRefreshesRemaining = 3;
                         this.showIdentitySelection();
                     }, 'primary', false);
                     if (this.session.hasContinuableSave())
@@ -1303,7 +1370,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                 showTalentSelection(offers) {
                     this.clearScreen();
                     this.createText('选择一项天赋', new cc_1.Vec3(0, 260), 39, UITheme_1.UITheme.text, 'center');
-                    this.createText('普通 80% · 稀有 18% · 传奇 2%；每局有 1 次免费刷新。', new cc_1.Vec3(0, 205), 17, UITheme_1.UITheme.muted, 'center');
+                    this.createText('普通 80% · 稀有 18% · 传奇 2%；每局有 3 次免费刷新。', new cc_1.Vec3(0, 205), 17, UITheme_1.UITheme.muted, 'center');
                     this.createText('轻度短板概率：普通 55% · 稀有 18% · 传奇 0%', new cc_1.Vec3(0, 168), 15, UITheme_1.UITheme.quiet, 'center');
                     offers.forEach(({ talent, defect }, index) => {
                         const x = (index - 1) * 350;
@@ -1311,21 +1378,21 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         this.createTalentButton(`${talent.name} · ${this.rarityName(talent.rarity)}\n${talent.description}\n\n天赋优势：${this.effectSummary(talent.result)}${defectText}`, new cc_1.Vec3(x, 10), new cc_1.Vec3(316, 220), talent.rarity, () => {
                             this.selectedTalent = talent;
                             this.revealedDefect = defect;
-                            this.showMemorySelection(this.session.pickDistinct(StartupConfig_1.MEMORIES, 3));
+                            this.beginLife();
                         });
                     });
                     const refreshText = this.talentRefreshesRemaining > 0
-                        ? `免费刷新天赋（剩余 ${this.talentRefreshesRemaining}/1）`
+                        ? `免费刷新天赋（剩余 ${this.talentRefreshesRemaining}/3）`
                         : '免费刷新次数已用完';
                     this.createButton(refreshText, new cc_1.Vec3(0, -155), new cc_1.Vec3(290, 48), () => {
                         if (this.talentRefreshesRemaining <= 0) {
-                            this.showToast('本局的 1 次免费刷新已经用完。');
+                            this.showToast('本局的 3 次免费刷新已经用完。');
                             return;
                         }
                         this.talentRefreshesRemaining -= 1;
                         this.showTalentSelection(this.rollTalentOffers());
                     }, this.talentRefreshesRemaining > 0 ? 'secondary' : 'ghost', false);
-                    this.createText('刷新只更换候选天赋，不消耗任何属性、金钱或记忆碎片。', new cc_1.Vec3(0, -210), 14, UITheme_1.UITheme.quiet, 'center', 800);
+                    this.createText('刷新只更换候选天赋，不消耗属性或金钱。', new cc_1.Vec3(0, -210), 14, UITheme_1.UITheme.quiet, 'center', 800);
                     this.createTextButton('返回属性说明', new cc_1.Vec3(-500, 285), () => this.showAttributeGuide());
                 }
                 /** Each slot rolls independently, making rerolls meaningful without hiding the published odds. */
@@ -1374,21 +1441,16 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     }
                     return Object.assign(Object.assign({}, talent), { result });
                 }
-                showMemorySelection(choices) {
-                    this.clearScreen();
-                    this.createText('带回一枚记忆碎片', new cc_1.Vec3(0, 260), 39, UITheme_1.UITheme.text, 'center');
-                    this.createText('记忆会立刻提供属性、资源或时代信号。卡片中的效果会真实写入本局人生。', new cc_1.Vec3(0, 205), 18, UITheme_1.UITheme.muted, 'center', 1000);
-                    choices.forEach((memory, index) => {
-                        const x = (index - 1) * 350;
-                        this.createButton(`${memory.text}\n${this.accuracyName(memory.accuracy)}\n效果：${memory.effectText}`, new cc_1.Vec3(x, 30), new cc_1.Vec3(310, 180), () => this.beginLife(memory));
-                    });
-                }
-                beginLife(memory) {
+                beginLife() {
                     if (!this.selectedIdentity || !this.selectedTalent || !this.revealedDefect)
                         return;
                     this.session.start(this.selectedIdentity.id, 'original', Date.now());
-                    const state = this.session.applyStartup(this.selectedTalent, this.revealedDefect, memory);
-                    this.showEvent(state, this.session.getCurrentEvent());
+                    const state = this.session.applyStartup(this.selectedTalent, this.revealedDefect);
+                    const inheritance = this.session.activeInheritance();
+                    if (inheritance)
+                        this.showInheritanceNotice(state, inheritance);
+                    else
+                        this.showEvent(state, this.session.getCurrentEvent());
                 }
                 restoreLife() {
                     const state = this.session.tryRestore();
@@ -1402,7 +1464,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.showEvent(state, this.session.getCurrentEvent());
                 }
                 showArchive() {
-                    var _a, _b, _c, _d, _e, _f, _g, _h;
+                    var _a, _b, _c, _d, _e, _f, _g;
                     const state = this.session.loadArchive();
                     const report = this.session.getReport();
                     if (!state || !report) {
@@ -1416,7 +1478,8 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.createPageHeader('人生档案', `${state.year} 年 · ${state.age} 岁 · ${state.completed ? '本局已结算' : '本局进行中'}`, () => this.showHome());
                     this.createPanel(new cc_1.Vec3(-300, 70), new cc_1.Vec3(500, 245), UITheme_1.UITheme.surface);
                     this.createPanel(new cc_1.Vec3(300, 70), new cc_1.Vec3(500, 245), UITheme_1.UITheme.surface);
-                    this.createText(`出身：${(_b = (_a = this.selectedIdentity) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : '未记录'}\n天赋：${(_d = (_c = this.selectedTalent) === null || _c === void 0 ? void 0 : _c.name) !== null && _d !== void 0 ? _d : '未记录'}\n缺陷：${(_f = (_e = this.revealedDefect) === null || _e === void 0 ? void 0 : _e.name) !== null && _f !== void 0 ? _f : '未记录'}\n记忆：${(_h = (_g = StartupConfig_1.MEMORIES.find((item) => item.id === state.memoryId)) === null || _g === void 0 ? void 0 : _g.text) !== null && _h !== void 0 ? _h : '未记录'}\n学历：${this.educationName(state.education.level)}\n职业：${this.careerName(state.career.track)} · ${this.careerLevelName(state.career.level)}`, new cc_1.Vec3(-520, 70), 17, UITheme_1.UITheme.text, 'left', 440, 215);
+                    const inheritedMemory = InheritanceConfig_1.INHERITANCE_REWARDS.find((item) => item.id === state.memoryId);
+                    this.createText(`出身：${(_b = (_a = this.selectedIdentity) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : '未记录'}\n天赋：${(_d = (_c = this.selectedTalent) === null || _c === void 0 ? void 0 : _c.name) !== null && _d !== void 0 ? _d : '未记录'}\n缺陷：${(_f = (_e = this.revealedDefect) === null || _e === void 0 ? void 0 : _e.name) !== null && _f !== void 0 ? _f : '未记录'}\n前世记忆：${(_g = inheritedMemory === null || inheritedMemory === void 0 ? void 0 : inheritedMemory.name) !== null && _g !== void 0 ? _g : '首局无'}\n学历：${this.educationName(state.education.level)}\n职业：${this.careerName(state.career.track)} · ${this.careerLevelName(state.career.level)}`, new cc_1.Vec3(-520, 70), 17, UITheme_1.UITheme.text, 'left', 440, 215);
                     this.createText(`个人现金：${this.money(state.stats.funds)}\n投资资产：${this.money(this.session.investmentAssetValue())}\n个人净资产：${this.money(this.session.totalAssetValue())}\n健康 / 幸福：${state.stats.health} / ${state.stats.happiness}\n最强维度：${report.strongestDimension}\n人生关键词：${report.lifeKeywords.join(' · ')}`, new cc_1.Vec3(80, 70), 17, UITheme_1.UITheme.text, 'left', 440, 215);
                     const timeline = report.timeline.slice(-5).map((item) => `${item.year}｜${item.event}：${item.choice}`).join('\n') || '尚未留下关键事件记录。';
                     this.createText('最近的重要选择', new cc_1.Vec3(-500, -82), 20, UITheme_1.UITheme.goldSoft, 'left', 300);
@@ -1432,6 +1495,10 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     }
                     this.clearScreen();
                     this.createLifeDashboard(state, event);
+                    if (event && (event.informational || event.interaction === 'information')) {
+                        this.showInformationNotice(event);
+                        return;
+                    }
                     if (!event) {
                         const yearInfo = this.session.getYearInfo();
                         this.createText('这一年，你想把时间交给什么？', new cc_1.Vec3(0, 78), 28, UITheme_1.UITheme.text, 'center');
@@ -1462,10 +1529,64 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.createButton('详情', new cc_1.Vec3(330, 282), new cc_1.Vec3(92, 38), () => this.showLifePanel(state, event), 'ghost', false);
                     this.createButton('探索', new cc_1.Vec3(435, 282), new cc_1.Vec3(92, 38), () => this.showExploration(state, event), 'ghost', false);
                     this.createButton('恢复', new cc_1.Vec3(540, 282), new cc_1.Vec3(92, 38), () => this.showWellbeing(state, event), 'ghost', false);
-                    this.createPanel(new cc_1.Vec3(0, 220), new cc_1.Vec3(1090, 58), UITheme_1.UITheme.surface);
                     const actionStatus = this.session.hasMajorActionAvailable() ? '额外行动 1/1' : '额外行动 已使用';
-                    this.createText(`个人现金 ${this.money(state.stats.funds)} ｜ 家庭资源 ${this.money(state.stats.familyResources)} ｜ ${actionStatus} ｜ 健康 ${Math.round(state.stats.health)} ｜ 压力 ${Math.round(state.stats.pressure)} ｜ 幸福 ${Math.round(state.stats.happiness)}\n家庭资源只用于家庭决策；恢复、自学、考证和创业推进共享每年一次额外行动`, new cc_1.Vec3(0, 220), 14, UITheme_1.UITheme.text, 'center', 1060, 50);
+                    const forecast = this.session.financeForecast();
+                    const goal = this.currentGoal(state);
+                    this.createPanel(new cc_1.Vec3(-360, 215), new cc_1.Vec3(330, 72), UITheme_1.UITheme.surface);
+                    this.createPanel(new cc_1.Vec3(0, 215), new cc_1.Vec3(330, 72), UITheme_1.UITheme.surface);
+                    this.createPanel(new cc_1.Vec3(360, 215), new cc_1.Vec3(330, 72), UITheme_1.UITheme.surface);
+                    this.createText(`个人现金 ${this.money(state.stats.funds)}\n净资产 ${this.money(this.session.totalAssetValue())}`, new cc_1.Vec3(-360, 215), 15, UITheme_1.UITheme.text, 'center', 300, 56);
+                    this.createText(`当前目标 · ${goal}\n${actionStatus}`, new cc_1.Vec3(0, 215), 15, UITheme_1.UITheme.goldSoft, 'center', 300, 56);
+                    this.createText(`预计年结余 ${forecast.netCashflow >= 0 ? '+' : ''}${this.money(forecast.netCashflow)}\n健康 ${Math.round(state.stats.health)} · 压力 ${Math.round(state.stats.pressure)} · 幸福 ${Math.round(state.stats.happiness)}`, new cc_1.Vec3(360, 215), 14, forecast.netCashflow < 0 ? UITheme_1.UITheme.loss : UITheme_1.UITheme.info, 'center', 300, 56);
                     this.showWarnings(state);
+                }
+                /** Information is applied automatically and only flashes briefly; it is not a player decision. */
+                showInformationNotice(event) {
+                    const option = event.options[0];
+                    if (!option) {
+                        this.showEvent(this.session.snapshot(), undefined);
+                        return;
+                    }
+                    try {
+                        const after = this.session.choose(option.id);
+                        const scrim = new cc_1.Node('InformationNoticeScrim');
+                        scrim.addComponent(cc_1.UITransform).setContentSize(1280, 720);
+                        this.drawRoundedRect(scrim, 1280, 720, 0, new cc_1.Color(8, 7, 12, 135));
+                        scrim.addComponent(cc_1.BlockInputEvents);
+                        this.uiRoot.addChild(scrim);
+                        const notice = this.createPanel(new cc_1.Vec3(0, 10), new cc_1.Vec3(850, 230), UITheme_1.UITheme.surfaceRaised, 'InformationNotice');
+                        this.createTextOn(notice, '时代信息已记录', new cc_1.Vec3(0, 76), 16, UITheme_1.UITheme.info, 'center', 760, 28);
+                        this.createTextOn(notice, event.title, new cc_1.Vec3(0, 34), 28, UITheme_1.UITheme.text, 'center', 760, 42);
+                        this.createTextOn(notice, event.description, new cc_1.Vec3(0, -18), 16, UITheme_1.UITheme.muted, 'center', 760, 56);
+                        const impact = this.optionImpact(option.result);
+                        this.createTextOn(notice, impact === '仅记录信息，不改变数值' ? '已加入本局时代线索' : impact, new cc_1.Vec3(0, -75), 15, UITheme_1.UITheme.goldSoft, 'center', 760, 30);
+                        const revision = this.renderRevision;
+                        Motion_1.Motion.notice(notice, () => {
+                            if (revision === this.renderRevision && notice.isValid)
+                                this.showEvent(after, this.session.getCurrentEvent());
+                        });
+                    }
+                    catch (error) {
+                        this.showActionMessage('信息记录失败', error instanceof Error ? error.message : '这条时代信息暂时无法写入。', () => this.showEvent(this.session.snapshot(), event));
+                    }
+                }
+                showInheritanceNotice(state, inheritance) {
+                    this.clearScreen();
+                    this.createLifeDashboard(state, this.session.getCurrentEvent());
+                    const scrim = new cc_1.Node('InheritanceNoticeScrim');
+                    scrim.addComponent(cc_1.UITransform).setContentSize(1280, 720);
+                    this.drawRoundedRect(scrim, 1280, 720, 0, new cc_1.Color(8, 7, 12, 145));
+                    scrim.addComponent(cc_1.BlockInputEvents);
+                    this.uiRoot.addChild(scrim);
+                    const notice = this.createPanel(new cc_1.Vec3(0, 10), new cc_1.Vec3(760, 200), UITheme_1.UITheme.surfaceRaised, 'InheritanceNotice');
+                    this.createTextOn(notice, '前世记忆已生效', new cc_1.Vec3(0, 52), 18, UITheme_1.UITheme.gold, 'center', 680, 30);
+                    this.createTextOn(notice, inheritance.name, new cc_1.Vec3(0, 8), 30, UITheme_1.UITheme.text, 'center', 680, 42);
+                    this.createTextOn(notice, inheritance.description.replace('下一局', '本局'), new cc_1.Vec3(0, -48), 17, UITheme_1.UITheme.muted, 'center', 680, 42);
+                    const revision = this.renderRevision;
+                    Motion_1.Motion.notice(notice, () => {
+                        if (revision === this.renderRevision && notice.isValid)
+                            this.showEvent(state, this.session.getCurrentEvent());
+                    });
                 }
                 createEventModal(state, event) {
                     const scrim = new cc_1.Node('OpportunityScrim');
@@ -1865,7 +1986,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const unlocked = after.flags.filter((flag) => !before.flags.includes(flag)).slice(0, 4);
                     const longTermSources = [
                         ((_a = StartupConfig_1.TALENTS.find((item) => item.id === after.talentId)) === null || _a === void 0 ? void 0 : _a.name) ? `天赋：${(_b = StartupConfig_1.TALENTS.find((item) => item.id === after.talentId)) === null || _b === void 0 ? void 0 : _b.name}已计入相关能力与门槛` : '',
-                        ((_c = StartupConfig_1.MEMORIES.find((item) => item.id === after.memoryId)) === null || _c === void 0 ? void 0 : _c.effectText) ? `记忆：${(_d = StartupConfig_1.MEMORIES.find((item) => item.id === after.memoryId)) === null || _d === void 0 ? void 0 : _d.effectText}` : '',
+                        ((_c = InheritanceConfig_1.INHERITANCE_REWARDS.find((item) => item.id === after.memoryId)) === null || _c === void 0 ? void 0 : _c.description) ? `前世记忆：${(_d = InheritanceConfig_1.INHERITANCE_REWARDS.find((item) => item.id === after.memoryId)) === null || _d === void 0 ? void 0 : _d.description.replace('下一局', '本局')}` : '',
                     ].filter(Boolean).join('\n');
                     this.createText(event.interaction === 'milestone' || event.forced ? '人生节点已完成' : '这一选择留下了回声', new cc_1.Vec3(0, 230), 20, UITheme_1.UITheme.info, 'center');
                     this.createText(event.title, new cc_1.Vec3(0, 175), 38, UITheme_1.UITheme.text, 'center', 900);
@@ -1902,10 +2023,14 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const finance = after.finance.history.slice(-elapsed);
                     const net = Math.round(finance.reduce((sum, row) => sum + row.netCashflow, 0) * 100) / 100;
                     const familyCovered = Math.round(finance.reduce((sum, row) => { var _a; return sum + ((_a = row.familyCoveredExpense) !== null && _a !== void 0 ? _a : 0); }, 0) * 100) / 100;
+                    const wealthBefore = WealthSystem_1.totalAssetValue(before);
+                    const wealthAfter = WealthSystem_1.totalAssetValue(after);
+                    const wealthDelta = Math.round((wealthAfter - wealthBefore) * 100) / 100;
+                    const milestone = this.wealthMilestone(wealthBefore, wealthAfter);
                     this.createText(`${before.year}—${after.year} 年度总结`, new cc_1.Vec3(0, 230), 37, UITheme_1.UITheme.text, 'center', 900);
-                    this.createText(`重心：${this.focusName(before.lifeFocus)} · 实际经过 ${elapsed} 年`, new cc_1.Vec3(0, 184), 17, UITheme_1.UITheme.info, 'center', 900);
+                    this.createText(milestone ? `财富里程碑 · ${milestone}` : `重心：${this.focusName(before.lifeFocus)} · 实际经过 ${elapsed} 年`, new cc_1.Vec3(0, 184), 17, milestone ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'center', 900);
                     this.createPanel(new cc_1.Vec3(0, 45), new cc_1.Vec3(900, 250), UITheme_1.UITheme.surfaceRaised);
-                    this.createText(`${deltas || '这一阶段主要保持了原有状态。'}\n\n个人净现金流 ${net >= 0 ? '+' : ''}${this.money(net)}${familyCovered > 0 ? ` · 家庭承担生活费 ${this.money(familyCovered)}` : ''}\n期末现金 ${this.money(after.stats.funds)} · 压力 ${after.stats.pressure} · 幸福 ${after.stats.happiness}`, new cc_1.Vec3(0, 50), 19, net >= 0 ? UITheme_1.UITheme.text : UITheme_1.UITheme.loss, 'center', 830, 190);
+                    this.createText(`${deltas || '这一阶段主要保持了原有状态。'}\n\n个人净现金流 ${net >= 0 ? '+' : ''}${this.money(net)}${familyCovered > 0 ? ` · 家庭承担生活费 ${this.money(familyCovered)}` : ''}\n净资产 ${wealthDelta >= 0 ? '+' : ''}${this.money(wealthDelta)} → ${this.money(wealthAfter)}\n期末现金 ${this.money(after.stats.funds)} · 压力 ${after.stats.pressure} · 幸福 ${after.stats.happiness}`, new cc_1.Vec3(0, 50), 18, wealthDelta >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 830, 200);
                     this.createButton(this.session.getCurrentEvent() ? '查看新事件' : '安排下一年', new cc_1.Vec3(0, -145), new cc_1.Vec3(280, 58), () => this.showEvent(after, this.session.getCurrentEvent()), 'primary', false);
                 }
                 stateDeltaSummary(before, after) {
@@ -1934,7 +2059,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     if (state.finance.lastCashflow < 0)
                         warnings.push('⚠ 现金流为负');
                     if (warnings.length)
-                        this.createText(warnings.join('  '), new cc_1.Vec3(0, 174), 14, UITheme_1.UITheme.loss, 'center', 1000, 24);
+                        this.createText(warnings.join('  '), new cc_1.Vec3(0, 150), 14, UITheme_1.UITheme.loss, 'center', 1000, 24);
                 }
                 setFocus(focus) {
                     try {
@@ -2031,7 +2156,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const newFamilies = this.session.newlyUnlockedFamilyNames();
                     const unlockText = newFamilies.length > 0 ? `\n新家庭已解锁：${newFamilies.join('、')}` : '';
                     this.createText(`${report.summary}\n最强维度：${report.strongestDimension} · 最大取舍：${report.greatestSacrifice}\n抓住的机遇：${report.opportunities.join('、') || '暂无'}${unlockText}`, new cc_1.Vec3(0, 0), 16, newFamilies.length > 0 ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.info, 'center', 920, 86);
-                    this.createText('选择一项重来传承', new cc_1.Vec3(0, -73), 21, UITheme_1.UITheme.gold, 'center');
+                    this.createText('选择一枚来世记忆碎片', new cc_1.Vec3(0, -73), 21, UITheme_1.UITheme.gold, 'center');
                     this.session.getInheritanceChoices().forEach((reward, index) => {
                         this.createButton(`${reward.name}\n${reward.description}`, new cc_1.Vec3((index - 1) * 340, -165), new cc_1.Vec3(300, 88), () => this.selectInheritance(reward), index === 1 ? 'primary' : 'secondary');
                     });
@@ -2039,7 +2164,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                 selectInheritance(reward) {
                     this.session.chooseInheritance(reward);
                     this.clearScreen();
-                    this.createText(`已选择：${reward.name}`, new cc_1.Vec3(0, 60), 30, cc_1.Color.WHITE, 'center');
+                    this.createText(`记忆碎片已保存：${reward.name}`, new cc_1.Vec3(0, 60), 30, cc_1.Color.WHITE, 'center');
                     const unlocked = this.session.newlyUnlockedFamilyNames();
                     this.createText(unlocked.length > 0 ? `它会在下一次重来时与你同行。\n已永久解锁家庭：${unlocked.join('、')}` : '它会在下一次重来时与你同行。', new cc_1.Vec3(0, 10), 20, new cc_1.Color(220, 226, 240), 'center');
                     this.createButton('再次重来', new cc_1.Vec3(0, -100), new cc_1.Vec3(280, 70), () => this.showHome(), 'secondary', false);
@@ -2057,6 +2182,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.createPanel(new cc_1.Vec3(0, 198), new cc_1.Vec3(1080, 2), UITheme_1.UITheme.line);
                 }
                 clearScreen() {
+                    this.renderRevision += 1;
                     this.resetPendingChoice();
                     this.uiRoot.removeAllChildren();
                     const background = new cc_1.Node('InkBackground');
@@ -2310,7 +2436,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     });
                     const relationshipNames = { father: '父亲关系', mother: '母亲关系', friend: '朋友关系', partner: '伴侣关系', mentor: '导师关系' };
                     Object.entries((_b = result.relationships) !== null && _b !== void 0 ? _b : {}).forEach(([key, value]) => { var _a; if (value)
-                        changes.push(`${(_a = relationshipNames[key]) !== null && _a !== void 0 ? _a : key}${value > 0 ? '+' : ''}${value}`); });
+                        changes.push(`${(_a = relationshipNames[key]) !== null && _a !== void 0 ? _a : '关系变化'}${value > 0 ? '+' : ''}${value}`); });
                     if (result.projectInvestment)
                         changes.unshift(`行业投入-${this.money(result.projectInvestment.amount)}（转为项目资产）`);
                     return changes.join(' · ') || '仅记录信息，不改变数值';
@@ -2335,8 +2461,8 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         if (match)
                             return `${this.nameOf(match[2])}${match[3]}${match[4]}`;
                         if (condition.startsWith('flags.'))
-                            return condition === 'flags.computer-intro' ? '先接触电脑与互联网信息' : '完成对应前置事件';
-                        return condition;
+                            return condition === 'flags.computer-intro' ? '先接触电脑与互联网信息' : '完成对应人生经历';
+                        return '满足对应能力条件';
                     }).join('、');
                 }
                 focusName(focus) {
@@ -2378,6 +2504,26 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         return '陪伴生活能修复家庭关系与幸福感';
                     return '资源健康，可根据长期目标选择工作、学习或生活平衡';
                 }
+                currentGoal(state) {
+                    if (!state.flags.includes('high-school-placement'))
+                        return '为中考分流积累学业评分';
+                    if (!state.flags.includes('university-entry'))
+                        return '提高大学录取层级';
+                    if (!state.flags.includes('career-started'))
+                        return '完成学业并找到第一份工作';
+                    if (state.stats.funds < state.finance.livingCostAnnual)
+                        return '建立至少一年的现金储备';
+                    if (this.session.investmentAssetValue() <= 0)
+                        return '研究市场并建立第一项资产';
+                    if (state.finance.lastCashflow < 0)
+                        return '让年度现金流恢复为正';
+                    return '提升净资产，同时守住健康与幸福';
+                }
+                wealthMilestone(before, after) {
+                    const thresholds = [10, 50, 100, 500, 1000];
+                    const crossed = thresholds.find((threshold) => before < threshold && after >= threshold);
+                    return crossed === undefined ? undefined : `个人净资产首次达到 ${this.money(crossed)}`;
+                }
                 pressureRule(pressure) {
                     if (pressure < 40)
                         return '平稳（无额外损耗）';
@@ -2396,7 +2542,6 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                 /** All economy values are stored in ten-thousand-yuan units and shown as RMB. */
                 money(amount) { return `¥${Math.round(amount * 10000).toLocaleString('zh-CN')}`; }
                 rarityName(rarity) { return { common: '普通', rare: '稀有', legendary: '传奇' }[rarity]; }
-                accuracyName(accuracy) { return { clear: '清晰记忆', 'fairly-clear': '较清晰记忆', blurred: '模糊记忆', fragmentary: '残缺记忆' }[accuracy]; }
                 educationName(level) { return ({ primary: '小学', middle: '初中', high: '高中', vocational: '中专', college: '专科', undergraduate: '本科', 'first-tier': '一本', '211': '211', '985': '985', graduate: '研究生' })[level]; }
                 highSchoolName(track) { return track ? ({ vocational: '中专', general: '普高', key: '重点高中' })[track] : '未录取'; }
                 cityName(city) { return ({ rural: '农村', county: '县城', city: '普通城市', metropolis: '大城市' })[city]; }
@@ -2414,9 +2559,14 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         'university-entry': '进入大学阶段',
                         'college-admission': '完成高考',
                         'career-started': '开启职业路线',
+                        'computer-intro': '接触电脑与互联网',
                         'market-risk-read': '开通交易账户',
                         'startup-formalized': '正式创业',
-                    }[flag]) !== null && _a !== void 0 ? _a : flag.replace(/-/g, ' ');
+                        'benefactor': '获得关键引路人',
+                        'memory-boost': '前世感知变得清晰',
+                        'extra-signal': '获得额外时代信号',
+                        'event-rollback': '获得一次重新判断机会',
+                    }[flag]) !== null && _a !== void 0 ? _a : '完成一段新的人生经历';
                 }
             };
             exports_1("GameBootstrap", GameBootstrap);
@@ -2427,6 +2577,9 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
         }
     };
 });
+
+
+
 
 
 
@@ -2480,6 +2633,9 @@ System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./I
         }
     };
 });
+
+
+
 
 
 
@@ -2597,8 +2753,10 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     this.state = this.stateManager.createNewGame(mode, identity, seed);
                     this.state.market.insightIds = this.investmentMemory.load();
                     const inheritance = this.legacy.load();
-                    if (inheritance)
+                    if (inheritance) {
                         this.stateManager.applyChange(this.state, inheritance.result);
+                        this.state.memoryId = inheritance.id;
+                    }
                     this.matchNextEvent();
                     this.save();
                     return this.snapshot();
@@ -2615,15 +2773,13 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     return this.random.next() * 100;
                 }
                 getLatestOutcome() { return this.latestOutcome; }
-                applyStartup(talent, defect, memory) {
+                applyStartup(talent, defect) {
                     if (!this.state)
                         throw new Error('人生尚未开始。');
                     this.stateManager.applyChange(this.state, talent.result);
                     this.stateManager.applyChange(this.state, defect.result);
-                    this.stateManager.applyChange(this.state, memory.result);
                     this.state.talentId = talent.id;
                     this.state.defectId = defect.id;
-                    this.state.memoryId = memory.id;
                     this.save();
                     return this.snapshot();
                 }
@@ -2793,6 +2949,7 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                 loadArchive() { return this.tryRestore(); }
                 getInheritanceChoices() { return [...InheritanceConfig_1.INHERITANCE_REWARDS].sort(() => this.random.next() - 0.5).slice(0, 3); }
                 chooseInheritance(reward) { this.legacy.save(reward); }
+                activeInheritance() { return this.legacy.load(); }
                 tryRestore() {
                     const restored = this.saves.load();
                     if (!restored)
@@ -2972,6 +3129,9 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
         }
     };
 });
+
+
+
 
 
 
@@ -3171,6 +3331,9 @@ System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "
 
 
 
+
+
+
 System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -3180,6 +3343,9 @@ System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, conte
         }
     };
 });
+
+
+
 
 
 
@@ -3201,6 +3367,9 @@ System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 
 
@@ -3294,6 +3463,9 @@ System.register("chunks:///_virtual/HousingSystem.ts",[], function (exports_1, c
 
 
 
+
+
+
 System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var IDENTITIES, STARTER_FAMILY_IDS;
@@ -3347,6 +3519,9 @@ System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, 
         }
     };
 });
+
+
+
 
 
 
@@ -3415,6 +3590,9 @@ System.register("chunks:///_virtual/IndependentLifeEvents.ts",[], function (expo
 
 
 
+
+
+
 System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryProjectConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var IndustryProjectConfig_1, INDUSTRY_OPPORTUNITY_EVENTS;
@@ -3460,6 +3638,9 @@ System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryPr
 
 
 
+
+
+
 System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var INDUSTRY_PROJECTS;
@@ -3502,6 +3683,9 @@ System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (expo
         }
     };
 });
+
+
+
 
 
 
@@ -3589,6 +3773,9 @@ System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjec
 });
 
 
+
+
+
 System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var INHERITANCE_REWARDS;
@@ -3607,6 +3794,9 @@ System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -3644,6 +3834,9 @@ System.register("chunks:///_virtual/InvestmentMemoryManager.ts",["cc"], function
         }
     };
 });
+
+
+
 
 
 
@@ -3700,6 +3893,9 @@ System.register("chunks:///_virtual/LaterLifeEvents.ts",[], function (exports_1,
 
 
 
+
+
+
 System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, LEGACY_KEY, LegacyManager;
@@ -3733,6 +3929,9 @@ System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_
 
 
 
+
+
+
 System.register("chunks:///_virtual/GrowthSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -3754,6 +3953,9 @@ System.register("chunks:///_virtual/GrowthSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 System.register("chunks:///_virtual/main",["./GameBootstrap.ts","./Motion.ts","./StatChangeAnimator.ts","./UITheme.ts","./AchievementConfig.ts","./CareerPathEvents.ts","./EducationEvents.ts","./EndingConfig.ts","./EventTemplates.ts","./ExplorationConfig.ts","./FamilyOpportunityEvents.ts","./FutureTransitionEvents.ts","./GameEvents.ts","./IdentityConfig.ts","./IndependentLifeEvents.ts","./IndustryOpportunityEvents.ts","./IndustryProjectConfig.ts","./InheritanceConfig.ts","./LaterLifeEvents.ts","./MajorOpportunityEvents.ts","./MarketConfig.ts","./MarketInsightConfig.ts","./MidLifeEvents.ts","./OpportunityConfig.ts","./OpportunityEvents.ts","./StarterEvents.ts","./StartupConfig.ts","./YearConfig.ts","./GameSession.ts","./GameStateManager.ts","./GameTypes.ts","./SeededRandom.ts","./AchievementSystem.ts","./AssetSystem.ts","./CareerSystem.ts","./CitySystem.ts","./ConditionEvaluator.ts","./DelayedEventQueue.ts","./EducationProgressionSystem.ts","./EducationSystem.ts","./EndingResolver.ts","./EventMatcher.ts","./FamilyUnlockManager.ts","./FinanceSystem.ts","./HealthSystem.ts","./HousingSystem.ts","./IndustryProjectSystem.ts","./InvestmentMemoryManager.ts","./LegacyManager.ts","./MarketSystem.ts","./OpenOpportunitySystem.ts","./OpportunitySystem.ts","./ReportGenerator.ts","./RequirementFormatter.ts","./SaveManager.ts","./StartupSystem.ts","./WealthSystem.ts"],(function(){return{setters:[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],execute:function(){}}}));
 
@@ -3783,6 +3985,9 @@ System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exp
         }
     };
 });
+
+
+
 
 
 
@@ -3848,6 +4053,9 @@ System.register("chunks:///_virtual/MarketConfig.ts",[], function (exports_1, co
 
 
 
+
+
+
 System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var MARKET_INSIGHTS;
@@ -3864,6 +4072,9 @@ System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (export
         }
     };
 });
+
+
+
 
 
 
@@ -4062,6 +4273,9 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts", "./Ma
 
 
 
+
+
+
 System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], function (exports_1, context_1) {
     "use strict";
     var EventTemplates_1, MID_LIFE_EVENTS;
@@ -4081,6 +4295,9 @@ System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
+
 
 
 
@@ -4115,11 +4332,23 @@ System.register("chunks:///_virtual/Motion.ts",["cc"], function (exports_1, cont
                 static pulse(node) {
                     cc_1.tween(node).repeatForever(cc_1.tween(node).sequence(cc_1.tween(node).to(.7, { scale: new cc_1.Vec3(1.035, 1.035, 1) }), cc_1.tween(node).to(.7, { scale: cc_1.Vec3.ONE }))).start();
                 }
+                /** Brief, non-interactive notice for information that should not interrupt play. */
+                static notice(node, onComplete) {
+                    var _a;
+                    const opacity = (_a = node.getComponent(cc_1.UIOpacity)) !== null && _a !== void 0 ? _a : node.addComponent(cc_1.UIOpacity);
+                    opacity.opacity = 0;
+                    const end = node.position.clone();
+                    node.setPosition(end.x, end.y - 12, end.z);
+                    cc_1.tween(node).sequence(cc_1.tween(node).parallel(cc_1.tween(node).to(.18, { position: end }, { easing: 'quadOut' }), cc_1.tween(opacity).to(.16, { opacity: 255 })), cc_1.tween(node).delay(1.15), cc_1.tween(opacity).to(.22, { opacity: 0 }), cc_1.tween(node).call(onComplete)).start();
+                }
             };
             exports_1("Motion", Motion);
         }
     };
 });
+
+
+
 
 
 
@@ -4171,6 +4400,9 @@ System.register("chunks:///_virtual/OpenOpportunitySystem.ts",["./ExplorationCon
 
 
 
+
+
+
 System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var LIFE_CYCLE, OPPORTUNITY_CHAINS, SIGNALS;
@@ -4207,6 +4439,9 @@ System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -4283,6 +4518,9 @@ System.register("chunks:///_virtual/OpportunityEvents.ts",["./EventTemplates.ts"
 
 
 
+
+
+
 System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var OpportunityConfig_1, OpportunitySystem;
@@ -4312,6 +4550,9 @@ System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.
         }
     };
 });
+
+
+
 
 
 
@@ -4353,6 +4594,9 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
         }
     };
 });
+
+
+
 
 
 
@@ -4402,6 +4646,9 @@ System.register("chunks:///_virtual/RequirementFormatter.ts",[], function (expor
         }
     };
 });
+
+
+
 
 
 
@@ -4523,6 +4770,9 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
 });
 
 
+
+
+
 System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, context_1) {
     "use strict";
     var SeededRandom;
@@ -4550,6 +4800,9 @@ System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 
 
@@ -4610,6 +4863,9 @@ System.register("chunks:///_virtual/StarterEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
+
 
 
 
@@ -4702,6 +4958,9 @@ System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, c
         }
     };
 });
+
+
+
 
 
 
@@ -4817,6 +5076,9 @@ System.register("chunks:///_virtual/StartupSystem.ts",["./AssetSystem.ts", "./Gr
 
 
 
+
+
+
 System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, StatChangeAnimator;
@@ -4871,6 +5133,9 @@ System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exp
 
 
 
+
+
+
 System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, UITheme;
@@ -4904,6 +5169,9 @@ System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, con
         }
     };
 });
+
+
+
 
 
 
@@ -4956,6 +5224,9 @@ System.register("chunks:///_virtual/WealthSystem.ts",["./MarketConfig.ts"], func
 
 
 
+
+
+
 System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var KEY_YEARS, YEARS;
@@ -4998,6 +5269,9 @@ System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, cont
         }
     };
 });
+
+
+
 
 
 
