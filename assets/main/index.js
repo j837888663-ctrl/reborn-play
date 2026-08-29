@@ -16,6 +16,12 @@ System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.ts", "./ConditionEvaluator.ts"], function (exports_1, context_1) {
     "use strict";
     var AchievementConfig_1, ConditionEvaluator_1, AchievementSystem;
@@ -46,6 +52,12 @@ System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var AssetSystem;
@@ -66,6 +78,12 @@ System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, con
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -142,6 +160,12 @@ System.register("chunks:///_virtual/CareerPathEvents.ts",[], function (exports_1
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var LEVELS, THRESHOLDS, TENURE, CareerSystem;
@@ -190,6 +214,12 @@ System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -252,6 +282,12 @@ System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], functi
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var WealthSystem_1, ConditionEvaluator;
@@ -300,6 +336,12 @@ System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"]
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_1, context_1) {
     "use strict";
     var DelayedEventQueue;
@@ -322,6 +364,12 @@ System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -423,6 +471,12 @@ System.register("chunks:///_virtual/EducationEvents.ts",["./EventTemplates.ts"],
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -581,6 +635,12 @@ System.register("chunks:///_virtual/EducationProgressionSystem.ts",["./Education
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var LEVEL_RANK, EducationSystem;
@@ -614,6 +674,12 @@ System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1,
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var item, ENDINGS;
@@ -630,6 +696,12 @@ System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -679,6 +751,12 @@ System.register("chunks:///_virtual/EndingResolver.ts",["./EndingConfig.ts", "./
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"], function (exports_1, context_1) {
     "use strict";
     var ConditionEvaluator_1, EventMatcher;
@@ -722,6 +800,12 @@ System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"]
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -801,6 +885,12 @@ System.register("chunks:///_virtual/EventTemplates.ts",[], function (exports_1, 
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var EXPLORATION_ACTIONS;
@@ -823,6 +913,12 @@ System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -943,6 +1039,12 @@ System.register("chunks:///_virtual/FamilyOpportunityEvents.ts",[], function (ex
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityConfig.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var cc_1, IdentityConfig_1, WealthSystem_1, FAMILY_UNLOCK_KEY, CAREER_RANK, FamilyUnlockManager;
@@ -1013,6 +1115,12 @@ System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityCo
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -1195,6 +1303,12 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var FUTURE_TRANSITION_EVENTS;
@@ -1220,6 +1334,12 @@ System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exp
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -1290,19 +1410,34 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.marketPage = 0;
                     this.industryPage = 0;
                     this.renderRevision = 0;
+                    this.handleBrowserResize = () => {
+                        const host = globalThis;
+                        if (typeof host.innerWidth === 'number' && typeof host.innerHeight === 'number') {
+                            cc_1.view.setFrameSize(host.innerWidth, host.innerHeight);
+                            cc_1.view.setDesignResolutionSize(this.designSize.x, this.designSize.y, cc_1.ResolutionPolicy.SHOW_ALL);
+                        }
+                        this.updateResponsiveScale();
+                    };
                 }
                 onLoad() {
-                    var _a;
+                    var _a, _b, _c;
                     this.node.addChild(this.uiRoot);
                     this.uiRoot.addComponent(cc_1.UITransform).setContentSize(1280, 720);
-                    this.updateResponsiveScale();
+                    this.handleBrowserResize();
                     cc_1.view.on('canvas-resize', this.updateResponsiveScale, this);
+                    (_a = globalThis.addEventListener) === null || _a === void 0 ? void 0 : _a.call(globalThis, 'resize', this.handleBrowserResize);
+                    (_b = globalThis.addEventListener) === null || _b === void 0 ? void 0 : _b.call(globalThis, 'orientationchange', this.handleBrowserResize);
                     this.statAnimator = new StatChangeAnimator_1.StatChangeAnimator(this.uiRoot);
                     this.showHome();
                     const webHost = globalThis;
-                    (_a = webHost.__restartLifeReady) === null || _a === void 0 ? void 0 : _a.call(webHost);
+                    (_c = webHost.__restartLifeReady) === null || _c === void 0 ? void 0 : _c.call(webHost);
                 }
-                onDestroy() { cc_1.view.off('canvas-resize', this.updateResponsiveScale, this); }
+                onDestroy() {
+                    var _a, _b;
+                    cc_1.view.off('canvas-resize', this.updateResponsiveScale, this);
+                    (_a = globalThis.removeEventListener) === null || _a === void 0 ? void 0 : _a.call(globalThis, 'resize', this.handleBrowserResize);
+                    (_b = globalThis.removeEventListener) === null || _b === void 0 ? void 0 : _b.call(globalThis, 'orientationchange', this.handleBrowserResize);
+                }
                 /** Keep the complete 16:9 game board inside phones and desktop windows without cropping. */
                 updateResponsiveScale() {
                     const transform = this.node.getComponent(cc_1.UITransform);
@@ -1524,8 +1659,8 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                 }
                 /** The life dashboard remains visible under an opportunity modal, so every choice has context. */
                 createLifeDashboard(state, event) {
-                    this.createText(`${state.year} 年 · ${state.age} 岁`, new cc_1.Vec3(-510, 282), 30, UITheme_1.UITheme.gold, 'left', 300);
-                    this.createText(state.year >= 2026 ? '未知未来' : '历史时期', new cc_1.Vec3(-250, 282), 15, UITheme_1.UITheme.muted, 'left', 130);
+                    this.createText(`${state.year} 年 · ${state.age} 岁`, new cc_1.Vec3(-510, 282), 30, UITheme_1.UITheme.gold, 'left', 240);
+                    this.createText(state.year >= 2026 ? '未知未来' : '历史时期', new cc_1.Vec3(-245, 282), 15, UITheme_1.UITheme.muted, 'left', 120);
                     this.createButton('详情', new cc_1.Vec3(330, 282), new cc_1.Vec3(92, 38), () => this.showLifePanel(state, event), 'ghost', false);
                     this.createButton('探索', new cc_1.Vec3(435, 282), new cc_1.Vec3(92, 38), () => this.showExploration(state, event), 'ghost', false);
                     this.createButton('恢复', new cc_1.Vec3(540, 282), new cc_1.Vec3(92, 38), () => this.showWellbeing(state, event), 'ghost', false);
@@ -1601,11 +1736,12 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                             : event.interaction === 'information' || event.informational ? '信息更新' : '生活选择';
                     this.createTextOn(modal, eventKind, new cc_1.Vec3(0, 225), 16, event.informational ? UITheme_1.UITheme.info : event.forced ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'center');
                     if (event.declineAllowed)
-                        this.createButtonOn(modal, '暂不进入', new cc_1.Vec3(455, 225), new cc_1.Vec3(110, 36), () => this.showActionConfirmation('确认错过机会', '该限时机会会从本局时间线中结束，但不会消耗现金。', () => this.tryDecline(event), () => this.showEvent(this.session.snapshot(), event)), 'ghost', false);
-                    this.createTextOn(modal, event.title, new cc_1.Vec3(110, 165), 34, UITheme_1.UITheme.text, 'center', 620, 52);
+                        this.createButtonOn(modal, '暂不进入', new cc_1.Vec3(455, 225), new cc_1.Vec3(110, 36), () => this.tryDecline(event), 'ghost', true);
+                    this.createPanelOn(modal, new cc_1.Vec3(-375, -12), new cc_1.Vec3(260, 390), UITheme_1.UITheme.surface, 'EventContextPanel');
+                    this.createTextOn(modal, event.title, new cc_1.Vec3(125, 165), 34, UITheme_1.UITheme.text, 'center', 650, 52);
                     const admissionPreview = this.session.educationAdmissionPreview(event.id);
-                    this.createTextOn(modal, admissionPreview ? `${event.description}\n${admissionPreview}` : event.description, new cc_1.Vec3(110, 100), 18, UITheme_1.UITheme.muted, 'center', 620, admissionPreview ? 104 : 72);
-                    this.createTextOn(modal, `现金 ${this.money(state.stats.funds)}\n现金流 ${this.money(state.finance.lastCashflow)}\n健康 ${state.stats.health} · 压力 ${state.stats.pressure}\n幸福 ${state.stats.happiness} · 知识 ${state.stats.knowledge}\n\n技术 ${state.skills.technology} · 商业 ${state.skills.business}\n信息 ${state.skills.information}\n\n${this.pressureRule(state.stats.pressure)}`, new cc_1.Vec3(-380, 15), 16, UITheme_1.UITheme.text, 'left', 250, 330);
+                    this.createTextOn(modal, admissionPreview ? `${event.description}\n${admissionPreview}` : event.description, new cc_1.Vec3(125, 100), 18, UITheme_1.UITheme.muted, 'center', 650, admissionPreview ? 104 : 72);
+                    this.createTextOn(modal, `当前状态\n\n现金 ${this.money(state.stats.funds)}\n上年现金流 ${this.money(state.finance.lastCashflow)}\n健康 ${state.stats.health} · 压力 ${state.stats.pressure}\n幸福 ${state.stats.happiness} · 知识 ${state.stats.knowledge}\n\n技术 ${state.skills.technology} · 商业 ${state.skills.business}\n信息 ${state.skills.information}\n\n${this.pressureRule(state.stats.pressure)}`, new cc_1.Vec3(-485, -12), 15, UITheme_1.UITheme.text, 'left', 220, 350);
                     const compact = event.options.length >= 5;
                     const optionGap = compact ? 58 : event.options.length >= 3 ? 78 : 88;
                     const optionStart = compact ? 65 : event.options.length >= 3 ? 20 : 5;
@@ -1613,15 +1749,14 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         const impact = this.optionImpact(option.result);
                         const label = impact ? `${option.label}\n${impact}` : option.label;
                         const directAcknowledge = event.informational || event.options.length === 1;
-                        this.createButtonOn(modal, label, new cc_1.Vec3(110, optionStart - index * optionGap), new cc_1.Vec3(620, compact ? 50 : 62), () => {
+                        this.createButtonOn(modal, label, new cc_1.Vec3(125, optionStart - index * optionGap), new cc_1.Vec3(650, compact ? 50 : 62), () => {
                             if (directAcknowledge)
                                 this.tryChoose(option.id, event);
                             else
-                                this.showChoiceConfirmation(event, option);
-                        }, index === 0 ? 'primary' : 'secondary', false);
+                                this.tryChoose(option.id, event);
+                        }, index === 0 ? 'primary' : 'secondary', !directAcknowledge);
                     });
-                    if (event.declineAllowed)
-                        this.createTextOn(modal, '选择“暂不进入”后，本次机会会结束，时间线才可继续推进。', new cc_1.Vec3(110, -225), 14, UITheme_1.UITheme.quiet, 'center', 620, 32);
+                    this.createTextOn(modal, event.declineAllowed ? '选项第一次点击会高亮，再次点击同一选项确认；“暂不进入”同样如此。' : '选项第一次点击会高亮，再次点击同一选项确认。', new cc_1.Vec3(125, -225), 14, UITheme_1.UITheme.quiet, 'center', 650, 32);
                     Motion_1.Motion.modalEnter(modal);
                 }
                 showExploration(state, activeEvent) {
@@ -1636,7 +1771,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         const detail = available
                             ? `${action.description}\n解锁条件：${requirement}`
                             : `尚未解锁：${requirement}`;
-                        this.createPanel(new cc_1.Vec3(x, y), new cc_1.Vec3(500, 108), available ? UITheme_1.UITheme.surface : UITheme_1.UITheme.ink850);
+                        this.createPanel(new cc_1.Vec3(x, y), new cc_1.Vec3(500, 108), available ? UITheme_1.UITheme.surface : UITheme_1.UITheme.disabledSurface);
                         this.createText(action.name, new cc_1.Vec3(x - 215, y + 27), 21, available ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.quiet, 'left', 260);
                         this.createText(detail, new cc_1.Vec3(x - 215, y - 18), 14, available ? UITheme_1.UITheme.muted : UITheme_1.UITheme.quiet, 'left', 330, 48);
                         this.createButton(available ? '进入' : '暂未解锁', new cc_1.Vec3(x + 184, y), new cc_1.Vec3(106, 42), () => {
@@ -1961,13 +2096,11 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.createButton('返回比较', new cc_1.Vec3(145, -105), new cc_1.Vec3(250, 54), () => this.showEvent(this.session.snapshot(), event), 'secondary', false);
                 }
                 tryChoose(optionId, event) {
-                    var _a;
                     const before = this.session.snapshot();
                     try {
                         const option = event.options.find((candidate) => candidate.id === optionId);
                         const after = this.session.choose(optionId);
                         this.showChoiceOutcome(before, after, event, option);
-                        (_a = this.statAnimator) === null || _a === void 0 ? void 0 : _a.playAnimation(before, after);
                     }
                     catch (error) {
                         this.clearScreen();
@@ -1977,44 +2110,61 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     }
                 }
                 showChoiceOutcome(before, after, event, option) {
-                    var _a, _b, _c, _d, _e;
+                    var _a;
                     this.clearScreen();
                     const milestone = before.education.level !== after.education.level
                         ? `阶段变化：${this.educationName(before.education.level)} → ${this.educationName(after.education.level)}`
                         : before.career.track !== after.career.track
                             ? `职业开启：${this.careerName(after.career.track)}` : '';
                     const unlocked = after.flags.filter((flag) => !before.flags.includes(flag)).slice(0, 4);
-                    const longTermSources = [
-                        ((_a = StartupConfig_1.TALENTS.find((item) => item.id === after.talentId)) === null || _a === void 0 ? void 0 : _a.name) ? `天赋：${(_b = StartupConfig_1.TALENTS.find((item) => item.id === after.talentId)) === null || _b === void 0 ? void 0 : _b.name}已计入相关能力与门槛` : '',
-                        ((_c = InheritanceConfig_1.INHERITANCE_REWARDS.find((item) => item.id === after.memoryId)) === null || _c === void 0 ? void 0 : _c.description) ? `前世记忆：${(_d = InheritanceConfig_1.INHERITANCE_REWARDS.find((item) => item.id === after.memoryId)) === null || _d === void 0 ? void 0 : _d.description.replace('下一局', '本局')}` : '',
-                    ].filter(Boolean).join('\n');
-                    this.createText(event.interaction === 'milestone' || event.forced ? '人生节点已完成' : '这一选择留下了回声', new cc_1.Vec3(0, 230), 20, UITheme_1.UITheme.info, 'center');
-                    this.createText(event.title, new cc_1.Vec3(0, 175), 38, UITheme_1.UITheme.text, 'center', 900);
-                    this.createPanel(new cc_1.Vec3(0, 35), new cc_1.Vec3(900, 250), UITheme_1.UITheme.surfaceRaised);
-                    this.createText(`选择：${(_e = option === null || option === void 0 ? void 0 : option.label) !== null && _e !== void 0 ? _e : '继续'}\n${option ? `即时影响：${this.optionImpact(option.result) || '更新后续路线'}` : ''}${milestone ? `\n${milestone}` : ''}${unlocked.length ? `\n新记录：${unlocked.map((flag) => this.flagName(flag)).join(' · ')}` : ''}\n\n${longTermSources}`, new cc_1.Vec3(0, 42), 18, UITheme_1.UITheme.text, 'center', 830, 205);
-                    this.createButton('继续这一年', new cc_1.Vec3(0, -145), new cc_1.Vec3(280, 58), () => this.showEvent(after, this.session.getCurrentEvent()), 'primary', false);
+                    if (!after.completed)
+                        this.createLifeDashboard(after, this.session.getCurrentEvent());
+                    const scrim = new cc_1.Node('ChoiceOutcomeScrim');
+                    scrim.addComponent(cc_1.UITransform).setContentSize(1280, 720);
+                    this.drawRoundedRect(scrim, 1280, 720, 0, new cc_1.Color(8, 7, 12, 165));
+                    scrim.addComponent(cc_1.BlockInputEvents);
+                    this.uiRoot.addChild(scrim);
+                    const card = this.createPanel(new cc_1.Vec3(0, -5), new cc_1.Vec3(900, 300), UITheme_1.UITheme.surfaceRaised, 'ChoiceOutcomeCard');
+                    this.createTextOn(card, event.interaction === 'milestone' || event.forced ? '人生节点已完成' : '选择已经生效', new cc_1.Vec3(0, 105), 17, UITheme_1.UITheme.info, 'center', 800, 30);
+                    this.createTextOn(card, event.title, new cc_1.Vec3(0, 62), 31, UITheme_1.UITheme.text, 'center', 800, 44);
+                    const outcomeLines = [
+                        `选择 · ${(_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : '继续'}`,
+                        `影响 · ${option ? this.optionImpact(option.result) || '更新后续路线' : '人生继续'}`,
+                        milestone,
+                        unlocked.length ? `新记录 · ${unlocked.map((flag) => this.flagName(flag)).join(' · ')}` : '',
+                    ].filter(Boolean);
+                    this.createTextOn(card, outcomeLines.join('\n'), new cc_1.Vec3(0, -20), 17, UITheme_1.UITheme.text, 'center', 800, 112);
+                    this.createTextOn(card, after.completed ? '正在生成人生结局…' : '即将自动继续…', new cc_1.Vec3(0, -112), 14, UITheme_1.UITheme.quiet, 'center', 760, 24);
+                    const progress = this.createPanelOn(card, new cc_1.Vec3(0, -142), new cc_1.Vec3(760, 4), UITheme_1.UITheme.gold, 'OutcomeProgress');
+                    Motion_1.Motion.progress(progress, 1.4);
+                    const revision = this.renderRevision;
+                    Motion_1.Motion.autoCard(card, () => {
+                        if (revision !== this.renderRevision || !card.isValid)
+                            return;
+                        const latest = this.session.snapshot();
+                        if (latest.completed)
+                            this.showEnding(latest);
+                        else
+                            this.showEvent(latest, this.session.getCurrentEvent());
+                    }, 1.15);
                 }
                 tryDecline(event) {
-                    var _a;
                     const before = this.session.snapshot();
                     try {
                         const after = this.session.declineCurrentEvent();
                         this.showChoiceOutcome(before, after, event, { id: 'decline-opportunity', label: '暂不进入，保留资源与选择空间', result: {} });
-                        (_a = this.statAnimator) === null || _a === void 0 ? void 0 : _a.playAnimation(before, after);
                     }
                     catch (error) {
                         this.showActionMessage('事件提示', error instanceof Error ? error.message : '当前无法结束该事件。', () => this.showEvent(this.session.snapshot(), event));
                     }
                 }
                 advanceTime(years) {
-                    var _a;
                     const before = this.session.snapshot();
                     const after = this.session.continueYears(years);
                     if (after.completed)
                         this.showEnding(after);
                     else
                         this.showAnnualOutcome(before, after);
-                    (_a = this.statAnimator) === null || _a === void 0 ? void 0 : _a.playAnimation(before, after);
                 }
                 showAnnualOutcome(before, after) {
                     this.clearScreen();
@@ -2027,11 +2177,21 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const wealthAfter = WealthSystem_1.totalAssetValue(after);
                     const wealthDelta = Math.round((wealthAfter - wealthBefore) * 100) / 100;
                     const milestone = this.wealthMilestone(wealthBefore, wealthAfter);
-                    this.createText(`${before.year}—${after.year} 年度总结`, new cc_1.Vec3(0, 230), 37, UITheme_1.UITheme.text, 'center', 900);
-                    this.createText(milestone ? `财富里程碑 · ${milestone}` : `重心：${this.focusName(before.lifeFocus)} · 实际经过 ${elapsed} 年`, new cc_1.Vec3(0, 184), 17, milestone ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'center', 900);
-                    this.createPanel(new cc_1.Vec3(0, 45), new cc_1.Vec3(900, 250), UITheme_1.UITheme.surfaceRaised);
-                    this.createText(`${deltas || '这一阶段主要保持了原有状态。'}\n\n个人净现金流 ${net >= 0 ? '+' : ''}${this.money(net)}${familyCovered > 0 ? ` · 家庭承担生活费 ${this.money(familyCovered)}` : ''}\n净资产 ${wealthDelta >= 0 ? '+' : ''}${this.money(wealthDelta)} → ${this.money(wealthAfter)}\n期末现金 ${this.money(after.stats.funds)} · 压力 ${after.stats.pressure} · 幸福 ${after.stats.happiness}`, new cc_1.Vec3(0, 50), 18, wealthDelta >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 830, 200);
-                    this.createButton(this.session.getCurrentEvent() ? '查看新事件' : '安排下一年', new cc_1.Vec3(0, -145), new cc_1.Vec3(280, 58), () => this.showEvent(after, this.session.getCurrentEvent()), 'primary', false);
+                    this.createText(`${before.year}—${after.year} 年度结算`, new cc_1.Vec3(0, 244), 37, UITheme_1.UITheme.text, 'center', 900);
+                    this.createText(milestone ? `财富里程碑 · ${milestone}` : `重心：${this.focusName(before.lifeFocus)} · 实际经过 ${elapsed} 年`, new cc_1.Vec3(0, 198), 17, milestone ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'center', 900);
+                    const card = this.createPanel(new cc_1.Vec3(0, 28), new cc_1.Vec3(920, 300), UITheme_1.UITheme.surfaceRaised, 'AnnualOutcomeCard');
+                    this.createTextOn(card, deltas || '这一阶段主要保持了原有状态。', new cc_1.Vec3(0, 92), 17, UITheme_1.UITheme.text, 'center', 820, 62);
+                    this.createTextOn(card, `个人净现金流 ${net >= 0 ? '+' : ''}${this.money(net)}${familyCovered > 0 ? ` · 家庭承担 ${this.money(familyCovered)}` : ''}`, new cc_1.Vec3(0, 27), 20, net >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 820, 34);
+                    this.createTextOn(card, `净资产 ${wealthDelta >= 0 ? '+' : ''}${this.money(wealthDelta)} → ${this.money(wealthAfter)}`, new cc_1.Vec3(0, -18), 20, wealthDelta >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 820, 34);
+                    this.createTextOn(card, `期末现金 ${this.money(after.stats.funds)} · 健康 ${after.stats.health} · 压力 ${after.stats.pressure} · 幸福 ${after.stats.happiness}`, new cc_1.Vec3(0, -63), 16, UITheme_1.UITheme.muted, 'center', 820, 30);
+                    this.createTextOn(card, this.session.getCurrentEvent() ? '发现新事件，正在进入…' : '正在进入下一年安排…', new cc_1.Vec3(0, -112), 14, UITheme_1.UITheme.quiet, 'center', 760, 24);
+                    const progress = this.createPanelOn(card, new cc_1.Vec3(0, -142), new cc_1.Vec3(780, 4), milestone ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'AnnualProgress');
+                    Motion_1.Motion.progress(progress, 1.55);
+                    const revision = this.renderRevision;
+                    Motion_1.Motion.autoCard(card, () => {
+                        if (revision === this.renderRevision && card.isValid)
+                            this.showEvent(this.session.snapshot(), this.session.getCurrentEvent());
+                    }, 1.3);
                 }
                 stateDeltaSummary(before, after) {
                     const entries = [];
@@ -2197,11 +2357,14 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.uiRoot.addChild(background);
                 }
                 createPanel(position, size, color = UITheme_1.UITheme.surface, name = 'Panel') {
+                    return this.createPanelOn(this.uiRoot, position, size, color, name);
+                }
+                createPanelOn(parent, position, size, color = UITheme_1.UITheme.surface, name = 'Panel') {
                     const node = new cc_1.Node(name);
                     node.addComponent(cc_1.UITransform).setContentSize(size.x, size.y);
                     node.setPosition(position);
                     this.drawRoundedRect(node, size.x, size.y, size.y <= 38 ? 12 : 16, color, UITheme_1.UITheme.line);
-                    this.uiRoot.addChild(node);
+                    parent.addChild(node);
                     return node;
                 }
                 /** Uses Graphics rather than an empty Sprite: runtime UI therefore has real card surfaces in Creator. */
@@ -2352,8 +2515,8 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     graphics.clear();
                     const fill = selected
                         ? kind === 'primary' ? new cc_1.Color(255, 210, 128, 255) : new cc_1.Color(65, 77, 99, 255)
-                        : kind === 'primary' ? UITheme_1.UITheme.gold : kind === 'ghost' ? UITheme_1.UITheme.ink850 : UITheme_1.UITheme.surfaceRaised;
-                    const stroke = selected ? UITheme_1.UITheme.goldSoft : kind === 'primary' ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.line;
+                        : kind === 'primary' ? UITheme_1.UITheme.gold : kind === 'ghost' ? UITheme_1.UITheme.disabledSurface : UITheme_1.UITheme.surfaceRaised;
+                    const stroke = selected ? UITheme_1.UITheme.goldSoft : kind === 'primary' ? UITheme_1.UITheme.goldSoft : kind === 'ghost' ? UITheme_1.UITheme.disabledLine : UITheme_1.UITheme.line;
                     const radius = size.y <= 52 ? 12 : 16;
                     graphics.fillColor = fill;
                     graphics.roundRect(-size.x / 2, -size.y / 2, size.x, size.y, radius);
@@ -2583,6 +2746,12 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./IndependentLifeEvents.ts", "./OpportunityEvents.ts", "./StarterEvents.ts", "./LaterLifeEvents.ts", "./FutureTransitionEvents.ts", "./FamilyOpportunityEvents.ts", "./IndustryOpportunityEvents.ts", "./CareerPathEvents.ts"], function (exports_1, context_1) {
     "use strict";
     var EducationEvents_1, IndependentLifeEvents_1, OpportunityEvents_1, StarterEvents_1, LaterLifeEvents_1, FutureTransitionEvents_1, FamilyOpportunityEvents_1, IndustryOpportunityEvents_1, CareerPathEvents_1, GAME_EVENTS;
@@ -2633,6 +2802,12 @@ System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./I
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -3135,6 +3310,12 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "./AssetSystem.ts", "./HealthSystem.ts", "./OpportunitySystem.ts", "./FinanceSystem.ts", "./HousingSystem.ts", "./IndustryProjectSystem.ts", "./CareerSystem.ts", "./GrowthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var __rest = (this && this.__rest) || function (s, e) {
@@ -3334,6 +3515,12 @@ System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -3343,6 +3530,12 @@ System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, conte
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -3367,6 +3560,12 @@ System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -3466,6 +3665,12 @@ System.register("chunks:///_virtual/HousingSystem.ts",[], function (exports_1, c
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var IDENTITIES, STARTER_FAMILY_IDS;
@@ -3519,6 +3724,12 @@ System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, 
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -3593,6 +3804,12 @@ System.register("chunks:///_virtual/IndependentLifeEvents.ts",[], function (expo
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryProjectConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var IndustryProjectConfig_1, INDUSTRY_OPPORTUNITY_EVENTS;
@@ -3641,6 +3858,12 @@ System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryPr
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var INDUSTRY_PROJECTS;
@@ -3683,6 +3906,12 @@ System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (expo
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -3776,6 +4005,12 @@ System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjec
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var INHERITANCE_REWARDS;
@@ -3794,6 +4029,12 @@ System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -3834,6 +4075,12 @@ System.register("chunks:///_virtual/InvestmentMemoryManager.ts",["cc"], function
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -3896,6 +4143,12 @@ System.register("chunks:///_virtual/LaterLifeEvents.ts",[], function (exports_1,
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, LEGACY_KEY, LegacyManager;
@@ -3932,6 +4185,12 @@ System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/GrowthSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -3953,6 +4212,12 @@ System.register("chunks:///_virtual/GrowthSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -3985,6 +4250,12 @@ System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exp
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -4056,6 +4327,12 @@ System.register("chunks:///_virtual/MarketConfig.ts",[], function (exports_1, co
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var MARKET_INSIGHTS;
@@ -4072,6 +4349,12 @@ System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (export
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -4276,6 +4559,12 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts", "./Ma
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], function (exports_1, context_1) {
     "use strict";
     var EventTemplates_1, MID_LIFE_EVENTS;
@@ -4295,6 +4584,12 @@ System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -4341,11 +4636,32 @@ System.register("chunks:///_virtual/Motion.ts",["cc"], function (exports_1, cont
                     node.setPosition(end.x, end.y - 12, end.z);
                     cc_1.tween(node).sequence(cc_1.tween(node).parallel(cc_1.tween(node).to(.18, { position: end }, { easing: 'quadOut' }), cc_1.tween(opacity).to(.16, { opacity: 255 })), cc_1.tween(node).delay(1.15), cc_1.tween(opacity).to(.22, { opacity: 0 }), cc_1.tween(node).call(onComplete)).start();
                 }
+                /** A faster result card: readable long enough to register, then advances without another tap. */
+                static autoCard(node, onComplete, holdSeconds = 1.2) {
+                    var _a;
+                    const opacity = (_a = node.getComponent(cc_1.UIOpacity)) !== null && _a !== void 0 ? _a : node.addComponent(cc_1.UIOpacity);
+                    opacity.opacity = 0;
+                    const end = node.position.clone();
+                    node.setPosition(end.x, end.y - 18, end.z);
+                    node.setScale(new cc_1.Vec3(.95, .95, 1));
+                    cc_1.tween(node).sequence(cc_1.tween(node).parallel(cc_1.tween(node).to(.22, { position: end, scale: cc_1.Vec3.ONE }, { easing: 'backOut' }), cc_1.tween(opacity).to(.18, { opacity: 255 })), cc_1.tween(node).delay(holdSeconds), cc_1.tween(node).parallel(cc_1.tween(node).to(.2, { scale: new cc_1.Vec3(1.025, 1.025, 1) }, { easing: 'quadIn' }), cc_1.tween(opacity).to(.2, { opacity: 0 })), cc_1.tween(node).call(onComplete)).start();
+                }
+                /** Expanding accent line used as a quiet progress indicator on auto-advancing cards. */
+                static progress(node, duration = 1.35) {
+                    node.setScale(new cc_1.Vec3(.02, 1, 1));
+                    cc_1.tween(node).to(duration, { scale: cc_1.Vec3.ONE }, { easing: 'quadOut' }).start();
+                }
             };
             exports_1("Motion", Motion);
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -4403,6 +4719,12 @@ System.register("chunks:///_virtual/OpenOpportunitySystem.ts",["./ExplorationCon
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var LIFE_CYCLE, OPPORTUNITY_CHAINS, SIGNALS;
@@ -4439,6 +4761,12 @@ System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -4521,6 +4849,12 @@ System.register("chunks:///_virtual/OpportunityEvents.ts",["./EventTemplates.ts"
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var OpportunityConfig_1, OpportunitySystem;
@@ -4550,6 +4884,12 @@ System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -4594,6 +4934,12 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -4646,6 +4992,12 @@ System.register("chunks:///_virtual/RequirementFormatter.ts",[], function (expor
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -4773,6 +5125,12 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, context_1) {
     "use strict";
     var SeededRandom;
@@ -4800,6 +5158,12 @@ System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -4863,6 +5227,12 @@ System.register("chunks:///_virtual/StarterEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -4958,6 +5328,12 @@ System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, c
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -5079,6 +5455,12 @@ System.register("chunks:///_virtual/StartupSystem.ts",["./AssetSystem.ts", "./Gr
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, StatChangeAnimator;
@@ -5101,20 +5483,27 @@ System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exp
                         entries.push({ name: names[key], delta, isMoney: money && key === 'funds' }); });
                     collect(before.stats, after.stats, { funds: '现金', health: '健康', pressure: '压力', happiness: '幸福', knowledge: '知识', informationValue: '信息值' }, true);
                     collect(before.skills, after.skills, { learning: '学习', technology: '技术', business: '商业', expression: '表达', management: '管理', information: '信息' });
-                    return entries.slice(0, 7);
+                    return entries.slice(0, 4);
                 }
                 playAnimation(before, after) {
                     this.diff(before, after).forEach((diff, index) => this.float(diff, index));
                 }
                 float(diff, index) {
                     const node = new cc_1.Node('StatDiff');
-                    node.addComponent(cc_1.UITransform).setContentSize(320, 42);
-                    node.setPosition(new cc_1.Vec3(0, 118 - index * 43));
-                    node.addComponent(cc_1.Sprite).color = new cc_1.Color(36, 31, 48, 245);
+                    node.addComponent(cc_1.UITransform).setContentSize(190, 38);
+                    node.setPosition(new cc_1.Vec3(-315 + index * 210, 146));
+                    const background = node.addComponent(cc_1.Graphics);
+                    background.fillColor = new cc_1.Color(36, 31, 48, 245);
+                    background.roundRect(-95, -19, 190, 38, 11);
+                    background.fill();
+                    background.strokeColor = new cc_1.Color(91, 82, 112, 210);
+                    background.lineWidth = 1;
+                    background.roundRect(-95, -19, 190, 38, 11);
+                    background.stroke();
                     const label = node.addComponent(cc_1.Label);
                     label.string = `${diff.delta > 0 ? '+' : ''}${diff.isMoney ? '¥' + Math.round(diff.delta * 10000).toLocaleString('zh-CN') : Math.round(diff.delta)}  ${diff.name}`;
-                    label.fontSize = diff.isMoney ? 22 : 19;
-                    label.lineHeight = 28;
+                    label.fontSize = diff.isMoney ? 18 : 17;
+                    label.lineHeight = 24;
                     label.horizontalAlign = cc_1.Label.HorizontalAlign.CENTER;
                     label.verticalAlign = cc_1.Label.VerticalAlign.CENTER;
                     label.overflow = cc_1.Label.Overflow.SHRINK;
@@ -5123,13 +5512,19 @@ System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exp
                     const opacity = node.addComponent(cc_1.UIOpacity);
                     opacity.opacity = 0;
                     this.root.addChild(node);
-                    cc_1.tween(node).delay(index * .07).parallel(cc_1.tween(opacity).to(.16, { opacity: 255 }), cc_1.tween(node).by(.75, { position: new cc_1.Vec3(0, 52) }, { easing: 'quadOut' })).delay(.25).to(.18, { scale: new cc_1.Vec3(.88, .88, 1) }).call(() => node.destroy()).start();
+                    cc_1.tween(node).delay(index * .07).parallel(cc_1.tween(opacity).to(.16, { opacity: 255 }), cc_1.tween(node).by(.75, { position: new cc_1.Vec3(0, 30) }, { easing: 'quadOut' })).delay(.25).to(.18, { scale: new cc_1.Vec3(.88, .88, 1) }).call(() => node.destroy()).start();
                 }
             };
             exports_1("StatChangeAnimator", StatChangeAnimator);
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -5153,6 +5548,8 @@ System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, con
                 ink850: new cc_1.Color(33, 40, 54, 255),
                 surface: new cc_1.Color(43, 51, 66, 255),
                 surfaceRaised: new cc_1.Color(54, 63, 80, 255),
+                disabledSurface: new cc_1.Color(37, 44, 58, 255),
+                disabledLine: new cc_1.Color(69, 77, 94, 255),
                 line: new cc_1.Color(84, 92, 108, 255),
                 gold: new cc_1.Color(230, 178, 94, 255),
                 goldSoft: new cc_1.Color(240, 201, 135, 255),
@@ -5169,6 +5566,12 @@ System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, con
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -5227,6 +5630,12 @@ System.register("chunks:///_virtual/WealthSystem.ts",["./MarketConfig.ts"], func
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var KEY_YEARS, YEARS;
@@ -5269,6 +5678,12 @@ System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, cont
         }
     };
 });
+
+
+
+
+
+
 
 
 
