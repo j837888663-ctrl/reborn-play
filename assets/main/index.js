@@ -25,6 +25,9 @@ System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_
 
 
 
+
+
+
 System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.ts", "./ConditionEvaluator.ts"], function (exports_1, context_1) {
     "use strict";
     var AchievementConfig_1, ConditionEvaluator_1, AchievementSystem;
@@ -64,6 +67,9 @@ System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.
 
 
 
+
+
+
 System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var AssetSystem;
@@ -84,6 +90,9 @@ System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, con
         }
     };
 });
+
+
+
 
 
 
@@ -178,6 +187,9 @@ System.register("chunks:///_virtual/CareerPathEvents.ts",[], function (exports_1
 
 
 
+
+
+
 System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var LEVELS, THRESHOLDS, TENURE, CareerSystem;
@@ -226,6 +238,9 @@ System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 
 
@@ -306,6 +321,9 @@ System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], functi
 
 
 
+
+
+
 System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var WealthSystem_1, ConditionEvaluator;
@@ -363,6 +381,9 @@ System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"]
 
 
 
+
+
+
 System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_1, context_1) {
     "use strict";
     var DelayedEventQueue;
@@ -385,6 +406,9 @@ System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -495,6 +519,9 @@ System.register("chunks:///_virtual/EducationEvents.ts",["./EventTemplates.ts"],
         }
     };
 });
+
+
+
 
 
 
@@ -671,6 +698,9 @@ System.register("chunks:///_virtual/EducationProgressionSystem.ts",["./Education
 
 
 
+
+
+
 System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var LEVEL_RANK, EducationSystem;
@@ -713,6 +743,9 @@ System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1,
 
 
 
+
+
+
 System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var item, ENDINGS;
@@ -729,6 +762,9 @@ System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 
 
@@ -796,6 +832,9 @@ System.register("chunks:///_virtual/EndingResolver.ts",["./EndingConfig.ts", "./
 
 
 
+
+
+
 System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"], function (exports_1, context_1) {
     "use strict";
     var ConditionEvaluator_1, EventMatcher;
@@ -839,6 +878,9 @@ System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"]
         }
     };
 });
+
+
+
 
 
 
@@ -936,6 +978,9 @@ System.register("chunks:///_virtual/EventTemplates.ts",[], function (exports_1, 
 
 
 
+
+
+
 System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var EXPLORATION_ACTIONS;
@@ -958,6 +1003,9 @@ System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -1096,6 +1144,9 @@ System.register("chunks:///_virtual/FamilyOpportunityEvents.ts",[], function (ex
 
 
 
+
+
+
 System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityConfig.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var cc_1, IdentityConfig_1, WealthSystem_1, FAMILY_UNLOCK_KEY, CAREER_RANK, FamilyUnlockManager;
@@ -1166,6 +1217,9 @@ System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityCo
         }
     };
 });
+
+
+
 
 
 
@@ -1366,6 +1420,9 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
 
 
 
+
+
+
 System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var FUTURE_TRANSITION_EVENTS;
@@ -1391,6 +1448,9 @@ System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exp
         }
     };
 });
+
+
+
 
 
 
@@ -1468,6 +1528,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.designSize = new cc_1.Vec3(1280, 720, 1);
                     this.talentRefreshesRemaining = 3;
                     this.marketPage = 0;
+                    this.marketOrderQuantity = 100;
                     this.industryPage = 0;
                     this.renderRevision = 0;
                     this.layoutIssues = [];
@@ -1524,8 +1585,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     if (this.session.hasContinuableSave())
                         this.createButton('继续人生', new cc_1.Vec3(0, -48), new cc_1.Vec3(380, 56), () => this.restoreLife(), 'secondary', false);
                     if (this.session.hasArchive())
-                        this.createTextButton('人生档案', new cc_1.Vec3(-82, -126), () => this.showArchive());
-                    this.createTextButton('设置', new cc_1.Vec3(this.session.hasArchive() ? 82 : 0, -126), () => this.showToast('设置将在后续版本中开放。'));
+                        this.createTextButton('人生档案', new cc_1.Vec3(0, -126), () => this.showArchive());
                     this.createText('每一次选择，都会在多年后留下回声。', new cc_1.Vec3(0, -225), 15, UITheme_1.UITheme.quiet, 'center');
                 }
                 showIdentitySelection() {
@@ -1712,7 +1772,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         this.createButton(this.focusButtonLabel(state, 'social'), new cc_1.Vec3(360, -75), new cc_1.Vec3(210, 82), () => this.setFocus('social'), state.lifeFocus === 'social' ? 'primary' : 'secondary', false);
                         if (state.age < 80) {
                             this.createText('遇到升学或重要事件会自动停下；快速度过多年会放弃中间年份未使用的额外行动', new cc_1.Vec3(0, -137), 15, UITheme_1.UITheme.quiet, 'center', 1050);
-                            [1, 2, 3].forEach((years, index) => this.createButton(`度过 ${years} 年`, new cc_1.Vec3((index - 1) * 185, -190), new cc_1.Vec3(158, 50), () => this.advanceTime(years), index === 0 ? 'primary' : 'secondary', false));
+                            this.createButton('度过这一年', new cc_1.Vec3(0, -190), new cc_1.Vec3(230, 50), () => this.advanceTime(1), 'primary', false);
                         }
                         else
                             this.createButton('返回主页', new cc_1.Vec3(0, -190), new cc_1.Vec3(300, 52), () => this.showHome(), 'primary', false);
@@ -1753,11 +1813,11 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         scrim.addComponent(cc_1.BlockInputEvents);
                         this.uiRoot.addChild(scrim);
                         const notice = this.createPanel(new cc_1.Vec3(0, 10), new cc_1.Vec3(850, 230), UITheme_1.UITheme.surfaceRaised, 'InformationNotice');
-                        this.createTextOn(notice, '时代信息已记录', new cc_1.Vec3(0, 76), 16, UITheme_1.UITheme.info, 'center', 760, 28);
+                        this.createTextOn(notice, '你留意到了时代的变化', new cc_1.Vec3(0, 76), 16, UITheme_1.UITheme.info, 'center', 760, 28);
                         this.createTextOn(notice, event.title, new cc_1.Vec3(0, 34), 28, UITheme_1.UITheme.text, 'center', 760, 42);
                         this.createTextOn(notice, event.description, new cc_1.Vec3(0, -18), 16, UITheme_1.UITheme.muted, 'center', 760, 56);
                         const impact = this.optionImpact(option.result);
-                        this.createTextOn(notice, impact === '仅记录信息，不改变数值' ? '已加入本局时代线索' : impact, new cc_1.Vec3(0, -75), 15, UITheme_1.UITheme.goldSoft, 'center', 760, 30);
+                        this.createTextOn(notice, impact, new cc_1.Vec3(0, -75), 15, UITheme_1.UITheme.goldSoft, 'center', 760, 30);
                         const revision = this.renderRevision;
                         Motion_1.Motion.notice(notice, () => {
                             if (revision === this.renderRevision && notice.isValid)
@@ -1765,7 +1825,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         });
                     }
                     catch (error) {
-                        this.showActionMessage('信息记录失败', error instanceof Error ? error.message : '这条时代信息暂时无法写入。', () => this.showEvent(this.session.snapshot(), event));
+                        this.showActionMessage('这条消息暂时错过了', error instanceof Error ? error.message : '你暂时没能弄清这条消息。', () => this.showEvent(this.session.snapshot(), event));
                     }
                 }
                 showInheritanceNotice(state, inheritance) {
@@ -1777,7 +1837,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     scrim.addComponent(cc_1.BlockInputEvents);
                     this.uiRoot.addChild(scrim);
                     const notice = this.createPanel(new cc_1.Vec3(0, 10), new cc_1.Vec3(760, 200), UITheme_1.UITheme.surfaceRaised, 'InheritanceNotice');
-                    this.createTextOn(notice, '前世记忆已生效', new cc_1.Vec3(0, 52), 18, UITheme_1.UITheme.gold, 'center', 680, 30);
+                    this.createTextOn(notice, '一段前世记忆浮现', new cc_1.Vec3(0, 52), 18, UITheme_1.UITheme.gold, 'center', 680, 30);
                     this.createTextOn(notice, inheritance.name, new cc_1.Vec3(0, 8), 30, UITheme_1.UITheme.text, 'center', 680, 42);
                     this.createTextOn(notice, inheritance.description.replace('下一局', '本局'), new cc_1.Vec3(0, -48), 17, UITheme_1.UITheme.muted, 'center', 680, 42);
                     const revision = this.renderRevision;
@@ -1799,7 +1859,8 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         : event.interaction === 'milestone' || event.forced ? '人生节点 · 需要回应'
                             : event.interaction === 'information' || event.informational ? '信息更新' : '生活选择';
                     this.createTextOn(modal, eventKind, new cc_1.Vec3(0, 225), 16, event.informational ? UITheme_1.UITheme.info : event.forced ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'center');
-                    if (event.declineAllowed)
+                    const showSeparateDecline = event.declineAllowed && !this.hasPassiveOption(event);
+                    if (showSeparateDecline)
                         this.createButtonOn(modal, '暂不进入', new cc_1.Vec3(455, 225), new cc_1.Vec3(110, 36), () => this.tryDecline(event), 'ghost', true);
                     this.createPanelOn(modal, new cc_1.Vec3(-375, -12), new cc_1.Vec3(260, 390), UITheme_1.UITheme.surface, 'EventContextPanel');
                     this.createTextOn(modal, event.title, new cc_1.Vec3(125, 165), 34, UITheme_1.UITheme.text, 'center', 650, 52);
@@ -1820,8 +1881,12 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                                 this.tryChoose(option.id, event);
                         }, index === 0 ? 'primary' : 'secondary', !directAcknowledge);
                     });
-                    this.createTextOn(modal, event.declineAllowed ? '选项第一次点击会高亮，再次点击同一选项确认；“暂不进入”同样如此。' : '选项第一次点击会高亮，再次点击同一选项确认。', new cc_1.Vec3(125, -225), 14, UITheme_1.UITheme.quiet, 'center', 650, 32);
+                    this.createTextOn(modal, showSeparateDecline ? '轻触一次查看选择，再轻触同一位置作出决定；“暂不进入”同样如此。' : '轻触一次查看选择，再轻触同一位置作出决定。', new cc_1.Vec3(125, -225), 14, UITheme_1.UITheme.quiet, 'center', 650, 32);
                     Motion_1.Motion.modalEnter(modal);
+                }
+                /** A passive option already expresses refusal; adding another top-right refusal would duplicate the same decision. */
+                hasPassiveOption(event) {
+                    return event.options.some((option) => /暂不|继续观察|先观察|等待|放弃|保留现金|维持生活|以后再/.test(option.label));
                 }
                 showExploration(state, activeEvent) {
                     this.clearScreen();
@@ -1857,15 +1922,6 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         }, available ? 'primary' : 'ghost', false);
                     });
                     this.createTextButton('返回', new cc_1.Vec3(0, -265), () => this.showEvent(this.session.snapshot(), activeEvent));
-                }
-                showDomainArchitecture(name, description, state, activeEvent) {
-                    this.clearScreen();
-                    this.createText(name, new cc_1.Vec3(0, 190), 40, new cc_1.Color(252, 214, 108), 'center');
-                    this.createText(description, new cc_1.Vec3(0, 125), 20, new cc_1.Color(220, 226, 240), 'center');
-                    this.createText('该模块已接入开放机遇架构。', new cc_1.Vec3(0, 50), 25, new cc_1.Color(252, 214, 108), 'center');
-                    this.createText('后续会在这里展开专属行动、条件校验、结果结算与长期资产或关系影响。', new cc_1.Vec3(0, 5), 18, new cc_1.Color(220, 226, 240), 'center', 960);
-                    this.createText('当前阶段保留入口与解锁规则，避免未完成的内容伪装成可操作功能。', new cc_1.Vec3(0, -35), 16, new cc_1.Color(150, 205, 255), 'center', 960);
-                    this.createButton('返回开放机遇', new cc_1.Vec3(0, -150), new cc_1.Vec3(280, 60), () => this.showExploration(state, activeEvent), 'secondary', false);
                 }
                 showStartup(state, activeEvent) {
                     var _a, _b, _c;
@@ -1974,7 +2030,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                             : holding.status === 'exited'
                                 ? `退出回款 ${this.money(holding.investedPrincipal + holding.realizedReturn)} · 已实现${profit >= 0 ? '+' : ''}${this.money(profit)}`
                                 : `回收 ¥0 · 已实现${this.money(profit)}`;
-                        const text = `${holding.name} · ${holding.industry}\n${holding.startYear}年投入 ${this.money(holding.investedPrincipal)} · ${status}\n${valueLine}${holding.status === 'active' ? '\n再次点击退出（扣2%）' : '\n记录已归档，不会消失'}`;
+                        const text = `${holding.name} · ${holding.industry}\n${holding.startYear}年投入 ${this.money(holding.investedPrincipal)} · ${status}\n${valueLine}${holding.status === 'active' ? '\n轻触两次确认退出（扣2%）' : '\n这段投资仍保留在账本中'}`;
                         const position = new cc_1.Vec3((index % 3 - 1) * 360, 82 - Math.floor(index / 3) * 150);
                         if (holding.status === 'active') {
                             this.createButton(text, position, new cc_1.Vec3(330, 126), () => this.tryExplorer(() => this.session.exitIndustryProject(holding.id), () => this.showIndustryProjects(this.session.snapshot(), activeEvent)), profit >= 0 ? 'primary' : 'secondary', true);
@@ -2043,13 +2099,19 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         this.showActionMessage('恢复安排', error instanceof Error ? error.message : '当前无法完成恢复安排。', () => this.showWellbeing(this.session.snapshot(), activeEvent));
                     }
                 }
-                tryExplorer(action, refresh) { try {
-                    action();
-                    refresh();
+                tryExplorer(action, refresh) {
+                    var _a;
+                    const before = this.session.snapshot();
+                    try {
+                        action();
+                        const after = this.session.snapshot();
+                        refresh();
+                        (_a = this.statAnimator) === null || _a === void 0 ? void 0 : _a.playAnimation(before, after);
+                    }
+                    catch (error) {
+                        this.showActionMessage('这一刻还做不到', error instanceof Error ? error.message : '眼下的条件还不够。', refresh);
+                    }
                 }
-                catch (error) {
-                    this.showActionMessage('操作提示', error instanceof Error ? error.message : '当前无法完成操作。', refresh);
-                } }
                 showMarket(state, activeEvent) {
                     this.clearScreen();
                     this.createText('交易所', new cc_1.Vec3(-500, 280), 38, UITheme_1.UITheme.text, 'left', 300);
@@ -2106,9 +2168,12 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const y = 30 - Math.floor(index / 2) * 135;
                     const card = this.createPanel(new cc_1.Vec3(x, y), new cc_1.Vec3(540, 118), UITheme_1.UITheme.surface);
                     this.createTextOn(card, `${instrument.name} · ${(_a = instrument.sector) !== null && _a !== void 0 ? _a : this.marketKindName(instrument.kind)} · ${(_b = instrument.risk) !== null && _b !== void 0 ? _b : '中'}风险`, new cc_1.Vec3(-245, 40), 18, UITheme_1.UITheme.goldSoft, 'left', 390, 26);
-                    this.createTextOn(card, `${state.year}年价 ${this.money(this.session.marketPrice(instrument.id))} · ${movement}`, new cc_1.Vec3(-245, 14), 13, change.amount >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'left', 400, 22);
-                    const holdingQuantity = position ? Math.round(position.quantity * 1000) / 1000 : 0;
-                    this.createTextOn(card, `近年趋势 ${trend} · 持有 ${holdingQuantity}份${position ? ` · 成本 ${this.money(position.averageCost)}` : ''}\n${researched ? instrument.description : `研究条件：${this.marketRequirements(instrument)}`}`, new cc_1.Vec3(-245, -27), 13, UITheme_1.UITheme.quiet, 'left', 390, 50);
+                    const price = this.session.marketPrice(instrument.id);
+                    const unit = instrument.kind === 'stock' ? '股' : '份';
+                    this.createTextOn(card, `${state.year}年价 ${this.yuan(price)}/${unit} · ${movement}`, new cc_1.Vec3(-245, 14), 13, change.amount >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'left', 400, 22);
+                    const holdingQuantity = position ? Math.round(position.quantity) : 0;
+                    const marketValue = position ? price * position.quantity : 0;
+                    this.createTextOn(card, `近年趋势 ${trend} · 持仓 ${holdingQuantity.toLocaleString('zh-CN')}${unit}${position ? ` · 市值 ${this.yuan(marketValue)} · 均价 ${this.yuan(position.averageCost)}` : ''}\n${researched ? instrument.description : `研究条件：${this.marketRequirements(instrument)}`}`, new cc_1.Vec3(-245, -27), 13, UITheme_1.UITheme.quiet, 'left', 390, 50);
                     if (!researched) {
                         this.createButtonOn(card, researchable ? '研究' : '条件不足', new cc_1.Vec3(210, 0), new cc_1.Vec3(100, 44), () => {
                             if (researchable)
@@ -2116,48 +2181,71 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         }, researchable ? 'primary' : 'ghost');
                         return;
                     }
-                    const minimum = instrument.kind === 'stock' ? .5 : .1;
-                    const canBuy = this.session.canTradeMarket() && state.stats.funds >= minimum;
-                    this.createButtonOn(card, canBuy ? `买 ${this.money(minimum)}` : this.session.canTradeMarket() ? `还差 ${this.money(Math.max(0, minimum - state.stats.funds))}` : '未开通', new cc_1.Vec3(210, 25), new cc_1.Vec3(100, 38), () => {
-                        if (canBuy)
-                            this.showActionConfirmation('确认小额买入', `按当前价格买入 ${this.money(minimum)} 的${instrument.name}。`, () => this.tryMarketAction(() => this.session.buyMarketAmount(instrument.id, minimum), activeEvent), () => this.showMarket(this.session.snapshot(), activeEvent));
+                    const lotSize = this.session.marketLotSize(instrument.id);
+                    const minimumCost = price * lotSize / 10000;
+                    const canBuy = this.session.canTradeMarket() && state.stats.funds >= minimumCost;
+                    this.createButtonOn(card, canBuy ? '买入' : this.session.canTradeMarket() ? '资金不足' : '未开通', new cc_1.Vec3(210, 25), new cc_1.Vec3(100, 38), () => {
+                        if (canBuy) {
+                            this.marketOrderQuantity = lotSize;
+                            this.showMarketBuyOrder(instrument, activeEvent);
+                        }
                     }, canBuy ? 'primary' : 'ghost', false);
                     this.createButtonOn(card, position ? '全部卖出' : '暂无持仓', new cc_1.Vec3(210, -25), new cc_1.Vec3(100, 38), () => {
                         if (position)
                             this.showActionConfirmation('确认卖出', `按当前价格卖出全部${instrument.name}持仓。`, () => this.tryMarketAction(() => this.session.sellMarketFraction(instrument.id, 1), activeEvent), () => this.showMarket(this.session.snapshot(), activeEvent));
                     }, position ? 'secondary' : 'ghost', false);
                 }
+                showMarketBuyOrder(instrument, activeEvent) {
+                    const state = this.session.snapshot();
+                    const price = this.session.marketPrice(instrument.id);
+                    const lotSize = this.session.marketLotSize(instrument.id);
+                    const unit = instrument.kind === 'stock' ? '股' : '份';
+                    const maxLots = Math.floor(state.stats.funds * 10000 / price / lotSize);
+                    const maximum = maxLots * lotSize;
+                    this.marketOrderQuantity = Math.max(lotSize, Math.min(maximum || lotSize, Math.round(this.marketOrderQuantity / lotSize) * lotSize));
+                    const totalYuan = price * this.marketOrderQuantity;
+                    const affordable = maximum >= lotSize && this.marketOrderQuantity <= maximum;
+                    this.clearScreen();
+                    this.createPageHeader(`买入 ${instrument.name}`, `行情锁定在 ${state.year} 年；成交后价格不会立刻变化。`, () => this.showMarket(this.session.snapshot(), activeEvent));
+                    this.createPanel(new cc_1.Vec3(0, 0), new cc_1.Vec3(820, 380), UITheme_1.UITheme.surfaceRaised, 'MarketOrderPanel');
+                    this.createText(`当前价格`, new cc_1.Vec3(0, 150), 17, UITheme_1.UITheme.muted, 'center', 300);
+                    this.createText(`${this.yuan(price)} / ${unit}`, new cc_1.Vec3(0, 112), 34, UITheme_1.UITheme.goldSoft, 'center', 420);
+                    this.createText(`${instrument.kind === 'stock' ? `每手 ${lotSize} 股` : `每次至少 ${lotSize} 份`} · 可用资金 ${this.money(state.stats.funds)} · 最多可买 ${maximum.toLocaleString('zh-CN')}${unit}`, new cc_1.Vec3(0, 72), 16, UITheme_1.UITheme.quiet, 'center', 760, 30);
+                    this.createText(`买入数量  ${this.marketOrderQuantity.toLocaleString('zh-CN')}${unit}\n预计支付  ${this.yuan(totalYuan)}`, new cc_1.Vec3(0, 10), 25, affordable ? UITheme_1.UITheme.text : UITheme_1.UITheme.loss, 'center', 600, 74);
+                    const changeQuantity = (lots) => {
+                        this.marketOrderQuantity = Math.max(lotSize, this.marketOrderQuantity + lots * lotSize);
+                        this.showMarketBuyOrder(instrument, activeEvent);
+                    };
+                    const stepLabel = (lots) => instrument.kind === 'stock'
+                        ? `${lots > 0 ? '+' : ''}${lots}手`
+                        : `${lots > 0 ? '+' : ''}${lots * lotSize}份`;
+                    this.createButton(stepLabel(-10), new cc_1.Vec3(-270, -80), new cc_1.Vec3(120, 44), () => changeQuantity(-10), 'ghost', false);
+                    this.createButton(stepLabel(-1), new cc_1.Vec3(-130, -80), new cc_1.Vec3(120, 44), () => changeQuantity(-1), 'secondary', false);
+                    this.createButton(stepLabel(1), new cc_1.Vec3(130, -80), new cc_1.Vec3(120, 44), () => changeQuantity(1), 'secondary', false);
+                    this.createButton(stepLabel(10), new cc_1.Vec3(270, -80), new cc_1.Vec3(120, 44), () => changeQuantity(10), 'ghost', false);
+                    this.createButton(maximum >= lotSize ? `最大可买 ${maximum.toLocaleString('zh-CN')}${unit}` : '资金不足', new cc_1.Vec3(-180, -155), new cc_1.Vec3(280, 52), () => {
+                        if (maximum >= lotSize) {
+                            this.marketOrderQuantity = maximum;
+                            this.showMarketBuyOrder(instrument, activeEvent);
+                        }
+                    }, maximum >= lotSize ? 'secondary' : 'ghost', false);
+                    this.createButton(affordable ? `确认买入 ${this.marketOrderQuantity.toLocaleString('zh-CN')}${unit}` : '资金不足', new cc_1.Vec3(180, -155), new cc_1.Vec3(280, 52), () => {
+                        if (affordable)
+                            this.tryMarketAction(() => this.session.buyMarket(instrument.id, this.marketOrderQuantity), activeEvent);
+                    }, affordable ? 'primary' : 'ghost', false);
+                }
                 tryMarketAction(action, activeEvent) {
+                    var _a;
+                    const before = this.session.snapshot();
                     try {
                         action();
-                        this.showMarket(this.session.snapshot(), activeEvent);
+                        const after = this.session.snapshot();
+                        this.showMarket(after, activeEvent);
+                        (_a = this.statAnimator) === null || _a === void 0 ? void 0 : _a.playAnimation(before, after);
                     }
                     catch (error) {
                         this.showMarketMessage(error instanceof Error ? error.message : '操作失败。', activeEvent);
                     }
-                }
-                showChoiceConfirmation(event, option) {
-                    var _a, _b, _c, _d, _e, _f;
-                    const state = this.session.snapshot();
-                    this.clearScreen();
-                    this.createPageHeader('确认这次选择', event.title, () => this.showEvent(this.session.snapshot(), event));
-                    this.createPanel(new cc_1.Vec3(0, 40), new cc_1.Vec3(820, 310), UITheme_1.UITheme.surfaceRaised);
-                    const impact = this.optionImpact(option.result) || '该选择主要改变后续路线。';
-                    const cashCost = Math.max(0, -((_b = (_a = option.result.stats) === null || _a === void 0 ? void 0 : _a.funds) !== null && _b !== void 0 ? _b : 0)) + ((_d = (_c = option.result.projectInvestment) === null || _c === void 0 ? void 0 : _c.amount) !== null && _d !== void 0 ? _d : 0);
-                    const familyCost = Math.max(0, -((_f = (_e = option.result.stats) === null || _e === void 0 ? void 0 : _e.familyResources) !== null && _f !== void 0 ? _f : 0));
-                    const affordability = cashCost > state.stats.funds
-                        ? `现金不足，还差 ${this.money(cashCost - state.stats.funds)}`
-                        : familyCost > state.stats.familyResources
-                            ? `家庭资源不足，还差 ${this.money(familyCost - state.stats.familyResources)}`
-                            : '资源充足，可以确认。';
-                    this.createText(option.label, new cc_1.Vec3(0, 115), 29, UITheme_1.UITheme.goldSoft, 'center', 740, 52);
-                    this.createText(`即时影响：${impact}\n${affordability}\n\n确认后会写入人生时间线，不能在本局内撤销。`, new cc_1.Vec3(0, 25), 18, cashCost > state.stats.funds || familyCost > state.stats.familyResources ? UITheme_1.UITheme.loss : UITheme_1.UITheme.text, 'center', 720, 120);
-                    const affordable = cashCost <= state.stats.funds && familyCost <= state.stats.familyResources;
-                    this.createButton(affordable ? '确认选择' : '资源不足', new cc_1.Vec3(-145, -105), new cc_1.Vec3(250, 54), () => {
-                        if (affordable)
-                            this.tryChoose(option.id, event);
-                    }, affordable ? 'primary' : 'ghost', false);
-                    this.createButton('返回比较', new cc_1.Vec3(145, -105), new cc_1.Vec3(250, 54), () => this.showEvent(this.session.snapshot(), event), 'secondary', false);
                 }
                 tryChoose(optionId, event) {
                     const before = this.session.snapshot();
@@ -2168,7 +2256,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     }
                     catch (error) {
                         this.clearScreen();
-                        this.createText('资金提示', new cc_1.Vec3(0, 100), 36, new cc_1.Color(252, 214, 108), 'center');
+                        this.createText('这次选择还做不到', new cc_1.Vec3(0, 100), 36, new cc_1.Color(252, 214, 108), 'center');
                         this.createText(error instanceof Error ? error.message : '当前无法完成选择。', new cc_1.Vec3(0, 35), 20, new cc_1.Color(220, 226, 240), 'center', 950);
                         this.createButton('返回当前事件', new cc_1.Vec3(0, -80), new cc_1.Vec3(280, 60), () => this.showEvent(this.session.snapshot(), event), 'secondary', false);
                     }
@@ -2189,7 +2277,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     scrim.addComponent(cc_1.BlockInputEvents);
                     this.uiRoot.addChild(scrim);
                     const card = this.createPanel(new cc_1.Vec3(0, -5), new cc_1.Vec3(900, 300), UITheme_1.UITheme.surfaceRaised, 'ChoiceOutcomeCard');
-                    this.createTextOn(card, event.interaction === 'milestone' || event.forced ? '人生节点已完成' : '选择已经生效', new cc_1.Vec3(0, 105), 17, UITheme_1.UITheme.info, 'center', 800, 30);
+                    this.createTextOn(card, event.interaction === 'milestone' || event.forced ? '这一刻改变了人生方向' : '这一页已经写下', new cc_1.Vec3(0, 105), 17, UITheme_1.UITheme.info, 'center', 800, 30);
                     this.createTextOn(card, event.title, new cc_1.Vec3(0, 62), 31, UITheme_1.UITheme.text, 'center', 800, 44);
                     const outcomeLines = [
                         `选择 · ${(_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : '继续'}`,
@@ -2198,7 +2286,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         unlocked.length ? `新记录 · ${unlocked.map((flag) => this.flagName(flag)).join(' · ')}` : '',
                     ].filter(Boolean);
                     this.createTextOn(card, outcomeLines.join('\n'), new cc_1.Vec3(0, -20), 17, UITheme_1.UITheme.text, 'center', 800, 112);
-                    this.createTextOn(card, after.completed ? '正在生成人生结局…' : '即将自动继续…', new cc_1.Vec3(0, -112), 14, UITheme_1.UITheme.quiet, 'center', 760, 24);
+                    this.createTextOn(card, after.completed ? '一生的回声正在浮现…' : '时间继续向前…', new cc_1.Vec3(0, -112), 14, UITheme_1.UITheme.quiet, 'center', 760, 24);
                     const progress = this.createPanelOn(card, new cc_1.Vec3(0, -142), new cc_1.Vec3(760, 4), UITheme_1.UITheme.gold, 'OutcomeProgress');
                     Motion_1.Motion.progress(progress, 1.4);
                     const revision = this.renderRevision;
@@ -2219,7 +2307,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         this.showChoiceOutcome(before, after, event, { id: 'decline-opportunity', label: '暂不进入，保留资源与选择空间', result: {} });
                     }
                     catch (error) {
-                        this.showActionMessage('事件提示', error instanceof Error ? error.message : '当前无法结束该事件。', () => this.showEvent(this.session.snapshot(), event));
+                        this.showActionMessage('眼下还不能离开', error instanceof Error ? error.message : '这件事仍需要作出决定。', () => this.showEvent(this.session.snapshot(), event));
                     }
                 }
                 advanceTime(years) {
@@ -2248,7 +2336,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.createTextOn(card, `个人净现金流 ${net >= 0 ? '+' : ''}${this.money(net)}${familyCovered > 0 ? ` · 家庭承担 ${this.money(familyCovered)}` : ''}`, new cc_1.Vec3(0, 27), 20, net >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 820, 34);
                     this.createTextOn(card, `净资产 ${wealthDelta >= 0 ? '+' : ''}${this.money(wealthDelta)} → ${this.money(wealthAfter)}`, new cc_1.Vec3(0, -18), 20, wealthDelta >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 820, 34);
                     this.createTextOn(card, `期末现金 ${this.money(after.stats.funds)} · 健康 ${after.stats.health} · 压力 ${after.stats.pressure} · 幸福 ${after.stats.happiness}`, new cc_1.Vec3(0, -63), 16, UITheme_1.UITheme.muted, 'center', 820, 30);
-                    this.createTextOn(card, this.session.getCurrentEvent() ? '发现新事件，正在进入…' : '正在进入下一年安排…', new cc_1.Vec3(0, -112), 14, UITheme_1.UITheme.quiet, 'center', 760, 24);
+                    this.createTextOn(card, this.session.getCurrentEvent() ? '新的事情正在发生…' : '新的一年正在到来…', new cc_1.Vec3(0, -112), 14, UITheme_1.UITheme.quiet, 'center', 760, 24);
                     const progress = this.createPanelOn(card, new cc_1.Vec3(0, -142), new cc_1.Vec3(780, 4), milestone ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'AnnualProgress');
                     Motion_1.Motion.progress(progress, 1.55);
                     const revision = this.renderRevision;
@@ -2296,7 +2384,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                 }
                 showMarketMessage(message, activeEvent) {
                     this.clearScreen();
-                    this.createText('交易提示', new cc_1.Vec3(0, 100), 36, new cc_1.Color(252, 214, 108), 'center');
+                    this.createText('交易未能完成', new cc_1.Vec3(0, 100), 36, new cc_1.Color(252, 214, 108), 'center');
                     this.createText(message, new cc_1.Vec3(0, 35), 20, new cc_1.Color(220, 226, 240), 'center');
                     this.createButton('返回市场', new cc_1.Vec3(0, -80), new cc_1.Vec3(250, 60), () => this.showMarket(this.session.snapshot(), activeEvent), 'secondary', false);
                 }
@@ -2709,7 +2797,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         changes.push(`${(_a = relationshipNames[key]) !== null && _a !== void 0 ? _a : '关系变化'}${value > 0 ? '+' : ''}${value}`); });
                     if (result.projectInvestment)
                         changes.unshift(`行业投入-${this.money(result.projectInvestment.amount)}（转为项目资产）`);
-                    return changes.join(' · ') || '仅记录信息，不改变数值';
+                    return changes.join(' · ') || '你记住了这条线索';
                 }
                 sparkline(values) {
                     if (values.length === 0)
@@ -2811,6 +2899,8 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                 }
                 /** All economy values are stored in ten-thousand-yuan units and shown as RMB. */
                 money(amount) { return `¥${Math.round(amount * 10000).toLocaleString('zh-CN')}`; }
+                /** Market quotes are stored as yuan per share or fund unit. */
+                yuan(amount) { return `¥${amount.toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`; }
                 rarityName(rarity) { return { common: '普通', rare: '稀有', legendary: '传奇' }[rarity]; }
                 educationName(level) { return ({ primary: '小学', middle: '初中', high: '高中', vocational: '中专', college: '专科', undergraduate: '本科', 'first-tier': '一本', '211': '211', '985': '985', graduate: '研究生' })[level]; }
                 highSchoolName(track) { return track ? ({ vocational: '中专', general: '普高', key: '重点高中' })[track] : '未录取'; }
@@ -2847,6 +2937,9 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
         }
     };
 });
+
+
+
 
 
 
@@ -2912,6 +3005,9 @@ System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./I
         }
     };
 });
+
+
+
 
 
 
@@ -3147,6 +3243,8 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                 }
                 getYearInfo() { return this.state ? YearConfig_1.getYearConfig(this.state.year) : undefined; }
                 marketInstruments() { return this.state ? this.market.instruments(this.state) : []; }
+                marketLotSize(instrumentId) { if (!this.state)
+                    return 100; return this.market.lotSize(this.market.find(instrumentId, this.state)); }
                 canResearchMarket(instrumentId) { if (!this.state)
                     return false; return this.market.canResearch(this.state, this.market.find(instrumentId, this.state)); }
                 canTradeMarket() { return !!this.state && this.market.canTrade(this.state); }
@@ -3432,6 +3530,9 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
 
 
 
+
+
+
 System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "./AssetSystem.ts", "./HealthSystem.ts", "./OpportunitySystem.ts", "./FinanceSystem.ts", "./HousingSystem.ts", "./IndustryProjectSystem.ts", "./CareerSystem.ts", "./GrowthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var __rest = (this && this.__rest) || function (s, e) {
@@ -3640,6 +3741,9 @@ System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "
 
 
 
+
+
+
 System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -3649,6 +3753,9 @@ System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, conte
         }
     };
 });
+
+
+
 
 
 
@@ -3682,6 +3789,9 @@ System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 
 
@@ -3799,6 +3909,9 @@ System.register("chunks:///_virtual/HousingSystem.ts",[], function (exports_1, c
 
 
 
+
+
+
 System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var IDENTITIES, STARTER_FAMILY_IDS;
@@ -3852,6 +3965,9 @@ System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, 
         }
     };
 });
+
+
+
 
 
 
@@ -3944,6 +4060,9 @@ System.register("chunks:///_virtual/IndependentLifeEvents.ts",[], function (expo
 
 
 
+
+
+
 System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryProjectConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var IndustryProjectConfig_1, INDUSTRY_OPPORTUNITY_EVENTS;
@@ -4001,6 +4120,9 @@ System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryPr
 
 
 
+
+
+
 System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var INDUSTRY_PROJECTS;
@@ -4043,6 +4165,9 @@ System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (expo
         }
     };
 });
+
+
+
 
 
 
@@ -4154,6 +4279,9 @@ System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjec
 
 
 
+
+
+
 System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var INHERITANCE_REWARDS;
@@ -4172,6 +4300,9 @@ System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -4221,6 +4352,9 @@ System.register("chunks:///_virtual/InvestmentMemoryManager.ts",["cc"], function
         }
     };
 });
+
+
+
 
 
 
@@ -4301,6 +4435,9 @@ System.register("chunks:///_virtual/LaterLifeEvents.ts",[], function (exports_1,
 
 
 
+
+
+
 System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, LEGACY_KEY, LegacyManager;
@@ -4331,6 +4468,9 @@ System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -4380,6 +4520,9 @@ System.register("chunks:///_virtual/GrowthSystem.ts",[], function (exports_1, co
 
 
 
+
+
+
 System.register("chunks:///_virtual/main",["./GameBootstrap.ts","./Motion.ts","./StatChangeAnimator.ts","./UITheme.ts","./AchievementConfig.ts","./CareerPathEvents.ts","./EducationEvents.ts","./EndingConfig.ts","./EventTemplates.ts","./ExplorationConfig.ts","./FamilyOpportunityEvents.ts","./FutureTransitionEvents.ts","./GameEvents.ts","./IdentityConfig.ts","./IndependentLifeEvents.ts","./IndustryOpportunityEvents.ts","./IndustryProjectConfig.ts","./InheritanceConfig.ts","./LaterLifeEvents.ts","./MajorOpportunityEvents.ts","./MarketConfig.ts","./MarketInsightConfig.ts","./MidLifeEvents.ts","./OpportunityConfig.ts","./OpportunityEvents.ts","./StarterEvents.ts","./StartupConfig.ts","./YearConfig.ts","./GameSession.ts","./GameStateManager.ts","./GameTypes.ts","./SeededRandom.ts","./AchievementSystem.ts","./AssetSystem.ts","./CareerSystem.ts","./CitySystem.ts","./ConditionEvaluator.ts","./DelayedEventQueue.ts","./EducationProgressionSystem.ts","./EducationSystem.ts","./EndingResolver.ts","./EventMatcher.ts","./FamilyUnlockManager.ts","./FinanceSystem.ts","./HealthSystem.ts","./HousingSystem.ts","./IndustryProjectSystem.ts","./InvestmentMemoryManager.ts","./LegacyManager.ts","./MarketSystem.ts","./OpenOpportunitySystem.ts","./OpportunitySystem.ts","./ReportGenerator.ts","./RequirementFormatter.ts","./SaveManager.ts","./StartupSystem.ts","./WealthSystem.ts"],(function(){return{setters:[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],execute:function(){}}}));
 
 System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exports_1, context_1) {
@@ -4408,6 +4551,9 @@ System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exp
         }
     };
 });
+
+
+
 
 
 
@@ -4497,6 +4643,9 @@ System.register("chunks:///_virtual/MarketConfig.ts",[], function (exports_1, co
 
 
 
+
+
+
 System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var MARKET_INSIGHTS;
@@ -4513,6 +4662,9 @@ System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (export
         }
     };
 });
+
+
+
 
 
 
@@ -4558,6 +4710,7 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts", "./Ma
                     this.conditions = new ConditionEvaluator_1.ConditionEvaluator();
                 }
                 instruments(state) {
+                    this.migrateShareUnits(state);
                     const held = new Set(state.market.positions.map((position) => position.instrumentId));
                     const discovered = new Set(state.market.discoveredInstrumentIds);
                     return this.catalog(state)
@@ -4646,45 +4799,48 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts", "./Ma
                         state.flags.push('market-risk-read');
                 }
                 buy(state, instrumentId, quantity) {
+                    this.migrateShareUnits(state);
                     if (!this.canTrade(state))
                         throw new Error(state.age < 18 ? '未成年只能查看行情，不能买卖。' : '请先阅读并确认交易风险说明。');
                     const item = this.research(state, instrumentId);
                     if (item.closeYear && state.year > item.closeYear)
                         throw new Error('该标的已停止新增买入，但历史持仓仍可查看和卖出。');
-                    if (!Number.isFinite(quantity) || quantity <= 0)
-                        throw new Error('购买数量必须大于0。');
-                    const cost = this.roundMoney(this.price(item, state.year) * quantity);
+                    const lotSize = this.lotSize(item);
+                    if (!Number.isInteger(quantity) || quantity < lotSize || quantity % lotSize !== 0)
+                        throw new Error(`${this.unitName(item)}需按每手${lotSize}股买入。`);
+                    const price = this.price(item, state.year);
+                    const cost = this.roundMoney(price * quantity / 10000);
                     if (state.stats.funds < cost)
                         throw new Error('资金不足，无法完成本次购买。');
                     const position = state.market.positions.find((entry) => entry.instrumentId === item.id);
                     if (position) {
-                        position.averageCost = this.roundMoney((position.averageCost * position.quantity + cost) / (position.quantity + quantity));
+                        position.averageCost = Math.round((position.averageCost * position.quantity + price * quantity) / (position.quantity + quantity) * 100) / 100;
                         position.quantity = this.roundQuantity(position.quantity + quantity);
                     }
                     else
-                        state.market.positions.push({ instrumentId: item.id, quantity, averageCost: cost / quantity });
+                        state.market.positions.push({ instrumentId: item.id, quantity, averageCost: price });
                     state.stats.funds = this.roundMoney(state.stats.funds - cost);
                 }
-                /** Amount-based orders let a young player invest ¥1,000 without needing a whole high-priced share. */
+                /** Compatibility helper: convert a cash budget (in ten-thousand yuan) into whole market lots. */
                 buyAmount(state, instrumentId, amount) {
                     const item = this.find(instrumentId, state);
-                    const minimum = item.kind === 'stock' ? .5 : .1;
-                    if (!Number.isFinite(amount) || amount < minimum)
-                        throw new Error(`该标的最低买入金额为 ¥${Math.round(minimum * 10000).toLocaleString('zh-CN')}。`);
-                    if (state.stats.funds < amount)
-                        throw new Error(`现金不足，还差 ¥${Math.round((amount - state.stats.funds) * 10000).toLocaleString('zh-CN')}。`);
-                    this.buy(state, instrumentId, this.roundQuantity(amount / this.price(item, state.year)));
+                    const lotSize = this.lotSize(item);
+                    const quantity = Math.floor(amount * 10000 / this.price(item, state.year) / lotSize) * lotSize;
+                    if (quantity < lotSize)
+                        throw new Error('这笔资金不足以买入一手。');
+                    this.buy(state, instrumentId, quantity);
                 }
                 sell(state, instrumentId, quantity) {
+                    this.migrateShareUnits(state);
                     if (!this.canTrade(state))
                         throw new Error('请先完成交易账户和风险说明。');
                     const position = this.position(state, instrumentId);
                     if (!Number.isFinite(quantity) || quantity <= 0 || position.quantity + .000001 < quantity)
                         throw new Error('持仓数量不足。');
                     const soldQuantity = Math.min(position.quantity, quantity);
-                    const proceeds = this.roundMoney(this.price(this.find(instrumentId, state), state.year) * soldQuantity);
+                    const proceeds = this.roundMoney(this.price(this.find(instrumentId, state), state.year) * soldQuantity / 10000);
                     state.stats.funds = this.roundMoney(state.stats.funds + proceeds);
-                    state.market.realizedProfit = this.roundMoney(state.market.realizedProfit + proceeds - position.averageCost * soldQuantity);
+                    state.market.realizedProfit = this.roundMoney(state.market.realizedProfit + proceeds - position.averageCost * soldQuantity / 10000);
                     position.quantity = this.roundQuantity(position.quantity - soldQuantity);
                     if (position.quantity <= .000001)
                         state.market.positions = state.market.positions.filter((entry) => entry !== position);
@@ -4697,7 +4853,10 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts", "./Ma
                 }
                 position(state, instrumentId) { const item = state.market.positions.find((entry) => entry.instrumentId === instrumentId); if (!item)
                     throw new Error('暂无该标的持仓。'); return item; }
-                portfolioValue(state) { return state.market.positions.reduce((sum, position) => sum + this.price(this.find(position.instrumentId, state), state.year) * position.quantity, 0); }
+                portfolioValue(state) {
+                    this.migrateShareUnits(state);
+                    return this.roundMoney(state.market.positions.reduce((sum, position) => sum + this.price(this.find(position.instrumentId, state), state.year) * position.quantity / 10000, 0));
+                }
                 find(id, state) { const item = this.catalog(state).find((entry) => entry.id === id); if (!item)
                     throw new Error('当前投资品种尚未开放。'); return item; }
                 insightIdsFor(item) {
@@ -4713,13 +4872,27 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts", "./Ma
                     return ids.map((id) => { var _a; return (_a = MarketInsightConfig_1.MARKET_INSIGHTS.find((item) => item.id === id)) === null || _a === void 0 ? void 0 : _a.name; }).filter((name) => Boolean(name));
                 }
                 catalog(state) { return [...MarketConfig_1.MARKET_INSTRUMENTS, ...state.market.generatedInstruments]; }
-                roundMoney(value) { return Math.round(value * 100) / 100; }
+                lotSize(item) { return item.kind === 'stock' ? 100 : 10; }
+                unitName(item) { return item.kind === 'stock' ? '股票' : item.kind === 'fund' ? '基金' : '债券'; }
+                /** Old saves stored fractional investment units. Convert once so their market value is unchanged. */
+                migrateShareUnits(state) {
+                    const flag = 'market-share-unit-v2';
+                    if (state.flags.includes(flag))
+                        return;
+                    state.market.positions.forEach((position) => { position.quantity = Math.round(position.quantity * 10000); });
+                    state.flags.push(flag);
+                }
+                /** Funds use ten-thousand yuan as the base unit; six decimals preserve cent-accurate market orders. */
+                roundMoney(value) { return Math.round(value * 1000000) / 1000000; }
                 roundQuantity(value) { return Math.round(value * 1000000) / 1000000; }
             };
             exports_1("MarketSystem", MarketSystem);
         }
     };
 });
+
+
+
 
 
 
@@ -4754,6 +4927,9 @@ System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
+
 
 
 
@@ -4844,6 +5020,9 @@ System.register("chunks:///_virtual/Motion.ts",["cc"], function (exports_1, cont
 
 
 
+
+
+
 System.register("chunks:///_virtual/OpenOpportunitySystem.ts",["./ExplorationConfig.ts", "./ConditionEvaluator.ts", "./RequirementFormatter.ts"], function (exports_1, context_1) {
     "use strict";
     var ExplorationConfig_1, ConditionEvaluator_1, RequirementFormatter_1, OpenOpportunitySystem;
@@ -4904,6 +5083,9 @@ System.register("chunks:///_virtual/OpenOpportunitySystem.ts",["./ExplorationCon
 
 
 
+
+
+
 System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var LIFE_CYCLE, OPPORTUNITY_CHAINS, SIGNALS;
@@ -4940,6 +5122,9 @@ System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -5040,6 +5225,9 @@ System.register("chunks:///_virtual/OpportunityEvents.ts",["./EventTemplates.ts"
 
 
 
+
+
+
 System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var OpportunityConfig_1, OpportunitySystem;
@@ -5069,6 +5257,9 @@ System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.
         }
     };
 });
+
+
+
 
 
 
@@ -5137,6 +5328,9 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
 
 
 
+
+
+
 System.register("chunks:///_virtual/RequirementFormatter.ts",[], function (exports_1, context_1) {
     "use strict";
     var RequirementFormatter;
@@ -5183,6 +5377,9 @@ System.register("chunks:///_virtual/RequirementFormatter.ts",[], function (expor
         }
     };
 });
+
+
+
 
 
 
@@ -5328,6 +5525,9 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
 
 
 
+
+
+
 System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, context_1) {
     "use strict";
     var SeededRandom;
@@ -5355,6 +5555,9 @@ System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 
 
@@ -5427,6 +5630,9 @@ System.register("chunks:///_virtual/StarterEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
+
 
 
 
@@ -5531,6 +5737,9 @@ System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, c
         }
     };
 });
+
+
+
 
 
 
@@ -5670,6 +5879,9 @@ System.register("chunks:///_virtual/StartupSystem.ts",["./AssetSystem.ts", "./Gr
 
 
 
+
+
+
 System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, StatChangeAnimator;
@@ -5681,53 +5893,69 @@ System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exp
             }
         ],
         execute: function () {
-            /** Lightweight floating-number feedback shared by event choices and yearly settlement. */
+            /** Prominent floating feedback shared by recovery, exploration, trading and yearly settlement. */
             StatChangeAnimator = class StatChangeAnimator {
                 constructor(root) {
                     this.root = root;
                 }
                 diff(before, after) {
                     const entries = [];
-                    const collect = (source, target, names, money = false) => Object.keys(names).forEach((key) => { var _a, _b; const delta = ((_a = target[key]) !== null && _a !== void 0 ? _a : 0) - ((_b = source[key]) !== null && _b !== void 0 ? _b : 0); if (Math.abs(delta) > .01)
-                        entries.push({ name: names[key], delta, isMoney: money && key === 'funds' }); });
+                    const collect = (source, target, names, money = false) => Object.keys(names).forEach((key) => {
+                        var _a, _b;
+                        const delta = ((_a = target[key]) !== null && _a !== void 0 ? _a : 0) - ((_b = source[key]) !== null && _b !== void 0 ? _b : 0);
+                        if (Math.abs(delta) > .01)
+                            entries.push({ name: names[key], delta, isMoney: money && key === 'funds', lowerIsBetter: key === 'pressure' });
+                    });
                     collect(before.stats, after.stats, { funds: '现金', health: '健康', pressure: '压力', happiness: '幸福', knowledge: '知识', informationValue: '信息值' }, true);
                     collect(before.skills, after.skills, { learning: '学习', technology: '技术', business: '商业', expression: '表达', management: '管理', information: '信息' });
-                    return entries.slice(0, 4);
+                    return entries.slice(0, 6);
                 }
                 playAnimation(before, after) {
                     this.diff(before, after).forEach((diff, index) => this.float(diff, index));
                 }
                 float(diff, index) {
                     const node = new cc_1.Node('StatDiff');
-                    node.addComponent(cc_1.UITransform).setContentSize(190, 38);
-                    node.setPosition(new cc_1.Vec3(-315 + index * 210, 146));
+                    node.addComponent(cc_1.UITransform).setContentSize(280, 54);
+                    const column = index % 3;
+                    const row = Math.floor(index / 3);
+                    node.setPosition(new cc_1.Vec3(-310 + column * 310, 172 - row * 66));
+                    node.setScale(new cc_1.Vec3(.82, .82, 1));
                     const background = node.addComponent(cc_1.Graphics);
-                    background.fillColor = new cc_1.Color(36, 31, 48, 245);
-                    background.roundRect(-95, -19, 190, 38, 11);
+                    const positive = diff.lowerIsBetter ? diff.delta < 0 : diff.delta > 0;
+                    background.fillColor = positive ? new cc_1.Color(30, 64, 53, 250) : new cc_1.Color(77, 42, 48, 250);
+                    background.roundRect(-140, -27, 280, 54, 14);
                     background.fill();
-                    background.strokeColor = new cc_1.Color(91, 82, 112, 210);
-                    background.lineWidth = 1;
-                    background.roundRect(-95, -19, 190, 38, 11);
+                    background.strokeColor = positive ? new cc_1.Color(143, 199, 154, 255) : new cc_1.Color(224, 138, 110, 255);
+                    background.lineWidth = 3;
+                    background.roundRect(-140, -27, 280, 54, 14);
                     background.stroke();
-                    const label = node.addComponent(cc_1.Label);
-                    label.string = `${diff.delta > 0 ? '+' : ''}${diff.isMoney ? '¥' + Math.round(diff.delta * 10000).toLocaleString('zh-CN') : Math.round(diff.delta)}  ${diff.name}`;
-                    label.fontSize = diff.isMoney ? 18 : 17;
-                    label.lineHeight = 24;
+                    const labelNode = new cc_1.Node('StatDiffText');
+                    labelNode.addComponent(cc_1.UITransform).setContentSize(252, 38);
+                    node.addChild(labelNode);
+                    const label = labelNode.addComponent(cc_1.Label);
+                    const sign = diff.delta > 0 ? '+' : '-';
+                    const magnitude = diff.isMoney ? `¥${Math.abs(Math.round(diff.delta * 10000)).toLocaleString('zh-CN')}` : Math.abs(Math.round(diff.delta)).toString();
+                    label.string = `${diff.name}  ${sign}${magnitude}`;
+                    label.fontSize = 22;
+                    label.lineHeight = 30;
                     label.horizontalAlign = cc_1.Label.HorizontalAlign.CENTER;
                     label.verticalAlign = cc_1.Label.VerticalAlign.CENTER;
                     label.overflow = cc_1.Label.Overflow.SHRINK;
                     label.fontFamily = 'Noto Sans SC';
-                    label.color = diff.delta >= 0 ? (diff.isMoney ? new cc_1.Color(224, 138, 110) : new cc_1.Color(143, 199, 154)) : (diff.isMoney ? new cc_1.Color(143, 199, 154) : new cc_1.Color(224, 138, 110));
+                    label.color = positive ? new cc_1.Color(189, 235, 196) : new cc_1.Color(255, 185, 166);
                     const opacity = node.addComponent(cc_1.UIOpacity);
                     opacity.opacity = 0;
                     this.root.addChild(node);
-                    cc_1.tween(node).delay(index * .07).parallel(cc_1.tween(opacity).to(.16, { opacity: 255 }), cc_1.tween(node).by(.75, { position: new cc_1.Vec3(0, 30) }, { easing: 'quadOut' })).delay(.25).to(.18, { scale: new cc_1.Vec3(.88, .88, 1) }).call(() => node.destroy()).start();
+                    cc_1.tween(node).delay(index * .06).parallel(cc_1.tween(opacity).to(.18, { opacity: 255 }), cc_1.tween(node).to(.22, { scale: new cc_1.Vec3(1.06, 1.06, 1) }, { easing: 'backOut' }).to(.12, { scale: cc_1.Vec3.ONE }), cc_1.tween(node).by(.9, { position: new cc_1.Vec3(0, 18) }, { easing: 'quadOut' })).delay(.9).parallel(cc_1.tween(opacity).to(.28, { opacity: 0 }), cc_1.tween(node).by(.28, { position: new cc_1.Vec3(0, 22) }, { easing: 'quadIn' })).call(() => node.destroy()).start();
                 }
             };
             exports_1("StatChangeAnimator", StatChangeAnimator);
         }
     };
 });
+
+
+
 
 
 
@@ -5778,6 +6006,9 @@ System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, con
         }
     };
 });
+
+
+
 
 
 
@@ -5854,6 +6085,9 @@ System.register("chunks:///_virtual/WealthSystem.ts",["./MarketConfig.ts"], func
 
 
 
+
+
+
 System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var KEY_YEARS, YEARS;
@@ -5896,6 +6130,9 @@ System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, cont
         }
     };
 });
+
+
+
 
 
 
