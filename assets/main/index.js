@@ -28,6 +28,8 @@ System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_
 
 
 
+
+
 System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.ts", "./ConditionEvaluator.ts"], function (exports_1, context_1) {
     "use strict";
     var AchievementConfig_1, ConditionEvaluator_1, AchievementSystem;
@@ -70,6 +72,8 @@ System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.
 
 
 
+
+
 System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var AssetSystem;
@@ -90,6 +94,8 @@ System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, con
         }
     };
 });
+
+
 
 
 
@@ -190,6 +196,8 @@ System.register("chunks:///_virtual/CareerPathEvents.ts",[], function (exports_1
 
 
 
+
+
 System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var LEVELS, THRESHOLDS, TENURE, CareerSystem;
@@ -238,6 +246,8 @@ System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
 
 
 
@@ -324,6 +334,8 @@ System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], functi
 
 
 
+
+
 System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var WealthSystem_1, ConditionEvaluator;
@@ -384,6 +396,8 @@ System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"]
 
 
 
+
+
 System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_1, context_1) {
     "use strict";
     var DelayedEventQueue;
@@ -406,6 +420,8 @@ System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_
         }
     };
 });
+
+
 
 
 
@@ -519,6 +535,8 @@ System.register("chunks:///_virtual/EducationEvents.ts",["./EventTemplates.ts"],
         }
     };
 });
+
+
 
 
 
@@ -701,6 +719,8 @@ System.register("chunks:///_virtual/EducationProgressionSystem.ts",["./Education
 
 
 
+
+
 System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var LEVEL_RANK, EducationSystem;
@@ -746,6 +766,8 @@ System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1,
 
 
 
+
+
 System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var item, ENDINGS;
@@ -762,6 +784,8 @@ System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, co
         }
     };
 });
+
+
 
 
 
@@ -835,6 +859,8 @@ System.register("chunks:///_virtual/EndingResolver.ts",["./EndingConfig.ts", "./
 
 
 
+
+
 System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"], function (exports_1, context_1) {
     "use strict";
     var ConditionEvaluator_1, EventMatcher;
@@ -878,6 +904,8 @@ System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"]
         }
     };
 });
+
+
 
 
 
@@ -981,6 +1009,8 @@ System.register("chunks:///_virtual/EventTemplates.ts",[], function (exports_1, 
 
 
 
+
+
 System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var EXPLORATION_ACTIONS;
@@ -994,8 +1024,7 @@ System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_
              */
             exports_1("EXPLORATION_ACTIONS", EXPLORATION_ACTIONS = [
                 { id: 'market', domain: 'market', name: '交易所', description: '研究公开行情、线索与持仓，主动进行买卖。', prerequisites: [] },
-                { id: 'industry', domain: 'industry', name: '行业项目', description: '查看已经投入的具体行业、当前估值与退出结果。', prerequisites: ['stats.funds>=5'] },
-                { id: 'startup', domain: 'startup', name: '创业孵化器', description: '先小规模验证方向，再积累资金正式创业。', yearMin: 2010, prerequisites: ['skills.business>=20', 'attributes.execution>=20'] },
+                { id: 'industry', domain: 'industry', name: '项目投资', description: '买断具体项目，持有经营，并在合适的行业阶段出售。', yearMin: 2010, prerequisites: [] },
                 { id: 'education', domain: 'education', name: '教育与进修', description: '未来用于选择学校、专业、证书与研究机会。', prerequisites: ['skills.learning>=15'] },
                 { id: 'city', domain: 'city', name: '城市迁移', description: '未来用于迁居、寻找城市红利与承受生活成本。', prerequisites: ['stats.funds>=10'] },
                 { id: 'housing', domain: 'housing', name: '房产市场', description: '未来用于租住、购房与持有周期决策。', prerequisites: ['stats.funds>=25'] },
@@ -1003,6 +1032,8 @@ System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_
         }
     };
 });
+
+
 
 
 
@@ -1147,6 +1178,8 @@ System.register("chunks:///_virtual/FamilyOpportunityEvents.ts",[], function (ex
 
 
 
+
+
 System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityConfig.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var cc_1, IdentityConfig_1, WealthSystem_1, FAMILY_UNLOCK_KEY, CAREER_RANK, FamilyUnlockManager;
@@ -1235,9 +1268,11 @@ System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityCo
 
 
 
-System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSystem.ts", "./CitySystem.ts"], function (exports_1, context_1) {
+
+
+System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSystem.ts", "./CitySystem.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
-    var EducationProgressionSystem_1, CitySystem_1, FinanceSystem;
+    var EducationProgressionSystem_1, CitySystem_1, WealthSystem_1, FinanceSystem;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [
@@ -1246,6 +1281,9 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
             },
             function (CitySystem_1_1) {
                 CitySystem_1 = CitySystem_1_1;
+            },
+            function (WealthSystem_1_1) {
+                WealthSystem_1 = WealthSystem_1_1;
             }
         ],
         execute: function () {
@@ -1267,7 +1305,11 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
                             : state.flags.includes('retirement-active') ? .55 : .4;
                     state.finance.salaryAnnual = Math.round((baseSalary * healthMultiplier * focusMultiplier * intensityMultiplier + skillIncome) * retirementMultiplier * 10) / 10;
                     state.finance.livingCostAnnual = state.age < 18 ? 0 : this.cities.livingCost(state.education.city, state.year, state.age);
-                    state.finance.loanLimit = this.hasHealthyCashflow(state) ? Math.floor(state.finance.salaryAnnual * 2) : 0;
+                    const forecast = this.forecastWithoutLoanRefresh(state);
+                    const annualSurplusBeforeInterest = Math.max(0, forecast.netCashflow + forecast.interestExpense);
+                    const supported = state.age >= 18 && state.career.track !== 'unemployed' && annualSurplusBeforeInterest >= 1.5;
+                    const calculatedLimit = supported ? annualSurplusBeforeInterest * 5 + WealthSystem_1.investmentAssetValue(state) * .3 : 0;
+                    state.finance.loanLimit = this.roundMoney(Math.max(state.finance.loanBalance, calculatedLimit));
                 }
                 /** The UI and the actual settlement must always explain the same money movement. */
                 forecast(state) {
@@ -1302,10 +1344,24 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
                         throw new Error('未成年不能以本人名义申请贷款。');
                     if (!this.hasHealthyCashflow(state))
                         throw new Error(this.loanRequirementText(state));
-                    if (!Number.isInteger(amount) || amount <= 0 || state.finance.loanBalance + amount > state.finance.loanLimit)
+                    const rounded = this.roundMoney(amount);
+                    if (!Number.isFinite(rounded) || rounded <= 0 || state.finance.loanBalance + rounded > state.finance.loanLimit + .001)
                         throw new Error('超过可用贷款额度。');
-                    state.finance.loanBalance += amount;
-                    state.stats.funds += amount;
+                    state.finance.loanBalance = this.roundMoney(state.finance.loanBalance + rounded);
+                    state.stats.funds = this.roundMoney(state.stats.funds + rounded);
+                }
+                loanOffer(state, required) {
+                    this.refresh(state);
+                    const amount = this.roundMoney(Math.max(0, required));
+                    const available = this.roundMoney(Math.max(0, state.finance.loanLimit - state.finance.loanBalance));
+                    return {
+                        required: amount,
+                        available,
+                        amount,
+                        canBorrow: amount > 0 && amount <= available + .001 && this.hasHealthyCashflow(state),
+                        annualInterest: this.roundMoney(amount * .05),
+                        resultingBalance: this.roundMoney(state.finance.loanBalance + amount),
+                    };
                 }
                 loanRequirementText(state) {
                     if (state.age < 18)
@@ -1315,10 +1371,10 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
                     const forecast = this.forecastWithoutLoanRefresh(state);
                     if (forecast.netCashflow < 1.5)
                         return '预计年度结余至少达到 ¥15,000 后开放贷款。';
-                    return `当前可用贷款额度为 ¥${Math.round(state.finance.loanLimit * 10000).toLocaleString('zh-CN')}。`;
+                    return `当前可借 ¥${Math.round(Math.max(0, state.finance.loanLimit - state.finance.loanBalance) * 10000).toLocaleString('zh-CN')}。`;
                 }
                 repayLoan(state, amount) {
-                    if (!Number.isInteger(amount) || amount <= 0 || amount > state.finance.loanBalance)
+                    if (!Number.isFinite(amount) || amount <= 0 || amount > state.finance.loanBalance)
                         throw new Error('还款金额无效。');
                     if (state.stats.funds < amount)
                         throw new Error('现金不足，无法还款。');
@@ -1329,7 +1385,7 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
                 hasHealthyCashflow(state) {
                     return state.age >= 18
                         && state.career.track !== 'unemployed'
-                        && state.finance.salaryAnnual - state.finance.livingCostAnnual - state.finance.loanBalance * .05 >= 1.5;
+                        && state.finance.loanLimit > state.finance.loanBalance + .001;
                 }
                 focusIncomeMultiplier(focus) {
                     // Annual focus changes bonuses and attendance, not the employee's entire pay grade.
@@ -1423,6 +1479,8 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
 
 
 
+
+
 System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var FUTURE_TRANSITION_EVENTS;
@@ -1448,6 +1506,8 @@ System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exp
         }
     };
 });
+
+
 
 
 
@@ -1528,8 +1588,9 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.designSize = new cc_1.Vec3(1280, 720, 1);
                     this.talentRefreshesRemaining = 3;
                     this.marketPage = 0;
-                    this.marketOrderQuantity = 100;
+                    this.marketOrderFraction = .25;
                     this.industryPage = 0;
+                    this.projectView = 'market';
                     this.renderRevision = 0;
                     this.layoutIssues = [];
                     this.interactiveRects = [];
@@ -1853,35 +1914,38 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     scrim.addComponent(cc_1.BlockInputEvents);
                     this.uiRoot.addChild(scrim);
                     // Leave a visible gap below the top dashboard buttons; touching strokes looked like overlapping shapes on phones.
-                    const modal = this.createPanel(new cc_1.Vec3(0, -25), new cc_1.Vec3(1060, 550), UITheme_1.UITheme.surfaceRaised, 'OpportunityModal');
+                    const modal = this.createPanel(new cc_1.Vec3(0, -20), new cc_1.Vec3(1060, 560), UITheme_1.UITheme.surfaceRaised, 'OpportunityModal');
                     modal.addComponent(cc_1.UIOpacity).opacity = 255;
                     const eventKind = event.interaction === 'opportunity' ? '限时机遇 · 错过后不再停留'
                         : event.interaction === 'milestone' || event.forced ? '人生节点 · 需要回应'
                             : event.interaction === 'information' || event.informational ? '信息更新' : '生活选择';
-                    this.createTextOn(modal, eventKind, new cc_1.Vec3(0, 225), 16, event.informational ? UITheme_1.UITheme.info : event.forced ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'center');
+                    this.createTextOn(modal, eventKind, new cc_1.Vec3(0, 235), 16, event.informational ? UITheme_1.UITheme.info : event.forced ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'center');
                     const showSeparateDecline = event.declineAllowed && !this.hasPassiveOption(event);
                     if (showSeparateDecline)
-                        this.createButtonOn(modal, '暂不进入', new cc_1.Vec3(455, 225), new cc_1.Vec3(110, 36), () => this.tryDecline(event), 'ghost', true);
+                        this.createButtonOn(modal, '暂不进入', new cc_1.Vec3(455, 235), new cc_1.Vec3(110, 36), () => this.tryDecline(event), 'ghost', true);
                     this.createPanelOn(modal, new cc_1.Vec3(-375, -12), new cc_1.Vec3(260, 390), UITheme_1.UITheme.surface, 'EventContextPanel');
-                    this.createTextOn(modal, event.title, new cc_1.Vec3(125, 165), 34, UITheme_1.UITheme.text, 'center', 650, 52);
-                    const admissionPreview = this.session.educationAdmissionPreview(event.id);
-                    this.createTextOn(modal, admissionPreview ? `${event.description}\n${admissionPreview}` : event.description, new cc_1.Vec3(125, 100), 18, UITheme_1.UITheme.muted, 'center', 650, admissionPreview ? 104 : 72);
-                    this.createTextOn(modal, `当前状态\n\n现金 ${this.money(state.stats.funds)}\n上年现金流 ${this.money(state.finance.lastCashflow)}\n健康 ${state.stats.health} · 压力 ${state.stats.pressure}\n幸福 ${state.stats.happiness} · 知识 ${state.stats.knowledge}\n\n技术 ${state.skills.technology} · 商业 ${state.skills.business}\n信息 ${state.skills.information}\n\n${this.pressureRule(state.stats.pressure)}`, new cc_1.Vec3(-485, -12), 15, UITheme_1.UITheme.text, 'left', 220, 350);
                     const compact = event.options.length >= 5;
-                    const optionGap = compact ? 58 : event.options.length >= 3 ? 78 : 88;
-                    const optionStart = compact ? 65 : event.options.length >= 3 ? 20 : 5;
+                    this.createTextOn(modal, event.title, new cc_1.Vec3(125, compact ? 180 : 165), compact ? 30 : 34, UITheme_1.UITheme.text, 'center', 650, 52);
+                    const admissionPreview = this.session.educationAdmissionPreview(event.id);
+                    this.createTextOn(modal, admissionPreview ? `${event.description}\n${admissionPreview}` : event.description, new cc_1.Vec3(125, compact ? 125 : 100), compact ? 16 : 18, UITheme_1.UITheme.muted, 'center', 650, admissionPreview ? 104 : compact ? 54 : 72);
+                    this.createTextOn(modal, `当前状态\n\n现金 ${this.money(state.stats.funds)}\n上年现金流 ${this.money(state.finance.lastCashflow)}\n健康 ${state.stats.health} · 压力 ${state.stats.pressure}\n幸福 ${state.stats.happiness} · 知识 ${state.stats.knowledge}\n\n技术 ${state.skills.technology} · 商业 ${state.skills.business}\n信息 ${state.skills.information}\n\n${this.pressureRule(state.stats.pressure)}`, new cc_1.Vec3(-485, -12), 15, UITheme_1.UITheme.text, 'left', 220, 350);
+                    const optionGap = event.options.length >= 3 ? 78 : 88;
+                    const optionStart = event.options.length >= 3 ? 20 : 5;
                     event.options.forEach((option, index) => {
                         const impact = this.optionImpact(option.result);
                         const label = impact ? `${option.label}\n${impact}` : option.label;
                         const directAcknowledge = event.informational || event.options.length === 1;
-                        this.createButtonOn(modal, label, new cc_1.Vec3(125, optionStart - index * optionGap), new cc_1.Vec3(650, compact ? 50 : 62), () => {
+                        const position = compact
+                            ? new cc_1.Vec3(index % 2 === 0 ? -40 : 290, 48 - Math.floor(index / 2) * 92)
+                            : new cc_1.Vec3(125, optionStart - index * optionGap);
+                        const size = compact ? new cc_1.Vec3(310, 72) : new cc_1.Vec3(650, 62);
+                        this.createButtonOn(modal, label, position, size, () => {
                             if (directAcknowledge)
                                 this.tryChoose(option.id, event);
                             else
                                 this.tryChoose(option.id, event);
                         }, index === 0 ? 'primary' : 'secondary', !directAcknowledge);
                     });
-                    this.createTextOn(modal, showSeparateDecline ? '轻触一次查看选择，再轻触同一位置作出决定；“暂不进入”同样如此。' : '轻触一次查看选择，再轻触同一位置作出决定。', new cc_1.Vec3(125, -225), 14, UITheme_1.UITheme.quiet, 'center', 650, 32);
                     Motion_1.Motion.modalEnter(modal);
                 }
                 /** A passive option already expresses refusal; adding another top-right refusal would duplicate the same decision. */
@@ -1891,15 +1955,12 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                 showExploration(state, activeEvent) {
                     this.clearScreen();
                     this.createText('主动探索', new cc_1.Vec3(-500, 280), 38, UITheme_1.UITheme.text, 'left', 400);
-                    this.createText('有些信息不会主动出现，需要前往对应场所了解。', new cc_1.Vec3(-500, 225), 17, UITheme_1.UITheme.muted, 'left', 820);
                     ExplorationConfig_1.EXPLORATION_ACTIONS.forEach((action, index) => {
                         const available = this.openOpportunities.isAvailable(state, action);
                         const x = index % 2 === 0 ? -270 : 270;
                         const y = 125 - Math.floor(index / 2) * 126;
                         const requirement = this.openOpportunities.requirementText(action);
-                        const detail = available
-                            ? `${action.description}\n解锁条件：${requirement}`
-                            : `尚未解锁：${requirement}`;
+                        const detail = available ? action.description : `尚未解锁：${requirement}`;
                         this.createPanel(new cc_1.Vec3(x, y), new cc_1.Vec3(500, 108), available ? UITheme_1.UITheme.surface : UITheme_1.UITheme.disabledSurface);
                         this.createText(action.name, new cc_1.Vec3(x - 215, y + 27), 21, available ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.quiet, 'left', 260);
                         this.createText(detail, new cc_1.Vec3(x - 215, y - 18), 14, available ? UITheme_1.UITheme.muted : UITheme_1.UITheme.quiet, 'left', 330, 48);
@@ -1911,8 +1972,6 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                             }
                             else if (action.domain === 'industry')
                                 this.showIndustryProjects(this.session.snapshot(), activeEvent);
-                            else if (action.domain === 'startup')
-                                this.showStartup(this.session.snapshot(), activeEvent);
                             else if (action.domain === 'city')
                                 this.showCity(this.session.snapshot(), activeEvent);
                             else if (action.domain === 'housing')
@@ -1922,46 +1981,6 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         }, available ? 'primary' : 'ghost', false);
                     });
                     this.createTextButton('返回', new cc_1.Vec3(0, -265), () => this.showEvent(this.session.snapshot(), activeEvent));
-                }
-                showStartup(state, activeEvent) {
-                    var _a, _b, _c;
-                    this.clearScreen();
-                    this.createPageHeader('创业孵化器', state.startup.active ? '推进成功会提高项目估值；失败会降低估值并增加压力。退出时按估值的 70% 变现。' : '先看懂行业、投入、适配能力和收益路径，再选择项目。', () => this.showExploration(this.session.snapshot(), activeEvent));
-                    if (!state.startup.active) {
-                        ['ecommerce', 'local-service', 'content', 'software', 'emerging'].forEach((type, index) => {
-                            const preview = this.session.startupPreview(type);
-                            const x = (index % 3 - 1) * 300;
-                            const y = 83 - Math.floor(index / 3) * 155;
-                            const affordable = state.stats.funds >= preview.cost && this.session.hasMajorActionAvailable();
-                            const gap = affordable ? '' : ` · 还差 ${this.money(preview.cost - state.stats.funds)}`;
-                            const unavailable = !this.session.hasMajorActionAvailable() ? ' · 今年额外行动已使用' : gap;
-                            this.createButton(`${preview.name} · ${preview.industry}\n试做 ${this.money(preview.cost)}${unavailable} · ${preview.risk}风险\n适配：${preview.suitedSkill} · 验证成功率 ${this.session.startupChance(type)}%\n${preview.returnPath}`, new cc_1.Vec3(x, y), new cc_1.Vec3(278, 132), () => {
-                                if (affordable)
-                                    this.showActionConfirmation('启动小规模验证', `${preview.name}将投入 ${this.money(preview.cost)}。验证会消耗本年度额外行动。`, () => this.tryExplorer(() => this.session.startProject(type), () => this.showStartup(this.session.snapshot(), activeEvent)), () => this.showStartup(this.session.snapshot(), activeEvent));
-                            }, affordable ? 'primary' : 'ghost', false);
-                        });
-                    }
-                    else {
-                        this.createPanel(new cc_1.Vec3(0, 70), new cc_1.Vec3(720, 120), UITheme_1.UITheme.surface);
-                        const holding = (_b = (_a = state.assets.find((asset) => asset.type === 'startup')) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : 0;
-                        const preview = this.session.startupPreview(state.startup.project);
-                        const outcome = this.session.getLatestOutcome();
-                        this.createText(`项目：${this.startupName((_c = state.startup.project) !== null && _c !== void 0 ? _c : '')}  ·  阶段：${this.startupStageName(state.startup.stage)}\n当前估值 ${this.money(holding)} · 推进成功率 ${this.session.startupSuccessRate()}% · 退出可回收约 ${this.money(holding * .7)}${outcome ? `\n上次结果：${outcome}` : ''}`, new cc_1.Vec3(0, 70), 18, UITheme_1.UITheme.text, 'center', 680, 104);
-                        if (state.startup.stage === 'validated') {
-                            const affordable = state.stats.funds >= preview.formalCost;
-                            this.createButton(affordable ? `正式启动 · ${this.money(preview.formalCost)}` : `正式启动还差 ${this.money(preview.formalCost - state.stats.funds)}`, new cc_1.Vec3(-145, -55), new cc_1.Vec3(250, 58), () => {
-                                if (affordable)
-                                    this.showActionConfirmation('正式启动项目', `将投入 ${this.money(preview.formalCost)} 并消耗本年度额外行动。`, () => this.tryExplorer(() => this.session.formalizeStartup(), () => this.showStartup(this.session.snapshot(), activeEvent)), () => this.showStartup(this.session.snapshot(), activeEvent));
-                            }, affordable ? 'primary' : 'ghost', false);
-                        }
-                        else {
-                            this.createButton(this.session.hasMajorActionAvailable() ? '继续推进 · 消耗额外行动' : '今年额外行动已使用', new cc_1.Vec3(-145, -55), new cc_1.Vec3(250, 58), () => {
-                                if (this.session.hasMajorActionAvailable())
-                                    this.tryExplorer(() => this.session.advanceStartup(), () => this.showStartup(this.session.snapshot(), activeEvent));
-                            }, this.session.hasMajorActionAvailable() ? 'primary' : 'ghost', false);
-                        }
-                        this.createButton('退出项目', new cc_1.Vec3(145, -55), new cc_1.Vec3(250, 58), () => this.showActionConfirmation('退出创业项目', `退出后按当前估值的70%回收，预计到账 ${this.money(holding * .7)}。`, () => this.tryExplorer(() => this.session.exitStartup(), () => this.showStartup(this.session.snapshot(), activeEvent)), () => this.showStartup(this.session.snapshot(), activeEvent)), 'secondary', false);
-                    }
                 }
                 showCity(state, activeEvent) {
                     this.clearScreen();
@@ -1979,7 +1998,6 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                             this.showActionConfirmation('确认城市迁移', `将立即支付 ${this.money(preview.total)}，之后年度生活费约为 ${this.money(preview.annualAfter)}。`, () => this.tryExplorer(() => this.session.migrateCity(city), () => this.showCity(this.session.snapshot(), activeEvent)), () => this.showCity(this.session.snapshot(), activeEvent));
                         }, current ? 'primary' : affordable ? 'secondary' : 'ghost', false);
                     });
-                    this.createText('迁移成本会立即从现金扣除；年度生活费从下一次年度结算开始影响现金流。', new cc_1.Vec3(0, -100), 16, UITheme_1.UITheme.info, 'center', 1000);
                 }
                 showHousing(state, activeEvent) {
                     var _a, _b;
@@ -1992,12 +2010,12 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         const affordable = state.stats.funds >= total;
                         this.createButton(`${product.name}\n房价 ${this.money(price)} · 含税共 ${this.money(total)}${affordable ? '' : `\n还差 ${this.money(total - state.stats.funds)}`}\n${product.description}`, new cc_1.Vec3((index - 1) * 360, 75), new cc_1.Vec3(330, 122), () => {
                             if (affordable)
-                                this.showActionConfirmation('确认购房', `购房及税费共 ${this.money(total)}，资金会转为住房资产。`, () => this.tryExplorer(() => this.session.buyHousing(product.id), () => this.showHousing(this.session.snapshot(), activeEvent)), () => this.showHousing(this.session.snapshot(), activeEvent));
+                                this.showActionConfirmation('确认购房', `购房及税费共 ${this.money(total)}。`, () => this.tryExplorer(() => this.session.buyHousing(product.id), () => this.showHousing(this.session.snapshot(), activeEvent)), () => this.showHousing(this.session.snapshot(), activeEvent));
                         }, affordable ? index === 0 ? 'primary' : 'secondary' : 'ghost', false);
                     });
                     this.createText('我的住房（出售到账 = 当前估值 × 97%）', new cc_1.Vec3(-520, -38), 18, UITheme_1.UITheme.goldSoft, 'left', 500);
                     if (state.housingHoldings.length === 0)
-                        this.createText('暂无住房资产。购房款会转为房产持仓，不会从资产面板消失。', new cc_1.Vec3(0, -115), 17, UITheme_1.UITheme.muted, 'center', 1000);
+                        this.createText('暂无住房。', new cc_1.Vec3(0, -115), 17, UITheme_1.UITheme.muted, 'center', 1000);
                     state.housingHoldings.slice(0, 3).forEach((holding, index) => {
                         this.createButton(`${holding.name}\n${holding.purchaseYear}年购入 ${this.money(holding.purchasePrice)}\n现值 ${this.money(holding.currentValue)} · 出售`, new cc_1.Vec3((index - 1) * 360, -135), new cc_1.Vec3(330, 90), () => this.showActionConfirmation('确认出售住房', `扣除3%税费后预计到账 ${this.money(holding.currentValue * .97)}。`, () => this.tryExplorer(() => this.session.sellHousing(holding.id), () => this.showHousing(this.session.snapshot(), activeEvent)), () => this.showHousing(this.session.snapshot(), activeEvent)), 'ghost', false);
                     });
@@ -2006,38 +2024,46 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.clearScreen();
                     const holdings = state.industryProjects;
                     const active = holdings.filter((holding) => holding.status === 'active');
-                    const invested = holdings.reduce((sum, holding) => sum + holding.investedPrincipal, 0);
                     const activeValue = active.reduce((sum, holding) => sum + holding.currentValue, 0);
+                    const totalCashflow = holdings.reduce((sum, holding) => { var _a; return sum + ((_a = holding.cumulativeCashflow) !== null && _a !== void 0 ? _a : 0); }, 0);
                     const realized = holdings.filter((holding) => holding.status !== 'active').reduce((sum, holding) => sum + holding.realizedReturn, 0);
-                    const unrealized = active.reduce((sum, holding) => sum + holding.currentValue - holding.investedPrincipal, 0);
-                    const net = Math.round((realized + unrealized) * 10) / 10;
-                    this.createPageHeader('行业项目 · 投资账本', `历史投入 ${this.money(invested)} · 在投市值 ${this.money(activeValue)} · 累计盈亏 ${net >= 0 ? '+' : ''}${this.money(net)}`, () => this.showExploration(this.session.snapshot(), activeEvent));
-                    if (holdings.length === 0) {
-                        const available = this.session.industryProjectConfigs().slice(0, 4).map((item) => `${item.name}（${item.industry}，最低 ${this.money(item.minimumInvestment)}）`).join(' · ');
-                        this.createText(`尚无投资记录。\n当前年份可关注：${available || '暂无开放行业窗口'}`, new cc_1.Vec3(0, 55), 18, UITheme_1.UITheme.muted, 'center', 1000, 100);
-                        this.createText('行业机会会作为限时事件出现；早期进入、成熟期持有、拥挤期退出构成完整的收益路径。', new cc_1.Vec3(0, -55), 16, UITheme_1.UITheme.info, 'center', 1000);
+                    const unrealized = active.reduce((sum, holding) => { var _a; return sum + holding.currentValue - holding.investedPrincipal + ((_a = holding.cumulativeCashflow) !== null && _a !== void 0 ? _a : 0); }, 0);
+                    const net = Math.round((realized + unrealized) * 100) / 100;
+                    this.createPageHeader('项目投资', `现金 ${this.money(state.stats.funds)} · 在投市值 ${this.money(activeValue)} · 经营现金流 ${this.signedMoney(totalCashflow)} · 总盈亏 ${this.signedMoney(net)}`, () => this.showExploration(this.session.snapshot(), activeEvent));
+                    this.createButton('寻找项目', new cc_1.Vec3(-125, 184), new cc_1.Vec3(220, 44), () => { this.projectView = 'market'; this.industryPage = 0; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, this.projectView === 'market' ? 'primary' : 'ghost', false);
+                    this.createButton(`我的项目 ${active.length}/5`, new cc_1.Vec3(125, 184), new cc_1.Vec3(220, 44), () => { this.projectView = 'portfolio'; this.industryPage = 0; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, this.projectView === 'portfolio' ? 'primary' : 'ghost', false);
+                    if (this.projectView === 'market') {
+                        this.showProjectMarket(state, activeEvent);
                         return;
                     }
-                    this.createText(`持有中 ${active.length} · 已结束 ${holdings.length - active.length}；已退出或失败的项目会永久保留，便于复盘。`, new cc_1.Vec3(0, 174), 15, UITheme_1.UITheme.muted, 'center', 1050);
+                    if (holdings.length === 0) {
+                        this.createText('还没有项目持仓。', new cc_1.Vec3(0, 25), 23, UITheme_1.UITheme.muted, 'center', 900);
+                        this.createButton('去寻找项目', new cc_1.Vec3(0, -55), new cc_1.Vec3(240, 52), () => { this.projectView = 'market'; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'primary', false);
+                        return;
+                    }
                     const pageCount = Math.max(1, Math.ceil(holdings.length / 6));
                     this.industryPage = Math.min(this.industryPage, pageCount - 1);
                     holdings.slice(this.industryPage * 6, this.industryPage * 6 + 6).forEach((holding, index) => {
-                        const activeProfit = Math.round((holding.currentValue - holding.investedPrincipal) * 10) / 10;
+                        var _a, _b, _c, _d;
+                        const activeProfit = Math.round((holding.currentValue + ((_a = holding.cumulativeCashflow) !== null && _a !== void 0 ? _a : 0) - holding.investedPrincipal) * 100) / 100;
                         const profit = holding.status === 'active' ? activeProfit : holding.realizedReturn;
                         const status = holding.status === 'active' ? '持有中' : holding.status === 'exited' ? '已退出' : '项目失败';
                         const valueLine = holding.status === 'active'
-                            ? `现值 ${this.money(holding.currentValue)} · 浮动${profit >= 0 ? '+' : ''}${this.money(profit)}`
+                            ? `现值 ${this.money(holding.currentValue)} · 总收益 ${this.signedMoney(profit)}`
                             : holding.status === 'exited'
-                                ? `退出回款 ${this.money(holding.investedPrincipal + holding.realizedReturn)} · 已实现${profit >= 0 ? '+' : ''}${this.money(profit)}`
-                                : `回收 ¥0 · 已实现${this.money(profit)}`;
-                        const text = `${holding.name} · ${holding.industry}\n${holding.startYear}年投入 ${this.money(holding.investedPrincipal)} · ${status}\n${valueLine}${holding.status === 'active' ? '\n轻触两次确认退出（扣2%）' : '\n这段投资仍保留在账本中'}`;
-                        const position = new cc_1.Vec3((index % 3 - 1) * 360, 82 - Math.floor(index / 3) * 150);
+                                ? `已实现 ${this.signedMoney(profit)}`
+                                : `已实现 ${this.signedMoney(profit)}`;
+                        const latest = holding.status === 'active'
+                            ? `上年经营 ${this.signedMoney((_b = holding.lastAnnualCashflow) !== null && _b !== void 0 ? _b : 0)} · 估值 ${this.signedPercent((_c = holding.lastValuationRate) !== null && _c !== void 0 ? _c : 0)}\n${holding.lastChangeReason || '等待年度结算'}`
+                            : `累计经营 ${this.signedMoney((_d = holding.cumulativeCashflow) !== null && _d !== void 0 ? _d : 0)}`;
+                        const text = `${holding.name} · ${status}\n${holding.startYear}年买断 ${this.money(holding.investedPrincipal)}\n${valueLine}\n${latest}${holding.status === 'active' ? `\n出售到账 ${this.money(holding.currentValue * .98)}` : ''}`;
+                        const position = new cc_1.Vec3((index % 3 - 1) * 360, 78 - Math.floor(index / 3) * 160);
                         if (holding.status === 'active') {
-                            this.createButton(text, position, new cc_1.Vec3(330, 126), () => this.tryExplorer(() => this.session.exitIndustryProject(holding.id), () => this.showIndustryProjects(this.session.snapshot(), activeEvent)), profit >= 0 ? 'primary' : 'secondary', true);
+                            this.createButton(text, position, new cc_1.Vec3(330, 144), () => this.tryExplorer(() => this.session.exitIndustryProject(holding.id), () => this.showIndustryProjects(this.session.snapshot(), activeEvent)), profit >= 0 ? 'primary' : 'secondary', true);
                         }
                         else {
-                            const panel = this.createPanel(position, new cc_1.Vec3(330, 126), UITheme_1.UITheme.surfaceRaised, 'ArchivedInvestment');
-                            this.createTextOn(panel, text, cc_1.Vec3.ZERO, 16, profit >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 306, 110);
+                            const panel = this.createPanel(position, new cc_1.Vec3(330, 144), UITheme_1.UITheme.surfaceRaised, 'ArchivedInvestment');
+                            this.createTextOn(panel, text, cc_1.Vec3.ZERO, 14, profit >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 306, 128);
                         }
                     });
                     if (pageCount > 1) {
@@ -2045,6 +2071,51 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         this.createText(`${this.industryPage + 1} / ${pageCount}`, new cc_1.Vec3(0, -248), 15, UITheme_1.UITheme.muted, 'center', 60);
                         this.createButton('下一页', new cc_1.Vec3(78, -248), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage + 1) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
                     }
+                }
+                showProjectMarket(state, activeEvent) {
+                    var _a;
+                    const reserved = new Set((_a = activeEvent === null || activeEvent === void 0 ? void 0 : activeEvent.options.map((option) => { var _a; return (_a = option.result.projectInvestment) === null || _a === void 0 ? void 0 : _a.projectId; }).filter((id) => !!id)) !== null && _a !== void 0 ? _a : []);
+                    const seen = new Set([...state.industryProjects.map((holding) => holding.projectId), ...reserved]);
+                    const available = this.session.industryProjectConfigs().filter((project) => !seen.has(project.id));
+                    const pageCount = Math.max(1, Math.ceil(available.length / 3));
+                    this.industryPage = Math.min(this.industryPage, pageCount - 1);
+                    if (available.length === 0) {
+                        this.createText('当前没有新的可买断项目。推进年份后会出现新的行业。', new cc_1.Vec3(0, 25), 21, UITheme_1.UITheme.muted, 'center', 960);
+                        return;
+                    }
+                    available.slice(this.industryPage * 3, this.industryPage * 3 + 3).forEach((project, index) => {
+                        const x = (index - 1) * 360;
+                        const range = this.session.industryProjectCashflowRange(project);
+                        const phase = this.session.industryProjectPhase(project);
+                        const offer = this.session.industryProjectLoanOffer(project.id);
+                        const affordable = state.stats.funds >= project.minimumInvestment;
+                        const capacity = state.industryProjects.filter((holding) => holding.status === 'active').length < 5;
+                        const panel = this.createPanel(new cc_1.Vec3(x, 18), new cc_1.Vec3(330, 286), UITheme_1.UITheme.surfaceRaised, 'ProjectOffer');
+                        this.createTextOn(panel, project.name, new cc_1.Vec3(0, 112), 20, UITheme_1.UITheme.goldSoft, 'center', 300, 32);
+                        this.createTextOn(panel, `${project.industry} · ${phase}期 · ${project.risk}风险`, new cc_1.Vec3(0, 78), 14, UITheme_1.UITheme.info, 'center', 300, 24);
+                        this.createTextOn(panel, project.description, new cc_1.Vec3(0, 34), 14, UITheme_1.UITheme.muted, 'center', 286, 54);
+                        this.createTextOn(panel, `买断 ${this.money(project.minimumInvestment)}\n预计年经营 ${this.signedMoney(range.min)} ～ ${this.signedMoney(range.max)}`, new cc_1.Vec3(0, -27), 16, UITheme_1.UITheme.text, 'center', 300, 58);
+                        const buttonLabel = !capacity ? '持仓已满'
+                            : affordable ? '买断项目'
+                                : offer.canBorrow ? `贷款买断 · 借 ${this.money(offer.amount)}` : '资金不足';
+                        this.createButtonOn(panel, buttonLabel, new cc_1.Vec3(0, -104), new cc_1.Vec3(270, 48), () => {
+                            if (!capacity)
+                                return;
+                            if (affordable)
+                                this.tryExplorer(() => this.session.buyIndustryProject(project.id), () => this.showIndustryProjects(this.session.snapshot(), activeEvent));
+                            else if (offer.canBorrow)
+                                this.showProjectLoanOffer(project, activeEvent);
+                        }, affordable ? 'primary' : offer.canBorrow ? 'secondary' : 'ghost', affordable);
+                    });
+                    if (pageCount > 1) {
+                        this.createButton('上一页', new cc_1.Vec3(-78, -248), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage - 1 + pageCount) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
+                        this.createText(`${this.industryPage + 1} / ${pageCount}`, new cc_1.Vec3(0, -248), 15, UITheme_1.UITheme.muted, 'center', 60);
+                        this.createButton('下一页', new cc_1.Vec3(78, -248), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage + 1) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
+                    }
+                }
+                showProjectLoanOffer(project, activeEvent) {
+                    const offer = this.session.industryProjectLoanOffer(project.id);
+                    this.showActionConfirmation('贷款买断项目', `买断价 ${this.money(project.minimumInvestment)}\n借款 ${this.money(offer.amount)} · 年利息约 ${this.money(offer.annualInterest)}\n买入后贷款余额 ${this.money(offer.resultingBalance)}`, () => this.tryExplorer(() => this.session.buyIndustryProject(project.id, true), () => this.showIndustryProjects(this.session.snapshot(), activeEvent)), () => this.showIndustryProjects(this.session.snapshot(), activeEvent));
                 }
                 showEducationAdvance(state, activeEvent) {
                     this.clearScreen();
@@ -2077,7 +2148,6 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.clearScreen();
                     this.createPageHeader('恢复状态', `压力 ${state.stats.pressure} · 幸福 ${state.stats.happiness} · 健康 ${state.stats.health}`, () => this.showEvent(this.session.snapshot(), activeEvent));
                     const available = this.session.hasMajorActionAvailable();
-                    this.createText(available ? '恢复会消耗本年度唯一一次额外行动。' : '本年度额外行动已经使用，请推进到下一年。', new cc_1.Vec3(0, 135), 17, available ? UITheme_1.UITheme.info : UITheme_1.UITheme.loss, 'center', 900);
                     this.createButton(available ? '留出空白\n压力-5 · 幸福+2 · 健康+1' : '留出空白\n今年已不可用', new cc_1.Vec3(-310, 15), new cc_1.Vec3(260, 100), () => { if (available)
                         this.tryWellbeing('pause', activeEvent); }, available ? 'primary' : 'ghost', false);
                     const care = available && state.stats.funds >= 1.5;
@@ -2115,36 +2185,25 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                 showMarket(state, activeEvent) {
                     this.clearScreen();
                     this.createText('交易所', new cc_1.Vec3(-500, 280), 38, UITheme_1.UITheme.text, 'left', 300);
-                    const tradeStatus = state.age < 18 ? '未成年：只能查看和研究，18岁开放交易' : this.session.canTradeMarket() ? '交易账户已开通' : '尚未确认风险：暂不能买卖';
-                    this.createText(`${state.year} · ${tradeStatus}`, new cc_1.Vec3(-500, 230), 16, this.session.canTradeMarket() ? UITheme_1.UITheme.info : UITheme_1.UITheme.loss, 'left', 780);
-                    if (state.age >= 18 && !this.session.canTradeMarket())
-                        this.createButton('阅读风险并开通', new cc_1.Vec3(465, 245), new cc_1.Vec3(190, 42), () => this.tryMarketAction(() => this.session.acceptMarketRisk(), activeEvent), 'primary');
+                    const tradeStatus = state.age < 18 ? '未成年可查看行情，18岁开放买卖' : `${state.year}年行情`;
+                    this.createText(tradeStatus, new cc_1.Vec3(-500, 230), 16, state.age >= 18 ? UITheme_1.UITheme.info : UITheme_1.UITheme.loss, 'left', 780);
                     this.createChip(`可用资金 ${this.money(state.stats.funds)}`, new cc_1.Vec3(-330, 185), 300, UITheme_1.UITheme.goldSoft);
                     this.createChip(`持仓市值 ${this.money(this.session.marketValue())}`, new cc_1.Vec3(0, 185), 270, UITheme_1.UITheme.info);
                     this.createChip(`已实现盈亏 ${this.money(state.market.realizedProfit)}`, new cc_1.Vec3(300, 185), 290, state.market.realizedProfit >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss);
-                    this.createText(`投资规律：${this.session.marketInsightNames().join(' · ') || '尚未形成'}`, new cc_1.Vec3(0, 145), 16, UITheme_1.UITheme.info, 'center', 1040, 30);
-                    this.createText(`行情已锁定在 ${state.year} 年：买卖只改变现金和持仓，不改变价格；推进年份后才统一更新。`, new cc_1.Vec3(0, 112), 15, UITheme_1.UITheme.quiet, 'center', 1040, 30);
                     const listed = this.session.marketInstruments();
                     if (listed.length === 0)
                         this.createText('当前年份尚无公开交易品种。继续生活，留意时代变化。', new cc_1.Vec3(0, 20), 22, UITheme_1.UITheme.muted, 'center');
                     const pageCount = Math.max(1, Math.ceil(listed.length / 4));
                     this.marketPage = Math.min(this.marketPage, pageCount - 1);
                     listed.slice(this.marketPage * 4, this.marketPage * 4 + 4).forEach((instrument, index) => this.createMarketCard(instrument, index, activeEvent));
-                    const availableLoan = Math.max(0, Math.floor(state.finance.loanLimit - state.finance.loanBalance));
-                    const loanAmount = Math.min(10, availableLoan);
                     if (state.age >= 18) {
-                        this.createButton(loanAmount > 0 ? `贷款 ${this.money(loanAmount)}` : '贷款未开放', new cc_1.Vec3(-450, -250), new cc_1.Vec3(150, 42), () => {
-                            if (loanAmount > 0)
-                                this.showActionConfirmation('申请个人贷款', `借入 ${this.money(loanAmount)}，年利率5%。`, () => this.tryMarketAction(() => this.session.takeLoan(loanAmount), activeEvent), () => this.showMarket(this.session.snapshot(), activeEvent));
-                            else
-                                this.showActionMessage('贷款条件', this.session.loanRequirementText(), () => this.showMarket(this.session.snapshot(), activeEvent));
-                        }, loanAmount > 0 ? 'secondary' : 'ghost', false);
                         const repayAmount = Math.min(1, state.finance.loanBalance);
                         const canRepay = repayAmount > 0 && state.stats.funds >= repayAmount;
-                        this.createButton(repayAmount > 0 ? `还款 ${this.money(repayAmount)}` : '当前无贷款', new cc_1.Vec3(-280, -250), new cc_1.Vec3(150, 42), () => {
-                            if (canRepay)
-                                this.tryMarketAction(() => this.session.repayLoan(repayAmount), activeEvent);
-                        }, canRepay ? 'secondary' : 'ghost', false);
+                        if (repayAmount > 0)
+                            this.createButton(`还款 ${this.money(repayAmount)}`, new cc_1.Vec3(-420, -250), new cc_1.Vec3(150, 42), () => {
+                                if (canRepay)
+                                    this.tryMarketAction(() => this.session.repayLoan(repayAmount), activeEvent);
+                            }, canRepay ? 'secondary' : 'ghost', false);
                     }
                     if (pageCount > 1) {
                         this.createButton('上一页', new cc_1.Vec3(-80, -250), new cc_1.Vec3(110, 42), () => { this.marketPage = (this.marketPage - 1 + pageCount) % pageCount; this.showMarket(this.session.snapshot(), activeEvent); }, 'ghost', false);
@@ -2186,7 +2245,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const canBuy = this.session.canTradeMarket() && state.stats.funds >= minimumCost;
                     this.createButtonOn(card, canBuy ? '买入' : this.session.canTradeMarket() ? '资金不足' : '未开通', new cc_1.Vec3(210, 25), new cc_1.Vec3(100, 38), () => {
                         if (canBuy) {
-                            this.marketOrderQuantity = lotSize;
+                            this.marketOrderFraction = .25;
                             this.showMarketBuyOrder(instrument, activeEvent);
                         }
                     }, canBuy ? 'primary' : 'ghost', false);
@@ -2202,37 +2261,40 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const unit = instrument.kind === 'stock' ? '股' : '份';
                     const maxLots = Math.floor(state.stats.funds * 10000 / price / lotSize);
                     const maximum = maxLots * lotSize;
-                    this.marketOrderQuantity = Math.max(lotSize, Math.min(maximum || lotSize, Math.round(this.marketOrderQuantity / lotSize) * lotSize));
-                    const totalYuan = price * this.marketOrderQuantity;
-                    const affordable = maximum >= lotSize && this.marketOrderQuantity <= maximum;
                     this.clearScreen();
-                    this.createPageHeader(`买入 ${instrument.name}`, `行情锁定在 ${state.year} 年；成交后价格不会立刻变化。`, () => this.showMarket(this.session.snapshot(), activeEvent));
+                    this.createPageHeader(`买入 ${instrument.name}`, `${this.yuan(price)} / ${unit} · 可用资金 ${this.money(state.stats.funds)}`, () => this.showMarket(this.session.snapshot(), activeEvent));
                     this.createPanel(new cc_1.Vec3(0, 0), new cc_1.Vec3(820, 380), UITheme_1.UITheme.surfaceRaised, 'MarketOrderPanel');
-                    this.createText(`当前价格`, new cc_1.Vec3(0, 150), 17, UITheme_1.UITheme.muted, 'center', 300);
-                    this.createText(`${this.yuan(price)} / ${unit}`, new cc_1.Vec3(0, 112), 34, UITheme_1.UITheme.goldSoft, 'center', 420);
-                    this.createText(`${instrument.kind === 'stock' ? `每手 ${lotSize} 股` : `每次至少 ${lotSize} 份`} · 可用资金 ${this.money(state.stats.funds)} · 最多可买 ${maximum.toLocaleString('zh-CN')}${unit}`, new cc_1.Vec3(0, 72), 16, UITheme_1.UITheme.quiet, 'center', 760, 30);
-                    this.createText(`买入数量  ${this.marketOrderQuantity.toLocaleString('zh-CN')}${unit}\n预计支付  ${this.yuan(totalYuan)}`, new cc_1.Vec3(0, 10), 25, affordable ? UITheme_1.UITheme.text : UITheme_1.UITheme.loss, 'center', 600, 74);
-                    const changeQuantity = (lots) => {
-                        this.marketOrderQuantity = Math.max(lotSize, this.marketOrderQuantity + lots * lotSize);
-                        this.showMarketBuyOrder(instrument, activeEvent);
+                    this.createText('投入资金比例', new cc_1.Vec3(0, 128), 18, UITheme_1.UITheme.muted, 'center', 300);
+                    const orderText = this.createText('', new cc_1.Vec3(0, 48), 24, UITheme_1.UITheme.text, 'center', 660, 82);
+                    const scaleText = this.createText('', new cc_1.Vec3(0, -30), 15, UITheme_1.UITheme.info, 'center', 680, 30);
+                    const confirm = this.createButton('', new cc_1.Vec3(0, -145), new cc_1.Vec3(330, 54), () => {
+                        const quantity = this.marketQuantityForFraction(maximum, lotSize, this.marketOrderFraction);
+                        if (quantity >= lotSize)
+                            this.tryMarketAction(() => this.session.buyMarket(instrument.id, quantity), activeEvent);
+                    }, maximum >= lotSize ? 'primary' : 'ghost', false);
+                    const updateOrder = (fraction) => {
+                        var _a;
+                        this.marketOrderFraction = Math.max(0, Math.min(1, fraction));
+                        const quantity = this.marketQuantityForFraction(maximum, lotSize, this.marketOrderFraction);
+                        const totalYuan = price * quantity;
+                        const remaining = Math.max(0, state.stats.funds - totalYuan / 10000);
+                        const label = orderText.getComponent(cc_1.Label);
+                        if (label)
+                            label.string = quantity > 0 ? `买入 ${quantity.toLocaleString('zh-CN')}${unit}\n支付 ${this.yuan(totalYuan)} · 剩余 ${this.money(remaining)}` : '向右拖动选择投入金额';
+                        const scale = scaleText.getComponent(cc_1.Label);
+                        if (scale)
+                            scale.string = `${Math.round(this.marketOrderFraction * 100)}%  ·  最多 ${maximum.toLocaleString('zh-CN')}${unit}`;
+                        const buttonLabel = (_a = confirm.children[0]) === null || _a === void 0 ? void 0 : _a.getComponent(cc_1.Label);
+                        if (buttonLabel)
+                            buttonLabel.string = quantity >= lotSize ? '确认买入' : '资金不足';
                     };
-                    const stepLabel = (lots) => instrument.kind === 'stock'
-                        ? `${lots > 0 ? '+' : ''}${lots}手`
-                        : `${lots > 0 ? '+' : ''}${lots * lotSize}份`;
-                    this.createButton(stepLabel(-10), new cc_1.Vec3(-270, -80), new cc_1.Vec3(120, 44), () => changeQuantity(-10), 'ghost', false);
-                    this.createButton(stepLabel(-1), new cc_1.Vec3(-130, -80), new cc_1.Vec3(120, 44), () => changeQuantity(-1), 'secondary', false);
-                    this.createButton(stepLabel(1), new cc_1.Vec3(130, -80), new cc_1.Vec3(120, 44), () => changeQuantity(1), 'secondary', false);
-                    this.createButton(stepLabel(10), new cc_1.Vec3(270, -80), new cc_1.Vec3(120, 44), () => changeQuantity(10), 'ghost', false);
-                    this.createButton(maximum >= lotSize ? `最大可买 ${maximum.toLocaleString('zh-CN')}${unit}` : '资金不足', new cc_1.Vec3(-180, -155), new cc_1.Vec3(280, 52), () => {
-                        if (maximum >= lotSize) {
-                            this.marketOrderQuantity = maximum;
-                            this.showMarketBuyOrder(instrument, activeEvent);
-                        }
-                    }, maximum >= lotSize ? 'secondary' : 'ghost', false);
-                    this.createButton(affordable ? `确认买入 ${this.marketOrderQuantity.toLocaleString('zh-CN')}${unit}` : '资金不足', new cc_1.Vec3(180, -155), new cc_1.Vec3(280, 52), () => {
-                        if (affordable)
-                            this.tryMarketAction(() => this.session.buyMarket(instrument.id, this.marketOrderQuantity), activeEvent);
-                    }, affordable ? 'primary' : 'ghost', false);
+                    this.createFundsSlider(new cc_1.Vec3(0, -72), 620, this.marketOrderFraction, updateOrder);
+                    this.createText('0%', new cc_1.Vec3(-310, -108), 13, UITheme_1.UITheme.quiet, 'center', 50);
+                    this.createText('25%', new cc_1.Vec3(-155, -108), 13, UITheme_1.UITheme.quiet, 'center', 50);
+                    this.createText('50%', new cc_1.Vec3(0, -108), 13, UITheme_1.UITheme.quiet, 'center', 50);
+                    this.createText('75%', new cc_1.Vec3(155, -108), 13, UITheme_1.UITheme.quiet, 'center', 50);
+                    this.createText('最大', new cc_1.Vec3(310, -108), 13, UITheme_1.UITheme.quiet, 'center', 50);
+                    updateOrder(this.marketOrderFraction);
                 }
                 tryMarketAction(action, activeEvent) {
                     var _a;
@@ -2251,6 +2313,11 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const before = this.session.snapshot();
                     try {
                         const option = event.options.find((candidate) => candidate.id === optionId);
+                        const funding = this.session.choiceFunding(optionId);
+                        if (funding.shortfall > 0 && funding.offer.canBorrow && option) {
+                            this.showOpportunityLoan(event, option, before, funding.cost, funding.offer.amount, funding.offer.annualInterest, funding.offer.resultingBalance);
+                            return;
+                        }
                         const after = this.session.choose(optionId);
                         this.showChoiceOutcome(before, after, event, option);
                     }
@@ -2260,6 +2327,17 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         this.createText(error instanceof Error ? error.message : '当前无法完成选择。', new cc_1.Vec3(0, 35), 20, new cc_1.Color(220, 226, 240), 'center', 950);
                         this.createButton('返回当前事件', new cc_1.Vec3(0, -80), new cc_1.Vec3(280, 60), () => this.showEvent(this.session.snapshot(), event), 'secondary', false);
                     }
+                }
+                showOpportunityLoan(event, option, before, cost, amount, annualInterest, resultingBalance) {
+                    this.showActionConfirmation('贷款参与', `${option.label}\n需要 ${this.money(cost)} · 还差 ${this.money(amount)}\n年利息约 ${this.money(annualInterest)} · 借款后余额 ${this.money(resultingBalance)}`, () => {
+                        try {
+                            const after = this.session.chooseWithLoan(option.id);
+                            this.showChoiceOutcome(before, after, event, option);
+                        }
+                        catch (error) {
+                            this.showActionMessage('当前无法贷款参与', error instanceof Error ? error.message : '可用贷款不足。', () => this.showEvent(this.session.snapshot(), event));
+                        }
+                    }, () => this.showEvent(this.session.snapshot(), event));
                 }
                 showChoiceOutcome(before, after, event, option) {
                     var _a;
@@ -2281,7 +2359,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.createTextOn(card, event.title, new cc_1.Vec3(0, 62), 31, UITheme_1.UITheme.text, 'center', 800, 44);
                     const outcomeLines = [
                         `选择 · ${(_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : '继续'}`,
-                        `影响 · ${option ? this.optionImpact(option.result) || '更新后续路线' : '人生继续'}`,
+                        `影响 · ${option ? this.optionImpact(option.result) || '人生轨迹发生变化' : '人生继续'}`,
                         milestone,
                         unlocked.length ? `新记录 · ${unlocked.map((flag) => this.flagName(flag)).join(' · ')}` : '',
                     ].filter(Boolean);
@@ -2762,6 +2840,46 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const button = this.createTextOn(parent, text, position, 16, UITheme_1.UITheme.info, 'center', 380);
                     button.on(cc_1.Node.EventType.TOUCH_END, onClick, this);
                 }
+                createFundsSlider(position, width, initial, onChange) {
+                    const node = new cc_1.Node('FundsSlider');
+                    const transform = node.addComponent(cc_1.UITransform);
+                    transform.setContentSize(width + 36, 52);
+                    node.setPosition(position);
+                    this.uiRoot.addChild(node);
+                    const graphics = node.addComponent(cc_1.Graphics);
+                    const paint = (fraction) => {
+                        const value = Math.max(0, Math.min(1, fraction));
+                        graphics.clear();
+                        graphics.fillColor = UITheme_1.UITheme.disabledSurface;
+                        graphics.roundRect(-width / 2, -6, width, 12, 6);
+                        graphics.fill();
+                        graphics.fillColor = UITheme_1.UITheme.gold;
+                        graphics.roundRect(-width / 2, -6, Math.max(12, width * value), 12, 6);
+                        graphics.fill();
+                        graphics.fillColor = UITheme_1.UITheme.goldSoft;
+                        graphics.circle(-width / 2 + width * value, 0, 16);
+                        graphics.fill();
+                    };
+                    const updateFromTouch = (event) => {
+                        const location = event.getUILocation();
+                        const local = transform.convertToNodeSpaceAR(new cc_1.Vec3(location.x, location.y, 0));
+                        const fraction = Math.max(0, Math.min(1, (local.x + width / 2) / width));
+                        paint(fraction);
+                        onChange(fraction);
+                    };
+                    node.on(cc_1.Node.EventType.TOUCH_START, updateFromTouch, this);
+                    node.on(cc_1.Node.EventType.TOUCH_MOVE, updateFromTouch, this);
+                    node.on(cc_1.Node.EventType.TOUCH_END, updateFromTouch, this);
+                    paint(initial);
+                    return node;
+                }
+                marketQuantityForFraction(maximum, lotSize, fraction) {
+                    if (maximum < lotSize || fraction <= 0)
+                        return 0;
+                    if (fraction >= .999)
+                        return maximum;
+                    return Math.max(lotSize, Math.floor(maximum * fraction / lotSize) * lotSize);
+                }
                 identitySummary(identity) {
                     var _a;
                     const bonuses = [...Object.entries(identity.attributeModifiers), ...Object.entries((_a = identity.skillModifiers) !== null && _a !== void 0 ? _a : {})].map(([key, value]) => `${this.nameOf(key)}+${value}`);
@@ -2796,7 +2914,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     Object.entries((_b = result.relationships) !== null && _b !== void 0 ? _b : {}).forEach(([key, value]) => { var _a; if (value)
                         changes.push(`${(_a = relationshipNames[key]) !== null && _a !== void 0 ? _a : '关系变化'}${value > 0 ? '+' : ''}${value}`); });
                     if (result.projectInvestment)
-                        changes.unshift(`行业投入-${this.money(result.projectInvestment.amount)}（转为项目资产）`);
+                        changes.unshift(`项目买断-${this.money(result.projectInvestment.amount)}`);
                     return changes.join(' · ') || '你记住了这条线索';
                 }
                 sparkline(values) {
@@ -2891,14 +3009,14 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         return '高压（每年幸福 -4、健康 -4；收入可能下降）';
                     return '濒临崩溃（每年幸福 -8、健康 -9、知识 -2；收入大幅下降）';
                 }
-                startupName(type) { var _a; return (_a = { ecommerce: '电商店铺', 'local-service': '本地服务', content: '内容工作室', software: '软件工具', emerging: '智能自动化' }[type]) !== null && _a !== void 0 ? _a : '创业项目'; }
-                startupStageName(stage) { return stage ? ({ trial: '小规模试做', validated: '验证完成', launch: '启动期', stable: '稳定期', expansion: '扩张期' })[stage] : '未启动'; }
                 statusSummary(state) {
                     const stats = state.stats;
                     return `现金 ${this.money(stats.funds)}   健康 ${stats.health}   压力 ${stats.pressure}   幸福 ${stats.happiness}   知识 ${stats.knowledge}   信息 ${stats.informationValue}`;
                 }
                 /** All economy values are stored in ten-thousand-yuan units and shown as RMB. */
                 money(amount) { return `¥${Math.round(amount * 10000).toLocaleString('zh-CN')}`; }
+                signedMoney(amount) { return `${amount >= 0 ? '+' : '-'}${this.money(Math.abs(amount))}`; }
+                signedPercent(rate) { return `${rate >= 0 ? '+' : ''}${Math.round(rate * 1000) / 10}%`; }
                 /** Market quotes are stored as yuan per share or fund unit. */
                 yuan(amount) { return `¥${amount.toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`; }
                 rarityName(rarity) { return { common: '普通', rare: '稀有', legendary: '传奇' }[rarity]; }
@@ -2937,6 +3055,8 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
         }
     };
 });
+
+
 
 
 
@@ -3023,9 +3143,11 @@ System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./I
 
 
 
-System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./GameEvents.ts", "./YearConfig.ts", "./InheritanceConfig.ts", "./DelayedEventQueue.ts", "./EventMatcher.ts", "./SaveManager.ts", "./EndingResolver.ts", "./LegacyManager.ts", "./ReportGenerator.ts", "./SeededRandom.ts", "./GameStateManager.ts", "./MarketSystem.ts", "./InvestmentMemoryManager.ts", "./EducationProgressionSystem.ts", "./FinanceSystem.ts", "./CareerSystem.ts", "./StartupSystem.ts", "./CitySystem.ts", "./HousingSystem.ts", "./FamilyUnlockManager.ts", "./IndustryProjectSystem.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
+
+
+System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./GameEvents.ts", "./YearConfig.ts", "./InheritanceConfig.ts", "./DelayedEventQueue.ts", "./EventMatcher.ts", "./SaveManager.ts", "./EndingResolver.ts", "./LegacyManager.ts", "./ReportGenerator.ts", "./SeededRandom.ts", "./GameStateManager.ts", "./MarketSystem.ts", "./InvestmentMemoryManager.ts", "./EducationProgressionSystem.ts", "./FinanceSystem.ts", "./CareerSystem.ts", "./CitySystem.ts", "./HousingSystem.ts", "./FamilyUnlockManager.ts", "./IndustryProjectSystem.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
-    var IdentityConfig_1, GameEvents_1, YearConfig_1, InheritanceConfig_1, DelayedEventQueue_1, EventMatcher_1, SaveManager_1, EndingResolver_1, LegacyManager_1, ReportGenerator_1, SeededRandom_1, GameStateManager_1, MarketSystem_1, InvestmentMemoryManager_1, EducationProgressionSystem_1, FinanceSystem_1, CareerSystem_1, StartupSystem_1, CitySystem_1, HousingSystem_1, FamilyUnlockManager_1, IndustryProjectSystem_1, WealthSystem_1, MAX_AGE, GameSession;
+    var IdentityConfig_1, GameEvents_1, YearConfig_1, InheritanceConfig_1, DelayedEventQueue_1, EventMatcher_1, SaveManager_1, EndingResolver_1, LegacyManager_1, ReportGenerator_1, SeededRandom_1, GameStateManager_1, MarketSystem_1, InvestmentMemoryManager_1, EducationProgressionSystem_1, FinanceSystem_1, CareerSystem_1, CitySystem_1, HousingSystem_1, FamilyUnlockManager_1, IndustryProjectSystem_1, WealthSystem_1, MAX_AGE, GameSession;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [
@@ -3080,9 +3202,6 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
             function (CareerSystem_1_1) {
                 CareerSystem_1 = CareerSystem_1_1;
             },
-            function (StartupSystem_1_1) {
-                StartupSystem_1 = StartupSystem_1_1;
-            },
             function (CitySystem_1_1) {
                 CitySystem_1 = CitySystem_1_1;
             },
@@ -3116,7 +3235,6 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     this.education = new EducationProgressionSystem_1.EducationProgressionSystem();
                     this.finance = new FinanceSystem_1.FinanceSystem();
                     this.careers = new CareerSystem_1.CareerSystem();
-                    this.startups = new StartupSystem_1.StartupSystem();
                     this.cities = new CitySystem_1.CitySystem();
                     this.housing = new HousingSystem_1.HousingSystem();
                     this.familyUnlocks = new FamilyUnlockManager_1.FamilyUnlockManager();
@@ -3168,19 +3286,50 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     return this.snapshot();
                 }
                 choose(optionId) {
-                    var _a, _b, _c, _d, _e, _f;
+                    var _a, _b;
                     if (!this.state || !this.currentEvent)
                         throw new Error('当前没有可选择的事件。');
                     const option = this.currentEvent.options.find((candidate) => candidate.id === optionId);
                     if (!option)
                         throw new Error('该选项已经失效，请重新选择。');
-                    const cashCost = Math.max(0, -((_b = (_a = option.result.stats) === null || _a === void 0 ? void 0 : _a.funds) !== null && _b !== void 0 ? _b : 0)) + ((_d = (_c = option.result.projectInvestment) === null || _c === void 0 ? void 0 : _c.amount) !== null && _d !== void 0 ? _d : 0);
+                    const cashCost = this.optionCashCost(option);
                     if (cashCost > this.state.stats.funds)
-                        throw new Error('现金不足，无法承担这项选择。现金流良好时可先前往交易所申请贷款。');
-                    const familyCost = Math.max(0, -((_f = (_e = option.result.stats) === null || _e === void 0 ? void 0 : _e.familyResources) !== null && _f !== void 0 ? _f : 0));
+                        throw new Error('现金与可用贷款不足，无法承担这项选择。');
+                    const familyCost = Math.max(0, -((_b = (_a = option.result.stats) === null || _a === void 0 ? void 0 : _a.familyResources) !== null && _b !== void 0 ? _b : 0));
                     if (familyCost > this.state.stats.familyResources)
                         throw new Error('家庭资源不足，无法推动这项家庭决策。');
                     this.resolve(this.currentEvent, option);
+                    this.save();
+                    return this.snapshot();
+                }
+                choiceFunding(optionId) {
+                    if (!this.state || !this.currentEvent)
+                        throw new Error('当前没有可选择的事件。');
+                    const option = this.currentEvent.options.find((candidate) => candidate.id === optionId);
+                    if (!option)
+                        throw new Error('该选项已经失效，请重新选择。');
+                    const cost = this.optionCashCost(option);
+                    const shortfall = Math.max(0, Math.round((cost - this.state.stats.funds) * 100) / 100);
+                    return { cost, shortfall, offer: this.finance.loanOffer(this.state, shortfall) };
+                }
+                chooseWithLoan(optionId) {
+                    var _a, _b;
+                    if (!this.state || !this.currentEvent)
+                        throw new Error('当前没有可选择的事件。');
+                    const event = this.currentEvent;
+                    const option = event.options.find((candidate) => candidate.id === optionId);
+                    if (!option)
+                        throw new Error('该选项已经失效，请重新选择。');
+                    const familyCost = Math.max(0, -((_b = (_a = option.result.stats) === null || _a === void 0 ? void 0 : _a.familyResources) !== null && _b !== void 0 ? _b : 0));
+                    if (familyCost > this.state.stats.familyResources)
+                        throw new Error('家庭资源不足，无法推动这项家庭决策。');
+                    const funding = this.choiceFunding(optionId);
+                    if (funding.shortfall > 0) {
+                        if (!funding.offer.canBorrow)
+                            throw new Error('可用贷款不足，无法承担这项选择。');
+                        this.finance.takeLoan(this.state, funding.offer.amount);
+                    }
+                    this.resolve(event, option);
                     this.save();
                     return this.snapshot();
                 }
@@ -3229,7 +3378,7 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                         care: { stats: { funds: -1.5, pressure: -14, happiness: 3, health: 6 }, addFlags: ['wellbeing-care'] },
                         connection: { stats: { funds: -0.8, pressure: -7, happiness: 8, familyBond: 4 }, relationships: { friend: 4, partner: 2 } },
                     };
-                    return this.useAnnualAction('major-action', '今年的额外行动已经使用；恢复、自学、考证和创业推进每年只能选择一项。', () => {
+                    return this.useAnnualAction('major-action', '今年的额外行动已经使用；恢复、自学和进修每年只能选择一项。', () => {
                         var _a, _b;
                         const change = changes[kind];
                         const cost = Math.max(0, -((_b = (_a = change.stats) === null || _a === void 0 ? void 0 : _a.funds) !== null && _b !== void 0 ? _b : 0));
@@ -3248,8 +3397,6 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                 canResearchMarket(instrumentId) { if (!this.state)
                     return false; return this.market.canResearch(this.state, this.market.find(instrumentId, this.state)); }
                 canTradeMarket() { return !!this.state && this.market.canTrade(this.state); }
-                acceptMarketRisk() { if (!this.state)
-                    throw new Error('人生尚未开始。'); this.market.acceptRisk(this.state); this.save(); return this.snapshot(); }
                 researchMarket(instrumentId) {
                     if (!this.state)
                         throw new Error('人生尚未开始。');
@@ -3294,14 +3441,6 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                 loanRequirementText() { return this.state ? this.finance.loanRequirementText(this.state) : '人生尚未开始。'; }
                 promotionScore() { return this.state ? this.careers.promotionScore(this.state.attributes, this.state.skills, this.state.career.track) : 0; }
                 promotionRequirement() { return this.state ? this.careers.requirement(this.state) : undefined; }
-                startProject(type) { return this.useAnnualAction('major-action', '今年的额外行动已经使用；启动项目需要等到下一年。', () => this.startups.startProject(this.state, type)); }
-                startupPreview(type) { return this.startups.preview(type); }
-                startupChance(type) { return this.state ? this.startups.successRate(this.state, type) : 0; }
-                startupSuccessRate() { return this.state ? this.startups.successRate(this.state) : 0; }
-                advanceStartup() { return this.useAnnualAction('major-action', '今年的额外行动已经使用；创业推进需要等到下一年。', () => { const result = this.startups.advanceStage(this.state); this.latestOutcome = result.message; }); }
-                formalizeStartup() { return this.useAnnualAction('major-action', '今年的额外行动已经使用；正式启动需要等到下一年。', () => this.startups.formalize(this.state)); }
-                exitStartup() { if (!this.state)
-                    throw new Error('人生尚未开始。'); this.startups.exit(this.state); this.save(); return this.snapshot(); }
                 migrateCity(target) { if (!this.state)
                     throw new Error('人生尚未开始。'); this.cities.migrate(this.state, target); this.finance.refresh(this.state); this.save(); return this.snapshot(); }
                 migrationPreview(target) { if (!this.state)
@@ -3314,11 +3453,39 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                 sellHousing(holdingId) { if (!this.state)
                     throw new Error('人生尚未开始。'); this.housing.sell(this.state, holdingId); this.save(); return this.snapshot(); }
                 industryProjectConfigs() { return this.state ? this.industryProjects.available(this.state) : []; }
+                industryProjectPhase(project) { return this.state ? this.industryProjects.phase(project, this.state.year) : '未知'; }
+                industryProjectCashflowRange(project) { return this.state ? this.industryProjects.annualCashflowRange(project, this.state.year) : { min: 0, max: 0 }; }
+                industryProjectLoanOffer(projectId) {
+                    if (!this.state)
+                        throw new Error('人生尚未开始。');
+                    const project = this.industryProjects.available(this.state).find((item) => item.id === projectId);
+                    if (!project)
+                        throw new Error('这个项目当前没有出售。');
+                    return this.finance.loanOffer(this.state, Math.max(0, project.minimumInvestment - this.state.stats.funds));
+                }
+                buyIndustryProject(projectId, useLoan = false) {
+                    if (!this.state)
+                        throw new Error('人生尚未开始。');
+                    const project = this.industryProjects.available(this.state).find((item) => item.id === projectId);
+                    if (!project)
+                        throw new Error('这个项目当前没有出售。');
+                    const shortfall = Math.max(0, Math.round((project.minimumInvestment - this.state.stats.funds) * 100) / 100);
+                    if (shortfall > 0) {
+                        const offer = this.finance.loanOffer(this.state, shortfall);
+                        if (!useLoan || !offer.canBorrow)
+                            throw new Error('现金与可用贷款不足，无法买断这个项目。');
+                        this.finance.takeLoan(this.state, offer.amount);
+                    }
+                    this.industryProjects.invest(this.state, projectId, project.minimumInvestment);
+                    this.finance.refresh(this.state);
+                    this.save();
+                    return this.snapshot();
+                }
                 exitIndustryProject(holdingId) { if (!this.state)
                     throw new Error('人生尚未开始。'); this.industryProjects.exit(this.state, holdingId); this.save(); return this.snapshot(); }
-                graduateSchool() { return this.useAnnualAction('major-action', '今年的额外行动已经使用；恢复、自学、考证和创业推进每年只能选择一项。', () => { this.education.applyGraduateSchool(this.state); this.finance.refresh(this.state); }); }
-                certificate(skill) { return this.useAnnualAction('major-action', '今年的额外行动已经使用；恢复、自学、考证和创业推进每年只能选择一项。', () => this.education.applyCertificate(this.state, skill)); }
-                selfStudy(skill) { return this.useAnnualAction('major-action', '今年的额外行动已经使用；恢复、自学、考证和创业推进每年只能选择一项。', () => this.education.applySelfStudy(this.state, skill)); }
+                graduateSchool() { return this.useAnnualAction('major-action', '今年的额外行动已经使用；恢复、自学和进修每年只能选择一项。', () => { this.education.applyGraduateSchool(this.state); this.finance.refresh(this.state); }); }
+                certificate(skill) { return this.useAnnualAction('major-action', '今年的额外行动已经使用；恢复、自学和进修每年只能选择一项。', () => this.education.applyCertificate(this.state, skill)); }
+                selfStudy(skill) { return this.useAnnualAction('major-action', '今年的额外行动已经使用；恢复、自学和进修每年只能选择一项。', () => this.education.applySelfStudy(this.state, skill)); }
                 hasMajorActionAvailable() { return !!this.state && this.state.annualActionYears['major-action'] !== this.state.year; }
                 marketPrice(instrumentId) {
                     if (!this.state)
@@ -3375,6 +3542,12 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     this.currentEvent = undefined;
                     this.state.activeEventId = undefined;
                 }
+                optionCashCost(option) {
+                    var _a, _b, _c, _d;
+                    const directCost = Math.max(0, -((_b = (_a = option.result.stats) === null || _a === void 0 ? void 0 : _a.funds) !== null && _b !== void 0 ? _b : 0));
+                    const projectCost = (_d = (_c = option.result.projectInvestment) === null || _c === void 0 ? void 0 : _c.amount) !== null && _d !== void 0 ? _d : 0;
+                    return Math.round((directCost + projectCost) * 100) / 100;
+                }
                 finishYear(requestedYears = this.random.int(1, 3)) {
                     if (!this.state)
                         return;
@@ -3414,7 +3587,9 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     if (!this.state || this.state.age >= MAX_AGE || this.state.completed)
                         return;
                     this.market.revealFutureInstrument(this.state, this.random);
-                    const forced = this.eventMatcher.pick(this.state, GameEvents_1.GAME_EVENTS.filter((event) => event.forced), this.random);
+                    const ownedProjects = new Set(this.state.industryProjects.map((holding) => holding.projectId));
+                    const availableEvents = GameEvents_1.GAME_EVENTS.filter((event) => !event.options.some((option) => option.result.projectInvestment && ownedProjects.has(option.result.projectInvestment.projectId)));
+                    const forced = this.eventMatcher.pick(this.state, availableEvents.filter((event) => event.forced), this.random);
                     if (forced)
                         this.currentEvent = forced;
                     else {
@@ -3423,9 +3598,9 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                             this.currentEvent = GameEvents_1.GAME_EVENTS.find((event) => event.id === delayed.eventId);
                         else if (includeOrdinary && this.random.next() < this.eventDensity) {
                             const major = this.random.next() < 0.28
-                                ? this.eventMatcher.pick(this.state, GameEvents_1.GAME_EVENTS.filter((event) => event.interaction === 'opportunity'), this.random)
+                                ? this.eventMatcher.pick(this.state, availableEvents.filter((event) => event.interaction === 'opportunity'), this.random)
                                 : undefined;
-                            this.currentEvent = major !== null && major !== void 0 ? major : this.eventMatcher.pick(this.state, GameEvents_1.GAME_EVENTS.filter((event) => !event.forced && event.interaction !== 'opportunity'), this.random);
+                            this.currentEvent = major !== null && major !== void 0 ? major : this.eventMatcher.pick(this.state, availableEvents.filter((event) => !event.forced && event.interaction !== 'opportunity'), this.random);
                         }
                         else
                             this.currentEvent = undefined;
@@ -3533,6 +3708,8 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
 
 
 
+
+
 System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "./AssetSystem.ts", "./HealthSystem.ts", "./OpportunitySystem.ts", "./FinanceSystem.ts", "./HousingSystem.ts", "./IndustryProjectSystem.ts", "./CareerSystem.ts", "./GrowthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var __rest = (this && this.__rest) || function (s, e) {
@@ -3601,7 +3778,7 @@ System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "
                     }
                     const skills = this.applyRecord(Object.assign({}, BASE_SKILLS), identity.skillModifiers);
                     const stats = this.applyRecord(Object.assign(Object.assign({}, BASE_STATS), { familyResources: identity.initialFamilyResources }), identity.dynamicModifiers);
-                    return { version: 1, seed, mode, year: 2000, age: 8, identityId: identity.id, attributes, skills, stats, flags: [...identity.familyFlags], triggeredEventIds: [], unlockedAchievementIds: [], lastWellbeingYear: -1, annualActionYears: {}, delayedEvents: [], education: { level: 'primary', city: identity.region, studyHabit: 20, academicScore: 50, studyYears: 0 }, finance: FinanceSystem_1.FinanceSystem.initial(identity.familyAllowanceAnnual), career: { track: 'unemployed', level: 'junior', workIntensity: 'normal', industry: '', yearsAtLevel: 0 }, lifeFocus: 'study', startup: { active: false }, assets: [], housingHoldings: [], industryProjects: [], market: { discoveredInstrumentIds: [], positions: [], realizedProfit: 0, insightIds: [], generatedInstruments: [] }, relationships: { father: 50, mother: 50, friend: 30, partner: 0, mentor: 0 }, discoveredSignalIds: [], opportunities: [], lifeLog: [], completed: false };
+                    return { version: 1, seed, mode, year: 2000, age: 8, identityId: identity.id, attributes, skills, stats, flags: [...identity.familyFlags, 'project-investment-v2', 'market-share-unit-v2'], triggeredEventIds: [], unlockedAchievementIds: [], lastWellbeingYear: -1, annualActionYears: {}, delayedEvents: [], education: { level: 'primary', city: identity.region, studyHabit: 20, academicScore: 50, studyYears: 0 }, finance: FinanceSystem_1.FinanceSystem.initial(identity.familyAllowanceAnnual), career: { track: 'unemployed', level: 'junior', workIntensity: 'normal', industry: '', yearsAtLevel: 0 }, lifeFocus: 'study', startup: { active: false }, assets: [], housingHoldings: [], industryProjects: [], market: { discoveredInstrumentIds: [], positions: [], realizedProfit: 0, insightIds: [], generatedInstruments: [] }, relationships: { father: 50, mother: 50, friend: 30, partner: 0, mentor: 0 }, discoveredSignalIds: [], opportunities: [], lifeLog: [], completed: false };
                 }
                 applyChange(state, change) {
                     var _a, _b, _c;
@@ -3744,6 +3921,8 @@ System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "
 
 
 
+
+
 System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -3753,6 +3932,8 @@ System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, conte
         }
     };
 });
+
+
 
 
 
@@ -3789,6 +3970,8 @@ System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
 
 
 
@@ -3912,6 +4095,8 @@ System.register("chunks:///_virtual/HousingSystem.ts",[], function (exports_1, c
 
 
 
+
+
 System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var IDENTITIES, STARTER_FAMILY_IDS;
@@ -3983,6 +4168,8 @@ System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, 
 
 
 
+
+
 System.register("chunks:///_virtual/IndependentLifeEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var INDEPENDENT_LIFE_EVENTS, INDEPENDENT_LIFE_CONTENT_EVENTS;
@@ -4008,13 +4195,6 @@ System.register("chunks:///_virtual/IndependentLifeEvents.ts",[], function (expo
                         { id: 'balanced', label: '保持正常节奏', result: { career: { workIntensity: 'normal' }, stats: { pressure: 2 }, skills: { management: 1 } } },
                         { id: 'hard', label: '全力投入工作', result: { career: { workIntensity: 'hard' }, stats: { pressure: 7, health: -2 }, attributes: { execution: 2 } } },
                         { id: 'rest', label: '降低强度，保留生活空间', result: { career: { workIntensity: 'relaxed' }, stats: { pressure: -4, happiness: 4, health: 1 } } },
-                    ],
-                },
-                {
-                    id: 'startup-first-project', title: '具体创业方向的选择', description: '你可以组建内容工作室或软件工具团队。投入会形成创业资产，不会凭空消失。', yearMin: 2015, yearMax: 2026, weight: 60, interaction: 'opportunity', declineAllowed: true, prerequisites: ['flags.career-started'],
-                    options: [
-                        { id: 'content', label: '内容工作室｜投入15万元', result: { startup: { active: true, project: 'content', stage: 'launch' }, stats: { funds: -15, pressure: 8 }, skills: { expression: 4, business: 3 }, assetChanges: [{ type: 'startup', amount: 15 }], addFlags: ['startup-attempt'] } },
-                        { id: 'software', label: '软件工具团队｜投入40万元', result: { startup: { active: true, project: 'software', stage: 'launch' }, stats: { funds: -40, pressure: 12 }, skills: { technology: 6, business: 2 }, assetChanges: [{ type: 'startup', amount: 40 }], addFlags: ['startup-attempt'] } },
                     ],
                 },
                 {
@@ -4045,6 +4225,8 @@ System.register("chunks:///_virtual/IndependentLifeEvents.ts",[], function (expo
         }
     };
 });
+
+
 
 
 
@@ -4123,6 +4305,8 @@ System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryPr
 
 
 
+
+
 System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var INDUSTRY_PROJECTS;
@@ -4183,6 +4367,8 @@ System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (expo
 
 
 
+
+
 System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjectConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var IndustryProjectConfig_1, IndustryProjectSystem;
@@ -4198,14 +4384,34 @@ System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjec
                 available(state) {
                     return IndustryProjectConfig_1.INDUSTRY_PROJECTS.filter((item) => state.year >= item.yearMin && state.year <= item.yearMax);
                 }
+                phase(project, year) {
+                    if (year <= project.yearMin + 1)
+                        return '萌芽';
+                    if (year <= project.idealUntil)
+                        return '上升';
+                    if (year < project.crowdedFrom)
+                        return '火热';
+                    if (year <= project.yearMax)
+                        return '拥挤';
+                    return '衰退';
+                }
+                annualCashflowRange(project, year) {
+                    const phase = this.phase(project, year);
+                    const rates = phase === '萌芽' ? [-.08, .04] : phase === '上升' ? [.02, .12] : phase === '火热' ? [.06, .18] : phase === '拥挤' ? [-.04, .08] : [-.12, .02];
+                    return { min: this.roundMoney(project.minimumInvestment * rates[0]), max: this.roundMoney(project.minimumInvestment * rates[1]) };
+                }
                 invest(state, projectId, amount) {
                     const project = IndustryProjectConfig_1.industryProject(projectId);
                     if (state.age < 18)
                         throw new Error('年满18岁后才能以本人名义投资行业项目。');
                     if (state.year < project.yearMin || state.year > project.yearMax)
                         throw new Error('该项目当前不在开放窗口。');
-                    if (amount < project.minimumInvestment)
-                        throw new Error(`最低投入为 ¥${(project.minimumInvestment * 10000).toLocaleString('zh-CN')}。`);
+                    if (state.industryProjects.filter((item) => item.status === 'active').length >= IndustryProjectSystem.MAX_ACTIVE_PROJECTS)
+                        throw new Error('最多同时持有5个项目，请先出售一个项目。');
+                    if (state.industryProjects.some((item) => item.projectId === projectId))
+                        throw new Error('这个项目在本局中已经出现过。');
+                    if (Math.abs(amount - project.minimumInvestment) > .001)
+                        throw new Error(`买断价格为 ¥${(project.minimumInvestment * 10000).toLocaleString('zh-CN')}。`);
                     if (state.stats.funds < amount)
                         throw new Error('现金不足，无法完成项目投资。');
                     state.stats.funds -= amount;
@@ -4219,11 +4425,17 @@ System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjec
                         currentValue: amount,
                         status: 'active',
                         realizedReturn: 0,
+                        lastAnnualCashflow: 0,
+                        cumulativeCashflow: 0,
+                        lastValuationRate: 0,
+                        lastChangeReason: `${this.phase(project, state.year)}期买入`,
                     };
                     state.industryProjects.push(holding);
                     return holding;
                 }
                 settleYear(state) {
+                    var _a;
+                    let totalOperatingCashflow = 0;
                     for (const holding of state.industryProjects.filter((item) => item.status === 'active')) {
                         const config = IndustryProjectConfig_1.industryProject(holding.projectId);
                         const baseRate = state.year <= config.idealUntil
@@ -4234,22 +4446,38 @@ System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjec
                         const lateEntryPenalty = holding.startYear >= config.crowdedFrom ? -.08 : 0;
                         const variance = this.deterministicVariance(state.seed, holding.projectId, state.year, config.risk);
                         const rate = Math.max(-.65, baseRate + lateEntryPenalty + variance);
+                        const phase = this.phase(config, state.year);
+                        const cashflowBase = phase === '萌芽' ? -.02 : phase === '上升' ? .06 : phase === '火热' ? .11 : phase === '拥挤' ? .02 : -.06;
+                        const operatingCashflow = this.roundMoney(holding.investedPrincipal * (cashflowBase + variance * .25));
+                        holding.lastAnnualCashflow = operatingCashflow;
+                        holding.cumulativeCashflow = this.roundMoney(((_a = holding.cumulativeCashflow) !== null && _a !== void 0 ? _a : 0) + operatingCashflow);
+                        holding.lastValuationRate = Math.round(rate * 1000) / 1000;
+                        holding.lastChangeReason = `${phase}期${baseRate >= .1 ? '需求增长' : baseRate >= 0 ? '经营趋稳' : '竞争加剧'}${lateEntryPenalty < 0 ? '，入场偏晚' : ''}`;
+                        totalOperatingCashflow += operatingCashflow;
                         holding.currentValue = Math.max(0, Math.round(holding.currentValue * (1 + rate) * 10) / 10);
                         if (holding.currentValue <= holding.investedPrincipal * .08) {
+                            const salvage = this.roundMoney(holding.investedPrincipal * .1);
+                            state.stats.funds = this.roundMoney(state.stats.funds + salvage);
                             holding.currentValue = 0;
-                            holding.realizedReturn = -holding.investedPrincipal;
+                            holding.realizedReturn = this.roundMoney(salvage + holding.cumulativeCashflow - holding.investedPrincipal);
+                            holding.lastChangeReason = '经营失败，回收一成残值';
                             holding.status = 'failed';
                         }
                     }
+                    const appliedCashflow = Math.max(-state.stats.funds, this.roundMoney(totalOperatingCashflow));
+                    state.stats.funds = this.roundMoney(state.stats.funds + appliedCashflow);
+                    if (Math.abs(appliedCashflow) > .001)
+                        this.addCashflowToLatestRecord(state, appliedCashflow);
                 }
                 exit(state, holdingId) {
+                    var _a;
                     const holding = state.industryProjects.find((item) => item.id === holdingId);
                     if (!holding || holding.status !== 'active')
                         throw new Error('该项目当前无法退出。');
                     const exitCost = Math.round(holding.currentValue * .02 * 10) / 10;
                     const proceeds = Math.max(0, holding.currentValue - exitCost);
-                    state.stats.funds += proceeds;
-                    holding.realizedReturn = Math.round((proceeds - holding.investedPrincipal) * 10) / 10;
+                    state.stats.funds = this.roundMoney(state.stats.funds + proceeds);
+                    holding.realizedReturn = this.roundMoney(proceeds + ((_a = holding.cumulativeCashflow) !== null && _a !== void 0 ? _a : 0) - holding.investedPrincipal);
                     holding.status = 'exited';
                     return holding;
                 }
@@ -4260,11 +4488,24 @@ System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjec
                     const normalized = (hash % 10001) / 10000 - .5;
                     return normalized * (risk === '高' ? .24 : .12);
                 }
+                addCashflowToLatestRecord(state, cashflow) {
+                    const record = [...state.finance.history].reverse().find((item) => item.year === state.year);
+                    state.finance.lastCashflow = this.roundMoney(state.finance.lastCashflow + cashflow);
+                    if (!record)
+                        return;
+                    record.otherIncome = this.roundMoney(record.otherIncome + cashflow);
+                    record.netCashflow = this.roundMoney(record.netCashflow + cashflow);
+                    record.closingCash = this.roundMoney(state.stats.funds);
+                }
+                roundMoney(value) { return Math.round(value * 100) / 100; }
             };
             exports_1("IndustryProjectSystem", IndustryProjectSystem);
+            IndustryProjectSystem.MAX_ACTIVE_PROJECTS = 5;
         }
     };
 });
+
+
 
 
 
@@ -4318,6 +4559,8 @@ System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_
 
 
 
+
+
 System.register("chunks:///_virtual/InvestmentMemoryManager.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, INVESTMENT_MEMORY_KEY, InvestmentMemoryManager;
@@ -4352,6 +4595,8 @@ System.register("chunks:///_virtual/InvestmentMemoryManager.ts",["cc"], function
         }
     };
 });
+
+
 
 
 
@@ -4438,6 +4683,8 @@ System.register("chunks:///_virtual/LaterLifeEvents.ts",[], function (exports_1,
 
 
 
+
+
 System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, LEGACY_KEY, LegacyManager;
@@ -4468,6 +4715,8 @@ System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_
         }
     };
 });
+
+
 
 
 
@@ -4523,6 +4772,8 @@ System.register("chunks:///_virtual/GrowthSystem.ts",[], function (exports_1, co
 
 
 
+
+
 System.register("chunks:///_virtual/main",["./GameBootstrap.ts","./Motion.ts","./StatChangeAnimator.ts","./UITheme.ts","./AchievementConfig.ts","./CareerPathEvents.ts","./EducationEvents.ts","./EndingConfig.ts","./EventTemplates.ts","./ExplorationConfig.ts","./FamilyOpportunityEvents.ts","./FutureTransitionEvents.ts","./GameEvents.ts","./IdentityConfig.ts","./IndependentLifeEvents.ts","./IndustryOpportunityEvents.ts","./IndustryProjectConfig.ts","./InheritanceConfig.ts","./LaterLifeEvents.ts","./MajorOpportunityEvents.ts","./MarketConfig.ts","./MarketInsightConfig.ts","./MidLifeEvents.ts","./OpportunityConfig.ts","./OpportunityEvents.ts","./StarterEvents.ts","./StartupConfig.ts","./YearConfig.ts","./GameSession.ts","./GameStateManager.ts","./GameTypes.ts","./SeededRandom.ts","./AchievementSystem.ts","./AssetSystem.ts","./CareerSystem.ts","./CitySystem.ts","./ConditionEvaluator.ts","./DelayedEventQueue.ts","./EducationProgressionSystem.ts","./EducationSystem.ts","./EndingResolver.ts","./EventMatcher.ts","./FamilyUnlockManager.ts","./FinanceSystem.ts","./HealthSystem.ts","./HousingSystem.ts","./IndustryProjectSystem.ts","./InvestmentMemoryManager.ts","./LegacyManager.ts","./MarketSystem.ts","./OpenOpportunitySystem.ts","./OpportunitySystem.ts","./ReportGenerator.ts","./RequirementFormatter.ts","./SaveManager.ts","./StartupSystem.ts","./WealthSystem.ts"],(function(){return{setters:[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],execute:function(){}}}));
 
 System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exports_1, context_1) {
@@ -4551,6 +4802,8 @@ System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exp
         }
     };
 });
+
+
 
 
 
@@ -4646,6 +4899,8 @@ System.register("chunks:///_virtual/MarketConfig.ts",[], function (exports_1, co
 
 
 
+
+
 System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var MARKET_INSIGHTS;
@@ -4662,6 +4917,8 @@ System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (export
         }
     };
 });
+
+
 
 
 
@@ -4791,23 +5048,17 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts", "./Ma
                     const start = Math.max(item.publicFromYear, year - years + 1);
                     return Array.from({ length: year - start + 1 }, (_, index) => ({ year: start + index, price: this.price(item, start + index) }));
                 }
-                canTrade(state) { return state.age >= 18 && state.flags.includes('market-risk-read'); }
-                acceptRisk(state) {
-                    if (state.age < 18)
-                        throw new Error('年满18岁后才能以本人名义开立交易账户。');
-                    if (!state.flags.includes('market-risk-read'))
-                        state.flags.push('market-risk-read');
-                }
+                canTrade(state) { return state.age >= 18; }
                 buy(state, instrumentId, quantity) {
                     this.migrateShareUnits(state);
                     if (!this.canTrade(state))
-                        throw new Error(state.age < 18 ? '未成年只能查看行情，不能买卖。' : '请先阅读并确认交易风险说明。');
+                        throw new Error('未成年只能查看行情，不能买卖。');
                     const item = this.research(state, instrumentId);
                     if (item.closeYear && state.year > item.closeYear)
                         throw new Error('该标的已停止新增买入，但历史持仓仍可查看和卖出。');
                     const lotSize = this.lotSize(item);
                     if (!Number.isInteger(quantity) || quantity < lotSize || quantity % lotSize !== 0)
-                        throw new Error(`${this.unitName(item)}需按每手${lotSize}股买入。`);
+                        throw new Error(`买入数量需要符合当前市场的最小成交单位。`);
                     const price = this.price(item, state.year);
                     const cost = this.roundMoney(price * quantity / 10000);
                     if (state.stats.funds < cost)
@@ -4827,13 +5078,13 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts", "./Ma
                     const lotSize = this.lotSize(item);
                     const quantity = Math.floor(amount * 10000 / this.price(item, state.year) / lotSize) * lotSize;
                     if (quantity < lotSize)
-                        throw new Error('这笔资金不足以买入一手。');
+                        throw new Error('资金不足，无法完成本次购买。');
                     this.buy(state, instrumentId, quantity);
                 }
                 sell(state, instrumentId, quantity) {
                     this.migrateShareUnits(state);
                     if (!this.canTrade(state))
-                        throw new Error('请先完成交易账户和风险说明。');
+                        throw new Error('未成年只能查看行情，不能买卖。');
                     const position = this.position(state, instrumentId);
                     if (!Number.isFinite(quantity) || quantity <= 0 || position.quantity + .000001 < quantity)
                         throw new Error('持仓数量不足。');
@@ -4873,7 +5124,6 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts", "./Ma
                 }
                 catalog(state) { return [...MarketConfig_1.MARKET_INSTRUMENTS, ...state.market.generatedInstruments]; }
                 lotSize(item) { return item.kind === 'stock' ? 100 : 10; }
-                unitName(item) { return item.kind === 'stock' ? '股票' : item.kind === 'fund' ? '基金' : '债券'; }
                 /** Old saves stored fractional investment units. Convert once so their market value is unchanged. */
                 migrateShareUnits(state) {
                     const flag = 'market-share-unit-v2';
@@ -4890,6 +5140,8 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts", "./Ma
         }
     };
 });
+
+
 
 
 
@@ -4927,6 +5179,8 @@ System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
 
 
 
@@ -5023,6 +5277,8 @@ System.register("chunks:///_virtual/Motion.ts",["cc"], function (exports_1, cont
 
 
 
+
+
 System.register("chunks:///_virtual/OpenOpportunitySystem.ts",["./ExplorationConfig.ts", "./ConditionEvaluator.ts", "./RequirementFormatter.ts"], function (exports_1, context_1) {
     "use strict";
     var ExplorationConfig_1, ConditionEvaluator_1, RequirementFormatter_1, OpenOpportunitySystem;
@@ -5086,6 +5342,8 @@ System.register("chunks:///_virtual/OpenOpportunitySystem.ts",["./ExplorationCon
 
 
 
+
+
 System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var LIFE_CYCLE, OPPORTUNITY_CHAINS, SIGNALS;
@@ -5122,6 +5380,8 @@ System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_
         }
     };
 });
+
+
 
 
 
@@ -5228,6 +5488,8 @@ System.register("chunks:///_virtual/OpportunityEvents.ts",["./EventTemplates.ts"
 
 
 
+
+
 System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var OpportunityConfig_1, OpportunitySystem;
@@ -5257,6 +5519,8 @@ System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.
         }
     };
 });
+
+
 
 
 
@@ -5313,6 +5577,8 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
         }
     };
 });
+
+
 
 
 
@@ -5395,9 +5661,11 @@ System.register("chunks:///_virtual/RequirementFormatter.ts",[], function (expor
 
 
 
-System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressionSystem.ts", "./IdentityConfig.ts"], function (exports_1, context_1) {
+
+
+System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressionSystem.ts", "./IdentityConfig.ts", "./IndustryProjectConfig.ts"], function (exports_1, context_1) {
     "use strict";
-    var cc_1, EducationProgressionSystem_1, IdentityConfig_1, SAVE_KEY, SaveManager;
+    var cc_1, EducationProgressionSystem_1, IdentityConfig_1, IndustryProjectConfig_1, SAVE_KEY, SaveManager;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [
@@ -5409,6 +5677,9 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
             },
             function (IdentityConfig_1_1) {
                 IdentityConfig_1 = IdentityConfig_1_1;
+            },
+            function (IndustryProjectConfig_1_1) {
+                IndustryProjectConfig_1 = IndustryProjectConfig_1_1;
             }
         ],
         execute: function () {
@@ -5421,8 +5692,8 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
                     cc_1.sys.localStorage.setItem(SAVE_KEY, JSON.stringify(state));
                 }
                 load() {
-                    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1;
-                    var _2, _3, _4, _5, _6, _7, _8, _9;
+                    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3;
+                    var _4, _5, _6, _7, _8, _9, _10, _11;
                     const raw = cc_1.sys.localStorage.getItem(SAVE_KEY);
                     if (!raw)
                         return undefined;
@@ -5432,15 +5703,15 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
                             return undefined;
                         // Additive schema migration keeps development saves playable as new systems appear.
                         (_a = state.career) !== null && _a !== void 0 ? _a : (state.career = { track: 'unemployed', level: 'junior', workIntensity: 'normal', industry: '', yearsAtLevel: 0 });
-                        (_b = (_2 = state.career).yearsAtLevel) !== null && _b !== void 0 ? _b : (_2.yearsAtLevel = 0);
-                        (_c = (_3 = state.stats).knowledge) !== null && _c !== void 0 ? _c : (_3.knowledge = 10);
+                        (_b = (_4 = state.career).yearsAtLevel) !== null && _b !== void 0 ? _b : (_4.yearsAtLevel = 0);
+                        (_c = (_5 = state.stats).knowledge) !== null && _c !== void 0 ? _c : (_5.knowledge = 10);
                         (_d = state.education) !== null && _d !== void 0 ? _d : (state.education = { level: 'primary', city: 'county', studyHabit: 20, academicScore: 50, studyYears: 0 });
-                        (_e = (_4 = state.education).studyHabit) !== null && _e !== void 0 ? _e : (_4.studyHabit = 20);
-                        (_f = (_5 = state.education).academicScore) !== null && _f !== void 0 ? _f : (_5.academicScore = 50);
+                        (_e = (_6 = state.education).studyHabit) !== null && _e !== void 0 ? _e : (_6.studyHabit = 20);
+                        (_f = (_7 = state.education).academicScore) !== null && _f !== void 0 ? _f : (_7.academicScore = 50);
                         const elapsedSchoolYears = Math.min(10, Math.max(0, state.age - 8));
                         // The previous build accidentally replaced both values with 2 whenever "学习成长" settled.
                         const hasOverwrittenEducation = state.education.studyHabit <= 4 && state.education.academicScore <= 4;
-                        (_g = (_6 = state.education).studyYears) !== null && _g !== void 0 ? _g : (_6.studyYears = hasOverwrittenEducation
+                        (_g = (_8 = state.education).studyYears) !== null && _g !== void 0 ? _g : (_8.studyYears = hasOverwrittenEducation
                             ? elapsedSchoolYears
                             : Math.min(elapsedSchoolYears, Math.max(0, Math.round((state.education.studyHabit - 20) / 2))));
                         if (hasOverwrittenEducation) {
@@ -5453,7 +5724,7 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
                         }
                         (_h = state.lifeFocus) !== null && _h !== void 0 ? _h : (state.lifeFocus = state.career.track === 'unemployed' ? 'study' : 'work');
                         (_j = state.finance) !== null && _j !== void 0 ? _j : (state.finance = { familyAllowanceAnnual: 0.5, salaryAnnual: 0, livingCostAnnual: 0, loanBalance: 0, loanLimit: 0, lastCashflow: 0, history: [] });
-                        (_k = (_7 = state.finance).history) !== null && _k !== void 0 ? _k : (_7.history = []);
+                        (_k = (_9 = state.finance).history) !== null && _k !== void 0 ? _k : (_9.history = []);
                         state.finance.history.forEach((record) => { var _a; (_a = record.familyCoveredExpense) !== null && _a !== void 0 ? _a : (record.familyCoveredExpense = 0); });
                         (_l = state.startup) !== null && _l !== void 0 ? _l : (state.startup = { active: false });
                         (_m = state.assets) !== null && _m !== void 0 ? _m : (state.assets = []);
@@ -5465,25 +5736,46 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
                         }
                         (_p = state.industryProjects) !== null && _p !== void 0 ? _p : (state.industryProjects = []);
                         state.industryProjects.forEach((holding) => {
-                            var _a;
+                            var _a, _b, _c, _d, _e;
                             (_a = holding.realizedReturn) !== null && _a !== void 0 ? _a : (holding.realizedReturn = holding.status === 'failed' ? -holding.investedPrincipal : 0);
+                            (_b = holding.lastAnnualCashflow) !== null && _b !== void 0 ? _b : (holding.lastAnnualCashflow = 0);
+                            (_c = holding.cumulativeCashflow) !== null && _c !== void 0 ? _c : (holding.cumulativeCashflow = 0);
+                            (_d = holding.lastValuationRate) !== null && _d !== void 0 ? _d : (holding.lastValuationRate = 0);
+                            (_e = holding.lastChangeReason) !== null && _e !== void 0 ? _e : (holding.lastChangeReason = holding.status === 'active' ? '等待下一年经营结果' : '项目已经结束');
                             if (holding.status === 'failed') {
                                 holding.currentValue = 0;
-                                holding.realizedReturn = -holding.investedPrincipal;
                             }
                         });
-                        (_q = state.market) !== null && _q !== void 0 ? _q : (state.market = { discoveredInstrumentIds: [], positions: [], realizedProfit: 0, insightIds: [], generatedInstruments: [] });
-                        (_r = (_8 = state.market).insightIds) !== null && _r !== void 0 ? _r : (_8.insightIds = []);
-                        (_s = (_9 = state.market).generatedInstruments) !== null && _s !== void 0 ? _s : (_9.generatedInstruments = []);
-                        (_t = state.relationships) !== null && _t !== void 0 ? _t : (state.relationships = { father: 50, mother: 50, friend: 30, partner: 0, mentor: 0 });
-                        (_u = state.discoveredSignalIds) !== null && _u !== void 0 ? _u : (state.discoveredSignalIds = []);
-                        (_v = state.opportunities) !== null && _v !== void 0 ? _v : (state.opportunities = []);
-                        (_w = state.lifeLog) !== null && _w !== void 0 ? _w : (state.lifeLog = []);
-                        (_x = state.completed) !== null && _x !== void 0 ? _x : (state.completed = false);
-                        (_y = state.delayedEvents) !== null && _y !== void 0 ? _y : (state.delayedEvents = []);
-                        (_z = state.unlockedAchievementIds) !== null && _z !== void 0 ? _z : (state.unlockedAchievementIds = []);
-                        (_0 = state.lastWellbeingYear) !== null && _0 !== void 0 ? _0 : (state.lastWellbeingYear = -1);
-                        (_1 = state.annualActionYears) !== null && _1 !== void 0 ? _1 : (state.annualActionYears = {});
+                        if (!state.flags.includes('project-investment-v2')) {
+                            const legacyStartup = state.assets.find((asset) => asset.type === 'startup' && asset.value > 0);
+                            if (legacyStartup) {
+                                const projectMap = { ecommerce: 'online-retail-fulfillment', 'local-service': 'local-delivery-platform', content: 'short-video-studio', software: 'smartphone-app-studio', emerging: 'vertical-ai-service' };
+                                const projectId = (_r = projectMap[(_q = state.startup.project) !== null && _q !== void 0 ? _q : '']) !== null && _r !== void 0 ? _r : 'online-retail-fulfillment';
+                                if (!state.industryProjects.some((holding) => holding.projectId === projectId)) {
+                                    const config = IndustryProjectConfig_1.industryProject(projectId);
+                                    state.industryProjects.push({ id: `legacy-${projectId}-${state.year}`, projectId, name: config.name, industry: config.industry, startYear: state.year, investedPrincipal: legacyStartup.value, currentValue: legacyStartup.value, status: 'active', realizedReturn: 0, lastAnnualCashflow: 0, cumulativeCashflow: 0, lastValuationRate: 0, lastChangeReason: '由旧版项目转入' });
+                                }
+                            }
+                            state.assets = state.assets.filter((asset) => asset.type !== 'startup');
+                            state.startup = { active: false };
+                            state.flags.push('project-investment-v2');
+                        }
+                        (_s = state.market) !== null && _s !== void 0 ? _s : (state.market = { discoveredInstrumentIds: [], positions: [], realizedProfit: 0, insightIds: [], generatedInstruments: [] });
+                        (_t = (_10 = state.market).insightIds) !== null && _t !== void 0 ? _t : (_10.insightIds = []);
+                        (_u = (_11 = state.market).generatedInstruments) !== null && _u !== void 0 ? _u : (_11.generatedInstruments = []);
+                        if (!state.flags.includes('market-share-unit-v2')) {
+                            state.market.positions.forEach((position) => { position.quantity = Math.round(position.quantity * 10000); });
+                            state.flags.push('market-share-unit-v2');
+                        }
+                        (_v = state.relationships) !== null && _v !== void 0 ? _v : (state.relationships = { father: 50, mother: 50, friend: 30, partner: 0, mentor: 0 });
+                        (_w = state.discoveredSignalIds) !== null && _w !== void 0 ? _w : (state.discoveredSignalIds = []);
+                        (_x = state.opportunities) !== null && _x !== void 0 ? _x : (state.opportunities = []);
+                        (_y = state.lifeLog) !== null && _y !== void 0 ? _y : (state.lifeLog = []);
+                        (_z = state.completed) !== null && _z !== void 0 ? _z : (state.completed = false);
+                        (_0 = state.delayedEvents) !== null && _0 !== void 0 ? _0 : (state.delayedEvents = []);
+                        (_1 = state.unlockedAchievementIds) !== null && _1 !== void 0 ? _1 : (state.unlockedAchievementIds = []);
+                        (_2 = state.lastWellbeingYear) !== null && _2 !== void 0 ? _2 : (state.lastWellbeingYear = -1);
+                        (_3 = state.annualActionYears) !== null && _3 !== void 0 ? _3 : (state.annualActionYears = {});
                         for (const flag of IdentityConfig_1.familyFlagsFor(state.identityId))
                             if (!state.flags.includes(flag))
                                 state.flags.push(flag);
@@ -5494,7 +5786,7 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
                         }
                         return state;
                     }
-                    catch (_10) {
+                    catch (_12) {
                         return undefined;
                     }
                 }
@@ -5511,6 +5803,8 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
         }
     };
 });
+
+
 
 
 
@@ -5555,6 +5849,8 @@ System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, co
         }
     };
 });
+
+
 
 
 
@@ -5630,6 +5926,8 @@ System.register("chunks:///_virtual/StarterEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
 
 
 
@@ -5737,6 +6035,8 @@ System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, c
         }
     };
 });
+
+
 
 
 
@@ -5971,6 +6271,8 @@ System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exp
 
 
 
+
+
 System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, UITheme;
@@ -6024,6 +6326,8 @@ System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, con
 
 
 
+
+
 System.register("chunks:///_virtual/WealthSystem.ts",["./MarketConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var MarketConfig_1;
@@ -6050,14 +6354,15 @@ System.register("chunks:///_virtual/WealthSystem.ts",["./MarketConfig.ts"], func
         const catalog = [...MarketConfig_1.MARKET_INSTRUMENTS, ...state.market.generatedInstruments];
         const securities = state.market.positions.reduce((sum, position) => {
             const instrument = catalog.find((item) => item.id === position.instrumentId);
-            return sum + (instrument ? marketPrice(instrument, state.year) * position.quantity : 0);
+            // Prices are yuan per share while the rest of the economy is stored in ten-thousand yuan.
+            return sum + (instrument ? marketPrice(instrument, state.year) * position.quantity / 10000 : 0);
         }, 0);
-        return Math.round((conventional + projects + securities) * 10) / 10;
+        return Math.round((conventional + projects + securities) * 10000) / 10000;
     }
     exports_1("investmentAssetValue", investmentAssetValue);
     /** Personal net worth is cash plus investments minus outstanding personal debt. */
     function totalAssetValue(state) {
-        return Math.round((state.stats.funds + investmentAssetValue(state) - state.finance.loanBalance) * 10) / 10;
+        return Math.round((state.stats.funds + investmentAssetValue(state) - state.finance.loanBalance) * 10000) / 10000;
     }
     exports_1("totalAssetValue", totalAssetValue);
     return {
@@ -6070,6 +6375,8 @@ System.register("chunks:///_virtual/WealthSystem.ts",["./MarketConfig.ts"], func
         }
     };
 });
+
+
 
 
 
@@ -6130,6 +6437,8 @@ System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, cont
         }
     };
 });
+
+
 
 
 
