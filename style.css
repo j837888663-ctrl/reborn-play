@@ -25,8 +25,7 @@ body, canvas, div { outline: none; user-select: none; -webkit-user-select: none;
 .boot-track span { display: block; width: 42%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, transparent, #f4c970, transparent); animation: boot-progress 1.15s ease-in-out infinite; }
 #boot-retry { margin-top: 18px; min-width: 140px; padding: 10px 18px; border: 1px solid rgba(244,201,112,.55); border-radius: 10px; color: #f5f1e8; background: rgba(244,201,112,.12); font: inherit; }
 #boot-screen.has-error .boot-track span { animation-play-state: paused; opacity: .35; }
-#rotate-hint { display: none; position: fixed; z-index: 900; left: 50%; top: calc(10px + var(--safe-top)); transform: translateX(-50%); padding: 7px 12px; border-radius: 999px; color: #e6dfcf; background: rgba(9,11,18,.82); font-size: 12px; white-space: nowrap; pointer-events: none; }
+#safe-area-probe { position: fixed; visibility: hidden; pointer-events: none; padding-top: var(--safe-top); padding-bottom: var(--safe-bottom); }
 
 @keyframes boot-progress { from { transform: translateX(-110%); } to { transform: translateX(340%); } }
-@media (orientation: portrait) and (max-width: 900px) { #rotate-hint { display: block; } }
 @media (prefers-reduced-motion: reduce) { .boot-track span { animation-duration: 2.4s; } }

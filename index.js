@@ -15,8 +15,6 @@ System.register(["./application.js"], function (_export, _context) {
         return application.init(engine);
       }).then(function () {
         return application.start();
-      }).then(function () {
-        if (window.__restartLifeReady) window.__restartLifeReady();
       })["catch"](function (err) {
         if (window.__restartLifeFailed) window.__restartLifeFailed(err);
         console.error(err);

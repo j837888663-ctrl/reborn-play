@@ -7,11 +7,11 @@
     <meta name="theme-color" content="#090b12">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="screen-orientation" content="landscape">
-    <meta name="x5-orientation" content="landscape">
     <meta name="x5-fullscreen" content="true">
     <meta name="360-fullscreen" content="true">
     <link rel="stylesheet" href="./style.css">
+    <link rel="preload" href="./cocos-js/cc.js" as="script" crossorigin>
+    <link rel="preload" href="./assets/main/index.js" as="script" crossorigin>
   </head>
   <body>
     <div id="boot-screen" role="status" aria-live="polite">
@@ -23,7 +23,7 @@
         <button id="boot-retry" type="button" hidden>重新加载</button>
       </div>
     </div>
-    <div id="rotate-hint">横屏游玩，文字和选项会更清晰</div>
+    <div id="safe-area-probe" aria-hidden="true"></div>
     <div id="GameDiv" cc_exact_fit_screen="false">
       <div id="Cocos3dGameContainer">
         <canvas id="GameCanvas" width="1280" height="720" tabindex="0"></canvas>
@@ -35,17 +35,23 @@
         var message = document.getElementById('boot-message');
         var retry = document.getElementById('boot-retry');
         var finished = false;
-        var sceneProbe = 0;
+        performance.mark('life-boot-start');
+        function readInsets() {
+          var style = getComputedStyle(document.getElementById('safe-area-probe'));
+          window.__restartLifeInsets = { top: parseFloat(style.paddingTop) || 0, bottom: parseFloat(style.paddingBottom) || 0 };
+        }
+        readInsets();
+        window.addEventListener('resize', readInsets);
         window.__restartLifeReady = function () {
           if (finished) return;
           finished = true;
-          window.clearInterval(sceneProbe);
+          performance.mark('life-interactive');
+          performance.measure('life-startup', 'life-boot-start', 'life-interactive');
           screen.classList.add('is-ready');
           window.setTimeout(function () { screen.remove(); }, 260);
         };
         window.__restartLifeFailed = function (error) {
           if (finished) return;
-          window.clearInterval(sceneProbe);
           message.textContent = '加载失败，请检查网络后重试';
           retry.hidden = false;
           screen.classList.add('has-error');
@@ -54,11 +60,6 @@
         retry.addEventListener('click', function () { location.reload(); });
         window.addEventListener('error', function (event) { window.__restartLifeFailed(event.error || event.message); });
         window.addEventListener('unhandledrejection', function (event) { window.__restartLifeFailed(event.reason); });
-        sceneProbe = window.setInterval(function () {
-          if (window.cc && window.cc.director && window.cc.director.getScene && window.cc.director.getScene()) {
-            window.__restartLifeReady();
-          }
-        }, 150);
         window.setTimeout(function () { if (!finished) message.textContent = '首次进入正在准备游戏引擎…'; }, 2500);
         window.setTimeout(function () { if (!finished) message.textContent = '网络较慢，仍在加载，请稍候…'; }, 7000);
       })();
