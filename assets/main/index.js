@@ -54,6 +54,9 @@ System.register("chunks:///_virtual/AbilityConfig.ts",[], function (exports_1, c
 
 
 
+
+
+
 System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var a, ACHIEVEMENTS;
@@ -66,6 +69,9 @@ System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -108,6 +114,9 @@ System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.
 
 
 
+
+
+
 System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var AssetSystem;
@@ -128,6 +137,9 @@ System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, con
         }
     };
 });
+
+
+
 
 
 
@@ -200,6 +212,9 @@ System.register("chunks:///_virtual/CareerPathEvents.ts",[], function (exports_1
         }
     };
 });
+
+
+
 
 
 
@@ -303,6 +318,9 @@ System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, co
 
 
 
+
+
+
 System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var GrowthSystem_1, LIVING_COST, MOVE_BASE, CitySystem;
@@ -362,6 +380,9 @@ System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], functi
 
 
 
+
+
+
 System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var WealthSystem_1, ConditionEvaluator;
@@ -412,6 +433,9 @@ System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"]
 
 
 
+
+
+
 System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_1, context_1) {
     "use strict";
     var DelayedEventQueue;
@@ -433,6 +457,9 @@ System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -476,6 +503,9 @@ System.register("chunks:///_virtual/DeviceLayout.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 
 
@@ -587,6 +617,9 @@ System.register("chunks:///_virtual/EducationEvents.ts",["./EventTemplates.ts"],
 
 
 
+
+
+
 System.register("chunks:///_virtual/EducationProgressionSystem.ts",["./EducationSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var EducationSystem_1, HIGH_SCHOOL_THRESHOLDS, UNIVERSITY_THRESHOLDS, EducationProgressionSystem;
@@ -687,8 +720,8 @@ System.register("chunks:///_virtual/EducationProgressionSystem.ts",["./Education
                     return Math.round(base[state.education.level] * trackMultiplier * ((_a = state.career.salaryMultiplier) !== null && _a !== void 0 ? _a : 1) * 10) / 10;
                 }
                 applyGraduateSchool(state) {
-                    if (state.education.level === 'graduate')
-                        throw new Error('你已经完成研究生阶段。');
+                    if (state.flags.includes('graduate-school') || state.education.level === 'graduate')
+                        throw new Error('研究生进修只能完成一次。');
                     if (state.age < 22)
                         throw new Error(`本科毕业阶段后才能考研，当前还需等待 ${22 - state.age} 年。`);
                     if (!['undergraduate', 'first-tier', '211', '985'].includes(state.education.level))
@@ -698,24 +731,22 @@ System.register("chunks:///_virtual/EducationProgressionSystem.ts",["./Education
                     if (state.stats.funds < 8)
                         throw new Error('考研准备与学费至少需要 ¥80,000。');
                     state.stats.funds -= 8;
-                    state.education.level = 'graduate';
-                    state.stats.pressure = Math.min(100, state.stats.pressure + 7);
-                    state.career.salaryMultiplier = Math.round(state.career.salaryMultiplier * 1.12 * 10000) / 10000;
+                    state.career.salaryMultiplier = Math.round(state.career.salaryMultiplier * 1.05 * 10000) / 10000;
                     this.addFlag(state, 'graduate-school');
                 }
                 applyCertificate(state, skill) {
                     if (state.age < 16)
                         throw new Error(`16岁后才能参加职业考证，当前还需等待 ${16 - state.age} 年。`);
-                    if (state.flags.includes(`certificate-${skill}`))
-                        throw new Error('这项证书已经获得。');
+                    const certificateCount = state.flags.filter((flag) => flag.startsWith('certificate-')).length;
+                    if (certificateCount >= 2)
+                        throw new Error('职业考证最多可完成两次。');
                     if (state.stats.knowledge < 35 || state.skills[skill] < 30)
                         throw new Error(`考取${skill === 'technology' ? '技术' : skill === 'business' ? '商业' : skill === 'management' ? '管理' : '专业'}证书需要知识35、对应能力30。`);
                     if (state.stats.funds < 1.5)
                         throw new Error('考证报名与培训需要 ¥15,000。');
                     state.stats.funds -= 1.5;
-                    state.stats.pressure = Math.min(100, state.stats.pressure + 3);
-                    state.career.salaryMultiplier = Math.round(state.career.salaryMultiplier * 1.08 * 10000) / 10000;
-                    this.addFlag(state, `certificate-${skill}`);
+                    state.career.salaryMultiplier = Math.round(state.career.salaryMultiplier * 1.05 * 10000) / 10000;
+                    this.addFlag(state, `certificate-${certificateCount + 1}-${skill}`);
                 }
                 addFlag(state, flag) { if (!state.flags.includes(flag))
                     state.flags.push(flag); }
@@ -724,6 +755,9 @@ System.register("chunks:///_virtual/EducationProgressionSystem.ts",["./Education
         }
     };
 });
+
+
+
 
 
 
@@ -766,6 +800,9 @@ System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1,
 
 
 
+
+
+
 System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var item, ENDINGS;
@@ -782,6 +819,9 @@ System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 
 
@@ -827,6 +867,9 @@ System.register("chunks:///_virtual/EndingResolver.ts",["./EndingConfig.ts", "./
         }
     };
 });
+
+
+
 
 
 
@@ -887,6 +930,9 @@ System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"]
 
 
 
+
+
+
 System.register("chunks:///_virtual/EventTemplates.ts",[], function (exports_1, context_1) {
     "use strict";
     var THEME_COPY;
@@ -937,7 +983,6 @@ System.register("chunks:///_virtual/EventTemplates.ts",[], function (exports_1, 
             startup: [{ label: '投入项目试错', result: { stats: { funds: -10, pressure: 6 }, skills: { business: 4, management: 2 }, addFlags: ['startup-experience'] } }, { label: '继续积累筹码', result: { stats: { funds: 4, pressure: -1 }, skills: { information: 2 } } }],
             investment: [{ label: '研究后小额配置', result: { stats: { funds: -6, pressure: 2 }, skills: { business: 3, information: 3 }, addFlags: ['investment-practice'] } }, { label: '保留流动现金', result: { stats: { funds: 2, happiness: 1, pressure: -1 } } }],
             housing: [{ label: '为长期居住投入', result: { stats: { funds: -12, pressure: 4, happiness: 2 }, assetChanges: [{ type: 'housing', amount: 12 }], addFlags: ['housing-planner'] } }, { label: '保留迁移弹性', result: { stats: { funds: 3, happiness: 2, pressure: -1 } } }],
-            relationship: [{ label: '安排一段让自己开心的约会', result: { stats: { funds: -2, happiness: 4, pressure: -1 } } }, { label: '把重心留给事业', result: { skills: { management: 2 }, stats: { pressure: 2 } } }],
             care: [{ label: '投入照护时间', result: { stats: { familyBond: 4, happiness: 2, funds: -3, pressure: -1 } } }, { label: '提供资源支持', result: { stats: { familyBond: 2, funds: -6, pressure: 2 } } }],
             reflection: [{ label: '重新调整优先级', result: { stats: { happiness: 3, pressure: -3, health: 2 }, skills: { information: 2 } } }, { label: '继续追逐目标', result: { stats: { funds: 4, pressure: 4, health: -1 }, attributes: { execution: 2 } } }],
             opportunity: [{ label: '提前布局', result: { skills: { information: 4, business: 2 }, stats: { pressure: 3 }, addFlags: ['opportunity-scout'] } }, { label: '暂时观望', result: { stats: { happiness: 2, pressure: -1 }, skills: { information: 1 } } }],
@@ -948,11 +993,14 @@ System.register("chunks:///_virtual/EventTemplates.ts",[], function (exports_1, 
         setters: [],
         execute: function () {
             THEME_COPY = {
-                computer: ['电脑前的新问题', '一项新工具来到身边。投入探索会得到能力，也会占用原本轻松的时间。'], reading: ['书页里的岔路', '阅读、练习和玩耍都在争夺你有限的课后时间。'], family: ['家庭小店的周末排班', '家人正在协调周末小店的人手。帮忙会获得零用钱和商业经验，留在学校则能继续学习。'], social: ['同学间的邀请', '关系需要主动维护，但每一次投入都有机会成本。'], hobby: ['兴趣的坚持', '特长训练带来舞台，也意味着更少的自由时间。'], era: ['时代的新消息', '观察变化可能积累信息优势，也可能让你感到焦虑。'], health: ['身体的提醒', '健康习惯不会立刻带来回报，却会改变之后的承受力。'], exam: ['考试前的选择', '冲刺能换来分数，稳定节奏则保留了身心状态。'], campus: ['校园里的机会', '社团和课程都能塑造未来，但无法同时做到最好。'], skill: ['能力补强计划', '专门训练会带来能力，也会增加压力。'], intern: ['实习岗位的取舍', '成长速度与眼前收入之间，需要你做一次选择。'], career: ['职业路径的分岔', '承担更大责任会更快成长，也会让生活变得更紧绷。'], startup: ['创业念头浮现', '项目需要资金与精力，稳定积累同样是一条可走的路。'], investment: ['资产配置的讨论', '投资需要承担波动，保留现金则意味着放弃一部分可能。'], housing: ['居住安排重估', '房子提供确定性，也可能限制你之后的迁移自由。'], relationship: ['关系的考验', '认真投入能收获陪伴，也可能推迟其他人生目标。'], care: ['照护与责任', '家人需要你的时间或资源，两种支持都有代价。'], reflection: ['人生阶段复盘', '放慢脚步能找回自己，坚持目标也可能带来新的高度。'], opportunity: ['一条具体的行业线索', '线索会给出行业、窗口期、所需本金与风险；只有在时机合适时投入才可能形成回报。'],
+                computer: ['电脑前的新问题', '一项新工具来到身边。投入探索会得到能力，也会占用原本轻松的时间。'], reading: ['书页里的岔路', '阅读、练习和玩耍都在争夺你有限的课后时间。'], family: ['家庭小店的周末排班', '家人正在协调周末小店的人手。帮忙会获得零用钱和商业经验，留在学校则能继续学习。'], social: ['同学间的邀请', '关系需要主动维护，但每一次投入都有机会成本。'], hobby: ['兴趣的坚持', '特长训练带来舞台，也意味着更少的自由时间。'], era: ['时代的新消息', '观察变化可能积累信息优势，也可能让你感到焦虑。'], health: ['身体的提醒', '健康习惯不会立刻带来回报，却会改变之后的承受力。'], exam: ['考试前的选择', '冲刺能换来分数，稳定节奏则保留了身心状态。'], campus: ['校园里的机会', '社团和课程都能塑造未来，但无法同时做到最好。'], skill: ['能力补强计划', '专门训练会带来能力，也会增加压力。'], intern: ['实习岗位的取舍', '成长速度与眼前收入之间，需要你做一次选择。'], career: ['职业路径的分岔', '承担更大责任会更快成长，也会让生活变得更紧绷。'], startup: ['创业念头浮现', '项目需要资金与精力，稳定积累同样是一条可走的路。'], investment: ['资产配置的讨论', '投资需要承担波动，保留现金则意味着放弃一部分可能。'], housing: ['居住安排重估', '房子提供确定性，也可能限制你之后的迁移自由。'], care: ['照护与责任', '家人需要你的时间或资源，两种支持都有代价。'], reflection: ['人生阶段复盘', '放慢脚步能找回自己，坚持目标也可能带来新的高度。'], opportunity: ['一条具体的行业线索', '线索会给出行业、窗口期、所需本金与风险；只有在时机合适时投入才可能形成回报。'],
             };
         }
     };
 });
+
+
+
 
 
 
@@ -978,6 +1026,9 @@ System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -1099,6 +1150,9 @@ System.register("chunks:///_virtual/FamilyOpportunityEvents.ts",[], function (ex
 
 
 
+
+
+
 System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityConfig.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var cc_1, IdentityConfig_1, WealthSystem_1, FAMILY_UNLOCK_KEY, CAREER_RANK, FamilyUnlockManager;
@@ -1166,6 +1220,9 @@ System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityCo
         }
     };
 });
+
+
+
 
 
 
@@ -1384,6 +1441,9 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
 
 
 
+
+
+
 System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var FUTURE_TRANSITION_EVENTS;
@@ -1408,6 +1468,9 @@ System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exp
         }
     };
 });
+
+
+
 
 
 
@@ -1702,7 +1765,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.createPanel(new cc_1.Vec3(-300, 70), new cc_1.Vec3(500, 245), UITheme_1.UITheme.surface);
                     this.createPanel(new cc_1.Vec3(300, 70), new cc_1.Vec3(500, 245), UITheme_1.UITheme.surface);
                     const inheritedMemory = InheritanceConfig_1.INHERITANCE_REWARDS.find((item) => item.id === state.memoryId);
-                    this.createText(`出身：${(_b = (_a = this.selectedIdentity) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : '未记录'}\n天赋：${(_d = (_c = this.selectedTalent) === null || _c === void 0 ? void 0 : _c.name) !== null && _d !== void 0 ? _d : '未记录'}\n缺陷：${(_f = (_e = this.revealedDefect) === null || _e === void 0 ? void 0 : _e.name) !== null && _f !== void 0 ? _f : '未记录'}\n前世记忆：${(_g = inheritedMemory === null || inheritedMemory === void 0 ? void 0 : inheritedMemory.name) !== null && _g !== void 0 ? _g : '首局无'}\n学历：${this.educationName(state.education.level)}\n职业：${this.careerName(state.career.track)} · ${this.careerLevelName(state.career.level)}`, new cc_1.Vec3(-520, 70), 17, UITheme_1.UITheme.text, 'left', 440, 215);
+                    this.createText(`出身：${(_b = (_a = this.selectedIdentity) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : '未记录'}\n天赋：${(_d = (_c = this.selectedTalent) === null || _c === void 0 ? void 0 : _c.name) !== null && _d !== void 0 ? _d : '未记录'}\n缺陷：${(_f = (_e = this.revealedDefect) === null || _e === void 0 ? void 0 : _e.name) !== null && _f !== void 0 ? _f : '未记录'}\n前世记忆：${(_g = inheritedMemory === null || inheritedMemory === void 0 ? void 0 : inheritedMemory.name) !== null && _g !== void 0 ? _g : '首局无'}\n学历：${this.educationName(state.education.level)}${state.flags.includes('graduate-school') ? ' · 已获研究生学位' : ''}\n职业：${this.careerName(state.career.track)} · ${this.careerLevelName(state.career.level)}`, new cc_1.Vec3(-520, 70), 17, UITheme_1.UITheme.text, 'left', 440, 215);
                     this.createText(`个人现金：${this.money(state.stats.funds)}\n投资资产：${this.money(this.session.investmentAssetValue())}\n个人净资产：${this.money(this.session.totalAssetValue())}\n健康 / 幸福：${state.stats.health} / ${state.stats.happiness}\n最强维度：${report.strongestDimension}\n人生关键词：${report.lifeKeywords.join(' · ')}`, new cc_1.Vec3(80, 70), 17, UITheme_1.UITheme.text, 'left', 440, 215);
                     const timeline = report.timeline.slice(-5).map((item) => `${item.year}｜${item.event}：${item.choice}`).join('\n') || '尚未留下关键事件记录。';
                     this.createText('最近的重要选择', new cc_1.Vec3(-500, -82), 20, UITheme_1.UITheme.goldSoft, 'left', 300);
@@ -1728,9 +1791,9 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         this.createText(`${(_a = yearInfo === null || yearInfo === void 0 ? void 0 : yearInfo.headline) !== null && _a !== void 0 ? _a : '人生继续'} · ${(_b = yearInfo === null || yearInfo === void 0 ? void 0 : yearInfo.summary) !== null && _b !== void 0 ? _b : '新的机会正在靠近。'}`, new cc_1.Vec3(0, 35), 16, UITheme_1.UITheme.muted, 'center', 970);
                         const advice = state.year >= 2026 ? `未来建议：${this.focusAdvice(state)}` : `当前重心：${this.focusName(state.lifeFocus)}`;
                         const forecast = this.session.financeForecast();
-                        const familyCover = forecast.familyCoveredExpense > 0 ? ` · 家庭承担生活费 ${this.money(forecast.familyCoveredExpense)}` : '';
-                        const cashflow = `工资 ${this.money(forecast.salaryIncome)} · 项目运营 ${this.signedMoney(forecast.projectCashflow)} · 补助/兼职 ${this.money(forecast.allowanceIncome + forecast.sideIncome)}\n生活 ${this.money(forecast.personalLivingExpense)} · 重心开支 ${this.money(forecast.discretionaryExpense)} · 贷款利息 ${this.money(forecast.interestExpense)} · 年净现金流 ${this.signedMoney(forecast.netCashflow)}${familyCover}`;
-                        this.createText(`${advice}\n${cashflow}`, new cc_1.Vec3(0, -2), 15, forecast.netCashflow < 0 ? UITheme_1.UITheme.loss : UITheme_1.UITheme.info, 'center', 1120, 66);
+                        const familyCover = forecast.familyCoveredExpense > 0 ? ` · 家庭承担 ${this.money(forecast.familyCoveredExpense)}` : '';
+                        const cashflow = `全年收入 ${this.money(forecast.salaryIncome + forecast.projectCashflow + forecast.allowanceIncome + forecast.sideIncome)} · 全年支出 ${this.money(forecast.personalLivingExpense + forecast.discretionaryExpense + forecast.interestExpense)}${familyCover}\n年净现金流 ${this.signedMoney(forecast.netCashflow)}`;
+                        this.createText(`${advice}\n${cashflow}`, new cc_1.Vec3(0, -2), 15, forecast.netCashflow < 0 ? UITheme_1.UITheme.loss : UITheme_1.UITheme.info, 'center', 1120, 60);
                         this.createButton(this.focusButtonLabel(state, 'study'), new cc_1.Vec3(-360, -75), new cc_1.Vec3(210, 82), () => this.setFocus('study'), state.lifeFocus === 'study' ? 'primary' : 'secondary', false);
                         this.createButton(this.focusButtonLabel(state, 'work'), new cc_1.Vec3(-120, -75), new cc_1.Vec3(210, 82), () => this.setFocus('work'), state.lifeFocus === 'work' ? 'primary' : 'secondary', false);
                         this.createButton(this.focusButtonLabel(state, 'rest'), new cc_1.Vec3(120, -75), new cc_1.Vec3(210, 82), () => this.setFocus('rest'), state.lifeFocus === 'rest' ? 'primary' : 'secondary', false);
@@ -1749,16 +1812,15 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.createText(state.year >= 2026 ? '未知未来' : '历史时期', new cc_1.Vec3(-245, 282), 15, UITheme_1.UITheme.muted, 'left', 120);
                     this.createButton('详情', new cc_1.Vec3(330, 282), new cc_1.Vec3(92, 38), () => this.showLifePanel(state, event), 'ghost', false);
                     this.createButton('探索', new cc_1.Vec3(435, 282), new cc_1.Vec3(92, 38), () => this.showExploration(state, event), 'ghost', false);
-                    this.createButton('行动', new cc_1.Vec3(540, 282), new cc_1.Vec3(92, 38), () => this.showAnnualAction(state, event), 'ghost', false);
-                    const actionStatus = this.session.hasMajorActionAvailable() ? '额外行动 1/1' : '额外行动 已使用';
+                    this.createButton('沉淀', new cc_1.Vec3(540, 282), new cc_1.Vec3(92, 38), () => this.showAnnualAction(state, event), 'ghost', false);
+                    const actionStatus = this.session.hasMajorActionAvailable() ? '沉淀可用 1/1' : '沉淀已使用';
                     const forecast = this.session.financeForecast();
-                    const goal = this.currentGoal(state);
                     this.createPanel(new cc_1.Vec3(-360, 215), new cc_1.Vec3(330, 72), UITheme_1.UITheme.surface);
                     this.createPanel(new cc_1.Vec3(0, 215), new cc_1.Vec3(330, 72), UITheme_1.UITheme.surface);
                     this.createPanel(new cc_1.Vec3(360, 215), new cc_1.Vec3(330, 72), UITheme_1.UITheme.surface);
                     this.createText(`个人现金 ${this.money(state.stats.funds)}\n净资产 ${this.money(this.session.totalAssetValue())}`, new cc_1.Vec3(-360, 215), 15, UITheme_1.UITheme.text, 'center', 300, 56);
-                    this.createText(`当前目标 · ${goal}\n${actionStatus}`, new cc_1.Vec3(0, 215), 15, UITheme_1.UITheme.goldSoft, 'center', 300, 56);
-                    this.createText(`工资 ${this.money(forecast.salaryIncome)} · 项目 ${this.signedMoney(forecast.projectCashflow)}\n补助/兼职 ${this.money(forecast.allowanceIncome + forecast.sideIncome)} · 生活 ${this.money(forecast.personalLivingExpense)}\n重心 ${this.money(forecast.discretionaryExpense)} · 利息 ${this.money(forecast.interestExpense)}\n年净现金流 ${this.signedMoney(forecast.netCashflow)}`, new cc_1.Vec3(360, 215), 12, forecast.netCashflow < 0 ? UITheme_1.UITheme.loss : UITheme_1.UITheme.info, 'center', 308, 68);
+                    this.createText(`收入\n工资 ${this.money(forecast.salaryIncome)} · 项目 ${this.signedMoney(forecast.projectCashflow)}\n补助/兼职 ${this.money(forecast.allowanceIncome + forecast.sideIncome)}`, new cc_1.Vec3(0, 215), 13, UITheme_1.UITheme.info, 'center', 300, 56);
+                    this.createText(`支出\n生活 ${this.money(forecast.personalLivingExpense)} · 重心 ${this.money(forecast.discretionaryExpense)} · 利息 ${this.money(forecast.interestExpense)}\n年净现金流 ${this.signedMoney(forecast.netCashflow)} · ${actionStatus}`, new cc_1.Vec3(360, 215), 13, forecast.netCashflow < 0 ? UITheme_1.UITheme.loss : UITheme_1.UITheme.info, 'center', 308, 56);
                     this.showWarnings(state);
                 }
                 showInformationNotice(event) {
@@ -2027,7 +2089,9 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                 showAnnualAction(state, activeEvent) {
                     this.clearScreen();
                     const available = this.session.hasMajorActionAvailable();
-                    this.createPageHeader('年度行动', `${available ? '本年度可选择 1 项行动' : '本年度行动已使用'} · 知识 ${state.stats.knowledge} · 现金 ${this.money(state.stats.funds)}`, () => this.showEvent(this.session.snapshot(), activeEvent));
+                    const certificateCount = state.flags.filter((flag) => flag.startsWith('certificate-')).length;
+                    const graduateComplete = state.flags.includes('graduate-school') || state.education.level === 'graduate';
+                    this.createPageHeader('沉淀', `${available ? '本年度可选择 1 项沉淀' : '本年度沉淀已使用'} · 知识 ${state.stats.knowledge} · 现金 ${this.money(state.stats.funds)}`, () => this.showEvent(this.session.snapshot(), activeEvent));
                     const certificateSkill = state.career.track === 'technology' ? 'technology' : state.career.track === 'product' || state.career.track === 'sales' ? 'business' : state.career.track === 'public-service' ? 'management' : state.career.track === 'education' ? 'learning' : 'expression';
                     const certificateName = { technology: '技术', business: '商业', management: '管理', learning: '教育', expression: '表达' }[certificateSkill];
                     const undergraduate = ['undergraduate', 'first-tier', '211', '985'].includes(state.education.level);
@@ -2035,8 +2099,8 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         { label: '留出空白\n压力-5 · 幸福+2 · 健康+1', position: new cc_1.Vec3(-300, 75), enabled: available, action: () => this.session.recoverWellbeing('pause'), kind: 'primary' },
                         { label: '身心照护\n¥1.5万 · 压力-14 · 健康+6', position: new cc_1.Vec3(0, 75), enabled: available && state.stats.funds >= 1.5, action: () => this.session.recoverWellbeing('care'), kind: 'secondary' },
                         { label: '买一块喜欢的表\n¥2万 · 幸福+4 · 压力-1', position: new cc_1.Vec3(300, 75), enabled: available && state.stats.funds >= 2, action: () => this.session.treatYourself('watch'), kind: 'secondary' },
-                        { label: `${certificateName}考证\n¥1.5万 · 知识35+对应能力30 · 年薪+8%`, position: new cc_1.Vec3(-300, -75), enabled: available, action: () => this.session.certificate(certificateSkill), kind: 'secondary' },
-                        { label: '考研深造\n本科后 · 知识60+学习45 · ¥8万 · 年薪+12%', position: new cc_1.Vec3(0, -75), enabled: available && undergraduate && state.age >= 22, action: () => this.session.graduateSchool(), kind: 'secondary' },
+                        { label: `${certificateName}考证 ${certificateCount}/2\n¥1.5万 · 知识35+对应能力30 · 工资+5%`, position: new cc_1.Vec3(-300, -75), enabled: available && certificateCount < 2, action: () => this.session.certificate(certificateSkill), kind: 'secondary' },
+                        { label: `考研深造${graduateComplete ? '（已完成）' : ''}\n本科后 · 知识60+学习45 · ¥8万 · 工资+5%`, position: new cc_1.Vec3(0, -75), enabled: available && undergraduate && state.age >= 22 && !graduateComplete, action: () => this.session.graduateSchool(), kind: 'secondary' },
                         { label: '买一辆车\n¥12万 · 幸福+8 · 压力-3', position: new cc_1.Vec3(300, -75), enabled: available && state.stats.funds >= 12, action: () => this.session.treatYourself('car'), kind: 'secondary' },
                     ];
                     actions.forEach((item) => this.createButton(item.enabled ? item.label : `${item.label}\n条件暂未满足`, item.position, new cc_1.Vec3(270, 92), () => {
@@ -2394,7 +2458,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.createPanel(new cc_1.Vec3(-290, 65), new cc_1.Vec3(520, 250), UITheme_1.UITheme.surface);
                     this.createPanel(new cc_1.Vec3(290, 65), new cc_1.Vec3(520, 250), UITheme_1.UITheme.surface);
                     const forecast = this.session.financeForecast();
-                    this.createText(`成长与升学\n学历  ${this.educationName(state.education.level)} · ${this.highSchoolName(state.education.highSchoolTrack)}\n升学评估  ${this.session.learningIndex()} · 学习投入 ${state.education.studyYears} 年\n知识 ${state.stats.knowledge}：升学与复杂判断\n学习 ${state.skills.learning}：考试与继续教育\n信息 ${state.skills.information}：发现机遇与研究市场\n所在城市  ${this.cityName(state.education.city)}`, new cc_1.Vec3(-500, 65), 16, UITheme_1.UITheme.text, 'left', 440, 225);
+                    this.createText(`成长与升学\n学历  ${this.educationName(state.education.level)}${state.flags.includes('graduate-school') ? ' · 已获研究生学位' : ''}\n升学评估  ${this.session.learningIndex()} · 学习投入 ${state.education.studyYears} 年\n知识 ${state.stats.knowledge}：升学与复杂判断\n学习 ${state.skills.learning}：考试与继续教育\n信息 ${state.skills.information}：发现机遇与研究市场\n所在城市  ${this.cityName(state.education.city)}`, new cc_1.Vec3(-500, 65), 16, UITheme_1.UITheme.text, 'left', 440, 225);
                     this.createText(`职业与财务\n职业  ${this.careerName(state.career.track)}${state.career.track === 'unemployed' ? '' : ` · ${this.careerLevelName(state.career.level)}`}\n工资 ${this.money(forecast.salaryIncome)} · 项目经营 ${this.signedMoney(forecast.projectCashflow)}\n补助/兼职 ${this.money(forecast.allowanceIncome + forecast.sideIncome)} · 生活 ${this.money(forecast.personalLivingExpense)}\n重心开支 ${this.money(forecast.discretionaryExpense)} · 贷款利息 ${this.money(forecast.interestExpense)}${forecast.familyCoveredExpense > 0 ? `\n家庭另承担生活费 ${this.money(forecast.familyCoveredExpense)}` : ''}\n预计净现金流  ${this.signedMoney(forecast.netCashflow)}\n现金 / 投资资产  ${this.money(state.stats.funds)} / ${this.money(this.session.investmentAssetValue())}\n个人净资产  ${this.money(this.session.totalAssetValue())}`, new cc_1.Vec3(40, 65), 15, UITheme_1.UITheme.text, 'left', 470, 225);
                     this.createText(`能力用途：技术→技术职业/科技项目 ｜ 商业→销售/创业/投资 ｜ 表达→传媒与沟通 ｜ 管理→晋升与项目`, new cc_1.Vec3(0, -92), 15, UITheme_1.UITheme.muted, 'center', 1040, 32);
                     const signals = state.discoveredSignalIds.map((id) => this.opportunitySystem.signalText(id)).join(' · ') || '暂未发现';
@@ -2946,6 +3010,9 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
 
 
 
+
+
+
 System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./IndependentLifeEvents.ts", "./OpportunityEvents.ts", "./StarterEvents.ts", "./LaterLifeEvents.ts", "./FutureTransitionEvents.ts", "./FamilyOpportunityEvents.ts", "./CareerPathEvents.ts"], function (exports_1, context_1) {
     "use strict";
     var EducationEvents_1, IndependentLifeEvents_1, OpportunityEvents_1, StarterEvents_1, LaterLifeEvents_1, FutureTransitionEvents_1, FamilyOpportunityEvents_1, CareerPathEvents_1, GAME_EVENTS;
@@ -2991,6 +3058,9 @@ System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./I
         }
     };
 });
+
+
+
 
 
 
@@ -3240,7 +3310,7 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                         care: { stats: { funds: -1.5, pressure: -14, happiness: 3, health: 6 }, addFlags: ['wellbeing-care'] },
                         connection: { stats: { funds: -0.8, pressure: -7, happiness: 8, familyBond: 4 }, addFlags: ['social-support'] },
                     };
-                    return this.useAnnualAction('major-action', '今年的额外行动已经使用；恢复、自学和进修每年只能选择一项。', () => {
+                    return this.useAnnualAction('major-action', '本年度的沉淀已使用；每年只能选择一项沉淀。', () => {
                         var _a, _b;
                         const change = changes[kind];
                         const cost = Math.max(0, -((_b = (_a = change.stats) === null || _a === void 0 ? void 0 : _a.funds) !== null && _b !== void 0 ? _b : 0));
@@ -3258,7 +3328,7 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                         car: { stats: { funds: -12, happiness: 8, pressure: -3 }, addFlags: ['bought-car'] },
                         trip: { stats: { funds: -4, happiness: 6, pressure: -4 }, addFlags: ['took-trip'] },
                     };
-                    return this.useAnnualAction('major-action', '今年的年度行动已经使用。', () => {
+                    return this.useAnnualAction('major-action', '本年度的沉淀已使用；每年只能选择一项沉淀。', () => {
                         var _a, _b;
                         if (!this.state)
                             throw new Error('人生尚未开始。');
@@ -3380,8 +3450,8 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                 }
                 exitIndustryProject(holdingId) { if (!this.state)
                     throw new Error('人生尚未开始。'); this.industryProjects.exit(this.state, holdingId); this.save(); return this.snapshot(); }
-                graduateSchool() { return this.useAnnualAction('major-action', '今年的年度行动已经使用。', () => { this.education.applyGraduateSchool(this.state); this.finance.refresh(this.state); }); }
-                certificate(skill) { return this.useAnnualAction('major-action', '今年的年度行动已经使用。', () => { this.education.applyCertificate(this.state, skill); this.finance.refresh(this.state); }); }
+                graduateSchool() { return this.useAnnualAction('major-action', '本年度的沉淀已使用；每年只能选择一项沉淀。', () => { this.education.applyGraduateSchool(this.state); this.finance.refresh(this.state); }); }
+                certificate(skill) { return this.useAnnualAction('major-action', '本年度的沉淀已使用；每年只能选择一项沉淀。', () => { this.education.applyCertificate(this.state, skill); this.finance.refresh(this.state); }); }
                 hasMajorActionAvailable() { return !!this.state && this.state.annualActionYears['major-action'] !== this.state.year; }
                 marketPrice(instrumentId) {
                     if (!this.state)
@@ -3754,6 +3824,9 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
 
 
 
+
+
+
 System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "./AssetSystem.ts", "./HealthSystem.ts", "./OpportunitySystem.ts", "./FinanceSystem.ts", "./HousingSystem.ts", "./IndustryProjectSystem.ts", "./CareerSystem.ts", "./GrowthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var __rest = (this && this.__rest) || function (s, e) {
@@ -3954,6 +4027,9 @@ System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "
 
 
 
+
+
+
 System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -3963,6 +4039,9 @@ System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, conte
         }
     };
 });
+
+
+
 
 
 
@@ -4001,6 +4080,9 @@ System.register("chunks:///_virtual/GrowthSystem.ts",[], function (exports_1, co
 
 
 
+
+
+
 System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var HealthSystem;
@@ -4019,6 +4101,9 @@ System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 
 
@@ -4134,6 +4219,9 @@ System.register("chunks:///_virtual/HousingSystem.ts",[], function (exports_1, c
 
 
 
+
+
+
 System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var IDENTITIES, STARTER_FAMILY_IDS;
@@ -4186,6 +4274,9 @@ System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, 
         }
     };
 });
+
+
+
 
 
 
@@ -4251,6 +4342,9 @@ System.register("chunks:///_virtual/IndependentLifeEvents.ts",[], function (expo
 
 
 
+
+
+
 System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryProjectConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var IndustryProjectConfig_1, INDUSTRY_OPPORTUNITY_EVENTS;
@@ -4292,6 +4386,9 @@ System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryPr
         }
     };
 });
+
+
+
 
 
 
@@ -4344,6 +4441,9 @@ System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (expo
         }
     };
 });
+
+
+
 
 
 
@@ -4535,6 +4635,9 @@ System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjec
 
 
 
+
+
+
 System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var INHERITANCE_REWARDS;
@@ -4553,6 +4656,9 @@ System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
 
 
 
@@ -4595,6 +4701,9 @@ System.register("chunks:///_virtual/InvestmentMemoryManager.ts",["cc"], function
         }
     };
 });
+
+
+
 
 
 
@@ -4662,6 +4771,9 @@ System.register("chunks:///_virtual/LaterLifeEvents.ts",[], function (exports_1,
 
 
 
+
+
+
 System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, LEGACY_KEY, LegacyManager;
@@ -4701,6 +4813,9 @@ System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_
 
 
 
+
+
+
 System.register("chunks:///_virtual/main",["./DeviceLayout.ts","./GameBootstrap.ts","./Motion.ts","./PortraitGameUI.ts","./StatChangeAnimator.ts","./UITheme.ts","./AbilityConfig.ts","./AchievementConfig.ts","./CareerPathEvents.ts","./EducationEvents.ts","./EndingConfig.ts","./EventTemplates.ts","./ExplorationConfig.ts","./FamilyOpportunityEvents.ts","./FutureTransitionEvents.ts","./GameEvents.ts","./IdentityConfig.ts","./IndependentLifeEvents.ts","./IndustryOpportunityEvents.ts","./IndustryProjectConfig.ts","./InheritanceConfig.ts","./LaterLifeEvents.ts","./MajorOpportunityEvents.ts","./MarketConfig.ts","./MarketInsightConfig.ts","./MidLifeEvents.ts","./OpportunityConfig.ts","./OpportunityEvents.ts","./StarterEvents.ts","./StartupConfig.ts","./YearConfig.ts","./GameSession.ts","./GameStateManager.ts","./GameTypes.ts","./SeededRandom.ts","./AchievementSystem.ts","./AssetSystem.ts","./CareerSystem.ts","./CitySystem.ts","./ConditionEvaluator.ts","./DelayedEventQueue.ts","./EducationProgressionSystem.ts","./EducationSystem.ts","./EndingResolver.ts","./EventMatcher.ts","./FamilyUnlockManager.ts","./FinanceSystem.ts","./GrowthSystem.ts","./HealthSystem.ts","./HousingSystem.ts","./IndustryProjectSystem.ts","./InvestmentMemoryManager.ts","./LegacyManager.ts","./MarketSystem.ts","./OpenOpportunitySystem.ts","./OpportunitySystem.ts","./ReportGenerator.ts","./RequirementFormatter.ts","./SaveManager.ts","./WealthSystem.ts"],(function(){return{setters:[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],execute:function(){}}}));
 
 System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exports_1, context_1) {
@@ -4728,6 +4843,9 @@ System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exp
         }
     };
 });
+
+
+
 
 
 
@@ -4804,6 +4922,9 @@ System.register("chunks:///_virtual/MarketConfig.ts",[], function (exports_1, co
 
 
 
+
+
+
 System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var MARKET_INSIGHTS;
@@ -4819,6 +4940,9 @@ System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (export
         }
     };
 });
+
+
+
 
 
 
@@ -5033,6 +5157,9 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts", "./Ma
 
 
 
+
+
+
 System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], function (exports_1, context_1) {
     "use strict";
     var EventTemplates_1, MID_LIFE_EVENTS;
@@ -5051,6 +5178,9 @@ System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
+
 
 
 
@@ -5116,6 +5246,9 @@ System.register("chunks:///_virtual/Motion.ts",["cc"], function (exports_1, cont
         }
     };
 });
+
+
+
 
 
 
@@ -5196,6 +5329,9 @@ System.register("chunks:///_virtual/OpenOpportunitySystem.ts",["./ExplorationCon
 
 
 
+
+
+
 System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var LIFE_CYCLE, OPPORTUNITY_CHAINS, SIGNALS;
@@ -5215,7 +5351,6 @@ System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_
                 { id: 'artificial-intelligence', name: '人工智能', category: 'era', stages: [...LIFE_CYCLE], description: '自动化、算法应用和生成式工具改变职业。' },
                 { id: 'education-life', name: '教育与专业', category: 'life', stages: [...LIFE_CYCLE], description: '学习与专业选择会长期影响职业入口。' },
                 { id: 'family-health-life', name: '家庭健康与陪伴', category: 'life', stages: [...LIFE_CYCLE], description: '健康和陪伴具有长期且不可逆的价值。' },
-                { id: 'relationship-life', name: '重要人物与长期关系', category: 'life', stages: [...LIFE_CYCLE], description: '关系会改变信息、支持与人生幸福。' },
             ]);
             exports_1("SIGNALS", SIGNALS = [
                 { id: 'signal-city-resource', chainId: 'urban-development', text: '更多教育和就业资源正在向城市集中。', confidence: 65 },
@@ -5227,11 +5362,13 @@ System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_
                 { id: 'signal-energy-policy', chainId: 'new-energy', text: '新能源技术和产业支持被频繁讨论。', confidence: 60 },
                 { id: 'signal-ai-tooling', chainId: 'artificial-intelligence', text: '智能工具开始帮助人们完成重复和创作工作。', confidence: 80 },
                 { id: 'signal-family-time', chainId: 'family-health-life', text: '家人需要的陪伴比想象中更难替代。', confidence: 85 },
-                { id: 'signal-relationship-trust', chainId: 'relationship-life', text: '长期信任会在关键时刻带来支持。', confidence: 75 },
             ]);
         }
     };
 });
+
+
+
 
 
 
@@ -5319,6 +5456,9 @@ System.register("chunks:///_virtual/OpportunityEvents.ts",["./EventTemplates.ts"
 
 
 
+
+
+
 System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var OpportunityConfig_1, OpportunitySystem;
@@ -5348,6 +5488,9 @@ System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.
         }
     };
 });
+
+
+
 
 
 
@@ -5703,7 +5846,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     }
                     const forecast = this.session.financeForecast();
                     this.page(`${state.year}年 · ${state.age}岁`, `现金 ${AbilityConfig_1.moneyText(state.stats.funds)} · 预计年现金流 ${AbilityConfig_1.signedMoneyText(forecast.netCashflow)} · 贷款 ${AbilityConfig_1.moneyText(state.finance.loanBalance)}`, '人生', undefined, !event ? { text: '度过这一年', action: () => this.advance() } : undefined);
-                    this.row(`健康 ${Math.round(state.stats.health)} · 压力 ${Math.round(state.stats.pressure)} · 幸福 ${Math.round(state.stats.happiness)}`, `${EDUCATION[state.education.level]} · ${CAREERS[state.career.track]} · ${CITIES[state.education.city]}`);
+                    this.row(`健康 ${Math.round(state.stats.health)} · 压力 ${Math.round(state.stats.pressure)} · 幸福 ${Math.round(state.stats.happiness)}`, `${EDUCATION[state.education.level]}${state.flags.includes('graduate-school') ? ' · 研究生学位' : ''} · ${CAREERS[state.career.track]} · ${CITIES[state.education.city]}`);
                     if (event) {
                         this.eventRows(event);
                         if (notice)
@@ -5718,7 +5861,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                         Object.keys(FOCUS).forEach((focus) => this.row(`${state.lifeFocus === focus ? '● ' : ''}${focus === 'work' && state.career.track === 'unemployed' ? '兼职实践' : FOCUS[focus]}`, focusDescriptions[focus], () => this.attempt(() => this.session.setLifeFocus(focus), () => this.life()), state.lifeFocus === focus ? UITheme_1.UITheme.gold : UITheme_1.UITheme.surface, true));
                     }
                     this.row('能力与用途', '查看当前能力和岗位门槛', () => this.abilities());
-                    this.row('年度行动', this.session.hasMajorActionAvailable() ? '本年可选择 1 项：恢复、消费、考证或考研' : '本年行动已使用', () => this.growth());
+                    this.row('沉淀', this.session.hasMajorActionAvailable() ? '本年可选择 1 项：休整、奖励自己、考证或考研' : '本年沉淀已使用', () => this.growth());
                     this.row('职业方向', '查看入职要求和晋升进度', () => this.careers());
                     this.row('人生档案', '', () => this.archive());
                     if (notice)
@@ -5769,14 +5912,16 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 growth() {
                     this.redraw = () => this.growth();
                     const s = this.session.snapshot();
-                    this.page('年度行动', this.session.hasMajorActionAvailable() ? '每年只可选择一项：恢复、消费或提升职业收入。' : '今年已完成行动，明年继续。', '人生', () => this.life());
+                    this.page('沉淀', this.session.hasMajorActionAvailable() ? '每年只可选择一项：休整、奖励自己或提升职业工资。' : '今年已完成沉淀，明年继续。', '人生', () => this.life());
                     const certificateSkill = s.career.track === 'technology' ? 'technology' : s.career.track === 'product' || s.career.track === 'sales' ? 'business' : s.career.track === 'public-service' ? 'management' : s.career.track === 'education' ? 'learning' : 'expression';
                     const certificateName = { technology: '技术', business: '商业', management: '管理', learning: '教育', expression: '表达' }[certificateSkill];
+                    const certificateCount = s.flags.filter((flag) => flag.startsWith('certificate-')).length;
+                    const graduateComplete = s.flags.includes('graduate-school') || s.education.level === 'graduate';
                     this.row('短暂停下来', '免费 · 压力-5 · 幸福+2 · 健康+1', () => this.attempt(() => this.session.recoverWellbeing('pause'), () => this.life(), '压力 −5 · 幸福 +2 · 健康 +1'), UITheme_1.UITheme.surface, true);
                     this.row('身心照护', '¥15,000 · 压力-14 · 健康+6 · 幸福+3', () => this.attempt(() => this.session.recoverWellbeing('care'), () => this.life(), '压力 −14 · 健康 +6 · 幸福 +3'), UITheme_1.UITheme.surface, true);
                     this.row('买一块喜欢的表', '¥20,000 · 幸福+4 · 压力-1', () => this.attempt(() => this.session.treatYourself('watch'), () => this.life(), '为自己留下一点奖励'), UITheme_1.UITheme.surface, true);
-                    this.row(`${certificateName}考证`, '知识35 + 对应能力30 · ¥15,000 · 获得后年薪+8%', () => this.attempt(() => this.session.certificate(certificateSkill), () => this.life(), '职业证书已获得'), UITheme_1.UITheme.surface, true);
-                    this.row('研究生进修', `当前：${EDUCATION[s.education.level]}\n本科后 · 知识60 + 学习45 · ¥80,000 · 年薪+12%`, () => this.confirm('研究生进修', '通过门槛后将花费 ¥80,000，并获得 12% 年薪加成。', () => this.attempt(() => this.session.graduateSchool(), () => this.life()), () => this.growth()));
+                    this.row(`${certificateName}考证 ${certificateCount}/2`, '知识35 + 对应能力30 · ¥15,000 · 获得后工资+5%', () => this.attempt(() => this.session.certificate(certificateSkill), () => this.life(), '职业证书已获得，工资 +5%'), UITheme_1.UITheme.surface, true);
+                    this.row(`研究生进修${graduateComplete ? '（已完成）' : ''}`, `当前：${EDUCATION[s.education.level]}\n本科后 · 知识60 + 学习45 · ¥80,000 · 工资+5%`, () => this.confirm('研究生进修', '通过门槛后将花费 ¥80,000，并获得 5% 工资加成。', () => this.attempt(() => this.session.graduateSchool(), () => this.life()), () => this.growth()));
                     this.row('买一辆车', '¥120,000 · 幸福+8 · 压力-3', () => this.attempt(() => this.session.treatYourself('car'), () => this.life(), '为生活增加了一份从容'), UITheme_1.UITheme.surface, true);
                 }
                 investments() {
@@ -5980,6 +6125,9 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
 
 
 
+
+
+
 System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./OpportunitySystem.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var GameEvents_1, OpportunitySystem_1, WealthSystem_1, ReportGenerator;
@@ -6021,7 +6169,7 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
                         };
                     });
                     const keywords = [state.identityId.includes('rural') ? '小镇成长' : '人生重启', state.skills.technology >= 70 ? '技术极客' : state.skills.business >= 70 ? '商业嗅觉' : '持续积累', assetsWord(state), state.stats.health <= 30 ? '透支警醒' : state.stats.happiness >= 70 ? '内心丰盛' : '继续前行'].filter((word, index, array) => array.indexOf(word) === index).slice(0, 5);
-                    return { summary: `你经历了 ${state.lifeLog.length} 次关键选择，并在${strongest}维度留下最深痕迹。`, strongestDimension: strongest, greatestSacrifice: sacrifice, opportunities, timeline, missedOpportunities: ['电商', '移动互联网', '内容产业', '人工智能'].filter((name) => !opportunities.includes(name)), biggestSuccess: strongest === '财富' ? '完成了可观的资产积累。' : `把${strongest}变成了人生的支点。`, biggestRegret: `最需要重新照看的维度是${sacrifice}。`, keyPeople: [], lifeKeywords: keywords, oneLineReview: `这是一段以「${keywords.join('、')}」为关键词的人生。` };
+                    return { summary: `你经历了 ${state.lifeLog.length} 次关键选择，并在${strongest}维度留下最深痕迹。`, strongestDimension: strongest, greatestSacrifice: sacrifice, opportunities, timeline, missedOpportunities: ['电商', '移动互联网', '内容产业', '人工智能'].filter((name) => !opportunities.includes(name)), biggestSuccess: strongest === '财富' ? '完成了可观的资产积累。' : `把${strongest}变成了人生的支点。`, biggestRegret: `最需要重新照看的维度是${sacrifice}。`, lifeKeywords: keywords, oneLineReview: `这是一段以「${keywords.join('、')}」为关键词的人生。` };
                 }
                 dynamicTimelineEntry(eventId, optionId) {
                     if (eventId === 'career-promotion')
@@ -6037,6 +6185,9 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
         }
     };
 });
+
+
+
 
 
 
@@ -6091,6 +6242,9 @@ System.register("chunks:///_virtual/RequirementFormatter.ts",[], function (expor
         }
     };
 });
+
+
+
 
 
 
@@ -6273,6 +6427,9 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
 
 
 
+
+
+
 System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, context_1) {
     "use strict";
     var SeededRandom;
@@ -6299,6 +6456,9 @@ System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
 
 
 
@@ -6363,6 +6523,9 @@ System.register("chunks:///_virtual/StarterEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
+
 
 
 
@@ -6438,6 +6601,9 @@ System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, c
         }
     };
 });
+
+
+
 
 
 
@@ -6526,6 +6692,9 @@ System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exp
 
 
 
+
+
+
 System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, UITheme;
@@ -6560,6 +6729,9 @@ System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, con
         }
     };
 });
+
+
+
 
 
 
@@ -6640,6 +6812,9 @@ System.register("chunks:///_virtual/WealthSystem.ts",["./MarketConfig.ts"], func
 
 
 
+
+
+
 System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var KEY_YEARS, YEARS;
@@ -6682,6 +6857,9 @@ System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, cont
         }
     };
 });
+
+
+
 
 
 
