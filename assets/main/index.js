@@ -73,6 +73,7 @@ System.register("chunks:///_virtual/AbilityConfig.ts",[], function (exports_1, c
 
 
 
+
 System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var a, ACHIEVEMENTS;
@@ -85,6 +86,7 @@ System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_
         }
     };
 });
+
 
 
 
@@ -169,6 +171,7 @@ System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.
 
 
 
+
 System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var AssetSystem;
@@ -189,6 +192,7 @@ System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, con
         }
     };
 });
+
 
 
 
@@ -282,6 +286,7 @@ System.register("chunks:///_virtual/CareerPathEvents.ts",[], function (exports_1
         }
     };
 });
+
 
 
 
@@ -427,6 +432,7 @@ System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, co
 
 
 
+
 System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var GrowthSystem_1, LIVING_COST, MOVE_BASE, CitySystem;
@@ -477,6 +483,7 @@ System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], functi
         }
     };
 });
+
 
 
 
@@ -578,6 +585,7 @@ System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"]
 
 
 
+
 System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_1, context_1) {
     "use strict";
     var DelayedEventQueue;
@@ -599,6 +607,7 @@ System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_
         }
     };
 });
+
 
 
 
@@ -663,6 +672,7 @@ System.register("chunks:///_virtual/DeviceLayout.ts",[], function (exports_1, co
         }
     };
 });
+
 
 
 
@@ -786,6 +796,7 @@ System.register("chunks:///_virtual/EducationEvents.ts",["./EventTemplates.ts"],
         }
     };
 });
+
 
 
 
@@ -968,6 +979,7 @@ System.register("chunks:///_virtual/EducationProgressionSystem.ts",["./Education
 
 
 
+
 System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var LEVEL_RANK, EducationSystem;
@@ -1021,6 +1033,7 @@ System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1,
 
 
 
+
 System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var item, ENDINGS;
@@ -1037,6 +1050,7 @@ System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, co
         }
     };
 });
+
 
 
 
@@ -1133,6 +1147,7 @@ System.register("chunks:///_virtual/EndingResolver.ts",["./EndingConfig.ts", "./
 
 
 
+
 System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"], function (exports_1, context_1) {
     "use strict";
     var ConditionEvaluator_1, EventMatcher;
@@ -1175,6 +1190,7 @@ System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"]
         }
     };
 });
+
 
 
 
@@ -1300,6 +1316,7 @@ System.register("chunks:///_virtual/EventTemplates.ts",[], function (exports_1, 
 
 
 
+
 System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var EXPLORATION_ACTIONS;
@@ -1316,6 +1333,7 @@ System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_
         }
     };
 });
+
 
 
 
@@ -1479,6 +1497,7 @@ System.register("chunks:///_virtual/FamilyOpportunityEvents.ts",[], function (ex
 
 
 
+
 System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityConfig.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var cc_1, IdentityConfig_1, WealthSystem_1, FAMILY_UNLOCK_KEY, CAREER_RANK, FamilyUnlockManager;
@@ -1546,6 +1565,7 @@ System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityCo
         }
     };
 });
+
 
 
 
@@ -1843,6 +1863,7 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
 
 
 
+
 System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var FUTURE_TRANSITION_EVENTS;
@@ -1867,6 +1888,7 @@ System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exp
         }
     };
 });
+
 
 
 
@@ -2271,7 +2293,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         scrim.addComponent(cc_1.BlockInputEvents);
                         this.uiRoot.addChild(scrim);
                         const notice = this.createPanel(new cc_1.Vec3(0, 10), new cc_1.Vec3(850, 230), UITheme_1.UITheme.surfaceRaised, 'InformationNotice');
-                        this.createTextOn(notice, '你留意到了时代的变化', new cc_1.Vec3(0, 76), 16, UITheme_1.UITheme.info, 'center', 760, 28);
+                        this.createTextOn(notice, event.id === 'career-promotion-notice' ? '职业通知' : '你留意到了时代的变化', new cc_1.Vec3(0, 76), 16, UITheme_1.UITheme.info, 'center', 760, 28);
                         this.createTextOn(notice, event.title, new cc_1.Vec3(0, 34), 28, UITheme_1.UITheme.text, 'center', 760, 42);
                         this.createTextOn(notice, event.description, new cc_1.Vec3(0, -18), 16, UITheme_1.UITheme.muted, 'center', 760, 56);
                         const impact = ((_a = option.outcomes) === null || _a === void 0 ? void 0 : _a.length) ? '结果将在选择后揭晓' : this.optionImpact(option.result);
@@ -2891,7 +2913,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const requirement = this.session.promotionRequirement();
                     const next = (requirement === null || requirement === void 0 ? void 0 : requirement.next) ? this.careerLevelName(requirement.next) : '已到最高职级';
                     this.createText(`当前行业：${state.career.industry || '尚未确定'}\n年工资：${this.money(state.finance.salaryAnnual)}\n本级任职：${(_a = requirement === null || requirement === void 0 ? void 0 : requirement.years) !== null && _a !== void 0 ? _a : 0} / ${(_b = requirement === null || requirement === void 0 ? void 0 : requirement.requiredYears) !== null && _b !== void 0 ? _b : 0} 年\n下一职级：${next}\n累计工资加成：${Math.round((state.career.salaryMultiplier - 1) * 100)}%`, new cc_1.Vec3(0, 65), 19, UITheme_1.UITheme.text, 'center', 740, 165);
-                    this.createText((requirement === null || requirement === void 0 ? void 0 : requirement.guaranteed) ? '本年度必定出现晋升机会；接受后基础年薪提高 15%。' : '满足任职年限后，晋升会以随机职业机遇出现；连续四年未晋升则下一年必定出现。', new cc_1.Vec3(0, -95), 16, UITheme_1.UITheme.info, 'center', 940, 48);
+                    this.createText((requirement === null || requirement === void 0 ? void 0 : requirement.guaranteed) ? '本年度将自动晋升，基础年薪提高 15%。' : '满足任职年限后，晋升会以随机职业通知直接生效；连续四年未晋升则下一年自动晋升。', new cc_1.Vec3(0, -95), 16, UITheme_1.UITheme.info, 'center', 940, 48);
                 }
                 showActionMessage(title, message, back) {
                     this.clearScreen();
@@ -3589,6 +3611,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
 
 
 
+
 System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./IndependentLifeEvents.ts", "./OpportunityEvents.ts", "./YouthTemptationEvents.ts", "./LaterLifeEvents.ts", "./FutureTransitionEvents.ts", "./FamilyOpportunityEvents.ts", "./CareerPathEvents.ts", "./AnnualLifeEvents.ts"], function (exports_1, context_1) {
     "use strict";
     var EducationEvents_1, IndependentLifeEvents_1, OpportunityEvents_1, YouthTemptationEvents_1, LaterLifeEvents_1, FutureTransitionEvents_1, FamilyOpportunityEvents_1, CareerPathEvents_1, AnnualLifeEvents_1, GAME_EVENTS;
@@ -3639,6 +3662,7 @@ System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./I
         }
     };
 });
+
 
 
 
@@ -3820,8 +3844,6 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     const option = this.currentEvent.options.find((candidate) => candidate.id === optionId);
                     if (!option)
                         throw new Error('该选项已经失效，请重新选择。');
-                    if (this.currentEvent.id === 'career-promotion')
-                        return this.resolvePromotion(option);
                     if (this.currentEvent.id.startsWith('asset-acquisition-'))
                         return this.resolveAcquisition(option);
                     if (this.currentEvent.id === 'market-signal')
@@ -4090,7 +4112,7 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                         : restored.pendingAcquisition ? this.acquisitionEvent(restored.pendingAcquisition)
                             : restored.pendingMarketSignal ? this.marketSignalEvent(restored.pendingMarketSignal)
                                 : restored.pendingFinancialRisk ? this.financialRiskEvent(restored.pendingFinancialRisk)
-                                    : restored.activeEventId === 'career-promotion' && this.careers.canOfferPromotion(restored) ? this.promotionEvent()
+                                    : restored.activeEventId === 'career-promotion' && this.careers.canOfferPromotion(restored) ? this.promoteAndCreateNotice()
                                         : GameEvents_1.GAME_EVENTS.find((event) => event.id === restored.activeEventId);
                     this.newlyUnlockedFamilyIds = restored.completed ? this.familyUnlocks.evaluate(restored) : [];
                     if (!this.currentEvent && !restored.completed)
@@ -4153,18 +4175,6 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     };
                     const education = base.education || extra.education ? Object.assign(Object.assign(Object.assign({}, base.education), extra.education), { admissionScore: ((_b = (_a = base.education) === null || _a === void 0 ? void 0 : _a.admissionScore) !== null && _b !== void 0 ? _b : 0) + ((_d = (_c = extra.education) === null || _c === void 0 ? void 0 : _c.admissionScore) !== null && _d !== void 0 ? _d : 0), studyHabit: ((_f = (_e = base.education) === null || _e === void 0 ? void 0 : _e.studyHabit) !== null && _f !== void 0 ? _f : 0) + ((_h = (_g = extra.education) === null || _g === void 0 ? void 0 : _g.studyHabit) !== null && _h !== void 0 ? _h : 0), academicScore: ((_k = (_j = base.education) === null || _j === void 0 ? void 0 : _j.academicScore) !== null && _k !== void 0 ? _k : 0) + ((_m = (_l = extra.education) === null || _l === void 0 ? void 0 : _l.academicScore) !== null && _m !== void 0 ? _m : 0), studyYears: ((_p = (_o = base.education) === null || _o === void 0 ? void 0 : _o.studyYears) !== null && _p !== void 0 ? _p : 0) + ((_r = (_q = extra.education) === null || _q === void 0 ? void 0 : _q.studyYears) !== null && _r !== void 0 ? _r : 0) }) : undefined;
                     return Object.assign(Object.assign(Object.assign({}, base), extra), { attributes: mergeNumbers(base.attributes, extra.attributes), skills: mergeNumbers(base.skills, extra.skills), stats: mergeNumbers(base.stats, extra.stats), education, addFlags: [...((_s = base.addFlags) !== null && _s !== void 0 ? _s : []), ...((_t = extra.addFlags) !== null && _t !== void 0 ? _t : [])], assetChanges: [...((_u = base.assetChanges) !== null && _u !== void 0 ? _u : []), ...((_v = extra.assetChanges) !== null && _v !== void 0 ? _v : [])] });
-                }
-                resolvePromotion(option) {
-                    if (!this.state)
-                        throw new Error('人生尚未开始。');
-                    if (option.id === 'accept')
-                        this.careers.promote(this.state);
-                    this.state.lifeLog.push({ year: this.state.year, eventId: 'career-promotion', optionId: option.id });
-                    this.currentEvent = undefined;
-                    this.state.activeEventId = undefined;
-                    this.finance.refresh(this.state);
-                    this.save();
-                    return this.snapshot();
                 }
                 resolveAcquisition(option) {
                     var _a;
@@ -4320,7 +4330,7 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     if (includeOrdinary && this.careers.canOfferPromotion(this.state)) {
                         const requirement = this.careers.requirement(this.state);
                         if ((requirement === null || requirement === void 0 ? void 0 : requirement.guaranteed) || this.random.next() < .35) {
-                            this.currentEvent = this.promotionEvent();
+                            this.currentEvent = this.promoteAndCreateNotice();
                             this.state.activeEventId = this.currentEvent.id;
                             return;
                         }
@@ -4350,16 +4360,18 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     }
                     this.state.activeEventId = (_a = this.currentEvent) === null || _a === void 0 ? void 0 : _a.id;
                 }
-                promotionEvent() {
-                    var _a;
+                promoteAndCreateNotice() {
                     if (!this.state)
                         throw new Error('人生尚未开始。');
-                    const next = (_a = this.careers.requirement(this.state)) === null || _a === void 0 ? void 0 : _a.next;
+                    const current = this.state.career.level;
+                    const next = this.careers.promote(this.state);
                     const names = { junior: '初级', middle: '中级', senior: '高级', core: '核心' };
+                    this.state.lifeLog.push({ year: this.state.year, eventId: 'career-promotion', optionId: 'auto-promote' });
+                    this.finance.refresh(this.state);
                     return {
-                        id: 'career-promotion', title: '晋升机会出现', description: `你在当前岗位已任职 ${this.state.career.yearsAtLevel} 年，获得晋升至${next ? names[next] : '下一'}职级的机会。接受后基础年薪提高 15%。`,
-                        yearMin: this.state.year, yearMax: this.state.year, weight: 100, interaction: 'opportunity',
-                        options: [{ id: 'accept', label: '接受晋升｜基础年薪 +15%', result: {} }, { id: 'defer', label: '暂缓晋升，保留当前节奏', result: {} }],
+                        id: 'career-promotion-notice', title: '晋升通知', description: `你从${names[current]}职级晋升为${names[next]}职级，基础年薪已提高 15%。`,
+                        yearMin: this.state.year, yearMax: this.state.year, weight: 100, interaction: 'information', informational: true,
+                        options: [{ id: 'acknowledge', label: '已知悉', result: {} }],
                     };
                 }
                 maybeCreateAcquisitionOffer() {
@@ -4497,6 +4509,7 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
         }
     };
 });
+
 
 
 
@@ -4760,6 +4773,7 @@ System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "
 
 
 
+
 System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -4769,6 +4783,7 @@ System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, conte
         }
     };
 });
+
 
 
 
@@ -4849,6 +4864,7 @@ System.register("chunks:///_virtual/GrowthSystem.ts",[], function (exports_1, co
 
 
 
+
 System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var HealthSystem;
@@ -4867,6 +4883,7 @@ System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, co
         }
     };
 });
+
 
 
 
@@ -5041,6 +5058,7 @@ System.register("chunks:///_virtual/HousingSystem.ts",[], function (exports_1, c
 
 
 
+
 System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var IDENTITIES, STARTER_FAMILY_IDS;
@@ -5093,6 +5111,7 @@ System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, 
         }
     };
 });
+
 
 
 
@@ -5200,6 +5219,7 @@ System.register("chunks:///_virtual/IndependentLifeEvents.ts",[], function (expo
 
 
 
+
 System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryProjectConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var IndustryProjectConfig_1, INDUSTRY_OPPORTUNITY_EVENTS;
@@ -5241,6 +5261,7 @@ System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryPr
         }
     };
 });
+
 
 
 
@@ -5320,6 +5341,7 @@ System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (expo
         }
     };
 });
+
 
 
 
@@ -5568,6 +5590,7 @@ System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjec
 
 
 
+
 System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var INHERITANCE_REWARDS;
@@ -5586,6 +5609,7 @@ System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_
         }
     };
 });
+
 
 
 
@@ -5649,6 +5673,7 @@ System.register("chunks:///_virtual/InvestmentMemoryManager.ts",["cc"], function
         }
     };
 });
+
 
 
 
@@ -5771,6 +5796,7 @@ System.register("chunks:///_virtual/LaterLifeEvents.ts",[], function (exports_1,
 
 
 
+
 System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, LEGACY_KEY, LegacyManager;
@@ -5801,6 +5827,7 @@ System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_
         }
     };
 });
+
 
 
 
@@ -5930,6 +5957,7 @@ System.register("chunks:///_virtual/CashManagementSystem.ts",[], function (expor
         }
     };
 });
+
 
 
 
@@ -6116,6 +6144,7 @@ System.register("chunks:///_virtual/YouthTemptationEvents.ts",[], function (expo
 
 
 
+
 System.register("chunks:///_virtual/AnnualLifeEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var ANNUAL_LIFE_EVENTS;
@@ -6181,6 +6210,7 @@ System.register("chunks:///_virtual/AnnualLifeEvents.ts",[], function (exports_1
 
 
 
+
 System.register("chunks:///_virtual/main",["./DeviceLayout.ts","./GameBootstrap.ts","./Motion.ts","./PortraitGameUI.ts","./StatChangeAnimator.ts","./UITheme.ts","./AbilityConfig.ts","./AchievementConfig.ts","./CareerPathEvents.ts","./EducationEvents.ts","./EndingConfig.ts","./EventTemplates.ts","./ExplorationConfig.ts","./FamilyOpportunityEvents.ts","./FutureTransitionEvents.ts","./GameEvents.ts","./IdentityConfig.ts","./IndependentLifeEvents.ts","./IndustryOpportunityEvents.ts","./IndustryProjectConfig.ts","./InheritanceConfig.ts","./LaterLifeEvents.ts","./MajorOpportunityEvents.ts","./MarketConfig.ts","./MarketInsightConfig.ts","./MidLifeEvents.ts","./OpportunityConfig.ts","./OpportunityEvents.ts","./StarterEvents.ts","./StartupConfig.ts","./YearConfig.ts","./GameSession.ts","./GameStateManager.ts","./GameTypes.ts","./SeededRandom.ts","./AchievementSystem.ts","./AssetSystem.ts","./CareerSystem.ts","./CitySystem.ts","./ConditionEvaluator.ts","./DelayedEventQueue.ts","./EducationProgressionSystem.ts","./EducationSystem.ts","./EndingResolver.ts","./EventMatcher.ts","./FamilyUnlockManager.ts","./FinanceSystem.ts","./GrowthSystem.ts","./HealthSystem.ts","./HousingSystem.ts","./IndustryProjectSystem.ts","./InvestmentMemoryManager.ts","./LegacyManager.ts","./MarketSystem.ts","./OpenOpportunitySystem.ts","./OpportunitySystem.ts","./ReportGenerator.ts","./RequirementFormatter.ts","./SaveManager.ts","./WealthSystem.ts"],(function(){return{setters:[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],execute:function(){}}}));
 
 System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exports_1, context_1) {
@@ -6208,6 +6238,7 @@ System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exp
         }
     };
 });
+
 
 
 
@@ -6326,6 +6357,7 @@ System.register("chunks:///_virtual/MarketConfig.ts",[], function (exports_1, co
 
 
 
+
 System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var MARKET_INSIGHTS;
@@ -6341,6 +6373,7 @@ System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (export
         }
     };
 });
+
 
 
 
@@ -6606,6 +6639,7 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts"], func
 
 
 
+
 System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], function (exports_1, context_1) {
     "use strict";
     var EventTemplates_1, MID_LIFE_EVENTS;
@@ -6624,6 +6658,7 @@ System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
 
 
 
@@ -6710,6 +6745,7 @@ System.register("chunks:///_virtual/Motion.ts",["cc"], function (exports_1, cont
         }
     };
 });
+
 
 
 
@@ -6832,6 +6868,7 @@ System.register("chunks:///_virtual/OpenOpportunitySystem.ts",["./ExplorationCon
 
 
 
+
 System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var LIFE_CYCLE, OPPORTUNITY_CHAINS, SIGNALS;
@@ -6866,6 +6903,7 @@ System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_
         }
     };
 });
+
 
 
 
@@ -6995,6 +7033,7 @@ System.register("chunks:///_virtual/OpportunityEvents.ts",["./EventTemplates.ts"
 
 
 
+
 System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var OpportunityConfig_1, OpportunitySystem;
@@ -7024,6 +7063,7 @@ System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.
         }
     };
 });
+
 
 
 
@@ -7610,7 +7650,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     let event = this.session.getCurrentEvent();
                     let notice = '';
                     if (event && (event.informational || event.interaction === 'information')) {
-                        notice = `${event.title}\n${AbilityConfig_1.changeText(event.options[0].result)}`;
+                        notice = `${event.title}\n${event.description}${AbilityConfig_1.changeText(event.options[0].result) ? `\n${AbilityConfig_1.changeText(event.options[0].result)}` : ''}`;
                         state = this.session.choose(event.options[0].id);
                         event = this.session.getCurrentEvent();
                     }
@@ -7700,7 +7740,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     this.page('职业方向', CAREERS[s.career.track], '人生', () => this.life());
                     const promotion = this.session.promotionRequirement();
                     if (promotion)
-                        this.row('晋升机会', `${promotion.next ? `本级任职 ${promotion.years} / ${promotion.requiredYears}年` : '已到最高职级'}\n${promotion.guaranteed ? '下一年必定出现晋升机会。' : '满足年限后随机出现；四年未晋升则下一年必定出现。'}\n接受晋升后基础年薪 +15%。`);
+                        this.row('晋升进度', `${promotion.next ? `本级任职 ${promotion.years} / ${promotion.requiredYears}年` : '已到最高职级'}\n${promotion.guaranteed ? '下一年将自动晋升。' : '满足年限后随机触发；四年未晋升则下一年自动生效。'}\n晋升后基础年薪 +15%。`);
                     const rules = new CareerSystem_1.CareerSystem();
                     for (const track of Object.keys(CAREERS))
                         if (track !== 'unemployed') {
@@ -7981,6 +8021,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
 
 
 
+
 System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./OpportunitySystem.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var GameEvents_1, OpportunitySystem_1, WealthSystem_1, ReportGenerator;
@@ -8026,7 +8067,7 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
                 }
                 dynamicTimelineEntry(eventId, optionId) {
                     if (eventId === 'career-promotion')
-                        return { event: '晋升机会', choice: optionId === 'accept' ? '接受晋升' : '暂缓晋升', impact: optionId === 'accept' ? '年薪提升 15%，现金流基础随之增长。' : '你保留了当前岗位与节奏。' };
+                        return { event: '职业晋升', choice: '获得晋升', impact: '基础年薪提升 15%，现金流基础随之增长。' };
                     if (eventId.startsWith('asset-acquisition-'))
                         return { event: '资产收购邀约', choice: optionId === 'accept' ? '接受溢价收购' : '继续持有资产', impact: optionId === 'accept' ? '一笔溢价成交兑现为现金。' : '你选择继续承担资产未来的涨跌。' };
                     if (eventId === 'liquidity-crisis')
@@ -8038,6 +8079,7 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
         }
     };
 });
+
 
 
 
@@ -8113,6 +8155,7 @@ System.register("chunks:///_virtual/RequirementFormatter.ts",[], function (expor
         }
     };
 });
+
 
 
 
@@ -8357,6 +8400,7 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
 
 
 
+
 System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, context_1) {
     "use strict";
     var SeededRandom;
@@ -8383,6 +8427,7 @@ System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, co
         }
     };
 });
+
 
 
 
@@ -8498,6 +8543,7 @@ System.register("chunks:///_virtual/StarterEvents.ts",["./EventTemplates.ts"], f
 
 
 
+
 System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var TALENTS, NO_DEFECT, DEFECTS;
@@ -8564,6 +8610,7 @@ System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, c
         }
     };
 });
+
 
 
 
@@ -8694,6 +8741,7 @@ System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exp
 
 
 
+
 System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, UITheme;
@@ -8728,6 +8776,7 @@ System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, con
         }
     };
 });
+
 
 
 
@@ -8848,6 +8897,7 @@ System.register("chunks:///_virtual/WealthSystem.ts",["./MarketConfig.ts", "./Ca
 
 
 
+
 System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var KEY_YEARS, YEARS;
@@ -8890,6 +8940,7 @@ System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, cont
         }
     };
 });
+
 
 
 
