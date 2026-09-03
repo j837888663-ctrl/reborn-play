@@ -74,6 +74,11 @@ System.register("chunks:///_virtual/AbilityConfig.ts",[], function (exports_1, c
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var a, ACHIEVEMENTS;
@@ -86,6 +91,11 @@ System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -172,6 +182,11 @@ System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var AssetSystem;
@@ -192,6 +207,11 @@ System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, con
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -286,6 +306,11 @@ System.register("chunks:///_virtual/CareerPathEvents.ts",[], function (exports_1
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -433,6 +458,11 @@ System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, co
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var GrowthSystem_1, LIVING_COST, MOVE_BASE, CitySystem;
@@ -483,6 +513,11 @@ System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], functi
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -586,6 +621,11 @@ System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"]
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_1, context_1) {
     "use strict";
     var DelayedEventQueue;
@@ -607,6 +647,11 @@ System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -672,6 +717,11 @@ System.register("chunks:///_virtual/DeviceLayout.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -796,6 +846,11 @@ System.register("chunks:///_virtual/EducationEvents.ts",["./EventTemplates.ts"],
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -980,6 +1035,11 @@ System.register("chunks:///_virtual/EducationProgressionSystem.ts",["./Education
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var LEVEL_RANK, EducationSystem;
@@ -1034,6 +1094,11 @@ System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1,
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var item, ENDINGS;
@@ -1050,6 +1115,11 @@ System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -1148,6 +1218,11 @@ System.register("chunks:///_virtual/EndingResolver.ts",["./EndingConfig.ts", "./
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"], function (exports_1, context_1) {
     "use strict";
     var ConditionEvaluator_1, EventMatcher;
@@ -1190,6 +1265,11 @@ System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"]
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -1317,6 +1397,11 @@ System.register("chunks:///_virtual/EventTemplates.ts",[], function (exports_1, 
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var EXPLORATION_ACTIONS;
@@ -1333,6 +1418,11 @@ System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -1498,6 +1588,11 @@ System.register("chunks:///_virtual/FamilyOpportunityEvents.ts",[], function (ex
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityConfig.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var cc_1, IdentityConfig_1, WealthSystem_1, FAMILY_UNLOCK_KEY, CAREER_RANK, FamilyUnlockManager;
@@ -1565,6 +1660,11 @@ System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityCo
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -1864,6 +1964,11 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var FUTURE_TRANSITION_EVENTS;
@@ -1888,6 +1993,11 @@ System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exp
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -2227,33 +2337,25 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     }
                     if (!event) {
                         const yearInfo = this.session.getYearInfo();
-                        this.createText('这一年，你想把时间交给什么？', new cc_1.Vec3(0, 106), 28, UITheme_1.UITheme.text, 'center');
-                        this.createText(`${(_a = yearInfo === null || yearInfo === void 0 ? void 0 : yearInfo.headline) !== null && _a !== void 0 ? _a : '平常的一年'} · ${(_b = yearInfo === null || yearInfo === void 0 ? void 0 : yearInfo.summary) !== null && _b !== void 0 ? _b : '生活仍在向前，新的选择会在合适的时候出现。'}`, new cc_1.Vec3(0, 68), 16, UITheme_1.UITheme.muted, 'center', 970);
+                        this.createSectionLabel('本年度安排', new cc_1.Vec3(0, 38));
+                        this.createText('这一年，你想把时间交给什么？', new cc_1.Vec3(0, 6), 29, UITheme_1.UITheme.text, 'center');
+                        this.createText(`${(_a = yearInfo === null || yearInfo === void 0 ? void 0 : yearInfo.headline) !== null && _a !== void 0 ? _a : '平常的一年'} · ${(_b = yearInfo === null || yearInfo === void 0 ? void 0 : yearInfo.summary) !== null && _b !== void 0 ? _b : '生活仍在向前。'}`, new cc_1.Vec3(0, -31), 15, UITheme_1.UITheme.muted, 'center', 920);
                         const focusSummary = this.focusSummary(state);
-                        const statusCards = [
-                            { x: -270, text: `健康 ${Math.round(state.stats.health)}`, color: UITheme_1.UITheme.gain },
-                            { x: 0, text: `压力 ${Math.round(state.stats.pressure)}`, color: state.stats.pressure >= 60 ? UITheme_1.UITheme.loss : UITheme_1.UITheme.goldSoft },
-                            { x: 270, text: `幸福 ${Math.round(state.stats.happiness)}`, color: UITheme_1.UITheme.info },
-                        ];
-                        statusCards.forEach((item) => {
-                            this.createPanel(new cc_1.Vec3(item.x, 18), new cc_1.Vec3(244, 48), UITheme_1.UITheme.surface);
-                            this.createText(item.text, new cc_1.Vec3(item.x, 18), 17, item.color, 'center', 220, 34);
-                        });
-                        this.createPanel(new cc_1.Vec3(0, -48), new cc_1.Vec3(790, 52), UITheme_1.UITheme.surface, 'FocusCashflowPanel');
-                        this.focusSummaryText = this.createText(focusSummary.focus, new cc_1.Vec3(0, -33), 14, UITheme_1.UITheme.muted, 'center', 740, 22);
-                        this.focusCashflowText = this.createText(focusSummary.cashflow, new cc_1.Vec3(0, -57), 14, focusSummary.color, 'center', 740, 22);
+                        this.createPanel(new cc_1.Vec3(0, -68), new cc_1.Vec3(920, 46), UITheme_1.UITheme.surfaceInset, 'FocusForecast');
+                        this.focusSummaryText = this.createText(focusSummary.focus, new cc_1.Vec3(-415, -68), 14, UITheme_1.UITheme.muted, 'left', 290, 22);
+                        this.focusCashflowText = this.createText(focusSummary.cashflow, new cc_1.Vec3(-105, -68), 14, focusSummary.color, 'left', 500, 22);
                         this.focusButtons = {};
                         ['study', 'work', 'rest', 'social'].forEach((focus, index) => {
                             const positions = [-360, -120, 120, 360];
-                            this.focusButtons[focus] = this.createButton(this.focusButtonLabel(state, focus), new cc_1.Vec3(positions[index], -138), new cc_1.Vec3(210, 78), () => this.setFocus(focus), state.lifeFocus === focus ? 'primary' : 'secondary', false);
+                            this.focusButtons[focus] = this.createButton(this.focusButtonLabel(state, focus), new cc_1.Vec3(positions[index], -145), new cc_1.Vec3(210, 62), () => this.setFocus(focus), state.lifeFocus === focus ? 'primary' : 'secondary', false);
                         });
                         const majorActionAvailable = this.session.hasMajorActionAvailable();
-                        this.createButton(majorActionAvailable ? '留出空白\n免费 · 压力-5 · 幸福+2 · 健康+1' : '留出空白已使用', new cc_1.Vec3(-150, -242), new cc_1.Vec3(280, 54), () => {
+                        this.createButton(majorActionAvailable ? '留出空白  ·  免费恢复' : '留出空白已使用', new cc_1.Vec3(-160, -232), new cc_1.Vec3(294, 52), () => {
                             if (majorActionAvailable)
                                 this.tryExplorer(() => this.session.recoverWellbeing('pause'), () => this.showEvent(this.session.snapshot(), this.session.getCurrentEvent()));
                         }, majorActionAvailable ? 'secondary' : 'ghost', false);
                         if (state.age < 80) {
-                            this.createButton('度过这一年', new cc_1.Vec3(160, -242), new cc_1.Vec3(260, 54), () => this.advanceTime(1), 'primary', false);
+                            this.createButton('推进至下一年', new cc_1.Vec3(170, -232), new cc_1.Vec3(294, 52), () => this.advanceTime(1), 'primary', false);
                         }
                         else
                             this.createButton('返回主页', new cc_1.Vec3(0, -190), new cc_1.Vec3(300, 52), () => this.showHome(), 'primary', false);
@@ -2262,20 +2364,27 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.createEventModal(state, event);
                 }
                 createLifeDashboard(state, event) {
-                    this.createText(`${state.year} 年 · ${state.age} 岁`, new cc_1.Vec3(-510, 282), 30, UITheme_1.UITheme.gold, 'left', 240);
-                    this.createText(state.year >= 2026 ? '未知未来' : '历史时期', new cc_1.Vec3(-245, 282), 15, UITheme_1.UITheme.muted, 'left', 120);
-                    this.createButton('详情', new cc_1.Vec3(330, 282), new cc_1.Vec3(92, 38), () => this.showLifePanel(state, event), 'ghost', false);
-                    this.createButton('探索', new cc_1.Vec3(435, 282), new cc_1.Vec3(92, 38), () => this.showExploration(state, event), 'ghost', false);
-                    this.createButton('沉淀', new cc_1.Vec3(540, 282), new cc_1.Vec3(92, 38), () => this.showAnnualAction(state, event), 'ghost', false);
-                    const actionStatus = this.session.hasMajorActionAvailable() ? '沉淀可用 1/1' : '沉淀已使用';
+                    this.createText('人生账簿', new cc_1.Vec3(-540, 284), 16, UITheme_1.UITheme.gold, 'left', 150);
+                    this.createText(`${state.year} 年 · ${state.age} 岁`, new cc_1.Vec3(-540, 250), 29, UITheme_1.UITheme.text, 'left', 260);
+                    this.createText(state.year >= 2026 ? '步入未知未来' : '时代正在发生', new cc_1.Vec3(-270, 250), 15, UITheme_1.UITheme.muted, 'left', 180);
+                    this.createButton('人生', new cc_1.Vec3(276, 264), new cc_1.Vec3(92, 40), () => this.showLifePanel(state, event), 'ghost', false);
+                    this.createButton('资产', new cc_1.Vec3(380, 264), new cc_1.Vec3(92, 40), () => this.showExploration(state, event), 'ghost', false);
+                    this.createButton('沉淀', new cc_1.Vec3(484, 264), new cc_1.Vec3(92, 40), () => this.showAnnualAction(state, event), 'ghost', false);
                     const forecast = this.session.financeForecast();
                     const freedom = this.session.financialFreedom();
-                    this.createPanel(new cc_1.Vec3(-360, 215), new cc_1.Vec3(330, 72), UITheme_1.UITheme.surface);
-                    this.createPanel(new cc_1.Vec3(0, 215), new cc_1.Vec3(330, 72), UITheme_1.UITheme.surface);
-                    this.createPanel(new cc_1.Vec3(360, 215), new cc_1.Vec3(330, 72), UITheme_1.UITheme.surface);
-                    this.createText(`个人现金 ${this.money(state.stats.funds)}\n净资产 ${this.money(this.session.totalAssetValue())}`, new cc_1.Vec3(-360, 215), 15, UITheme_1.UITheme.text, 'center', 300, 56);
-                    this.createText(`收入\n工资 ${this.money(forecast.salaryIncome)} · 项目 ${this.signedMoney(forecast.projectCashflow)}\n房租 ${this.money(forecast.rentalIncome)} · 固收 ${this.money(forecast.fixedIncome)}`, new cc_1.Vec3(0, 215), 13, UITheme_1.UITheme.info, 'center', 300, 56);
-                    this.createText(`支出\n生活 ${this.money(forecast.personalLivingExpense)} · 重心 ${this.money(forecast.discretionaryExpense)} · 利息 ${this.money(forecast.interestExpense)}\n净现金流 ${this.signedMoney(forecast.netCashflow)} · 自由度 ${(freedom.rate * 100).toFixed(0)}% ${freedom.label}`, new cc_1.Vec3(360, 215), 13, forecast.netCashflow < 0 ? UITheme_1.UITheme.loss : UITheme_1.UITheme.info, 'center', 308, 56);
+                    const ledger = this.createPanel(new cc_1.Vec3(0, 176), new cc_1.Vec3(1080, 104), UITheme_1.UITheme.surfaceRaised, 'LifeLedger');
+                    this.createTextOn(ledger, '现金', new cc_1.Vec3(-480, 27), 13, UITheme_1.UITheme.quiet, 'left', 70, 20);
+                    this.createTextOn(ledger, this.money(state.stats.funds), new cc_1.Vec3(-480, -7), 23, UITheme_1.UITheme.text, 'left', 170, 34);
+                    this.createTextOn(ledger, '净资产', new cc_1.Vec3(-285, 27), 13, UITheme_1.UITheme.quiet, 'left', 70, 20);
+                    this.createTextOn(ledger, this.money(this.session.totalAssetValue()), new cc_1.Vec3(-285, -7), 23, UITheme_1.UITheme.text, 'left', 190, 34);
+                    this.createTextOn(ledger, `收入  工资 ${this.money(forecast.salaryIncome)} · 项目 ${this.signedMoney(forecast.projectCashflow)} · 房租 ${this.money(forecast.rentalIncome)} · 固收 ${this.money(forecast.fixedIncome)}`, new cc_1.Vec3(-50, 22), 13, UITheme_1.UITheme.gain, 'left', 600, 24);
+                    this.createTextOn(ledger, `支出  生活 ${this.money(forecast.personalLivingExpense)} · 重心 ${this.money(forecast.discretionaryExpense)} · 利息 ${this.money(forecast.interestExpense)}`, new cc_1.Vec3(-50, -9), 13, UITheme_1.UITheme.loss, 'left', 600, 24);
+                    this.createTextOn(ledger, '年现金流', new cc_1.Vec3(380, 27), 13, UITheme_1.UITheme.quiet, 'left', 100, 20);
+                    this.createTextOn(ledger, this.signedMoney(forecast.netCashflow), new cc_1.Vec3(380, -8), 24, forecast.netCashflow >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'left', 150, 34);
+                    this.createTextOn(ledger, `自由度 ${(freedom.rate * 100).toFixed(0)}% · ${freedom.label}`, new cc_1.Vec3(380, -37), 12, UITheme_1.UITheme.info, 'left', 190, 20);
+                    this.createStatBar('健康', state.stats.health, new cc_1.Vec3(-350, 111), UITheme_1.UITheme.gain);
+                    this.createStatBar('压力', state.stats.pressure, new cc_1.Vec3(0, 111), state.stats.pressure >= 60 ? UITheme_1.UITheme.loss : UITheme_1.UITheme.warning);
+                    this.createStatBar('幸福', state.stats.happiness, new cc_1.Vec3(350, 111), UITheme_1.UITheme.info);
                     this.showWarnings(state);
                 }
                 showInformationNotice(event) {
@@ -2375,11 +2484,18 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                 }
                 showExploration(state, activeEvent) {
                     this.clearScreen();
-                    this.createText('主动探索', new cc_1.Vec3(-500, 280), 38, UITheme_1.UITheme.text, 'left', 400);
+                    const forecast = this.session.financeForecast();
+                    this.createText('资产与探索', new cc_1.Vec3(-500, 280), 38, UITheme_1.UITheme.text, 'left', 400);
+                    this.createText('为现金流寻找新的路径，也管理已经拥有的资产。', new cc_1.Vec3(-500, 232), 16, UITheme_1.UITheme.muted, 'left', 700);
+                    const summary = this.createPanel(new cc_1.Vec3(0, 186), new cc_1.Vec3(1080, 48), UITheme_1.UITheme.surfaceInset, 'AssetSummary');
+                    this.createTextOn(summary, `可用现金 ${this.money(state.stats.funds)}`, new cc_1.Vec3(-500, 0), 15, UITheme_1.UITheme.text, 'left', 210, 24);
+                    this.createTextOn(summary, `净资产 ${this.money(this.session.totalAssetValue())}`, new cc_1.Vec3(-235, 0), 15, UITheme_1.UITheme.text, 'left', 210, 24);
+                    this.createTextOn(summary, `年度现金流 ${this.signedMoney(forecast.netCashflow)}`, new cc_1.Vec3(32, 0), 15, forecast.netCashflow >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'left', 245, 24);
+                    this.createTextOn(summary, `贷款余额 ${this.money(state.finance.loanBalance)}`, new cc_1.Vec3(330, 0), 15, state.finance.loanBalance > 0 ? UITheme_1.UITheme.loss : UITheme_1.UITheme.muted, 'left', 200, 24);
                     ExplorationConfig_1.EXPLORATION_ACTIONS.forEach((action, index) => {
                         const available = this.openOpportunities.isAvailable(state, action);
                         const x = index % 2 === 0 ? -270 : 270;
-                        const y = 125 - Math.floor(index / 2) * 126;
+                        const y = 98 - Math.floor(index / 2) * 126;
                         const requirement = this.openOpportunities.requirementText(action);
                         const actionName = action.domain === 'industry' && this.session.hasNewProjectListings() ? `${action.name}  ●` : action.name;
                         const detail = available ? action.description : `尚未解锁：${requirement}`;
@@ -2400,7 +2516,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                                 this.showHousing(this.session.snapshot(), activeEvent);
                         }, available ? 'primary' : 'ghost', false);
                     });
-                    this.createTextButton('返回', new cc_1.Vec3(0, -265), () => this.showEvent(this.session.snapshot(), activeEvent));
+                    this.createTextButton('返回人生', new cc_1.Vec3(0, -265), () => this.showEvent(this.session.snapshot(), activeEvent));
                 }
                 showCity(state, activeEvent) {
                     this.clearScreen();
@@ -2457,16 +2573,22 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const realized = holdings.filter((holding) => holding.status !== 'active').reduce((sum, holding) => sum + holding.realizedReturn, 0);
                     const unrealized = active.reduce((sum, holding) => { var _a; return sum + holding.currentValue - holding.investedPrincipal + ((_a = holding.cumulativeCashflow) !== null && _a !== void 0 ? _a : 0); }, 0);
                     const net = Math.round((realized + unrealized) * 100) / 100;
-                    this.createPageHeader('项目投资', `在投估值 ${this.money(activeValue)} · 上年项目现金流 ${this.signedMoney(annualCashflow)} · 累计收益 ${this.signedMoney(net)}`, () => this.showExploration(this.session.snapshot(), activeEvent));
-                    this.createButton('项目市场', new cc_1.Vec3(-150, 166), new cc_1.Vec3(250, 48), () => { this.projectView = 'market'; this.industryPage = 0; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, this.projectView === 'market' ? 'primary' : 'ghost', false);
-                    this.createButton(`我的项目 ${active.length}/5`, new cc_1.Vec3(150, 166), new cc_1.Vec3(250, 48), () => { this.projectView = 'portfolio'; this.industryPage = 0; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, this.projectView === 'portfolio' ? 'primary' : 'ghost', false);
+                    this.createPageHeader('项目投资', '用项目估值与年度现金流，构建第二条收入来源。', () => this.showExploration(this.session.snapshot(), activeEvent));
+                    const summary = this.createPanel(new cc_1.Vec3(0, 144), new cc_1.Vec3(920, 58), UITheme_1.UITheme.surfaceInset, 'ProjectSummary');
+                    this.createTextOn(summary, `在投估值 ${this.money(activeValue)}`, new cc_1.Vec3(-385, 0), 16, UITheme_1.UITheme.text, 'left', 220, 28);
+                    this.createTextOn(summary, `年度现金流 ${this.signedMoney(annualCashflow)}`, new cc_1.Vec3(-120, 0), 16, annualCashflow >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'left', 240, 28);
+                    this.createTextOn(summary, `累计收益 ${this.signedMoney(net)}`, new cc_1.Vec3(170, 0), 16, net >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'left', 220, 28);
+                    this.createTextOn(summary, `持有 ${active.length}/5`, new cc_1.Vec3(385, 0), 15, UITheme_1.UITheme.info, 'left', 120, 28);
+                    this.createButton('项目市场', new cc_1.Vec3(-122, 86), new cc_1.Vec3(224, 42), () => { this.projectView = 'market'; this.industryPage = 0; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, this.projectView === 'market' ? 'primary' : 'ghost', false);
+                    this.createButton(`我的项目 ${active.length}/5`, new cc_1.Vec3(122, 86), new cc_1.Vec3(224, 42), () => { this.projectView = 'portfolio'; this.industryPage = 0; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, this.projectView === 'portfolio' ? 'primary' : 'ghost', false);
                     if (this.projectView === 'market') {
                         this.showProjectMarket(state, activeEvent);
                         return;
                     }
                     if (holdings.length === 0) {
-                        this.createText('还没有项目持仓。', new cc_1.Vec3(0, 25), 23, UITheme_1.UITheme.muted, 'center', 900);
-                        this.createButton('去寻找项目', new cc_1.Vec3(0, -55), new cc_1.Vec3(240, 52), () => { this.projectView = 'market'; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'primary', false);
+                        this.createText('你还没有持有项目。', new cc_1.Vec3(0, -18), 23, UITheme_1.UITheme.muted, 'center', 900);
+                        this.createText('项目市场会不定期出现不同规模的生意。', new cc_1.Vec3(0, -56), 15, UITheme_1.UITheme.quiet, 'center', 900);
+                        this.createButton('去项目市场看看', new cc_1.Vec3(0, -116), new cc_1.Vec3(260, 52), () => { this.projectView = 'market'; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'primary', false);
                         return;
                     }
                     const pageCount = Math.max(1, Math.ceil(holdings.length / 6));
@@ -2479,21 +2601,21 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         const text = holding.status === 'active'
                             ? `${holding.name} · ${status}\n当前估值 ${this.money(holding.currentValue)} · 上年现金流 ${this.signedMoney((_b = holding.lastAnnualCashflow) !== null && _b !== void 0 ? _b : 0)}\n累计收益 ${this.signedMoney(profit)}`
                             : `${holding.name} · ${status}\n已实现收益 ${this.signedMoney(profit)}\n${holding.lastChangeReason}`;
-                        const position = new cc_1.Vec3((index % 3 - 1) * 360, 42 - Math.floor(index / 3) * 158);
+                        const position = new cc_1.Vec3((index % 3 - 1) * 350, -44 - Math.floor(index / 3) * 188);
                         if (holding.status === 'active') {
-                            const panel = this.createPanel(position, new cc_1.Vec3(330, 144), UITheme_1.UITheme.surfaceRaised, 'ProjectHolding');
-                            this.createTextOn(panel, text, new cc_1.Vec3(0, 34), 15, profit >= 0 ? UITheme_1.UITheme.text : UITheme_1.UITheme.loss, 'center', 300, 78);
-                            this.createButtonOn(panel, `主动出售（到账 ${this.money(holding.currentValue * .7)}）`, new cc_1.Vec3(0, -48), new cc_1.Vec3(270, 36), () => this.showActionConfirmation('确认主动出售项目', `该项目会按市场估值七折出售，预计到账 ${this.money(holding.currentValue * .7)}。`, () => this.tryExplorer(() => this.session.exitIndustryProject(holding.id), () => this.showIndustryProjects(this.session.snapshot(), activeEvent)), () => this.showIndustryProjects(this.session.snapshot(), activeEvent)), 'ghost', false);
+                            const panel = this.createPanel(position, new cc_1.Vec3(320, 168), UITheme_1.UITheme.surface, 'ProjectHolding');
+                            this.createTextOn(panel, text, new cc_1.Vec3(0, 37), 15, profit >= 0 ? UITheme_1.UITheme.text : UITheme_1.UITheme.loss, 'center', 290, 86);
+                            this.createButtonOn(panel, `按市值七折出售 · ${this.money(holding.currentValue * .7)}`, new cc_1.Vec3(0, -57), new cc_1.Vec3(266, 38), () => this.showActionConfirmation('确认主动出售项目', `该项目会按市场估值七折出售，预计到账 ${this.money(holding.currentValue * .7)}。`, () => this.tryExplorer(() => this.session.exitIndustryProject(holding.id), () => this.showIndustryProjects(this.session.snapshot(), activeEvent)), () => this.showIndustryProjects(this.session.snapshot(), activeEvent)), 'ghost', false);
                         }
                         else {
-                            const panel = this.createPanel(position, new cc_1.Vec3(330, 144), UITheme_1.UITheme.surfaceRaised, 'ArchivedInvestment');
-                            this.createTextOn(panel, text, cc_1.Vec3.ZERO, 14, profit >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 306, 128);
+                            const panel = this.createPanel(position, new cc_1.Vec3(320, 168), UITheme_1.UITheme.surface, 'ArchivedInvestment');
+                            this.createTextOn(panel, text, cc_1.Vec3.ZERO, 14, profit >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 290, 150);
                         }
                     });
                     if (pageCount > 1) {
-                        this.createButton('上一页', new cc_1.Vec3(-78, -248), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage - 1 + pageCount) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
-                        this.createText(`${this.industryPage + 1} / ${pageCount}`, new cc_1.Vec3(0, -248), 15, UITheme_1.UITheme.muted, 'center', 60);
-                        this.createButton('下一页', new cc_1.Vec3(78, -248), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage + 1) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
+                        this.createButton('上一页', new cc_1.Vec3(-78, -265), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage - 1 + pageCount) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
+                        this.createText(`${this.industryPage + 1} / ${pageCount}`, new cc_1.Vec3(0, -265), 15, UITheme_1.UITheme.muted, 'center', 60);
+                        this.createButton('下一页', new cc_1.Vec3(78, -265), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage + 1) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
                     }
                 }
                 showProjectMarket(state, activeEvent) {
@@ -2504,7 +2626,8 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const pageCount = Math.max(1, Math.ceil(available.length / 3));
                     this.industryPage = Math.min(this.industryPage, pageCount - 1);
                     if (available.length === 0) {
-                        this.createText('当前没有新的可买断项目。耐心等待，新的机会总会到来。', new cc_1.Vec3(0, 25), 21, UITheme_1.UITheme.muted, 'center', 960);
+                        this.createText('当前没有新的可买断项目。', new cc_1.Vec3(0, -12), 21, UITheme_1.UITheme.muted, 'center', 960);
+                        this.createText('继续经营生活，市场会在合适的时候给出新的报价。', new cc_1.Vec3(0, -48), 15, UITheme_1.UITheme.quiet, 'center', 960);
                         return;
                     }
                     const pageItems = available.slice(this.industryPage * 3, this.industryPage * 3 + 3);
@@ -2515,16 +2638,16 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         const offer = this.session.industryProjectLoanOffer(project.id);
                         const affordable = state.stats.funds >= project.minimumInvestment;
                         const capacity = state.industryProjects.filter((holding) => holding.status === 'active').length < 5;
-                        const panel = this.createPanel(new cc_1.Vec3(x, -32), new cc_1.Vec3(330, 276), UITheme_1.UITheme.surfaceRaised, 'ProjectOffer');
-                        this.createTextOn(panel, project.name, new cc_1.Vec3(0, 92), 19, UITheme_1.UITheme.goldSoft, 'center', 294, 30);
-                        this.createTextOn(panel, `${this.session.industryProjectScale(project)} · ${project.industry} · ${phase}期`, new cc_1.Vec3(0, 58), 13, UITheme_1.UITheme.info, 'center', 294, 24);
-                        this.createTextOn(panel, `${project.risk}风险 · 买断 ${this.money(project.minimumInvestment)}`, new cc_1.Vec3(0, 28), 15, UITheme_1.UITheme.text, 'center', 294, 24);
-                        this.createTextOn(panel, project.description, new cc_1.Vec3(0, -13), 14, UITheme_1.UITheme.muted, 'center', 286, 48);
-                        this.createTextOn(panel, `预计年经营 ${this.signedMoney(range.min)} ～ ${this.signedMoney(range.max)}`, new cc_1.Vec3(0, -61), 15, UITheme_1.UITheme.text, 'center', 294, 28);
+                        const panel = this.createPanel(new cc_1.Vec3(x, -76), new cc_1.Vec3(320, 258), UITheme_1.UITheme.surface, 'ProjectOffer');
+                        this.createTextOn(panel, project.name, new cc_1.Vec3(0, 86), 19, UITheme_1.UITheme.goldSoft, 'center', 286, 30);
+                        this.createTextOn(panel, `${this.session.industryProjectScale(project)} · ${project.industry} · ${phase}期`, new cc_1.Vec3(0, 54), 13, UITheme_1.UITheme.info, 'center', 286, 24);
+                        this.createTextOn(panel, `${project.risk}风险 · 买断 ${this.money(project.minimumInvestment)}`, new cc_1.Vec3(0, 24), 15, UITheme_1.UITheme.text, 'center', 286, 24);
+                        this.createTextOn(panel, project.description, new cc_1.Vec3(0, -14), 14, UITheme_1.UITheme.muted, 'center', 278, 44);
+                        this.createTextOn(panel, `预计年经营 ${this.signedMoney(range.min)} ～ ${this.signedMoney(range.max)}`, new cc_1.Vec3(0, -56), 15, UITheme_1.UITheme.text, 'center', 286, 28);
                         const buttonLabel = !capacity ? '持仓已满'
                             : affordable ? '买断项目'
                                 : offer.canBorrow ? `贷款买断 · 借 ${this.money(offer.amount)}` : '资金不足';
-                        this.createButtonOn(panel, buttonLabel, new cc_1.Vec3(0, -108), new cc_1.Vec3(270, 44), () => {
+                        this.createButtonOn(panel, buttonLabel, new cc_1.Vec3(0, -102), new cc_1.Vec3(258, 42), () => {
                             if (!capacity)
                                 return;
                             if (affordable)
@@ -2534,9 +2657,9 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         }, affordable ? 'primary' : offer.canBorrow ? 'secondary' : 'ghost', affordable);
                     });
                     if (pageCount > 1) {
-                        this.createButton('上一页', new cc_1.Vec3(-78, -248), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage - 1 + pageCount) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
-                        this.createText(`${this.industryPage + 1} / ${pageCount}`, new cc_1.Vec3(0, -248), 15, UITheme_1.UITheme.muted, 'center', 60);
-                        this.createButton('下一页', new cc_1.Vec3(78, -248), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage + 1) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
+                        this.createButton('上一页', new cc_1.Vec3(-78, -265), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage - 1 + pageCount) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
+                        this.createText(`${this.industryPage + 1} / ${pageCount}`, new cc_1.Vec3(0, -265), 15, UITheme_1.UITheme.muted, 'center', 60);
+                        this.createButton('下一页', new cc_1.Vec3(78, -265), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage + 1) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
                     }
                 }
                 showProjectLoanOffer(project, activeEvent) {
@@ -2857,7 +2980,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     if (state.finance.lastCashflow < 0)
                         warnings.push('⚠ 现金流为负');
                     if (warnings.length)
-                        this.createText(warnings.join('  '), new cc_1.Vec3(0, 150), 14, UITheme_1.UITheme.loss, 'center', 1000, 24);
+                        this.createText(warnings.join('  '), new cc_1.Vec3(0, 82), 13, UITheme_1.UITheme.loss, 'center', 960, 22);
                 }
                 setFocus(focus) {
                     try {
@@ -2879,7 +3002,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                         if (!(button === null || button === void 0 ? void 0 : button.isValid))
                             return false;
                         const selected = state.lifeFocus === focus;
-                        this.paintButton(button, new cc_1.Vec3(210, 82), selected ? 'primary' : 'secondary', false);
+                        this.paintButton(button, new cc_1.Vec3(210, 62), selected ? 'primary' : 'secondary', false);
                         const label = (_a = button.children.find((child) => child.getComponent(cc_1.Label))) === null || _a === void 0 ? void 0 : _a.getComponent(cc_1.Label);
                         if (label)
                             label.color = selected ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.text;
@@ -3022,14 +3145,13 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     this.focusSummaryText = undefined;
                     this.focusCashflowText = undefined;
                     this.uiRoot.removeAllChildren();
-                    const background = new cc_1.Node('InkBackground');
+                    const background = new cc_1.Node('PaperBackground');
                     background.addComponent(cc_1.UITransform).setContentSize(1280, 720);
                     this.drawRoundedRect(background, 1280, 720, 0, UITheme_1.UITheme.ink900);
-                    const inner = new cc_1.Node('InkSurface');
-                    inner.addComponent(cc_1.UITransform).setContentSize(1218, 658);
-                    inner.setPosition(0, 0);
-                    this.drawRoundedRect(inner, 1218, 658, 22, UITheme_1.UITheme.ink850, UITheme_1.UITheme.line);
-                    background.addChild(inner);
+                    const frame = new cc_1.Node('LedgerFrame');
+                    frame.addComponent(cc_1.UITransform).setContentSize(1192, 630);
+                    this.drawRoundedRect(frame, 1192, 630, 0, new cc_1.Color(0, 0, 0, 0), UITheme_1.UITheme.line);
+                    background.addChild(frame);
                     this.drawPaperOrnament(background);
                     this.uiRoot.addChild(background);
                 }
@@ -3058,7 +3180,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const node = new cc_1.Node(name);
                     node.addComponent(cc_1.UITransform).setContentSize(size.x, size.y);
                     node.setPosition(position);
-                    this.drawRoundedRect(node, size.x, size.y, size.y <= 38 ? 12 : 16, color, UITheme_1.UITheme.line);
+                    this.drawRoundedRect(node, size.x, size.y, size.y <= 44 ? UITheme_1.UITheme.radiusSmall : UITheme_1.UITheme.radiusCard, color, color === UITheme_1.UITheme.gold ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.line);
                     parent.addChild(node);
                     this.auditContained(parent, node, size.x, size.y);
                     return node;
@@ -3085,6 +3207,19 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const chip = this.createPanel(position, new cc_1.Vec3(width, 34), UITheme_1.UITheme.surface);
                     this.createTextOn(chip, text, cc_1.Vec3.ZERO, 15, color, 'center', width - 16, 28);
                 }
+                createSectionLabel(text, position) {
+                    const rule = new cc_1.Node('SectionRule');
+                    rule.addComponent(cc_1.UITransform).setContentSize(176, 2);
+                    rule.setPosition(position.x - 152, position.y);
+                    this.drawRoundedRect(rule, 176, 2, 1, UITheme_1.UITheme.lineStrong);
+                    this.uiRoot.addChild(rule);
+                    this.createText(text, position, 14, UITheme_1.UITheme.gold, 'center', 190, 24);
+                    const rightRule = new cc_1.Node('SectionRule');
+                    rightRule.addComponent(cc_1.UITransform).setContentSize(176, 2);
+                    rightRule.setPosition(position.x + 152, position.y);
+                    this.drawRoundedRect(rightRule, 176, 2, 1, UITheme_1.UITheme.lineStrong);
+                    this.uiRoot.addChild(rightRule);
+                }
                 createStatBar(name, value, position, color) {
                     const bar = this.createPanel(position, new cc_1.Vec3(300, 36), UITheme_1.UITheme.surface);
                     const fill = new cc_1.Node('BarFill');
@@ -3092,8 +3227,7 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     fill.setPosition(-52 + (fill.getComponent(cc_1.UITransform).width - 190) / 2, -8);
                     this.drawRoundedRect(fill, fill.getComponent(cc_1.UITransform).width, 5, 3, color);
                     bar.addChild(fill);
-                    this.createTextOn(bar, name, new cc_1.Vec3(-122, 7), 14, UITheme_1.UITheme.muted, 'left', 60, 24);
-                    this.createTextOn(bar, `${Math.round(value)}`, new cc_1.Vec3(115, 7), 14, color, 'center', 46, 24);
+                    this.createTextOn(bar, `${name}  ${Math.round(value)}`, new cc_1.Vec3(0, 8), 14, color, 'center', 260, 22);
                 }
                 createText(text, position, fontSize, color, align, width = 0, height = 0) {
                     const node = new cc_1.Node(`Text:${text.replace(/\s+/g, ' ').slice(0, 18)}`);
@@ -3612,6 +3746,11 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./IndependentLifeEvents.ts", "./OpportunityEvents.ts", "./YouthTemptationEvents.ts", "./LaterLifeEvents.ts", "./FutureTransitionEvents.ts", "./FamilyOpportunityEvents.ts", "./CareerPathEvents.ts", "./AnnualLifeEvents.ts"], function (exports_1, context_1) {
     "use strict";
     var EducationEvents_1, IndependentLifeEvents_1, OpportunityEvents_1, YouthTemptationEvents_1, LaterLifeEvents_1, FutureTransitionEvents_1, FamilyOpportunityEvents_1, CareerPathEvents_1, AnnualLifeEvents_1, GAME_EVENTS;
@@ -3662,6 +3801,11 @@ System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./I
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -4540,6 +4684,11 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "./AssetSystem.ts", "./HealthSystem.ts", "./OpportunitySystem.ts", "./FinanceSystem.ts", "./HousingSystem.ts", "./IndustryProjectSystem.ts", "./CareerSystem.ts", "./GrowthSystem.ts", "./CashManagementSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var __rest = (this && this.__rest) || function (s, e) {
@@ -4774,6 +4923,11 @@ System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -4783,6 +4937,11 @@ System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, conte
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -4865,6 +5024,11 @@ System.register("chunks:///_virtual/GrowthSystem.ts",[], function (exports_1, co
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var HealthSystem;
@@ -4883,6 +5047,11 @@ System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -5059,6 +5228,11 @@ System.register("chunks:///_virtual/HousingSystem.ts",[], function (exports_1, c
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var IDENTITIES, STARTER_FAMILY_IDS;
@@ -5111,6 +5285,11 @@ System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, 
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -5220,6 +5399,11 @@ System.register("chunks:///_virtual/IndependentLifeEvents.ts",[], function (expo
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryProjectConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var IndustryProjectConfig_1, INDUSTRY_OPPORTUNITY_EVENTS;
@@ -5261,6 +5445,11 @@ System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryPr
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -5341,6 +5530,11 @@ System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (expo
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -5591,6 +5785,11 @@ System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjec
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var INHERITANCE_REWARDS;
@@ -5609,6 +5808,11 @@ System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -5673,6 +5877,11 @@ System.register("chunks:///_virtual/InvestmentMemoryManager.ts",["cc"], function
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -5797,6 +6006,11 @@ System.register("chunks:///_virtual/LaterLifeEvents.ts",[], function (exports_1,
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, LEGACY_KEY, LegacyManager;
@@ -5827,6 +6041,11 @@ System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -5957,6 +6176,11 @@ System.register("chunks:///_virtual/CashManagementSystem.ts",[], function (expor
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -6145,6 +6369,11 @@ System.register("chunks:///_virtual/YouthTemptationEvents.ts",[], function (expo
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/AnnualLifeEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var ANNUAL_LIFE_EVENTS;
@@ -6211,6 +6440,11 @@ System.register("chunks:///_virtual/AnnualLifeEvents.ts",[], function (exports_1
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/main",["./DeviceLayout.ts","./GameBootstrap.ts","./Motion.ts","./PortraitGameUI.ts","./StatChangeAnimator.ts","./UITheme.ts","./AbilityConfig.ts","./AchievementConfig.ts","./CareerPathEvents.ts","./EducationEvents.ts","./EndingConfig.ts","./EventTemplates.ts","./ExplorationConfig.ts","./FamilyOpportunityEvents.ts","./FutureTransitionEvents.ts","./GameEvents.ts","./IdentityConfig.ts","./IndependentLifeEvents.ts","./IndustryOpportunityEvents.ts","./IndustryProjectConfig.ts","./InheritanceConfig.ts","./LaterLifeEvents.ts","./MajorOpportunityEvents.ts","./MarketConfig.ts","./MarketInsightConfig.ts","./MidLifeEvents.ts","./OpportunityConfig.ts","./OpportunityEvents.ts","./StarterEvents.ts","./StartupConfig.ts","./YearConfig.ts","./GameSession.ts","./GameStateManager.ts","./GameTypes.ts","./SeededRandom.ts","./AchievementSystem.ts","./AssetSystem.ts","./CareerSystem.ts","./CitySystem.ts","./ConditionEvaluator.ts","./DelayedEventQueue.ts","./EducationProgressionSystem.ts","./EducationSystem.ts","./EndingResolver.ts","./EventMatcher.ts","./FamilyUnlockManager.ts","./FinanceSystem.ts","./GrowthSystem.ts","./HealthSystem.ts","./HousingSystem.ts","./IndustryProjectSystem.ts","./InvestmentMemoryManager.ts","./LegacyManager.ts","./MarketSystem.ts","./OpenOpportunitySystem.ts","./OpportunitySystem.ts","./ReportGenerator.ts","./RequirementFormatter.ts","./SaveManager.ts","./WealthSystem.ts"],(function(){return{setters:[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],execute:function(){}}}));
 
 System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exports_1, context_1) {
@@ -6238,6 +6472,11 @@ System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exp
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -6358,6 +6597,11 @@ System.register("chunks:///_virtual/MarketConfig.ts",[], function (exports_1, co
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var MARKET_INSIGHTS;
@@ -6373,6 +6617,11 @@ System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (export
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -6640,6 +6889,11 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts"], func
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], function (exports_1, context_1) {
     "use strict";
     var EventTemplates_1, MID_LIFE_EVENTS;
@@ -6658,6 +6912,11 @@ System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -6745,6 +7004,11 @@ System.register("chunks:///_virtual/Motion.ts",["cc"], function (exports_1, cont
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -6869,6 +7133,11 @@ System.register("chunks:///_virtual/OpenOpportunitySystem.ts",["./ExplorationCon
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var LIFE_CYCLE, OPPORTUNITY_CHAINS, SIGNALS;
@@ -6903,6 +7172,11 @@ System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -7034,6 +7308,11 @@ System.register("chunks:///_virtual/OpportunityEvents.ts",["./EventTemplates.ts"
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var OpportunityConfig_1, OpportunitySystem;
@@ -7063,6 +7342,11 @@ System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -8022,6 +8306,11 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./OpportunitySystem.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var GameEvents_1, OpportunitySystem_1, WealthSystem_1, ReportGenerator;
@@ -8110,6 +8399,11 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/RequirementFormatter.ts",[], function (exports_1, context_1) {
     "use strict";
     var RequirementFormatter;
@@ -8155,6 +8449,11 @@ System.register("chunks:///_virtual/RequirementFormatter.ts",[], function (expor
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -8401,6 +8700,11 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, context_1) {
     "use strict";
     var SeededRandom;
@@ -8427,6 +8731,11 @@ System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -8544,6 +8853,11 @@ System.register("chunks:///_virtual/StarterEvents.ts",["./EventTemplates.ts"], f
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var TALENTS, NO_DEFECT, DEFECTS;
@@ -8610,6 +8924,11 @@ System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, c
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -8742,6 +9061,11 @@ System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exp
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, UITheme;
@@ -8758,24 +9082,42 @@ System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, con
                 ink850: new cc_1.Color(236, 227, 207, 255),
                 surface: new cc_1.Color(251, 246, 234, 255),
                 surfaceRaised: new cc_1.Color(247, 240, 224, 255),
+                surfaceInset: new cc_1.Color(239, 230, 211, 255),
                 disabledSurface: new cc_1.Color(227, 218, 199, 255),
                 disabledLine: new cc_1.Color(207, 195, 172, 255),
                 line: new cc_1.Color(216, 205, 180, 255),
+                lineStrong: new cc_1.Color(190, 172, 140, 255),
                 gold: new cc_1.Color(181, 67, 42, 255),
                 goldSoft: new cc_1.Color(210, 134, 96, 255),
+                cinnabar: new cc_1.Color(181, 67, 42, 255),
+                cinnabarSoft: new cc_1.Color(210, 134, 96, 255),
                 text: new cc_1.Color(43, 38, 32, 255),
                 muted: new cc_1.Color(110, 100, 85, 255),
                 quiet: new cc_1.Color(167, 156, 134, 255),
                 gain: new cc_1.Color(62, 124, 91, 255),
                 loss: new cc_1.Color(181, 67, 42, 255),
                 info: new cc_1.Color(70, 100, 126, 255),
+                warning: new cc_1.Color(156, 122, 46, 255),
                 danger: new cc_1.Color(181, 67, 42, 255),
+                space1: 8,
+                space2: 16,
+                space3: 24,
+                space4: 32,
+                radiusSmall: 12,
+                radiusCard: 18,
+                radiusModal: 22,
+                touchTarget: 44,
                 serif: 'Noto Serif SC',
                 sans: 'Noto Sans SC',
             });
         }
     };
 });
+
+
+
+
+
 
 
 
@@ -8898,6 +9240,11 @@ System.register("chunks:///_virtual/WealthSystem.ts",["./MarketConfig.ts", "./Ca
 
 
 
+
+
+
+
+
 System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var KEY_YEARS, YEARS;
@@ -8940,6 +9287,11 @@ System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, cont
         }
     };
 });
+
+
+
+
+
 
 
 
