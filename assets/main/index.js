@@ -79,6 +79,12 @@ System.register("chunks:///_virtual/AbilityConfig.ts",[], function (exports_1, c
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var a, ACHIEVEMENTS;
@@ -91,6 +97,12 @@ System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -187,6 +199,12 @@ System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var AssetSystem;
@@ -207,6 +225,12 @@ System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, con
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -306,6 +330,12 @@ System.register("chunks:///_virtual/CareerPathEvents.ts",[], function (exports_1
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -463,6 +493,12 @@ System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, co
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var GrowthSystem_1, LIVING_COST, MOVE_BASE, CitySystem;
@@ -513,6 +549,12 @@ System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], functi
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -626,6 +668,12 @@ System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"]
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_1, context_1) {
     "use strict";
     var DelayedEventQueue;
@@ -647,6 +695,12 @@ System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -708,7 +762,8 @@ System.register("chunks:///_virtual/DeviceLayout.ts",[], function (exports_1, co
                 top = Math.max(top, (_s = menu.bottom) !== null && _s !== void 0 ? _s : ('top' in menu ? ((_t = menu.top) !== null && _t !== void 0 ? _t : 0) + ((_u = menu.height) !== null && _u !== void 0 ? _u : 0) : 0));
         }
         catch (_v) { }
-        return calculateDeviceLayout(width, height, mobile || !!mini, top, bottom);
+        const stageWidth = mini ? width : Math.min(width, height * .75);
+        return calculateDeviceLayout(stageWidth, height, mobile || !!mini, top, bottom);
     }
     exports_1("readDeviceLayout", readDeviceLayout);
     return {
@@ -717,6 +772,12 @@ System.register("chunks:///_virtual/DeviceLayout.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -846,6 +907,12 @@ System.register("chunks:///_virtual/EducationEvents.ts",["./EventTemplates.ts"],
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -1040,6 +1107,12 @@ System.register("chunks:///_virtual/EducationProgressionSystem.ts",["./Education
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var LEVEL_RANK, EducationSystem;
@@ -1099,9 +1172,15 @@ System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1,
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, context_1) {
     "use strict";
-    var item, ENDINGS;
+    var item, ENDINGS, ENDING_DESCRIPTIONS;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [],
@@ -1110,11 +1189,29 @@ System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, co
             exports_1("ENDINGS", ENDINGS = [
                 item('ending-happiness-collapse', '被耗尽的心', 110, ['flags.happiness-collapse'], 'common', -18),
                 item('ending-cashflow-collapse', '现金流断裂', 99, ['flags.cashflow-collapse'], 'common', -15),
-                item('ending-time-traveler', '时间旅行者', 100, ['skills.information>=90', 'opportunities.entered>=5'], 'legendary', 18), item('ending-investment-master', '投资大师', 95, ['assets.total>=200', 'skills.information>=70'], 'rare', 16), item('ending-startup-legend', '创业传奇', 90, ['startup.stage==expansion', 'assets.total>=300'], 'rare', 16), item('ending-health-collapse', '被透支的身体', 85, ['stats.health<=20'], 'common', -12), item('ending-career-peak', '行业里的重要角色', 75, ['career.level==core'], 'common', 10), item('ending-financial-freedom', '财务自由', 70, ['assets.total>=200', 'stats.health>=50'], 'common', 10), item('ending-family-anchor', '珍贵的陪伴', 34, ['flags.family-time'], 'common', 8), item('ending-tech-pioneer', '技术先锋', 60, ['skills.technology>=70'], 'common', 8), item('ending-content-creator', '内容创作者', 55, ['skills.expression>=60', 'flags.content-entry'], 'common', 6), item('ending-cashflow-master', '稳健的积累者', 45, ['assets.total>=120'], 'common', 5), item('ending-healthy-longlife', '从容的长跑者', 44, ['stats.health>=80', 'stats.happiness>=65']), item('ending-lifelong-learner', '终身学习者', 42, ['stats.knowledge>=85']), item('ending-city-builder', '城市新居民', 41, ['flags.metropolis-move', 'skills.information>=55']), item('ending-family-business', '家业的新篇', 40, ['flags.family-business-experience', 'skills.business>=60']), item('ending-resilient', '愈挫愈勇', 39, ['flags.venture-loss', 'stats.happiness>=55']), item('ending-opportunity-hunter', '时代的捕手', 38, ['opportunities.entered>=3']), item('ending-second-act', '人生下半场', 37, ['flags.retirement-active', 'skills.management>=60'], 'rare'), item('ending-community-mentor', '照亮后来者的人', 36, ['flags.mentor-legacy']), item('ending-balanced-life', '平衡的生活家', 35, ['stats.health>=60', 'stats.happiness>=60']), item('ending-regret', '遗憾的人生', 25, ['stats.happiness<30', 'stats.health<40']), item('ending-drifter', '随波逐流', 20, ['opportunities.entered==0', 'skills.information<25']), item('ending-ordinary-brave', '认真生活的人', 0, []),
+                item('ending-time-traveler', '时间旅行者', 100, ['skills.information>=90', 'opportunities.entered>=5'], 'legendary', 18), item('ending-investment-master', '投资大师', 95, ['assets.total>=200', 'skills.information>=70'], 'rare', 16), item('ending-startup-legend', '创业传奇', 90, ['startup.stage==expansion', 'assets.total>=300'], 'rare', 16), item('ending-health-collapse', '被透支的身体', 105, ['stats.health<=20'], 'common', -12), item('ending-career-peak', '行业里的重要角色', 75, ['career.level==core'], 'common', 10), item('ending-financial-freedom', '财务自由', 70, ['assets.total>=200', 'stats.health>=50'], 'common', 10), item('ending-family-anchor', '珍贵的陪伴', 81, ['flags.family-time', 'stats.happiness>=75'], 'common', 8), item('ending-tech-pioneer', '技术先锋', 60, ['skills.technology>=70'], 'common', 8), item('ending-content-creator', '内容创作者', 55, ['skills.expression>=60', 'flags.content-entry'], 'common', 6), item('ending-cashflow-master', '稳健的积累者', 45, ['assets.total>=120'], 'common', 5), item('ending-healthy-longlife', '从容的长跑者', 80, ['stats.health>=80', 'stats.happiness>=65']), item('ending-lifelong-learner', '终身学习者', 82, ['stats.knowledge>=85']), item('ending-city-builder', '城市新居民', 41, ['flags.metropolis-move', 'skills.information>=55']), item('ending-family-business', '家业的新篇', 40, ['flags.family-business-experience', 'skills.business>=60']), item('ending-resilient', '愈挫愈勇', 39, ['flags.venture-loss', 'stats.happiness>=55']), item('ending-opportunity-hunter', '时代的捕手', 38, ['opportunities.entered>=3']), item('ending-second-act', '人生下半场', 79, ['flags.retirement-active', 'skills.management>=60'], 'rare'), item('ending-community-mentor', '照亮后来者的人', 83, ['flags.mentor-legacy']), item('ending-balanced-life', '平衡的生活家', 35, ['stats.health>=60', 'stats.happiness>=60']), item('ending-regret', '遗憾的人生', 25, ['stats.happiness<30', 'stats.health<40']), item('ending-drifter', '随波逐流', 20, ['opportunities.entered==0', 'skills.information<25']), item('ending-ordinary-brave', '认真生活的人', 0, []),
             ]);
+            ENDING_DESCRIPTIONS = {
+                'ending-career-peak': '你在工作中走到了核心位置。能力与年月的积累，让你成为行业里不可忽视的人。工作之外的生活，也值得被记住。',
+                'ending-healthy-longlife': '你保有了健康，也保有对日子的热情。漫长的一生里，照顾自己同样是一种成就。',
+                'ending-lifelong-learner': '你始终没有放下学习。知识一点点积累，变成理解世界、重新选择的底气。',
+                'ending-family-anchor': '你曾主动为重要的人留下时间，也在这些相聚中保有快乐。陪伴成为这一生珍贵的部分。',
+                'ending-community-mentor': '你选择将经验留给后来的人。你的故事，也因此在别人的成长中继续。',
+                'ending-health-collapse': '身体承受了太多消耗。那些得到的东西真实存在，而没有留给自己的休息，也成为这一生的代价。',
+                'ending-cashflow-collapse': '手头的现金最终无法覆盖生活的开支。下一次，也许可以更早为自己留一份安全垫。',
+            };
+            for (const ending of ENDINGS)
+                if (ENDING_DESCRIPTIONS[ending.id])
+                    ending.description = ENDING_DESCRIPTIONS[ending.id];
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -1223,6 +1320,12 @@ System.register("chunks:///_virtual/EndingResolver.ts",["./EndingConfig.ts", "./
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"], function (exports_1, context_1) {
     "use strict";
     var ConditionEvaluator_1, EventMatcher;
@@ -1255,6 +1358,12 @@ System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"]
                     return candidates[candidates.length - 1];
                 }
                 isEligible(state, event) {
+                    var _a;
+                    if (event.repeatable) {
+                        const previous = [...state.lifeLog].reverse().find(entry => entry.eventId === event.id);
+                        if (previous && state.year - previous.year < ((_a = event.cooldownYears) !== null && _a !== void 0 ? _a : 3))
+                            return false;
+                    }
                     return (event.repeatable || !state.triggeredEventIds.includes(event.id))
                         && state.year >= event.yearMin
                         && state.year <= event.yearMax
@@ -1265,6 +1374,12 @@ System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"]
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -1402,6 +1517,12 @@ System.register("chunks:///_virtual/EventTemplates.ts",[], function (exports_1, 
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var EXPLORATION_ACTIONS;
@@ -1418,6 +1539,12 @@ System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -1593,6 +1720,12 @@ System.register("chunks:///_virtual/FamilyOpportunityEvents.ts",[], function (ex
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityConfig.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var cc_1, IdentityConfig_1, WealthSystem_1, FAMILY_UNLOCK_KEY, CAREER_RANK, FamilyUnlockManager;
@@ -1660,6 +1793,12 @@ System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityCo
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -1969,6 +2108,12 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var FUTURE_TRANSITION_EVENTS;
@@ -2029,7 +2174,13 @@ System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exp
 
 
 
-System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.ts", "./StartupConfig.ts", "./InheritanceConfig.ts", "./GameSession.ts", "./ExplorationConfig.ts", "./OpportunitySystem.ts", "./OpenOpportunitySystem.ts", "./StatChangeAnimator.ts", "./Motion.ts", "./UITheme.ts", "./WealthSystem.ts", "./AbilityConfig.ts", "./DeviceLayout.ts", "./PortraitGameUI.ts"], function (exports_1, context_1) {
+
+
+
+
+
+
+System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./GameSession.ts", "./StartupConfig.ts", "./PortraitGameUI.ts", "./DeviceLayout.ts"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2037,54 +2188,24 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
-    var cc_1, IdentityConfig_1, StartupConfig_1, InheritanceConfig_1, GameSession_1, ExplorationConfig_1, OpportunitySystem_1, OpenOpportunitySystem_1, StatChangeAnimator_1, Motion_1, UITheme_1, WealthSystem_1, AbilityConfig_1, DeviceLayout_1, PortraitGameUI_1, ccclass, GameBootstrap;
+    var cc_1, GameSession_1, StartupConfig_1, PortraitGameUI_1, DeviceLayout_1, ccclass, GameBootstrap;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (cc_1_1) {
                 cc_1 = cc_1_1;
             },
-            function (IdentityConfig_1_1) {
-                IdentityConfig_1 = IdentityConfig_1_1;
+            function (GameSession_1_1) {
+                GameSession_1 = GameSession_1_1;
             },
             function (StartupConfig_1_1) {
                 StartupConfig_1 = StartupConfig_1_1;
             },
-            function (InheritanceConfig_1_1) {
-                InheritanceConfig_1 = InheritanceConfig_1_1;
-            },
-            function (GameSession_1_1) {
-                GameSession_1 = GameSession_1_1;
-            },
-            function (ExplorationConfig_1_1) {
-                ExplorationConfig_1 = ExplorationConfig_1_1;
-            },
-            function (OpportunitySystem_1_1) {
-                OpportunitySystem_1 = OpportunitySystem_1_1;
-            },
-            function (OpenOpportunitySystem_1_1) {
-                OpenOpportunitySystem_1 = OpenOpportunitySystem_1_1;
-            },
-            function (StatChangeAnimator_1_1) {
-                StatChangeAnimator_1 = StatChangeAnimator_1_1;
-            },
-            function (Motion_1_1) {
-                Motion_1 = Motion_1_1;
-            },
-            function (UITheme_1_1) {
-                UITheme_1 = UITheme_1_1;
-            },
-            function (WealthSystem_1_1) {
-                WealthSystem_1 = WealthSystem_1_1;
-            },
-            function (AbilityConfig_1_1) {
-                AbilityConfig_1 = AbilityConfig_1_1;
+            function (PortraitGameUI_1_1) {
+                PortraitGameUI_1 = PortraitGameUI_1_1;
             },
             function (DeviceLayout_1_1) {
                 DeviceLayout_1 = DeviceLayout_1_1;
-            },
-            function (PortraitGameUI_1_1) {
-                PortraitGameUI_1 = PortraitGameUI_1_1;
             }
         ],
         execute: function () {
@@ -2094,149 +2215,29 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                 constructor() {
                     super(...arguments);
                     this.session = new GameSession_1.GameSession();
-                    this.opportunitySystem = new OpportunitySystem_1.OpportunitySystem();
-                    this.openOpportunities = new OpenOpportunitySystem_1.OpenOpportunitySystem();
                     this.uiRoot = new cc_1.Node('RestartLifeUI');
-                    this.designSize = new cc_1.Vec3(1280, 720, 1);
-                    this.talentRefreshesRemaining = 3;
-                    this.marketPage = 0;
-                    this.marketView = 'quotes';
-                    this.marketOrderFraction = .25;
-                    this.industryPage = 0;
-                    this.housingPage = 0;
-                    this.projectView = 'market';
-                    this.focusButtons = {};
-                    this.renderRevision = 0;
-                    this.layoutIssues = [];
-                    this.interactiveRects = [];
-                    this.handleBrowserResize = () => {
-                        if (this.portraitUI) {
-                            this.portraitUI.resize(DeviceLayout_1.readDeviceLayout(cc_1.sys.isMobile));
-                            return;
-                        }
-                        const host = globalThis;
-                        if (typeof host.innerWidth === 'number' && typeof host.innerHeight === 'number') {
-                            cc_1.view.setFrameSize(host.innerWidth, host.innerHeight);
-                            cc_1.view.setDesignResolutionSize(this.designSize.x, this.designSize.y, cc_1.ResolutionPolicy.SHOW_ALL);
-                        }
-                        this.updateResponsiveScale();
-                    };
+                    this.resizeUI = () => { var _a; (_a = this.ui) === null || _a === void 0 ? void 0 : _a.resize(DeviceLayout_1.readDeviceLayout(cc_1.sys.isMobile)); };
+                    this.auditUI = () => { var _a, _b; return (_b = (_a = this.ui) === null || _a === void 0 ? void 0 : _a.audit()) !== null && _b !== void 0 ? _b : { revision: 0, issues: [] }; };
                 }
                 onLoad() {
                     var _a, _b, _c;
                     this.node.addChild(this.uiRoot);
-                    this.uiRoot.addComponent(cc_1.UITransform).setContentSize(1280, 720);
-                    if (DeviceLayout_1.readDeviceLayout(cc_1.sys.isMobile).portrait)
-                        this.portraitUI = new PortraitGameUI_1.PortraitGameUI(this.uiRoot, this.session, () => this.rollTalentOffers());
-                    this.handleBrowserResize();
-                    cc_1.view.on('canvas-resize', this.updateResponsiveScale, this);
-                    (_a = globalThis.addEventListener) === null || _a === void 0 ? void 0 : _a.call(globalThis, 'resize', this.handleBrowserResize);
-                    (_b = globalThis.addEventListener) === null || _b === void 0 ? void 0 : _b.call(globalThis, 'orientationchange', this.handleBrowserResize);
-                    if (!this.portraitUI) {
-                        this.statAnimator = new StatChangeAnimator_1.StatChangeAnimator(this.uiRoot);
-                        this.showHome();
-                    }
-                    const webHost = globalThis;
-                    webHost.__restartLifeUiAudit = () => ({ revision: this.renderRevision, issues: [...this.layoutIssues] });
-                    (_c = webHost.__restartLifeReady) === null || _c === void 0 ? void 0 : _c.call(webHost);
+                    this.uiRoot.addComponent(cc_1.UITransform).setContentSize(720, 1280);
+                    this.ui = new PortraitGameUI_1.PortraitGameUI(this.uiRoot, this.session, () => this.rollTalentOffers());
+                    this.resizeUI();
+                    (_a = globalThis.addEventListener) === null || _a === void 0 ? void 0 : _a.call(globalThis, 'resize', this.resizeUI);
+                    (_b = globalThis.addEventListener) === null || _b === void 0 ? void 0 : _b.call(globalThis, 'orientationchange', this.resizeUI);
+                    const host = globalThis;
+                    host.__restartLifeUiAudit = this.auditUI;
+                    (_c = host.__restartLifeReady) === null || _c === void 0 ? void 0 : _c.call(host);
                 }
                 onDestroy() {
                     var _a, _b;
-                    cc_1.view.off('canvas-resize', this.updateResponsiveScale, this);
-                    (_a = globalThis.removeEventListener) === null || _a === void 0 ? void 0 : _a.call(globalThis, 'resize', this.handleBrowserResize);
-                    (_b = globalThis.removeEventListener) === null || _b === void 0 ? void 0 : _b.call(globalThis, 'orientationchange', this.handleBrowserResize);
-                }
-                updateResponsiveScale() {
-                    if (this.portraitUI)
-                        return;
-                    const transform = this.node.getComponent(cc_1.UITransform);
-                    if (!transform)
-                        return;
-                    const scale = Math.min(transform.width / this.designSize.x, transform.height / this.designSize.y);
-                    this.uiRoot.setScale(Math.max(.25, scale), Math.max(.25, scale), 1);
-                }
-                showHome() {
-                    this.clearScreen();
-                    this.createText('编年', new cc_1.Vec3(0, 245), 18, UITheme_1.UITheme.gold, 'center');
-                    this.createText('重新活一次', new cc_1.Vec3(0, 180), 58, UITheme_1.UITheme.text, 'center');
-                    this.createText('如果人生可以重启，你会如何书写下一页？', new cc_1.Vec3(0, 112), 21, UITheme_1.UITheme.muted, 'center');
-                    this.createButton('开始重来', new cc_1.Vec3(0, 35), new cc_1.Vec3(380, 70), () => {
-                        this.selectedIdentity = undefined;
-                        this.selectedTalent = undefined;
-                        this.revealedDefect = undefined;
-                        this.talentRefreshesRemaining = 3;
-                        this.showIdentitySelection();
-                    }, 'primary', false);
-                    if (this.session.hasContinuableSave())
-                        this.createButton('继续人生', new cc_1.Vec3(0, -48), new cc_1.Vec3(380, 56), () => this.restoreLife(), 'secondary', false);
-                    if (this.session.hasArchive())
-                        this.createTextButton('人生档案', new cc_1.Vec3(0, -126), () => this.showArchive());
-                    this.createText('每一次选择，都会在多年后留下回声。', new cc_1.Vec3(0, -225), 15, UITheme_1.UITheme.quiet, 'center');
-                }
-                showIdentitySelection() {
-                    this.clearScreen();
-                    this.createText('选择初始家庭身份', new cc_1.Vec3(0, 270), 39, UITheme_1.UITheme.text, 'center');
-                    this.createText('首局固定开放农村务工家庭与小城普通家庭；完成迁移、教育或商业成就，可以解锁其他起点。', new cc_1.Vec3(0, 218), 17, UITheme_1.UITheme.muted, 'center', 1080);
-                    const statuses = this.session.familyUnlockStatuses();
-                    statuses.forEach(({ identity, unlocked, requirement }, index) => {
-                        const x = index % 2 === 0 ? -250 : 250;
-                        const y = 120 - Math.floor(index / 2) * 130;
-                        const cardText = unlocked
-                            ? `${identity.name} · ${identity.difficulty}\n${this.identitySummary(identity)}`
-                            : `🔒 ${identity.name} · ${identity.difficulty}\n${requirement !== null && requirement !== void 0 ? requirement : '完成对应人生目标后解锁'}`;
-                        this.createButton(cardText, new cc_1.Vec3(x, y), new cc_1.Vec3(440, 110), () => {
-                            if (!unlocked) {
-                                this.showActionMessage('家庭尚未解锁', requirement !== null && requirement !== void 0 ? requirement : '请先完成对应的人生目标。', () => this.showIdentitySelection());
-                                return;
-                            }
-                            this.selectedIdentity = identity;
-                            this.showAttributeGuide();
-                        }, unlocked ? 'secondary' : 'ghost');
-                    });
-                    this.createTextButton('返回', new cc_1.Vec3(-520, 285), () => this.showHome());
-                }
-                showAttributeGuide() {
-                    this.clearScreen();
-                    this.createText('这些能力会怎样改变人生？', new cc_1.Vec3(0, 270), 38, UITheme_1.UITheme.text, 'center');
-                    this.createPanel(new cc_1.Vec3(-285, 48), new cc_1.Vec3(520, 300), UITheme_1.UITheme.surface);
-                    this.createPanel(new cc_1.Vec3(285, 48), new cc_1.Vec3(520, 300), UITheme_1.UITheme.surface);
-                    this.createText('状态与积累', new cc_1.Vec3(-500, 150), 22, UITheme_1.UITheme.goldSoft, 'left', 200);
-                    this.createText('健康：影响工资，过低会结束人生\n压力：过高会损耗健康和幸福\n幸福：过低会结束人生\n知识：继续教育与教育岗位门槛\n\n现金流：工资、项目、房租、固收\n贷款利息和生活支出统一结算', new cc_1.Vec3(-500, 35), 17, UITheme_1.UITheme.text, 'left', 430, 225);
-                    this.createText('成长能力', new cc_1.Vec3(70, 150), 22, UITheme_1.UITheme.info, 'left', 200);
-                    this.createText('学习：升学和教育岗位\n技术：技术研发入职、工资与晋升\n商业：销售/产品入职与工资\n表达：销售/传媒入职与工资\n管理：产品岗位入职、工资与晋升\n信息：更容易获得准确市场预告', new cc_1.Vec3(70, 35), 17, UITheme_1.UITheme.text, 'left', 430, 225);
-                    this.createText('品质越高，天赋的净收益越强；普通天赋更容易伴随轻度短板。', new cc_1.Vec3(0, -155), 16, UITheme_1.UITheme.muted, 'center', 1000);
-                    this.createButton('我了解了，选择天赋', new cc_1.Vec3(0, -220), new cc_1.Vec3(320, 58), () => {
-                        this.showTalentSelection(this.rollTalentOffers());
-                    }, 'primary', false);
-                    this.createTextButton('返回', new cc_1.Vec3(-520, 285), () => this.showIdentitySelection());
-                }
-                showTalentSelection(offers) {
-                    this.clearScreen();
-                    this.createText('选择一项天赋', new cc_1.Vec3(0, 260), 39, UITheme_1.UITheme.text, 'center');
-                    this.createText('普通 80% · 稀有 18% · 传奇 2%；每局有 3 次免费刷新。', new cc_1.Vec3(0, 205), 17, UITheme_1.UITheme.muted, 'center');
-                    this.createText('轻度短板概率：普通 55% · 稀有 18% · 传奇 0%', new cc_1.Vec3(0, 168), 15, UITheme_1.UITheme.quiet, 'center');
-                    offers.forEach(({ talent, defect }, index) => {
-                        const x = (index - 1) * 350;
-                        const defectText = defect.id === StartupConfig_1.NO_DEFECT.id ? '' : `\n\n伴生短板：${defect.name}\n影响：${this.effectSummary(defect.result)}`;
-                        this.createTalentButton(`${talent.name} · ${this.rarityName(talent.rarity)}\n${talent.description}\n\n天赋优势：${this.effectSummary(talent.result)}${defectText}`, new cc_1.Vec3(x, 10), new cc_1.Vec3(316, 220), talent.rarity, () => {
-                            this.selectedTalent = talent;
-                            this.revealedDefect = defect;
-                            this.beginLife();
-                        });
-                    });
-                    const refreshText = this.talentRefreshesRemaining > 0
-                        ? `免费刷新天赋（剩余 ${this.talentRefreshesRemaining}/3）`
-                        : '免费刷新次数已用完';
-                    this.createButton(refreshText, new cc_1.Vec3(0, -155), new cc_1.Vec3(290, 48), () => {
-                        if (this.talentRefreshesRemaining <= 0) {
-                            this.showToast('本局的 3 次免费刷新已经用完。');
-                            return;
-                        }
-                        this.talentRefreshesRemaining -= 1;
-                        this.showTalentSelection(this.rollTalentOffers());
-                    }, this.talentRefreshesRemaining > 0 ? 'secondary' : 'ghost', false);
-                    this.createText('刷新只更换候选天赋，不消耗属性或金钱。', new cc_1.Vec3(0, -210), 14, UITheme_1.UITheme.quiet, 'center', 800);
-                    this.createTextButton('返回属性说明', new cc_1.Vec3(-500, 285), () => this.showAttributeGuide());
+                    (_a = globalThis.removeEventListener) === null || _a === void 0 ? void 0 : _a.call(globalThis, 'resize', this.resizeUI);
+                    (_b = globalThis.removeEventListener) === null || _b === void 0 ? void 0 : _b.call(globalThis, 'orientationchange', this.resizeUI);
+                    const host = globalThis;
+                    if (host.__restartLifeUiAudit === this.auditUI)
+                        delete host.__restartLifeUiAudit;
                 }
                 rollTalentOffers() {
                     const usedTalentIds = new Set();
@@ -2277,1435 +2278,6 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
                     const result = Object.assign(Object.assign({}, talent.result), { attributes: scale(talent.result.attributes), skills: scale(talent.result.skills), stats: scale(talent.result.stats) });
                     return Object.assign(Object.assign({}, talent), { result });
                 }
-                beginLife() {
-                    if (!this.selectedIdentity || !this.selectedTalent || !this.revealedDefect)
-                        return;
-                    this.session.start(this.selectedIdentity.id, 'original', Date.now());
-                    const state = this.session.applyStartup(this.selectedTalent, this.revealedDefect);
-                    const inheritance = this.session.activeInheritance();
-                    if (inheritance)
-                        this.showInheritanceNotice(state, inheritance);
-                    else
-                        this.showEvent(state, this.session.getCurrentEvent());
-                }
-                restoreLife() {
-                    const state = this.session.tryRestore();
-                    if (!state) {
-                        this.showToast('暂无可继续的人生。');
-                        return;
-                    }
-                    this.selectedIdentity = IdentityConfig_1.IDENTITIES.find((item) => item.id === state.identityId);
-                    this.selectedTalent = StartupConfig_1.TALENTS.find((item) => item.id === state.talentId);
-                    this.revealedDefect = StartupConfig_1.DEFECTS.find((item) => item.id === state.defectId);
-                    this.showEvent(state, this.session.getCurrentEvent());
-                }
-                showArchive() {
-                    var _a, _b, _c, _d, _e, _f, _g;
-                    const state = this.session.loadArchive();
-                    const report = this.session.getReport();
-                    if (!state || !report) {
-                        this.showToast('还没有可读取的人生记录。');
-                        return;
-                    }
-                    this.selectedIdentity = IdentityConfig_1.IDENTITIES.find((item) => item.id === state.identityId);
-                    this.selectedTalent = StartupConfig_1.TALENTS.find((item) => item.id === state.talentId);
-                    this.revealedDefect = StartupConfig_1.DEFECTS.find((item) => item.id === state.defectId);
-                    this.clearScreen();
-                    this.createPageHeader('人生档案', `${state.year} 年 · ${state.age} 岁 · ${state.completed ? '本局已结算' : '本局进行中'}`, () => this.showHome());
-                    this.createPanel(new cc_1.Vec3(-300, 70), new cc_1.Vec3(500, 245), UITheme_1.UITheme.surface);
-                    this.createPanel(new cc_1.Vec3(300, 70), new cc_1.Vec3(500, 245), UITheme_1.UITheme.surface);
-                    const inheritedMemory = InheritanceConfig_1.INHERITANCE_REWARDS.find((item) => item.id === state.memoryId);
-                    this.createText(`出身：${(_b = (_a = this.selectedIdentity) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : '未记录'}\n天赋：${(_d = (_c = this.selectedTalent) === null || _c === void 0 ? void 0 : _c.name) !== null && _d !== void 0 ? _d : '未记录'}\n缺陷：${(_f = (_e = this.revealedDefect) === null || _e === void 0 ? void 0 : _e.name) !== null && _f !== void 0 ? _f : '未记录'}\n前世记忆：${(_g = inheritedMemory === null || inheritedMemory === void 0 ? void 0 : inheritedMemory.name) !== null && _g !== void 0 ? _g : '首局无'}\n学历：${this.educationName(state.education.level)}${state.flags.includes('graduate-school') ? ' · 已获研究生学位' : ''}\n职业：${this.careerName(state.career.track)} · ${this.careerLevelName(state.career.level)}`, new cc_1.Vec3(-520, 70), 17, UITheme_1.UITheme.text, 'left', 440, 215);
-                    this.createText(`个人现金：${this.money(state.stats.funds)}\n投资资产：${this.money(this.session.investmentAssetValue())}\n个人净资产：${this.money(this.session.totalAssetValue())}\n健康 / 幸福：${state.stats.health} / ${state.stats.happiness}\n最强维度：${report.strongestDimension}\n人生关键词：${report.lifeKeywords.join(' · ')}`, new cc_1.Vec3(80, 70), 17, UITheme_1.UITheme.text, 'left', 440, 215);
-                    const timeline = report.timeline.slice(-5).map((item) => `${item.year}｜${item.event}：${item.choice}`).join('\n') || '尚未留下关键事件记录。';
-                    this.createText('最近的重要选择', new cc_1.Vec3(-500, -82), 20, UITheme_1.UITheme.goldSoft, 'left', 300);
-                    this.createText(timeline, new cc_1.Vec3(-500, -170), 15, UITheme_1.UITheme.muted, 'left', 1000, 150);
-                    if (!state.completed)
-                        this.createButton('继续这段人生', new cc_1.Vec3(0, -270), new cc_1.Vec3(260, 48), () => this.showEvent(state, this.session.getCurrentEvent()), 'primary', false);
-                }
-                showEvent(state, event) {
-                    var _a, _b;
-                    if (state.completed) {
-                        this.showEnding(state);
-                        return;
-                    }
-                    this.clearScreen();
-                    this.createLifeDashboard(state, event);
-                    if (event && (event.informational || event.interaction === 'information')) {
-                        this.showInformationNotice(event);
-                        return;
-                    }
-                    if (!event) {
-                        const yearInfo = this.session.getYearInfo();
-                        this.createSectionLabel('本年度安排', new cc_1.Vec3(0, 38));
-                        this.createText('这一年，你想把时间交给什么？', new cc_1.Vec3(0, 6), 29, UITheme_1.UITheme.text, 'center');
-                        this.createText(`${(_a = yearInfo === null || yearInfo === void 0 ? void 0 : yearInfo.headline) !== null && _a !== void 0 ? _a : '平常的一年'} · ${(_b = yearInfo === null || yearInfo === void 0 ? void 0 : yearInfo.summary) !== null && _b !== void 0 ? _b : '生活仍在向前。'}`, new cc_1.Vec3(0, -31), 15, UITheme_1.UITheme.muted, 'center', 920);
-                        const focusSummary = this.focusSummary(state);
-                        this.createPanel(new cc_1.Vec3(0, -68), new cc_1.Vec3(920, 46), UITheme_1.UITheme.surfaceInset, 'FocusForecast');
-                        this.focusSummaryText = this.createText(focusSummary.focus, new cc_1.Vec3(-415, -68), 14, UITheme_1.UITheme.muted, 'left', 290, 22);
-                        this.focusCashflowText = this.createText(focusSummary.cashflow, new cc_1.Vec3(-105, -68), 14, focusSummary.color, 'left', 500, 22);
-                        this.focusButtons = {};
-                        ['study', 'work', 'rest', 'social'].forEach((focus, index) => {
-                            const positions = [-360, -120, 120, 360];
-                            this.focusButtons[focus] = this.createButton(this.focusButtonLabel(state, focus), new cc_1.Vec3(positions[index], -145), new cc_1.Vec3(210, 62), () => this.setFocus(focus), state.lifeFocus === focus ? 'primary' : 'secondary', false);
-                        });
-                        const majorActionAvailable = this.session.hasMajorActionAvailable();
-                        this.createButton(majorActionAvailable ? '留出空白  ·  免费恢复' : '留出空白已使用', new cc_1.Vec3(-160, -232), new cc_1.Vec3(294, 52), () => {
-                            if (majorActionAvailable)
-                                this.tryExplorer(() => this.session.recoverWellbeing('pause'), () => this.showEvent(this.session.snapshot(), this.session.getCurrentEvent()));
-                        }, majorActionAvailable ? 'secondary' : 'ghost', false);
-                        if (state.age < 80) {
-                            this.createButton('推进至下一年', new cc_1.Vec3(170, -232), new cc_1.Vec3(294, 52), () => this.advanceTime(1), 'primary', false);
-                        }
-                        else
-                            this.createButton('返回主页', new cc_1.Vec3(0, -190), new cc_1.Vec3(300, 52), () => this.showHome(), 'primary', false);
-                        return;
-                    }
-                    this.createEventModal(state, event);
-                }
-                createLifeDashboard(state, event) {
-                    this.createText('人生账簿', new cc_1.Vec3(-540, 284), 16, UITheme_1.UITheme.gold, 'left', 150);
-                    this.createText(`${state.year} 年 · ${state.age} 岁`, new cc_1.Vec3(-540, 250), 29, UITheme_1.UITheme.text, 'left', 260);
-                    this.createText(state.year >= 2026 ? '步入未知未来' : '时代正在发生', new cc_1.Vec3(-270, 250), 15, UITheme_1.UITheme.muted, 'left', 180);
-                    this.createButton('人生', new cc_1.Vec3(276, 264), new cc_1.Vec3(92, 40), () => this.showLifePanel(state, event), 'ghost', false);
-                    this.createButton('资产', new cc_1.Vec3(380, 264), new cc_1.Vec3(92, 40), () => this.showExploration(state, event), 'ghost', false);
-                    this.createButton('沉淀', new cc_1.Vec3(484, 264), new cc_1.Vec3(92, 40), () => this.showAnnualAction(state, event), 'ghost', false);
-                    const forecast = this.session.financeForecast();
-                    const freedom = this.session.financialFreedom();
-                    const ledger = this.createPanel(new cc_1.Vec3(0, 176), new cc_1.Vec3(1080, 104), UITheme_1.UITheme.surfaceRaised, 'LifeLedger');
-                    this.createTextOn(ledger, '现金', new cc_1.Vec3(-480, 27), 13, UITheme_1.UITheme.quiet, 'left', 70, 20);
-                    this.createTextOn(ledger, this.money(state.stats.funds), new cc_1.Vec3(-480, -7), 23, UITheme_1.UITheme.text, 'left', 170, 34);
-                    this.createTextOn(ledger, '净资产', new cc_1.Vec3(-285, 27), 13, UITheme_1.UITheme.quiet, 'left', 70, 20);
-                    this.createTextOn(ledger, this.money(this.session.totalAssetValue()), new cc_1.Vec3(-285, -7), 23, UITheme_1.UITheme.text, 'left', 190, 34);
-                    this.createTextOn(ledger, `收入  工资 ${this.money(forecast.salaryIncome)} · 项目 ${this.signedMoney(forecast.projectCashflow)} · 房租 ${this.money(forecast.rentalIncome)} · 固收 ${this.money(forecast.fixedIncome)}`, new cc_1.Vec3(-50, 22), 13, UITheme_1.UITheme.gain, 'left', 600, 24);
-                    this.createTextOn(ledger, `支出  生活 ${this.money(forecast.personalLivingExpense)} · 重心 ${this.money(forecast.discretionaryExpense)} · 利息 ${this.money(forecast.interestExpense)}`, new cc_1.Vec3(-50, -9), 13, UITheme_1.UITheme.loss, 'left', 600, 24);
-                    this.createTextOn(ledger, '年现金流', new cc_1.Vec3(380, 27), 13, UITheme_1.UITheme.quiet, 'left', 100, 20);
-                    this.createTextOn(ledger, this.signedMoney(forecast.netCashflow), new cc_1.Vec3(380, -8), 24, forecast.netCashflow >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'left', 150, 34);
-                    this.createTextOn(ledger, `自由度 ${(freedom.rate * 100).toFixed(0)}% · ${freedom.label}`, new cc_1.Vec3(380, -37), 12, UITheme_1.UITheme.info, 'left', 190, 20);
-                    this.createStatBar('健康', state.stats.health, new cc_1.Vec3(-350, 111), UITheme_1.UITheme.gain);
-                    this.createStatBar('压力', state.stats.pressure, new cc_1.Vec3(0, 111), state.stats.pressure >= 60 ? UITheme_1.UITheme.loss : UITheme_1.UITheme.warning);
-                    this.createStatBar('幸福', state.stats.happiness, new cc_1.Vec3(350, 111), UITheme_1.UITheme.info);
-                    this.showWarnings(state);
-                }
-                showInformationNotice(event) {
-                    var _a;
-                    const option = event.options[0];
-                    if (!option) {
-                        this.showEvent(this.session.snapshot(), undefined);
-                        return;
-                    }
-                    try {
-                        const after = this.session.choose(option.id);
-                        const scrim = new cc_1.Node('InformationNoticeScrim');
-                        scrim.addComponent(cc_1.UITransform).setContentSize(1280, 720);
-                        this.drawRoundedRect(scrim, 1280, 720, 0, new cc_1.Color(43, 38, 32, 135));
-                        scrim.addComponent(cc_1.BlockInputEvents);
-                        this.uiRoot.addChild(scrim);
-                        const notice = this.createPanel(new cc_1.Vec3(0, 10), new cc_1.Vec3(850, 230), UITheme_1.UITheme.surfaceRaised, 'InformationNotice');
-                        this.createTextOn(notice, event.id === 'career-promotion-notice' ? '职业通知' : '你留意到了时代的变化', new cc_1.Vec3(0, 76), 16, UITheme_1.UITheme.info, 'center', 760, 28);
-                        this.createTextOn(notice, event.title, new cc_1.Vec3(0, 34), 28, UITheme_1.UITheme.text, 'center', 760, 42);
-                        this.createTextOn(notice, event.description, new cc_1.Vec3(0, -18), 16, UITheme_1.UITheme.muted, 'center', 760, 56);
-                        const impact = ((_a = option.outcomes) === null || _a === void 0 ? void 0 : _a.length) ? '结果将在选择后揭晓' : this.optionImpact(option.result);
-                        this.createTextOn(notice, impact, new cc_1.Vec3(0, -75), 15, UITheme_1.UITheme.goldSoft, 'center', 760, 30);
-                        const revision = this.renderRevision;
-                        Motion_1.Motion.notice(notice, () => {
-                            if (revision === this.renderRevision && notice.isValid)
-                                this.showEvent(after, this.session.getCurrentEvent());
-                        });
-                    }
-                    catch (error) {
-                        this.showActionMessage('这条消息暂时错过了', error instanceof Error ? error.message : '你暂时没能弄清这条消息。', () => this.showEvent(this.session.snapshot(), event));
-                    }
-                }
-                showInheritanceNotice(state, inheritance) {
-                    this.clearScreen();
-                    this.createLifeDashboard(state, this.session.getCurrentEvent());
-                    const scrim = new cc_1.Node('InheritanceNoticeScrim');
-                    scrim.addComponent(cc_1.UITransform).setContentSize(1280, 720);
-                    this.drawRoundedRect(scrim, 1280, 720, 0, new cc_1.Color(43, 38, 32, 145));
-                    scrim.addComponent(cc_1.BlockInputEvents);
-                    this.uiRoot.addChild(scrim);
-                    const notice = this.createPanel(new cc_1.Vec3(0, 10), new cc_1.Vec3(760, 200), UITheme_1.UITheme.surfaceRaised, 'InheritanceNotice');
-                    this.createTextOn(notice, '一段前世记忆浮现', new cc_1.Vec3(0, 52), 18, UITheme_1.UITheme.gold, 'center', 680, 30);
-                    this.createTextOn(notice, inheritance.name, new cc_1.Vec3(0, 8), 30, UITheme_1.UITheme.text, 'center', 680, 42);
-                    this.createTextOn(notice, inheritance.description.replace('下一局', '本局'), new cc_1.Vec3(0, -48), 17, UITheme_1.UITheme.muted, 'center', 680, 42);
-                    const revision = this.renderRevision;
-                    Motion_1.Motion.notice(notice, () => {
-                        if (revision === this.renderRevision && notice.isValid)
-                            this.showEvent(state, this.session.getCurrentEvent());
-                    });
-                }
-                createEventModal(state, event) {
-                    const scrim = new cc_1.Node('OpportunityScrim');
-                    scrim.addComponent(cc_1.UITransform).setContentSize(1280, 720);
-                    this.drawRoundedRect(scrim, 1280, 720, 0, new cc_1.Color(43, 38, 32, 153));
-                    scrim.addComponent(cc_1.BlockInputEvents);
-                    this.uiRoot.addChild(scrim);
-                    const modal = this.createPanel(new cc_1.Vec3(0, -14), new cc_1.Vec3(920, 580), UITheme_1.UITheme.surfaceRaised, 'OpportunityModal');
-                    modal.addComponent(cc_1.UIOpacity).opacity = 255;
-                    const eventKind = event.interaction === 'opportunity' ? '限时机遇 · 错过后不再停留'
-                        : event.interaction === 'milestone' || event.forced ? '人生节点 · 需要回应'
-                            : event.interaction === 'information' || event.informational ? '信息更新' : '生活选择';
-                    this.createTextOn(modal, eventKind, new cc_1.Vec3(0, 248), 16, event.informational ? UITheme_1.UITheme.info : event.forced ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'center');
-                    const showSeparateDecline = event.declineAllowed && !this.hasPassiveOption(event);
-                    if (showSeparateDecline)
-                        this.createButtonOn(modal, '暂不进入', new cc_1.Vec3(0, -238), new cc_1.Vec3(172, 42), () => this.tryDecline(event), 'ghost', true);
-                    const compact = event.options.length >= 3;
-                    this.createTextOn(modal, event.title, new cc_1.Vec3(0, 198), 34, UITheme_1.UITheme.text, 'center', 790, 52);
-                    const admissionPreview = this.session.educationAdmissionPreview(event.id);
-                    this.createTextOn(modal, admissionPreview ? `${event.description}\n${admissionPreview}` : event.description, new cc_1.Vec3(0, 140), 17, UITheme_1.UITheme.muted, 'center', 780, admissionPreview ? 92 : 58);
-                    const optionGap = 88;
-                    const optionStart = compact ? 48 : 34;
-                    const isCareerChoice = event.id === 'career-first-job';
-                    event.options.forEach((option, index) => {
-                        const career = this.session.careerChoicePreview(option.id);
-                        const label = career
-                            ? `${option.label.split('｜')[0]}\n能力 ${career.summary}\n年收入 ${this.money(career.totalIncome)} · 年结余 ${this.signedMoney(career.netCashflow)}`
-                            : option.label;
-                        const directAcknowledge = event.informational || event.options.length === 1;
-                        const position = isCareerChoice
-                            ? new cc_1.Vec3(index % 2 === 0 ? -205 : 205, 54 - Math.floor(index / 2) * 104)
-                            : compact
-                                ? new cc_1.Vec3(index % 2 === 0 ? -205 : 205, optionStart - Math.floor(index / 2) * 92)
-                                : new cc_1.Vec3(0, optionStart - index * optionGap);
-                        const size = isCareerChoice ? new cc_1.Vec3(390, 96) : compact ? new cc_1.Vec3(390, 72) : new cc_1.Vec3(760, 66);
-                        this.createButtonOn(modal, label, position, size, () => {
-                            if (career && !career.eligible) {
-                                this.showActionMessage('岗位能力尚未达到', career.unmet.join('，'), () => this.showEvent(this.session.snapshot(), event));
-                                return;
-                            }
-                            this.tryChoose(option.id, event);
-                        }, career && !career.eligible ? 'ghost' : index === 0 ? 'primary' : 'secondary', !directAcknowledge && (!career || career.eligible));
-                    });
-                    Motion_1.Motion.modalEnter(modal);
-                }
-                hasPassiveOption(event) {
-                    return event.options.some((option) => /暂不|继续观察|先观察|等待|放弃|保留现金|维持生活|以后再/.test(option.label));
-                }
-                showExploration(state, activeEvent) {
-                    this.clearScreen();
-                    const forecast = this.session.financeForecast();
-                    this.createText('资产与探索', new cc_1.Vec3(-500, 280), 38, UITheme_1.UITheme.text, 'left', 400);
-                    this.createText('为现金流寻找新的路径，也管理已经拥有的资产。', new cc_1.Vec3(-500, 232), 16, UITheme_1.UITheme.muted, 'left', 700);
-                    const summary = this.createPanel(new cc_1.Vec3(0, 186), new cc_1.Vec3(1080, 48), UITheme_1.UITheme.surfaceInset, 'AssetSummary');
-                    this.createTextOn(summary, `可用现金 ${this.money(state.stats.funds)}`, new cc_1.Vec3(-500, 0), 15, UITheme_1.UITheme.text, 'left', 210, 24);
-                    this.createTextOn(summary, `净资产 ${this.money(this.session.totalAssetValue())}`, new cc_1.Vec3(-235, 0), 15, UITheme_1.UITheme.text, 'left', 210, 24);
-                    this.createTextOn(summary, `年度现金流 ${this.signedMoney(forecast.netCashflow)}`, new cc_1.Vec3(32, 0), 15, forecast.netCashflow >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'left', 245, 24);
-                    this.createTextOn(summary, `贷款余额 ${this.money(state.finance.loanBalance)}`, new cc_1.Vec3(330, 0), 15, state.finance.loanBalance > 0 ? UITheme_1.UITheme.loss : UITheme_1.UITheme.muted, 'left', 200, 24);
-                    ExplorationConfig_1.EXPLORATION_ACTIONS.forEach((action, index) => {
-                        const available = this.openOpportunities.isAvailable(state, action);
-                        const x = index % 2 === 0 ? -270 : 270;
-                        const y = 98 - Math.floor(index / 2) * 126;
-                        const requirement = this.openOpportunities.requirementText(action);
-                        const actionName = action.domain === 'industry' && this.session.hasNewProjectListings() ? `${action.name}  ●` : action.name;
-                        const detail = available ? action.description : `尚未解锁：${requirement}`;
-                        this.createPanel(new cc_1.Vec3(x, y), new cc_1.Vec3(500, 108), available ? UITheme_1.UITheme.surface : UITheme_1.UITheme.disabledSurface);
-                        this.createText(actionName, new cc_1.Vec3(x - 215, y + 27), 21, available ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.quiet, 'left', 260);
-                        this.createText(detail, new cc_1.Vec3(x - 215, y - 18), 14, available ? UITheme_1.UITheme.muted : UITheme_1.UITheme.quiet, 'left', 330, 48);
-                        this.createButton(available ? '进入' : '暂未解锁', new cc_1.Vec3(x + 184, y), new cc_1.Vec3(106, 42), () => {
-                            if (!available)
-                                return;
-                            if (action.domain === 'market') {
-                                this.showMarket(this.session.snapshot(), activeEvent);
-                            }
-                            else if (action.domain === 'industry')
-                                this.showIndustryProjects(this.session.snapshot(), activeEvent);
-                            else if (action.domain === 'city')
-                                this.showCity(this.session.snapshot(), activeEvent);
-                            else if (action.domain === 'housing')
-                                this.showHousing(this.session.snapshot(), activeEvent);
-                        }, available ? 'primary' : 'ghost', false);
-                    });
-                    this.createTextButton('返回人生', new cc_1.Vec3(0, -265), () => this.showEvent(this.session.snapshot(), activeEvent));
-                }
-                showCity(state, activeEvent) {
-                    this.clearScreen();
-                    this.createPageHeader('城市迁移', `当前：${this.cityName(state.education.city)} · 每一笔迁移成本和迁移后的年度开支都在下方列明。`, () => this.showExploration(this.session.snapshot(), activeEvent));
-                    ['rural', 'county', 'city', 'metropolis'].forEach((city, index) => {
-                        const preview = this.session.migrationPreview(city);
-                        const current = city === state.education.city;
-                        const affordable = state.stats.funds >= preview.total;
-                        const label = current
-                            ? `${this.cityName(city)} · 当前居住\n年度生活费 ${this.money(preview.annualAfter)}`
-                            : `${this.cityName(city)}\n迁移共 ${this.money(preview.total)}${affordable ? '' : ` · 还差 ${this.money(preview.total - state.stats.funds)}`}\n交通 ${this.money(preview.transport)} · 押金 ${this.money(preview.deposit)} · 过渡 ${this.money(preview.transition)}\n年度生活费 ${this.money(preview.annualAfter)}`;
-                        this.createButton(label, new cc_1.Vec3((index - 1.5) * 275, 25), new cc_1.Vec3(250, 132), () => {
-                            if (current || !affordable)
-                                return;
-                            this.showActionConfirmation('确认城市迁移', `将立即支付 ${this.money(preview.total)}，之后年度生活费约为 ${this.money(preview.annualAfter)}。`, () => this.tryExplorer(() => this.session.migrateCity(city), () => this.showCity(this.session.snapshot(), activeEvent)), () => this.showCity(this.session.snapshot(), activeEvent));
-                        }, current ? 'primary' : affordable ? 'secondary' : 'ghost', false);
-                    });
-                }
-                showHousing(state, activeEvent) {
-                    var _a, _b;
-                    const value = (_b = (_a = state.assets.find((asset) => asset.type === 'housing')) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : 0;
-                    this.clearScreen();
-                    this.createPageHeader('房产市场', `${this.cityName(state.education.city)} · 持有 ${state.housingHoldings.length} 套 · 现有估值 ${this.money(value)}`, () => this.showExploration(this.session.snapshot(), activeEvent));
-                    this.session.housingProducts().forEach((product, index) => {
-                        const price = this.session.housingPrice(product.id);
-                        const total = Math.round(price * 1.03 * 10) / 10;
-                        const affordable = state.stats.funds >= total;
-                        this.createButton(`${product.name}\n房价 ${this.money(price)} · 含税共 ${this.money(total)}${affordable ? '' : `\n还差 ${this.money(total - state.stats.funds)}`}\n${product.description}`, new cc_1.Vec3((index - 1) * 360, 75), new cc_1.Vec3(330, 122), () => {
-                            if (affordable)
-                                this.showActionConfirmation('确认购房', `购房及税费共 ${this.money(total)}。`, () => this.tryExplorer(() => this.session.buyHousing(product.id), () => this.showHousing(this.session.snapshot(), activeEvent)), () => this.showHousing(this.session.snapshot(), activeEvent));
-                        }, affordable ? index === 0 ? 'primary' : 'secondary' : 'ghost', false);
-                    });
-                    this.createText('我的住房（主动出售到账 = 当前估值 × 70%）', new cc_1.Vec3(-520, -38), 18, UITheme_1.UITheme.goldSoft, 'left', 760);
-                    if (state.housingHoldings.length === 0)
-                        this.createText('暂无住房。', new cc_1.Vec3(0, -115), 17, UITheme_1.UITheme.muted, 'center', 1000);
-                    const pageCount = Math.max(1, Math.ceil(state.housingHoldings.length / 3));
-                    this.housingPage = Math.min(this.housingPage, pageCount - 1);
-                    state.housingHoldings.slice(this.housingPage * 3, this.housingPage * 3 + 3).forEach((holding, index) => {
-                        this.createButton(`${holding.name}\n当前估值 ${this.money(holding.currentValue)} · 年净租金 ${this.money(holding.lastAnnualRent)}\n累计租金 ${this.money(holding.cumulativeRent)} · 主动出售 ${this.money(holding.currentValue * .7)}`, new cc_1.Vec3((index - 1) * 360, -135), new cc_1.Vec3(330, 90), () => this.showActionConfirmation('确认主动出售住房', `该住房会按市场估值七折出售，预计到账 ${this.money(holding.currentValue * .7)}。`, () => this.tryExplorer(() => this.session.sellHousing(holding.id), () => this.showHousing(this.session.snapshot(), activeEvent)), () => this.showHousing(this.session.snapshot(), activeEvent)), 'ghost', false);
-                    });
-                    if (pageCount > 1) {
-                        this.createButton('上一页', new cc_1.Vec3(-78, -248), new cc_1.Vec3(120, 42), () => { this.housingPage = (this.housingPage - 1 + pageCount) % pageCount; this.showHousing(this.session.snapshot(), activeEvent); }, 'ghost', false);
-                        this.createText(`${this.housingPage + 1} / ${pageCount}`, new cc_1.Vec3(0, -248), 15, UITheme_1.UITheme.muted, 'center', 60);
-                        this.createButton('下一页', new cc_1.Vec3(78, -248), new cc_1.Vec3(120, 42), () => { this.housingPage = (this.housingPage + 1) % pageCount; this.showHousing(this.session.snapshot(), activeEvent); }, 'ghost', false);
-                    }
-                }
-                showIndustryProjects(state, activeEvent) {
-                    this.clearScreen();
-                    this.session.markProjectListingsRead();
-                    const holdings = state.industryProjects;
-                    const active = holdings.filter((holding) => holding.status === 'active');
-                    const activeValue = active.reduce((sum, holding) => sum + holding.currentValue, 0);
-                    const annualCashflow = active.reduce((sum, holding) => { var _a; return sum + ((_a = holding.lastAnnualCashflow) !== null && _a !== void 0 ? _a : 0); }, 0);
-                    const realized = holdings.filter((holding) => holding.status !== 'active').reduce((sum, holding) => sum + holding.realizedReturn, 0);
-                    const unrealized = active.reduce((sum, holding) => { var _a; return sum + holding.currentValue - holding.investedPrincipal + ((_a = holding.cumulativeCashflow) !== null && _a !== void 0 ? _a : 0); }, 0);
-                    const net = Math.round((realized + unrealized) * 100) / 100;
-                    this.createPageHeader('项目投资', '用项目估值与年度现金流，构建第二条收入来源。', () => this.showExploration(this.session.snapshot(), activeEvent));
-                    const summary = this.createPanel(new cc_1.Vec3(0, 144), new cc_1.Vec3(920, 58), UITheme_1.UITheme.surfaceInset, 'ProjectSummary');
-                    this.createTextOn(summary, `在投估值 ${this.money(activeValue)}`, new cc_1.Vec3(-385, 0), 16, UITheme_1.UITheme.text, 'left', 220, 28);
-                    this.createTextOn(summary, `年度现金流 ${this.signedMoney(annualCashflow)}`, new cc_1.Vec3(-120, 0), 16, annualCashflow >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'left', 240, 28);
-                    this.createTextOn(summary, `累计收益 ${this.signedMoney(net)}`, new cc_1.Vec3(170, 0), 16, net >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'left', 220, 28);
-                    this.createTextOn(summary, `持有 ${active.length}/5`, new cc_1.Vec3(385, 0), 15, UITheme_1.UITheme.info, 'left', 120, 28);
-                    this.createButton('项目市场', new cc_1.Vec3(-122, 86), new cc_1.Vec3(224, 42), () => { this.projectView = 'market'; this.industryPage = 0; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, this.projectView === 'market' ? 'primary' : 'ghost', false);
-                    this.createButton(`我的项目 ${active.length}/5`, new cc_1.Vec3(122, 86), new cc_1.Vec3(224, 42), () => { this.projectView = 'portfolio'; this.industryPage = 0; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, this.projectView === 'portfolio' ? 'primary' : 'ghost', false);
-                    if (this.projectView === 'market') {
-                        this.showProjectMarket(state, activeEvent);
-                        return;
-                    }
-                    if (holdings.length === 0) {
-                        this.createText('你还没有持有项目。', new cc_1.Vec3(0, -18), 23, UITheme_1.UITheme.muted, 'center', 900);
-                        this.createText('项目市场会不定期出现不同规模的生意。', new cc_1.Vec3(0, -56), 15, UITheme_1.UITheme.quiet, 'center', 900);
-                        this.createButton('去项目市场看看', new cc_1.Vec3(0, -116), new cc_1.Vec3(260, 52), () => { this.projectView = 'market'; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'primary', false);
-                        return;
-                    }
-                    const pageCount = Math.max(1, Math.ceil(holdings.length / 6));
-                    this.industryPage = Math.min(this.industryPage, pageCount - 1);
-                    holdings.slice(this.industryPage * 6, this.industryPage * 6 + 6).forEach((holding, index) => {
-                        var _a, _b;
-                        const activeProfit = Math.round((holding.currentValue + ((_a = holding.cumulativeCashflow) !== null && _a !== void 0 ? _a : 0) - holding.investedPrincipal) * 100) / 100;
-                        const profit = holding.status === 'active' ? activeProfit : holding.realizedReturn;
-                        const status = holding.status === 'active' ? '持有中' : holding.status === 'exited' ? '已退出' : '项目失败';
-                        const text = holding.status === 'active'
-                            ? `${holding.name} · ${status}\n当前估值 ${this.money(holding.currentValue)} · 上年现金流 ${this.signedMoney((_b = holding.lastAnnualCashflow) !== null && _b !== void 0 ? _b : 0)}\n累计收益 ${this.signedMoney(profit)}`
-                            : `${holding.name} · ${status}\n已实现收益 ${this.signedMoney(profit)}\n${holding.lastChangeReason}`;
-                        const position = new cc_1.Vec3((index % 3 - 1) * 350, -44 - Math.floor(index / 3) * 188);
-                        if (holding.status === 'active') {
-                            const panel = this.createPanel(position, new cc_1.Vec3(320, 168), UITheme_1.UITheme.surface, 'ProjectHolding');
-                            this.createTextOn(panel, text, new cc_1.Vec3(0, 37), 15, profit >= 0 ? UITheme_1.UITheme.text : UITheme_1.UITheme.loss, 'center', 290, 86);
-                            this.createButtonOn(panel, `按市值七折出售 · ${this.money(holding.currentValue * .7)}`, new cc_1.Vec3(0, -57), new cc_1.Vec3(266, 38), () => this.showActionConfirmation('确认主动出售项目', `该项目会按市场估值七折出售，预计到账 ${this.money(holding.currentValue * .7)}。`, () => this.tryExplorer(() => this.session.exitIndustryProject(holding.id), () => this.showIndustryProjects(this.session.snapshot(), activeEvent)), () => this.showIndustryProjects(this.session.snapshot(), activeEvent)), 'ghost', false);
-                        }
-                        else {
-                            const panel = this.createPanel(position, new cc_1.Vec3(320, 168), UITheme_1.UITheme.surface, 'ArchivedInvestment');
-                            this.createTextOn(panel, text, cc_1.Vec3.ZERO, 14, profit >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 290, 150);
-                        }
-                    });
-                    if (pageCount > 1) {
-                        this.createButton('上一页', new cc_1.Vec3(-78, -265), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage - 1 + pageCount) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
-                        this.createText(`${this.industryPage + 1} / ${pageCount}`, new cc_1.Vec3(0, -265), 15, UITheme_1.UITheme.muted, 'center', 60);
-                        this.createButton('下一页', new cc_1.Vec3(78, -265), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage + 1) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
-                    }
-                }
-                showProjectMarket(state, activeEvent) {
-                    var _a;
-                    const reserved = new Set((_a = activeEvent === null || activeEvent === void 0 ? void 0 : activeEvent.options.map((option) => { var _a; return (_a = option.result.projectInvestment) === null || _a === void 0 ? void 0 : _a.projectId; }).filter((id) => !!id)) !== null && _a !== void 0 ? _a : []);
-                    const seen = new Set([...state.industryProjects.map((holding) => holding.projectId), ...reserved]);
-                    const available = this.session.industryProjectConfigs().filter((project) => !seen.has(project.id));
-                    const pageCount = Math.max(1, Math.ceil(available.length / 3));
-                    this.industryPage = Math.min(this.industryPage, pageCount - 1);
-                    if (available.length === 0) {
-                        this.createText('当前没有新的可买断项目。', new cc_1.Vec3(0, -12), 21, UITheme_1.UITheme.muted, 'center', 960);
-                        this.createText('继续经营生活，市场会在合适的时候给出新的报价。', new cc_1.Vec3(0, -48), 15, UITheme_1.UITheme.quiet, 'center', 960);
-                        return;
-                    }
-                    const pageItems = available.slice(this.industryPage * 3, this.industryPage * 3 + 3);
-                    pageItems.forEach((project, index) => {
-                        const x = (index - (pageItems.length - 1) / 2) * 360;
-                        const range = this.session.industryProjectCashflowRange(project);
-                        const phase = this.session.industryProjectPhase(project);
-                        const offer = this.session.industryProjectLoanOffer(project.id);
-                        const affordable = state.stats.funds >= project.minimumInvestment;
-                        const capacity = state.industryProjects.filter((holding) => holding.status === 'active').length < 5;
-                        const panel = this.createPanel(new cc_1.Vec3(x, -76), new cc_1.Vec3(320, 258), UITheme_1.UITheme.surface, 'ProjectOffer');
-                        this.createTextOn(panel, project.name, new cc_1.Vec3(0, 86), 19, UITheme_1.UITheme.goldSoft, 'center', 286, 30);
-                        this.createTextOn(panel, `${this.session.industryProjectScale(project)} · ${project.industry} · ${phase}期`, new cc_1.Vec3(0, 54), 13, UITheme_1.UITheme.info, 'center', 286, 24);
-                        this.createTextOn(panel, `${project.risk}风险 · 买断 ${this.money(project.minimumInvestment)}`, new cc_1.Vec3(0, 24), 15, UITheme_1.UITheme.text, 'center', 286, 24);
-                        this.createTextOn(panel, project.description, new cc_1.Vec3(0, -14), 14, UITheme_1.UITheme.muted, 'center', 278, 44);
-                        this.createTextOn(panel, `预计年经营 ${this.signedMoney(range.min)} ～ ${this.signedMoney(range.max)}`, new cc_1.Vec3(0, -56), 15, UITheme_1.UITheme.text, 'center', 286, 28);
-                        const buttonLabel = !capacity ? '持仓已满'
-                            : affordable ? '买断项目'
-                                : offer.canBorrow ? `贷款买断 · 借 ${this.money(offer.amount)}` : '资金不足';
-                        this.createButtonOn(panel, buttonLabel, new cc_1.Vec3(0, -102), new cc_1.Vec3(258, 42), () => {
-                            if (!capacity)
-                                return;
-                            if (affordable)
-                                this.tryExplorer(() => this.session.buyIndustryProject(project.id), () => this.showIndustryProjects(this.session.snapshot(), activeEvent));
-                            else if (offer.canBorrow)
-                                this.showProjectLoanOffer(project, activeEvent);
-                        }, affordable ? 'primary' : offer.canBorrow ? 'secondary' : 'ghost', affordable);
-                    });
-                    if (pageCount > 1) {
-                        this.createButton('上一页', new cc_1.Vec3(-78, -265), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage - 1 + pageCount) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
-                        this.createText(`${this.industryPage + 1} / ${pageCount}`, new cc_1.Vec3(0, -265), 15, UITheme_1.UITheme.muted, 'center', 60);
-                        this.createButton('下一页', new cc_1.Vec3(78, -265), new cc_1.Vec3(120, 42), () => { this.industryPage = (this.industryPage + 1) % pageCount; this.showIndustryProjects(this.session.snapshot(), activeEvent); }, 'ghost', false);
-                    }
-                }
-                showProjectLoanOffer(project, activeEvent) {
-                    const offer = this.session.industryProjectLoanOffer(project.id);
-                    this.showActionConfirmation('贷款买断项目', `买断价 ${this.money(project.minimumInvestment)}\n借款 ${this.money(offer.amount)} · 年利息约 ${this.money(offer.annualInterest)}\n买入后贷款余额 ${this.money(offer.resultingBalance)}`, () => this.tryExplorer(() => this.session.buyIndustryProject(project.id, true), () => this.showIndustryProjects(this.session.snapshot(), activeEvent)), () => this.showIndustryProjects(this.session.snapshot(), activeEvent));
-                }
-                showAnnualAction(state, activeEvent) {
-                    this.clearScreen();
-                    const available = this.session.hasMajorActionAvailable();
-                    const certificateCount = state.flags.filter((flag) => flag.startsWith('certificate-')).length;
-                    const graduateComplete = state.flags.includes('graduate-school') || state.education.level === 'graduate';
-                    this.createPageHeader('沉淀', `${available ? '本年度可选择 1 项沉淀' : '本年度沉淀已使用'} · 知识 ${state.stats.knowledge} · 现金 ${this.money(state.stats.funds)}`, () => this.showEvent(this.session.snapshot(), activeEvent));
-                    const certificateSkill = state.career.track === 'technology' ? 'technology' : state.career.track === 'product' || state.career.track === 'sales' ? 'business' : state.career.track === 'public-service' ? 'management' : state.career.track === 'education' ? 'learning' : 'expression';
-                    const undergraduate = ['undergraduate', 'first-tier', '211', '985'].includes(state.education.level);
-                    const actions = [
-                        { label: '身心照护\n¥1.5万 · 压力-14 · 健康+6', position: new cc_1.Vec3(-300, 75), enabled: available && state.stats.funds >= 1.5, action: () => this.session.recoverWellbeing('care'), kind: 'secondary' },
-                        { label: '买一块喜欢的表\n¥2万 · 幸福+4 · 压力-1', position: new cc_1.Vec3(0, 75), enabled: available && state.stats.funds >= 2, action: () => this.session.treatYourself('watch'), kind: 'secondary' },
-                        { label: `职业考证 ${certificateCount}/2\n¥1.5万 · 工资+5%`, position: new cc_1.Vec3(300, 75), enabled: available && certificateCount < 2, action: () => this.session.certificate(certificateSkill), kind: 'secondary' },
-                        { label: `考研深造${graduateComplete ? '（已完成）' : ''}\n¥8万 · 工资+5%`, position: new cc_1.Vec3(-150, -75), enabled: available && undergraduate && state.age >= 22 && !graduateComplete, action: () => this.session.graduateSchool(), kind: 'secondary' },
-                        { label: '买一辆车\n¥12万 · 幸福+8 · 压力-3', position: new cc_1.Vec3(150, -75), enabled: available && state.stats.funds >= 12, action: () => this.session.treatYourself('car'), kind: 'secondary' },
-                    ];
-                    actions.forEach((item) => this.createButton(item.enabled ? item.label : `${item.label}\n条件暂未满足`, item.position, new cc_1.Vec3(270, 92), () => {
-                        if (!item.enabled)
-                            return;
-                        this.tryExplorer(item.action, () => this.showAnnualAction(this.session.snapshot(), activeEvent));
-                    }, item.enabled ? item.kind : 'ghost', false));
-                    this.createText('条件说明：职业考证需知识 ≥35 且对应职业能力 ≥30；考研需本科毕业、知识 ≥60、学习 ≥45。', new cc_1.Vec3(0, -205), 14, UITheme_1.UITheme.muted, 'center', 1060, 30);
-                }
-                tryExplorer(action, refresh) {
-                    var _a;
-                    const before = this.session.snapshot();
-                    try {
-                        action();
-                        const after = this.session.snapshot();
-                        refresh();
-                        (_a = this.statAnimator) === null || _a === void 0 ? void 0 : _a.playAnimation(before, after);
-                    }
-                    catch (error) {
-                        this.showActionMessage('这一刻还做不到', error instanceof Error ? error.message : '眼下的条件还不够。', refresh);
-                    }
-                }
-                showMarket(state, activeEvent) {
-                    this.clearScreen();
-                    this.createText('交易所', new cc_1.Vec3(-500, 280), 38, UITheme_1.UITheme.text, 'left', 300);
-                    const tradeStatus = state.age < 18 ? '未成年可查看行情，18岁开放买卖' : `${state.year}年行情`;
-                    this.createText(tradeStatus, new cc_1.Vec3(-500, 230), 16, state.age >= 18 ? UITheme_1.UITheme.info : UITheme_1.UITheme.loss, 'left', 780);
-                    this.createButton(this.marketView === 'positions' ? '查看全部行情' : `我的持仓 ${state.market.positions.length}`, new cc_1.Vec3(480, 245), new cc_1.Vec3(190, 44), () => {
-                        this.marketView = this.marketView === 'quotes' ? 'positions' : 'quotes';
-                        this.marketPage = 0;
-                        this.showMarket(this.session.snapshot(), activeEvent);
-                    }, this.marketView === 'positions' ? 'primary' : 'secondary', false);
-                    this.createChip(`可用资金 ${this.money(state.stats.funds)}`, new cc_1.Vec3(-330, 185), 300, UITheme_1.UITheme.goldSoft);
-                    this.createChip(`持仓市值 ${this.money(this.session.marketValue())}`, new cc_1.Vec3(0, 185), 270, UITheme_1.UITheme.info);
-                    this.createChip(`已实现盈亏 ${this.money(state.market.realizedProfit)}`, new cc_1.Vec3(300, 185), 290, state.market.realizedProfit >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss);
-                    this.createButton('现金管理', new cc_1.Vec3(-480, 132), new cc_1.Vec3(150, 42), () => this.showCashManagement(this.session.snapshot(), activeEvent), 'secondary', false);
-                    const allListed = this.session.marketInstruments();
-                    const heldIds = new Set(state.market.positions.map((position) => position.instrumentId));
-                    const listed = this.marketView === 'positions' ? allListed.filter((instrument) => heldIds.has(instrument.id)) : allListed;
-                    if (listed.length === 0)
-                        this.createText(this.marketView === 'positions' ? '当前没有股票持仓。' : '当前年份尚无公开交易品种。继续生活，留意时代变化。', new cc_1.Vec3(0, 20), 22, UITheme_1.UITheme.muted, 'center');
-                    const pageCount = Math.max(1, Math.ceil(listed.length / 4));
-                    this.marketPage = Math.min(this.marketPage, pageCount - 1);
-                    listed.slice(this.marketPage * 4, this.marketPage * 4 + 4).forEach((instrument, index) => this.createMarketCard(instrument, index, activeEvent));
-                    if (state.age >= 18) {
-                        const repayAmount = Math.min(1, state.finance.loanBalance);
-                        const canRepay = repayAmount > 0 && state.stats.funds >= repayAmount;
-                        if (repayAmount > 0)
-                            this.createButton(`还款 ${this.money(repayAmount)}`, new cc_1.Vec3(-480, -250), new cc_1.Vec3(140, 42), () => {
-                                if (canRepay)
-                                    this.tryMarketAction(() => this.session.repayLoan(repayAmount), activeEvent);
-                            }, canRepay ? 'secondary' : 'ghost', false);
-                        const canRepayAll = state.stats.funds + .001 >= state.finance.loanBalance;
-                        if (repayAmount > 0)
-                            this.createButton(canRepayAll ? `全部还款 ${this.money(state.finance.loanBalance)}` : '全部还款 · 现金不足', new cc_1.Vec3(-315, -250), new cc_1.Vec3(170, 42), () => {
-                                if (canRepayAll)
-                                    this.showActionConfirmation('结清全部贷款', `使用 ${this.money(state.finance.loanBalance)} 现金结清贷款；净资产不会因还款本身发生变化。`, () => this.tryMarketAction(() => this.session.repayAllLoan(), activeEvent), () => this.showMarket(this.session.snapshot(), activeEvent));
-                            }, canRepayAll ? 'secondary' : 'ghost', false);
-                    }
-                    if (pageCount > 1) {
-                        this.createButton('上一页', new cc_1.Vec3(-80, -250), new cc_1.Vec3(110, 42), () => { this.marketPage = (this.marketPage - 1 + pageCount) % pageCount; this.showMarket(this.session.snapshot(), activeEvent); }, 'ghost', false);
-                        this.createText(`${this.marketPage + 1} / ${pageCount}`, new cc_1.Vec3(0, -250), 15, UITheme_1.UITheme.muted, 'center', 70);
-                        this.createButton('下一页', new cc_1.Vec3(80, -250), new cc_1.Vec3(110, 42), () => { this.marketPage = (this.marketPage + 1) % pageCount; this.showMarket(this.session.snapshot(), activeEvent); }, 'ghost', false);
-                    }
-                    this.createButton('返回探索', new cc_1.Vec3(350, -250), new cc_1.Vec3(140, 42), () => this.showExploration(this.session.snapshot(), activeEvent), 'ghost', false);
-                    this.createButton(activeEvent ? '返回事件' : '返回人生', new cc_1.Vec3(515, -250), new cc_1.Vec3(150, 42), () => this.showEvent(this.session.snapshot(), activeEvent), 'primary', false);
-                }
-                createMarketCard(instrument, index, activeEvent) {
-                    var _a, _b;
-                    const state = this.session.snapshot();
-                    const position = state.market.positions.find((item) => item.instrumentId === instrument.id);
-                    const change = this.session.marketChange(instrument.id);
-                    const trend = this.sparkline(this.session.marketHistory(instrument.id, 6).map((item) => item.price));
-                    const fromYear = Math.max(instrument.publicFromYear, state.year - 1);
-                    const movement = fromYear === state.year ? '上市首年，无年度涨跌' : `${fromYear}→${state.year} ${change.amount >= 0 ? '▲' : '▼'} ${change.percent >= 0 ? '+' : ''}${change.percent}%`;
-                    const x = index % 2 === 0 ? -285 : 285;
-                    const y = 30 - Math.floor(index / 2) * 135;
-                    const card = this.createPanel(new cc_1.Vec3(x, y), new cc_1.Vec3(540, 118), UITheme_1.UITheme.surface);
-                    this.createTextOn(card, `${instrument.name} · ${(_a = instrument.sector) !== null && _a !== void 0 ? _a : this.marketKindName(instrument.kind)} · ${(_b = instrument.risk) !== null && _b !== void 0 ? _b : '中'}风险`, new cc_1.Vec3(-245, 40), 18, UITheme_1.UITheme.goldSoft, 'left', 390, 26);
-                    const price = this.session.marketPrice(instrument.id);
-                    const unit = instrument.kind === 'stock' ? '股' : '份';
-                    this.createTextOn(card, `${state.year}年价 ${this.yuan(price)}/${unit} · ${movement}`, new cc_1.Vec3(-245, 14), 13, change.amount >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'left', 400, 22);
-                    const holdingQuantity = position ? Math.round(position.quantity) : 0;
-                    const marketValue = position ? price * position.quantity : 0;
-                    this.createTextOn(card, `近年趋势 ${trend} · 持仓 ${holdingQuantity.toLocaleString('zh-CN')}${unit}${position ? ` · 市值 ${this.yuan(marketValue)} · 均价 ${this.yuan(position.averageCost)}` : ''}\n${instrument.description}`, new cc_1.Vec3(-245, -27), 13, UITheme_1.UITheme.quiet, 'left', 390, 50);
-                    const lotSize = this.session.marketLotSize(instrument.id);
-                    const minimumCost = price * lotSize / 10000;
-                    const canBuy = this.session.canTradeMarket() && state.stats.funds >= minimumCost;
-                    if (canBuy)
-                        this.createButtonOn(card, '买入', new cc_1.Vec3(210, 25), new cc_1.Vec3(100, 38), () => {
-                            this.marketOrderFraction = .25;
-                            this.showMarketBuyOrder(instrument, activeEvent);
-                        }, 'primary', false);
-                    if (position)
-                        this.createButtonOn(card, '卖出', new cc_1.Vec3(210, -25), new cc_1.Vec3(100, 38), () => {
-                            this.marketOrderFraction = .5;
-                            this.showMarketSellOrder(instrument, activeEvent);
-                        }, 'secondary', false);
-                }
-                showMarketBuyOrder(instrument, activeEvent) {
-                    const state = this.session.snapshot();
-                    const price = this.session.marketPrice(instrument.id);
-                    const lotSize = this.session.marketLotSize(instrument.id);
-                    const unit = instrument.kind === 'stock' ? '股' : '份';
-                    const maxLots = Math.floor(state.stats.funds * 10000 / price / lotSize);
-                    const maximum = maxLots * lotSize;
-                    this.clearScreen();
-                    this.createPageHeader(`买入 ${instrument.name}`, `${this.yuan(price)} / ${unit} · 可用资金 ${this.money(state.stats.funds)}`, () => this.showMarket(this.session.snapshot(), activeEvent));
-                    this.createPanel(new cc_1.Vec3(0, 0), new cc_1.Vec3(820, 380), UITheme_1.UITheme.surfaceRaised, 'MarketOrderPanel');
-                    this.createText('投入资金比例', new cc_1.Vec3(0, 128), 18, UITheme_1.UITheme.muted, 'center', 300);
-                    const orderText = this.createText('', new cc_1.Vec3(0, 48), 24, UITheme_1.UITheme.text, 'center', 660, 82);
-                    const scaleText = this.createText('', new cc_1.Vec3(0, -30), 15, UITheme_1.UITheme.info, 'center', 680, 30);
-                    const confirm = this.createButton('', new cc_1.Vec3(0, -145), new cc_1.Vec3(330, 54), () => {
-                        const quantity = this.marketQuantityForFraction(maximum, lotSize, this.marketOrderFraction);
-                        if (quantity >= lotSize)
-                            this.tryMarketAction(() => this.session.buyMarket(instrument.id, quantity), activeEvent);
-                    }, maximum >= lotSize ? 'primary' : 'ghost', false);
-                    const updateOrder = (fraction) => {
-                        var _a;
-                        this.marketOrderFraction = Math.max(0, Math.min(1, fraction));
-                        const quantity = this.marketQuantityForFraction(maximum, lotSize, this.marketOrderFraction);
-                        const totalYuan = price * quantity;
-                        const remaining = Math.max(0, state.stats.funds - totalYuan / 10000);
-                        const label = orderText.getComponent(cc_1.Label);
-                        if (label)
-                            label.string = quantity > 0 ? `买入 ${quantity.toLocaleString('zh-CN')}${unit}\n支付 ${this.yuan(totalYuan)} · 剩余 ${this.money(remaining)}` : '向右拖动选择投入金额';
-                        const scale = scaleText.getComponent(cc_1.Label);
-                        if (scale)
-                            scale.string = `${Math.round(this.marketOrderFraction * 100)}%  ·  最多 ${maximum.toLocaleString('zh-CN')}${unit}`;
-                        const buttonLabel = (_a = confirm.children[0]) === null || _a === void 0 ? void 0 : _a.getComponent(cc_1.Label);
-                        if (buttonLabel)
-                            buttonLabel.string = quantity >= lotSize ? '确认买入' : '资金不足';
-                    };
-                    this.createFundsSlider(new cc_1.Vec3(0, -72), 620, this.marketOrderFraction, updateOrder);
-                    this.createText('0%', new cc_1.Vec3(-310, -108), 13, UITheme_1.UITheme.quiet, 'center', 50);
-                    this.createText('25%', new cc_1.Vec3(-155, -108), 13, UITheme_1.UITheme.quiet, 'center', 50);
-                    this.createText('50%', new cc_1.Vec3(0, -108), 13, UITheme_1.UITheme.quiet, 'center', 50);
-                    this.createText('75%', new cc_1.Vec3(155, -108), 13, UITheme_1.UITheme.quiet, 'center', 50);
-                    this.createText('最大', new cc_1.Vec3(310, -108), 13, UITheme_1.UITheme.quiet, 'center', 50);
-                    updateOrder(this.marketOrderFraction);
-                }
-                tryMarketAction(action, activeEvent) {
-                    var _a;
-                    const before = this.session.snapshot();
-                    try {
-                        action();
-                        const after = this.session.snapshot();
-                        this.showMarket(after, activeEvent);
-                        (_a = this.statAnimator) === null || _a === void 0 ? void 0 : _a.playAnimation(before, after);
-                    }
-                    catch (error) {
-                        this.showMarketMessage(error instanceof Error ? error.message : '操作失败。', activeEvent);
-                    }
-                }
-                tryChoose(optionId, event) {
-                    const before = this.session.snapshot();
-                    try {
-                        const option = event.options.find((candidate) => candidate.id === optionId);
-                        const funding = this.session.choiceFunding(optionId);
-                        if (funding.shortfall > 0 && funding.offer.canBorrow && option) {
-                            this.showOpportunityLoan(event, option, before, funding.cost, funding.offer.amount, funding.offer.annualInterest, funding.offer.resultingBalance);
-                            return;
-                        }
-                        const after = this.session.choose(optionId);
-                        this.showChoiceOutcome(before, after, event, option);
-                    }
-                    catch (error) {
-                        this.clearScreen();
-                        this.createText('这次选择还做不到', new cc_1.Vec3(0, 100), 36, UITheme_1.UITheme.gold, 'center');
-                        this.createText(error instanceof Error ? error.message : '当前无法完成选择。', new cc_1.Vec3(0, 35), 20, UITheme_1.UITheme.muted, 'center', 950);
-                        this.createButton('返回当前事件', new cc_1.Vec3(0, -80), new cc_1.Vec3(280, 60), () => this.showEvent(this.session.snapshot(), event), 'secondary', false);
-                    }
-                }
-                showOpportunityLoan(event, option, before, cost, amount, annualInterest, resultingBalance) {
-                    this.showActionConfirmation('贷款参与', `${option.label}\n需要 ${this.money(cost)} · 还差 ${this.money(amount)}\n年利息约 ${this.money(annualInterest)} · 借款后余额 ${this.money(resultingBalance)}`, () => {
-                        try {
-                            const after = this.session.chooseWithLoan(option.id);
-                            this.showChoiceOutcome(before, after, event, option);
-                        }
-                        catch (error) {
-                            this.showActionMessage('当前无法贷款参与', error instanceof Error ? error.message : '可用贷款不足。', () => this.showEvent(this.session.snapshot(), event));
-                        }
-                    }, () => this.showEvent(this.session.snapshot(), event));
-                }
-                showChoiceOutcome(before, after, event, option) {
-                    var _a;
-                    this.clearScreen();
-                    const milestone = before.education.level !== after.education.level
-                        ? `阶段变化：${this.educationName(before.education.level)} → ${this.educationName(after.education.level)}`
-                        : before.career.track !== after.career.track
-                            ? `职业开启：${this.careerName(after.career.track)}` : '';
-                    const unlocked = after.flags.filter((flag) => !before.flags.includes(flag)).slice(0, 4);
-                    if (!after.completed)
-                        this.createLifeDashboard(after, this.session.getCurrentEvent());
-                    const scrim = new cc_1.Node('ChoiceOutcomeScrim');
-                    scrim.addComponent(cc_1.UITransform).setContentSize(1280, 720);
-                    this.drawRoundedRect(scrim, 1280, 720, 0, new cc_1.Color(43, 38, 32, 165));
-                    scrim.addComponent(cc_1.BlockInputEvents);
-                    this.uiRoot.addChild(scrim);
-                    const card = this.createPanel(new cc_1.Vec3(0, -5), new cc_1.Vec3(900, 360), UITheme_1.UITheme.surfaceRaised, 'ChoiceOutcomeCard');
-                    this.createTextOn(card, event.interaction === 'milestone' || event.forced ? '这一刻改变了人生方向' : '选择结果', new cc_1.Vec3(0, 134), 17, UITheme_1.UITheme.info, 'center', 800, 30);
-                    this.createTextOn(card, event.title, new cc_1.Vec3(0, 90), 31, UITheme_1.UITheme.text, 'center', 800, 44);
-                    const actualChanges = this.stateDeltaSummary(before, after) || '属性没有发生直接变化';
-                    const outcomeLines = [
-                        `选择 · ${(_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : '继续'}`,
-                        this.session.getLatestOutcome() ? `经历 · ${this.session.getLatestOutcome()}` : '',
-                        `本次变化 · ${actualChanges}`,
-                        milestone,
-                        unlocked.length ? `新记录 · ${unlocked.map((flag) => this.flagName(flag)).join(' · ')}` : '',
-                    ].filter(Boolean);
-                    this.createTextOn(card, outcomeLines.join('\n'), new cc_1.Vec3(0, -15), 17, UITheme_1.UITheme.text, 'center', 800, 170);
-                    this.createTextOn(card, after.completed ? '点击继续查看这一生的回声' : '点击任意位置继续', new cc_1.Vec3(0, -145), 14, UITheme_1.UITheme.quiet, 'center', 760, 24);
-                    let dismissed = false;
-                    const dismiss = () => {
-                        if (dismissed)
-                            return;
-                        dismissed = true;
-                        const latest = this.session.snapshot();
-                        if (latest.completed)
-                            this.showEnding(latest);
-                        else
-                            this.showEvent(latest, this.session.getCurrentEvent());
-                    };
-                    scrim.on(cc_1.Node.EventType.TOUCH_END, dismiss, this);
-                    card.on(cc_1.Node.EventType.TOUCH_END, dismiss, this);
-                    Motion_1.Motion.modalEnter(card);
-                }
-                tryDecline(event) {
-                    const before = this.session.snapshot();
-                    try {
-                        const after = this.session.declineCurrentEvent();
-                        this.showChoiceOutcome(before, after, event, { id: 'decline-opportunity', label: '暂不进入，保留资源与选择空间', result: {} });
-                    }
-                    catch (error) {
-                        this.showActionMessage('眼下还不能离开', error instanceof Error ? error.message : '这件事仍需要作出决定。', () => this.showEvent(this.session.snapshot(), event));
-                    }
-                }
-                advanceTime(years) {
-                    const before = this.session.snapshot();
-                    const after = this.session.continueYears(years);
-                    if (after.completed)
-                        this.showEnding(after);
-                    else
-                        this.showAnnualOutcome(before, after);
-                }
-                showAnnualOutcome(before, after) {
-                    this.clearScreen();
-                    const elapsed = Math.max(1, after.year - before.year);
-                    const deltas = this.stateDeltaSummary(before, after);
-                    const finance = after.finance.history.slice(-elapsed);
-                    const net = Math.round(finance.reduce((sum, row) => sum + row.netCashflow, 0) * 100) / 100;
-                    const familyCovered = Math.round(finance.reduce((sum, row) => { var _a; return sum + ((_a = row.familyCoveredExpense) !== null && _a !== void 0 ? _a : 0); }, 0) * 100) / 100;
-                    const beforeWealth = WealthSystem_1.wealthBreakdown(before);
-                    const afterWealth = WealthSystem_1.wealthBreakdown(after);
-                    const wealthBefore = beforeWealth.netWorth;
-                    const wealthAfter = afterWealth.netWorth;
-                    const wealthDelta = Math.round((wealthAfter - wealthBefore) * 100) / 100;
-                    const milestone = this.wealthMilestone(wealthBefore, wealthAfter);
-                    this.createText(`${before.year}—${after.year} 年度结算`, new cc_1.Vec3(0, 244), 37, UITheme_1.UITheme.text, 'center', 900);
-                    this.createText(milestone ? `财富里程碑 · ${milestone}` : `重心：${this.focusName(before.lifeFocus)} · 实际经过 ${elapsed} 年`, new cc_1.Vec3(0, 198), 17, milestone ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'center', 900);
-                    const card = this.createPanel(new cc_1.Vec3(0, 28), new cc_1.Vec3(920, 300), UITheme_1.UITheme.surfaceRaised, 'AnnualOutcomeCard');
-                    this.createTextOn(card, deltas || '这一阶段主要保持了原有状态。', new cc_1.Vec3(0, 102), 16, UITheme_1.UITheme.text, 'center', 840, 48);
-                    this.createTextOn(card, `个人净现金流 ${net >= 0 ? '+' : ''}${this.money(net)}${familyCovered > 0 ? ` · 家庭承担 ${this.money(familyCovered)}` : ''}`, new cc_1.Vec3(0, 55), 19, net >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 840, 32);
-                    this.createTextOn(card, `个人净资产 ${this.money(wealthBefore)} → ${this.money(wealthAfter)}（本年 ${this.signedMoney(wealthDelta)}）`, new cc_1.Vec3(0, 15), 20, wealthDelta >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 850, 34);
-                    this.createTextOn(card, `期末构成：现金 ${this.money(afterWealth.cash)} + 投资资产 ${this.money(afterWealth.investmentAssets)} − 贷款 ${this.money(afterWealth.debt)}`, new cc_1.Vec3(0, -25), 16, UITheme_1.UITheme.info, 'center', 850, 28);
-                    this.createTextOn(card, `健康 ${after.stats.health} · 压力 ${after.stats.pressure} · 幸福 ${after.stats.happiness}`, new cc_1.Vec3(0, -63), 15, UITheme_1.UITheme.muted, 'center', 820, 28);
-                    this.createTextOn(card, this.session.getCurrentEvent() ? '新的事情正在发生…' : '新的一年正在到来…', new cc_1.Vec3(0, -106), 14, UITheme_1.UITheme.quiet, 'center', 760, 24);
-                    const progress = this.createPanelOn(card, new cc_1.Vec3(0, -142), new cc_1.Vec3(780, 4), milestone ? UITheme_1.UITheme.gold : UITheme_1.UITheme.info, 'AnnualProgress');
-                    Motion_1.Motion.progress(progress, 1.55);
-                    const revision = this.renderRevision;
-                    Motion_1.Motion.autoCard(card, () => {
-                        if (revision === this.renderRevision && card.isValid)
-                            this.showEvent(this.session.snapshot(), this.session.getCurrentEvent());
-                    }, 1.3);
-                }
-                stateDeltaSummary(before, after) {
-                    const entries = [];
-                    const groups = [
-                        [before.stats, after.stats, ['funds', 'health', 'pressure', 'happiness', 'knowledge']],
-                        [before.skills, after.skills, ['learning', 'technology', 'business', 'expression', 'management', 'information']],
-                    ];
-                    groups.forEach(([left, right, keys]) => keys.forEach((key) => {
-                        const delta = Math.round((right[key] - left[key]) * 100) / 100;
-                        if (delta !== 0)
-                            entries.push(key === 'funds' ? `${this.nameOf(key)} ${this.signedMoney(delta)}` : `${this.nameOf(key)} ${delta > 0 ? '+' : ''}${delta}`);
-                    }));
-                    if (before.education.admissionScore !== after.education.admissionScore) {
-                        const delta = Math.round((after.education.admissionScore - before.education.admissionScore) * 100) / 100;
-                        entries.push(`升学评估 ${delta > 0 ? '+' : ''}${delta}`);
-                    }
-                    return entries.slice(0, 8).join(' · ');
-                }
-                showWarnings(state) {
-                    const warnings = [];
-                    if (state.stats.health <= 40)
-                        warnings.push('⚠ 健康状况堪忧');
-                    if (state.stats.pressure >= 60)
-                        warnings.push('⚠ 压力持续偏高，健康与幸福正在受损');
-                    if (state.finance.lastCashflow < 0)
-                        warnings.push('⚠ 现金流为负');
-                    if (warnings.length)
-                        this.createText(warnings.join('  '), new cc_1.Vec3(0, 82), 13, UITheme_1.UITheme.loss, 'center', 960, 22);
-                }
-                setFocus(focus) {
-                    try {
-                        const state = this.session.setLifeFocus(focus);
-                        if (this.updateFocusDisplay(state))
-                            return;
-                        this.showEvent(state, this.session.getCurrentEvent());
-                    }
-                    catch (error) {
-                        this.showActionMessage('人生安排提示', error instanceof Error ? error.message : '当前无法设置这一年度重心。', () => this.showEvent(this.session.snapshot(), this.session.getCurrentEvent()));
-                    }
-                }
-                updateFocusDisplay(state) {
-                    var _a;
-                    if (!this.focusSummaryText || !this.focusCashflowText || !Object.keys(this.focusButtons).length || this.session.getCurrentEvent())
-                        return false;
-                    for (const focus of ['study', 'work', 'rest', 'social']) {
-                        const button = this.focusButtons[focus];
-                        if (!(button === null || button === void 0 ? void 0 : button.isValid))
-                            return false;
-                        const selected = state.lifeFocus === focus;
-                        this.paintButton(button, new cc_1.Vec3(210, 62), selected ? 'primary' : 'secondary', false);
-                        const label = (_a = button.children.find((child) => child.getComponent(cc_1.Label))) === null || _a === void 0 ? void 0 : _a.getComponent(cc_1.Label);
-                        if (label)
-                            label.color = selected ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.text;
-                    }
-                    const summary = this.focusSummary(state);
-                    const summaryLabel = this.focusSummaryText.getComponent(cc_1.Label);
-                    const cashflowLabel = this.focusCashflowText.getComponent(cc_1.Label);
-                    if (!summaryLabel || !cashflowLabel)
-                        return false;
-                    summaryLabel.string = summary.focus;
-                    cashflowLabel.string = summary.cashflow;
-                    cashflowLabel.color = summary.color;
-                    return true;
-                }
-                showMarketMessage(message, activeEvent) {
-                    this.clearScreen();
-                    this.createText('交易未能完成', new cc_1.Vec3(0, 100), 36, UITheme_1.UITheme.gold, 'center');
-                    this.createText(message, new cc_1.Vec3(0, 35), 20, UITheme_1.UITheme.muted, 'center');
-                    this.createButton('返回市场', new cc_1.Vec3(0, -80), new cc_1.Vec3(250, 60), () => this.showMarket(this.session.snapshot(), activeEvent), 'secondary', false);
-                }
-                showCareer(state, activeEvent) {
-                    var _a, _b;
-                    this.clearScreen();
-                    this.createPageHeader('职业发展', `${this.careerName(state.career.track)} · ${this.careerLevelName(state.career.level)}`, () => this.showLifePanel(this.session.snapshot(), activeEvent));
-                    this.createPanel(new cc_1.Vec3(0, 55), new cc_1.Vec3(820, 210), UITheme_1.UITheme.surface);
-                    if (state.career.track === 'unemployed') {
-                        const readiness = Math.round(state.skills.learning * .3 + state.skills.information * .25 + state.skills.management * .2 + state.stats.knowledge * .25);
-                        this.createText(`当前状态：尚未获得正式工作\n求职准备度：${readiness} / 100\n兼职年收入：${this.money(state.age < 18 ? .15 : 1.2)}\n预计首份工作节点：完成大学阶段后\n\n学习、信息、管理与知识都会提高职业起点。`, new cc_1.Vec3(0, 55), 19, UITheme_1.UITheme.text, 'center', 740, 170);
-                        return;
-                    }
-                    const requirement = this.session.promotionRequirement();
-                    const next = (requirement === null || requirement === void 0 ? void 0 : requirement.next) ? this.careerLevelName(requirement.next) : '已到最高职级';
-                    this.createText(`当前行业：${state.career.industry || '尚未确定'}\n年工资：${this.money(state.finance.salaryAnnual)}\n本级任职：${(_a = requirement === null || requirement === void 0 ? void 0 : requirement.years) !== null && _a !== void 0 ? _a : 0} / ${(_b = requirement === null || requirement === void 0 ? void 0 : requirement.requiredYears) !== null && _b !== void 0 ? _b : 0} 年\n下一职级：${next}\n累计工资加成：${Math.round((state.career.salaryMultiplier - 1) * 100)}%`, new cc_1.Vec3(0, 65), 19, UITheme_1.UITheme.text, 'center', 740, 165);
-                    this.createText((requirement === null || requirement === void 0 ? void 0 : requirement.guaranteed) ? '本年度将自动晋升，基础年薪提高 15%。' : '满足任职年限后，晋升会以随机职业通知直接生效；连续四年未晋升则下一年自动晋升。', new cc_1.Vec3(0, -95), 16, UITheme_1.UITheme.info, 'center', 940, 48);
-                }
-                showActionMessage(title, message, back) {
-                    this.clearScreen();
-                    this.createPanel(new cc_1.Vec3(0, 20), new cc_1.Vec3(720, 300), UITheme_1.UITheme.surface);
-                    this.createText(title, new cc_1.Vec3(0, 90), 32, UITheme_1.UITheme.gold, 'center', 640);
-                    this.createText(message, new cc_1.Vec3(0, 25), 18, UITheme_1.UITheme.muted, 'center', 620, 76);
-                    this.createButton('返回', new cc_1.Vec3(0, -78), new cc_1.Vec3(230, 52), back, 'primary', false);
-                }
-                showActionConfirmation(title, message, confirm, back) {
-                    this.clearScreen();
-                    this.createPanel(new cc_1.Vec3(0, 20), new cc_1.Vec3(760, 330), UITheme_1.UITheme.surfaceRaised);
-                    this.createText(title, new cc_1.Vec3(0, 105), 32, UITheme_1.UITheme.gold, 'center', 680);
-                    this.createText(message, new cc_1.Vec3(0, 30), 18, UITheme_1.UITheme.text, 'center', 650, 90);
-                    this.createButton('确认', new cc_1.Vec3(-140, -85), new cc_1.Vec3(240, 54), confirm, 'primary', false);
-                    this.createButton('返回', new cc_1.Vec3(140, -85), new cc_1.Vec3(240, 54), back, 'secondary', false);
-                }
-                showLifePanel(state, activeEvent) {
-                    this.clearScreen();
-                    this.createPageHeader('人生面板', `${state.year} 年 · ${state.age} 岁`, () => this.showEvent(state, activeEvent));
-                    this.createPanel(new cc_1.Vec3(-290, 65), new cc_1.Vec3(520, 250), UITheme_1.UITheme.surface);
-                    this.createPanel(new cc_1.Vec3(290, 65), new cc_1.Vec3(520, 250), UITheme_1.UITheme.surface);
-                    const forecast = this.session.financeForecast();
-                    this.createText(`成长与升学\n学历  ${this.educationName(state.education.level)}${state.flags.includes('graduate-school') ? ' · 已获研究生学位' : ''}\n升学评估  ${this.session.learningIndex()} / 100\n985：75 · 211：65 · 一本：55 · 本科：42\n知识 ${state.stats.knowledge}：继续教育与复杂判断\n学习 ${state.skills.learning}：教育职业与考研\n信息 ${state.skills.information}：市场预告与传媒职业\n所在城市  ${this.cityName(state.education.city)}`, new cc_1.Vec3(-500, 65), 16, UITheme_1.UITheme.text, 'left', 440, 225);
-                    this.createText(`职业与财务\n职业  ${this.careerName(state.career.track)}${state.career.track === 'unemployed' ? '' : ` · ${this.careerLevelName(state.career.level)}`}\n工资 ${this.money(forecast.salaryIncome)} · 项目 ${this.signedMoney(forecast.projectCashflow)} · 房租 ${this.money(forecast.rentalIncome)}\n固收 ${this.money(forecast.fixedIncome)} · 生活 ${this.money(forecast.personalLivingExpense)} · 利息 ${this.money(forecast.interestExpense)}\n预计净现金流  ${this.signedMoney(forecast.netCashflow)}\n现金 / 投资资产  ${this.money(state.stats.funds)} / ${this.money(this.session.investmentAssetValue())}\n个人净资产  ${this.money(this.session.totalAssetValue())}`, new cc_1.Vec3(40, 65), 15, UITheme_1.UITheme.text, 'left', 470, 225);
-                    this.createText(`能力用途：技术→技术职业/科技项目 ｜ 商业→销售/创业/投资 ｜ 表达→传媒与沟通 ｜ 管理→晋升与项目`, new cc_1.Vec3(0, -92), 15, UITheme_1.UITheme.muted, 'center', 1040, 32);
-                    const signals = state.discoveredSignalIds.map((id) => this.opportunitySystem.signalText(id)).join(' · ') || '暂未发现';
-                    const opportunities = state.opportunities.map((item) => `${this.opportunitySystem.chainName(item.chainId)}（${item.entered ? '已进入' : '已观察'}）`).join(' · ') || '暂未进入';
-                    this.createText(`时代信号：${signals}\n机遇进展：${opportunities}`, new cc_1.Vec3(0, -145), 15, UITheme_1.UITheme.info, 'center', 1040, 64);
-                    this.createButton('能力与用途', new cc_1.Vec3(-260, -225), new cc_1.Vec3(220, 50), () => this.showAbilities(this.session.snapshot(), activeEvent), 'secondary', false);
-                    this.createButton('职业发展', new cc_1.Vec3(0, -225), new cc_1.Vec3(220, 50), () => this.showCareer(this.session.snapshot(), activeEvent), 'secondary', false);
-                    this.createButton('年度现金流', new cc_1.Vec3(260, -225), new cc_1.Vec3(220, 50), () => this.showFinanceHistory(this.session.snapshot(), activeEvent), 'secondary', false);
-                }
-                showAbilities(state, event) {
-                    this.clearScreen();
-                    this.createPageHeader('能力与用途', '成长能力满值100；每项能力的用途与当前值都在这里。', () => this.showLifePanel(this.session.snapshot(), event));
-                    AbilityConfig_1.ABILITIES.forEach((ability, index) => {
-                        const panel = this.createPanel(new cc_1.Vec3(index % 2 ? 280 : -280, 150 - Math.floor(index / 2) * 102), new cc_1.Vec3(530, 90), UITheme_1.UITheme.surface);
-                        this.createTextOn(panel, `${ability.name} ${AbilityConfig_1.abilityValue(state, ability)} / 100\n${ability.use}`, cc_1.Vec3.ZERO, 17, UITheme_1.UITheme.text, 'center', 490, 76);
-                    });
-                }
-                showFinanceHistory(state, activeEvent) {
-                    this.clearScreen();
-                    this.createPageHeader('年度现金流', '每一年度分别记录收入、生活开支、贷款利息、净现金流与年末现金。', () => this.showLifePanel(this.session.snapshot(), activeEvent));
-                    const rows = state.finance.history.slice(-12).reverse();
-                    if (rows.length === 0) {
-                        this.createText('尚未完成第一个年度结算。', new cc_1.Vec3(0, 40), 20, UITheme_1.UITheme.muted, 'center');
-                        return;
-                    }
-                    rows.forEach((row, index) => {
-                        var _a;
-                        const x = index < 6 ? -300 : 300;
-                        const y = 145 - (index % 6) * 68;
-                        const expenses = row.livingExpense + row.discretionaryExpense + row.housingExpense + row.interestExpense;
-                        const familyCovered = (_a = row.familyCoveredExpense) !== null && _a !== void 0 ? _a : 0;
-                        const panel = this.createPanel(new cc_1.Vec3(x, y), new cc_1.Vec3(540, 60), UITheme_1.UITheme.surface);
-                        this.createTextOn(panel, `${row.year}｜工资 ${this.money(row.salaryIncome)} · 项目 ${this.signedMoney(row.projectIncome)} · 房租 ${this.money(row.rentalIncome)} · 固收 ${this.money(row.fixedIncome)}\n生活 ${this.money(row.livingExpense)} · 重心 ${this.money(row.discretionaryExpense)} · 利息 ${this.money(row.interestExpense)} · 净额 ${this.signedMoney(row.netCashflow)}${familyCovered > 0 ? ` · 家庭承担 ${this.money(familyCovered)}` : ''}`, cc_1.Vec3.ZERO, 13, row.netCashflow >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, 'center', 510, 50);
-                    });
-                }
-                showEnding(state) {
-                    const ending = state.ending;
-                    const report = this.session.getReport();
-                    if (!ending || !report) {
-                        this.showHome();
-                        return;
-                    }
-                    this.clearScreen();
-                    this.createText('人生结算', new cc_1.Vec3(0, 290), 17, UITheme_1.UITheme.gold, 'center');
-                    this.createText(`${ending.score}`, new cc_1.Vec3(0, 225), 66, UITheme_1.UITheme.goldSoft, 'center');
-                    this.createText('综合评分', new cc_1.Vec3(0, 160), 15, UITheme_1.UITheme.quiet, 'center');
-                    this.createText(ending.title, new cc_1.Vec3(0, 115), 34, UITheme_1.UITheme.text, 'center');
-                    this.createText(ending.description, new cc_1.Vec3(0, 78), 18, UITheme_1.UITheme.muted, 'center', 1000, 42);
-                    this.createPanel(new cc_1.Vec3(0, 0), new cc_1.Vec3(980, 105), UITheme_1.UITheme.surface);
-                    const newFamilies = this.session.newlyUnlockedFamilyNames();
-                    const unlockText = newFamilies.length > 0 ? `\n新家庭已解锁：${newFamilies.join('、')}` : '';
-                    this.createText(`${report.summary}\n最强维度：${report.strongestDimension} · 最大取舍：${report.greatestSacrifice}\n抓住的机遇：${report.opportunities.join('、') || '暂无'}${unlockText}`, new cc_1.Vec3(0, 0), 16, newFamilies.length > 0 ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.info, 'center', 920, 86);
-                    this.createText('选择一枚来世记忆碎片', new cc_1.Vec3(0, -73), 21, UITheme_1.UITheme.gold, 'center');
-                    this.session.getInheritanceChoices().forEach((reward, index) => {
-                        this.createButton(`${reward.name}\n${reward.description}`, new cc_1.Vec3((index - 1) * 340, -165), new cc_1.Vec3(300, 88), () => this.selectInheritance(reward), index === 1 ? 'primary' : 'secondary');
-                    });
-                }
-                selectInheritance(reward) {
-                    this.session.chooseInheritance(reward);
-                    this.clearScreen();
-                    this.createText(`记忆碎片已保存：${reward.name}`, new cc_1.Vec3(0, 60), 30, UITheme_1.UITheme.text, 'center');
-                    const unlocked = this.session.newlyUnlockedFamilyNames();
-                    this.createText(unlocked.length > 0 ? `它会在下一次重来时与你同行。\n已永久解锁家庭：${unlocked.join('、')}` : '它会在下一次重来时与你同行。', new cc_1.Vec3(0, 10), 20, UITheme_1.UITheme.muted, 'center');
-                    this.createButton('再次重来', new cc_1.Vec3(0, -100), new cc_1.Vec3(280, 70), () => this.showHome(), 'secondary', false);
-                }
-                showToast(message) {
-                    this.clearScreen();
-                    this.createText(message, new cc_1.Vec3(0, 30), 26, UITheme_1.UITheme.text, 'center');
-                    this.createButton('返回主页', new cc_1.Vec3(0, -90), new cc_1.Vec3(260, 70), () => this.showHome(), 'secondary', false);
-                }
-                createPageHeader(title, subtitle, back) {
-                    this.createText(title, new cc_1.Vec3(-500, 276), 36, UITheme_1.UITheme.text, 'left', 520, 54);
-                    this.createText(subtitle, new cc_1.Vec3(-500, 228), 16, UITheme_1.UITheme.muted, 'left', 820, 42);
-                    this.createButton('返回', new cc_1.Vec3(515, 270), new cc_1.Vec3(120, 42), back, 'ghost', false);
-                    this.createPanel(new cc_1.Vec3(0, 198), new cc_1.Vec3(1080, 2), UITheme_1.UITheme.line);
-                }
-                clearScreen() {
-                    this.renderRevision += 1;
-                    this.layoutIssues = [];
-                    this.interactiveRects = [];
-                    this.resetPendingChoice();
-                    this.focusButtons = {};
-                    this.focusSummaryText = undefined;
-                    this.focusCashflowText = undefined;
-                    this.uiRoot.removeAllChildren();
-                    const background = new cc_1.Node('PaperBackground');
-                    background.addComponent(cc_1.UITransform).setContentSize(1280, 720);
-                    this.drawRoundedRect(background, 1280, 720, 0, UITheme_1.UITheme.ink900);
-                    const frame = new cc_1.Node('LedgerFrame');
-                    frame.addComponent(cc_1.UITransform).setContentSize(1192, 630);
-                    this.drawRoundedRect(frame, 1192, 630, 0, new cc_1.Color(0, 0, 0, 0), UITheme_1.UITheme.line);
-                    background.addChild(frame);
-                    this.drawPaperOrnament(background);
-                    this.uiRoot.addChild(background);
-                }
-                drawPaperOrnament(parent) {
-                    const ornament = new cc_1.Node('PaperInkOrnament');
-                    ornament.addComponent(cc_1.UITransform).setContentSize(1218, 658);
-                    const graphics = ornament.addComponent(cc_1.Graphics);
-                    graphics.strokeColor = new cc_1.Color(156, 122, 46, 58);
-                    graphics.lineWidth = 1;
-                    const stroke = (points) => {
-                        const [first, ...rest] = points;
-                        graphics.moveTo(first[0], first[1]);
-                        rest.forEach(([x, y]) => graphics.lineTo(x, y));
-                    };
-                    stroke([[-560, 255], [-505, 255], [-485, 235], [-432, 235], [-412, 214]]);
-                    stroke([[-560, 226], [-518, 226], [-500, 209], [-463, 209]]);
-                    stroke([[560, -255], [505, -255], [485, -235], [432, -235], [412, -214]]);
-                    stroke([[560, -226], [518, -226], [500, -209], [463, -209]]);
-                    graphics.stroke();
-                    parent.addChild(ornament);
-                }
-                createPanel(position, size, color = UITheme_1.UITheme.surface, name = 'Panel') {
-                    return this.createPanelOn(this.uiRoot, position, size, color, name);
-                }
-                createPanelOn(parent, position, size, color = UITheme_1.UITheme.surface, name = 'Panel') {
-                    const node = new cc_1.Node(name);
-                    node.addComponent(cc_1.UITransform).setContentSize(size.x, size.y);
-                    node.setPosition(position);
-                    this.drawRoundedRect(node, size.x, size.y, size.y <= 44 ? UITheme_1.UITheme.radiusSmall : UITheme_1.UITheme.radiusCard, color, color === UITheme_1.UITheme.gold ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.line);
-                    parent.addChild(node);
-                    this.auditContained(parent, node, size.x, size.y);
-                    return node;
-                }
-                drawRoundedRect(node, width, height, radius, fill, stroke) {
-                    const graphics = node.addComponent(cc_1.Graphics);
-                    graphics.fillColor = fill;
-                    if (radius > 0)
-                        graphics.roundRect(-width / 2, -height / 2, width, height, radius);
-                    else
-                        graphics.rect(-width / 2, -height / 2, width, height);
-                    graphics.fill();
-                    if (stroke) {
-                        graphics.strokeColor = stroke;
-                        graphics.lineWidth = 1;
-                        if (radius > 0)
-                            graphics.roundRect(-width / 2, -height / 2, width, height, radius);
-                        else
-                            graphics.rect(-width / 2, -height / 2, width, height);
-                        graphics.stroke();
-                    }
-                }
-                createChip(text, position, width, color) {
-                    const chip = this.createPanel(position, new cc_1.Vec3(width, 34), UITheme_1.UITheme.surface);
-                    this.createTextOn(chip, text, cc_1.Vec3.ZERO, 15, color, 'center', width - 16, 28);
-                }
-                createSectionLabel(text, position) {
-                    const rule = new cc_1.Node('SectionRule');
-                    rule.addComponent(cc_1.UITransform).setContentSize(176, 2);
-                    rule.setPosition(position.x - 152, position.y);
-                    this.drawRoundedRect(rule, 176, 2, 1, UITheme_1.UITheme.lineStrong);
-                    this.uiRoot.addChild(rule);
-                    this.createText(text, position, 14, UITheme_1.UITheme.gold, 'center', 190, 24);
-                    const rightRule = new cc_1.Node('SectionRule');
-                    rightRule.addComponent(cc_1.UITransform).setContentSize(176, 2);
-                    rightRule.setPosition(position.x + 152, position.y);
-                    this.drawRoundedRect(rightRule, 176, 2, 1, UITheme_1.UITheme.lineStrong);
-                    this.uiRoot.addChild(rightRule);
-                }
-                createStatBar(name, value, position, color) {
-                    const bar = this.createPanel(position, new cc_1.Vec3(300, 36), UITheme_1.UITheme.surface);
-                    const fill = new cc_1.Node('BarFill');
-                    fill.addComponent(cc_1.UITransform).setContentSize(Math.max(4, 190 * Math.max(0, Math.min(value, 100)) / 100), 5);
-                    fill.setPosition(-52 + (fill.getComponent(cc_1.UITransform).width - 190) / 2, -8);
-                    this.drawRoundedRect(fill, fill.getComponent(cc_1.UITransform).width, 5, 3, color);
-                    bar.addChild(fill);
-                    this.createTextOn(bar, `${name}  ${Math.round(value)}`, new cc_1.Vec3(0, 8), 14, color, 'center', 260, 22);
-                }
-                createText(text, position, fontSize, color, align, width = 0, height = 0) {
-                    const node = new cc_1.Node(`Text:${text.replace(/\s+/g, ' ').slice(0, 18)}`);
-                    const textWidth = width || 1100;
-                    const textHeight = height || this.measureTextHeight(text, fontSize, textWidth);
-                    node.addComponent(cc_1.UITransform).setContentSize(textWidth, textHeight);
-                    node.setPosition(this.textPosition(position, textWidth, align));
-                    const label = node.addComponent(cc_1.Label);
-                    this.configureLabel(label, text, fontSize, color, align, height > 0);
-                    this.uiRoot.addChild(node);
-                    this.auditContained(this.uiRoot, node, textWidth, textHeight);
-                    Motion_1.Motion.screenEnter(node);
-                    return node;
-                }
-                createTextOn(parent, text, position, fontSize, color, align, width = 0, height = 0) {
-                    const node = new cc_1.Node(`Text:${text.replace(/\s+/g, ' ').slice(0, 18)}`);
-                    const textWidth = width || 900;
-                    const textHeight = height || this.measureTextHeight(text, fontSize, textWidth);
-                    node.addComponent(cc_1.UITransform).setContentSize(textWidth, textHeight);
-                    node.setPosition(this.textPosition(position, textWidth, align));
-                    const label = node.addComponent(cc_1.Label);
-                    this.configureLabel(label, text, fontSize, color, align, height > 0);
-                    parent.addChild(node);
-                    this.auditContained(parent, node, textWidth, textHeight);
-                    return node;
-                }
-                configureLabel(label, text, fontSize, color, align, constrained) {
-                    label.string = text;
-                    label.fontSize = fontSize;
-                    label.lineHeight = Math.round(fontSize * 1.35);
-                    label.color = color;
-                    label.fontFamily = fontSize >= 30 ? UITheme_1.UITheme.serif : UITheme_1.UITheme.sans;
-                    label.horizontalAlign = align === 'left' ? cc_1.Label.HorizontalAlign.LEFT : cc_1.Label.HorizontalAlign.CENTER;
-                    label.verticalAlign = cc_1.Label.VerticalAlign.CENTER;
-                    label.overflow = constrained ? cc_1.Label.Overflow.SHRINK : cc_1.Label.Overflow.CLAMP;
-                    label.enableWrapText = true;
-                }
-                measureTextHeight(text, fontSize, width) {
-                    const lineHeight = Math.round(fontSize * 1.35);
-                    const lineCapacity = Math.max(1, width / fontSize);
-                    const lines = text.split('\n').reduce((total, paragraph) => {
-                        const units = Array.from(paragraph).reduce((sum, character) => sum + (/[\u0000-\u00ff]/.test(character) ? .55 : 1), 0);
-                        return total + Math.max(1, Math.ceil(units / lineCapacity));
-                    }, 0);
-                    return Math.max(30, lines * lineHeight + 8);
-                }
-                textPosition(position, width, align) {
-                    return align === 'left' ? new cc_1.Vec3(position.x + width / 2, position.y, position.z) : position;
-                }
-                createButton(text, position, size, onClick, kind = 'secondary', confirmOnSecondClick = false) {
-                    return this.createButtonInternal(this.uiRoot, text, position, size, onClick, kind, confirmOnSecondClick);
-                }
-                createButtonOn(parent, text, position, size, onClick, kind = 'secondary', confirmOnSecondClick = false) {
-                    return this.createButtonInternal(parent, text, position, size, onClick, kind, confirmOnSecondClick);
-                }
-                createButtonInternal(parent, text, position, size, onClick, kind, confirmOnSecondClick) {
-                    const node = new cc_1.Node(`ChoiceButton:${text.replace(/\s+/g, ' ').slice(0, 18)}`);
-                    node.addComponent(cc_1.UITransform).setContentSize(size.x, size.y);
-                    node.setPosition(position);
-                    this.paintButton(node, size, kind, false);
-                    const button = node.addComponent(cc_1.Button);
-                    button.transition = cc_1.Button.Transition.COLOR;
-                    button.target = node;
-                    button.normalColor = cc_1.Color.WHITE;
-                    button.pressedColor = kind === 'primary' ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.line;
-                    node.on(cc_1.Node.EventType.TOUCH_END, () => {
-                        if (confirmOnSecondClick)
-                            this.armChoice(node, () => this.paintButton(node, size, kind, false), () => this.paintButton(node, size, kind, true), onClick);
-                        else {
-                            this.resetPendingChoice();
-                            onClick();
-                        }
-                    }, this);
-                    parent.addChild(node);
-                    this.auditContained(parent, node, size.x, size.y);
-                    this.auditInteractiveOverlap(parent, node, position, size);
-                    const textWidth = Math.max(20, size.x - 28);
-                    const textHeight = Math.max(20, size.y - 18);
-                    const fontSize = this.fitFontSize(text, textWidth, textHeight, this.buttonFontSize(size.y), 11);
-                    const labelNode = this.createTextOn(node, text, cc_1.Vec3.ZERO, fontSize, kind === 'primary' ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.text, 'center', textWidth, textHeight);
-                    labelNode.getComponent(cc_1.Label).overflow = cc_1.Label.Overflow.SHRINK;
-                    if (this.measureTextHeight(text, fontSize, textWidth) > textHeight)
-                        this.recordLayoutIssue(`${node.name} 的文案超出按钮容器`);
-                    if (parent === this.uiRoot)
-                        Motion_1.Motion.screenEnter(node, .04);
-                    return node;
-                }
-                fitFontSize(text, width, height, preferred, minimum) {
-                    let fontSize = preferred;
-                    while (fontSize > minimum && this.measureTextHeight(text, fontSize, width) > height)
-                        fontSize -= 1;
-                    return fontSize;
-                }
-                showMarketSellOrder(instrument, activeEvent) {
-                    const state = this.session.snapshot();
-                    const position = state.market.positions.find((item) => item.instrumentId === instrument.id);
-                    if (!position) {
-                        this.showMarket(state, activeEvent);
-                        return;
-                    }
-                    const price = this.session.marketPrice(instrument.id), lotSize = this.session.marketLotSize(instrument.id), unit = instrument.kind === 'stock' ? '股' : '份';
-                    const maximum = Math.floor(position.quantity / lotSize) * lotSize;
-                    this.clearScreen();
-                    this.createPageHeader(`卖出 ${instrument.name}`, `${this.yuan(price)} / ${unit} · 当前持有 ${position.quantity.toLocaleString('zh-CN')}${unit}`, () => this.showMarket(this.session.snapshot(), activeEvent));
-                    this.createPanel(new cc_1.Vec3(0, 0), new cc_1.Vec3(820, 405), UITheme_1.UITheme.surfaceRaised, 'MarketSellPanel');
-                    this.createText('卖出持仓比例', new cc_1.Vec3(0, 138), 18, UITheme_1.UITheme.muted, 'center', 300);
-                    const orderText = this.createText('', new cc_1.Vec3(0, 55), 24, UITheme_1.UITheme.text, 'center', 660, 82);
-                    const scaleText = this.createText('', new cc_1.Vec3(0, -22), 15, UITheme_1.UITheme.info, 'center', 680, 30);
-                    const confirm = this.createButton('', new cc_1.Vec3(-105, -150), new cc_1.Vec3(250, 54), () => {
-                        const quantity = this.marketQuantityForFraction(maximum, lotSize, this.marketOrderFraction);
-                        if (quantity >= lotSize)
-                            this.tryMarketAction(() => this.session.sellMarket(instrument.id, quantity), activeEvent);
-                    }, 'primary', false);
-                    this.createButton('全部卖出', new cc_1.Vec3(180, -150), new cc_1.Vec3(180, 54), () => this.showActionConfirmation('确认全部卖出', `按当前价格卖出全部 ${instrument.name} 持仓。`, () => this.tryMarketAction(() => this.session.sellMarketFraction(instrument.id, 1), activeEvent), () => this.showMarketSellOrder(instrument, activeEvent)), 'secondary', false);
-                    const updateOrder = (fraction) => {
-                        var _a;
-                        this.marketOrderFraction = Math.max(0, Math.min(1, fraction));
-                        const quantity = this.marketQuantityForFraction(maximum, lotSize, this.marketOrderFraction);
-                        const label = orderText.getComponent(cc_1.Label);
-                        if (label)
-                            label.string = quantity > 0 ? `卖出 ${quantity.toLocaleString('zh-CN')}${unit}\n预计到账 ${this.yuan(price * quantity)}` : '向右拖动选择卖出比例';
-                        const scale = scaleText.getComponent(cc_1.Label);
-                        if (scale)
-                            scale.string = `${Math.round(this.marketOrderFraction * 100)}%  ·  最多 ${maximum.toLocaleString('zh-CN')}${unit}`;
-                        const buttonLabel = (_a = confirm.children[0]) === null || _a === void 0 ? void 0 : _a.getComponent(cc_1.Label);
-                        if (buttonLabel)
-                            buttonLabel.string = quantity >= lotSize ? '确认卖出' : '选择数量';
-                    };
-                    this.createFundsSlider(new cc_1.Vec3(0, -65), 620, this.marketOrderFraction, updateOrder);
-                    updateOrder(this.marketOrderFraction);
-                }
-                showCashManagement(state, activeEvent) {
-                    this.clearScreen();
-                    this.createPageHeader('现金管理', `现金 ${this.money(state.stats.funds)} · 活期 ${this.money(state.cashManagement.demandBalance)} · 年预计固收 ${this.money(this.session.financeForecast().fixedIncome)}`, () => this.showMarket(this.session.snapshot(), activeEvent));
-                    this.createPanel(new cc_1.Vec3(0, 105), new cc_1.Vec3(1080, 105), UITheme_1.UITheme.surface);
-                    this.createText('活期存款\n年利率 0.6%，随存随取。', new cc_1.Vec3(-390, 105), 17, UITheme_1.UITheme.text, 'center', 290, 60);
-                    this.createButton('转入 ¥10,000', new cc_1.Vec3(-150, 105), new cc_1.Vec3(160, 46), () => this.tryExplorer(() => this.session.depositDemand(1), () => this.showCashManagement(this.session.snapshot(), activeEvent)), state.stats.funds >= 1 ? 'primary' : 'ghost', false);
-                    this.createButton('取出 ¥10,000', new cc_1.Vec3(35, 105), new cc_1.Vec3(160, 46), () => this.tryExplorer(() => this.session.withdrawDemand(1), () => this.showCashManagement(this.session.snapshot(), activeEvent)), state.cashManagement.demandBalance >= 1 ? 'secondary' : 'ghost', false);
-                    this.session.cashProducts().forEach((product, index) => {
-                        const x = -390 + index * 260;
-                        this.createPanel(new cc_1.Vec3(x, -55), new cc_1.Vec3(235, 160), UITheme_1.UITheme.surface);
-                        this.createText(`${product.name}\n年化 ${(product.annualRate * 100).toFixed(1)}% · ${product.years}年 · ${product.risk}风险\n${product.kind === 'wealth-management' ? '非保本，可能出现信用风险' : '提前支取按活期计息'}`, new cc_1.Vec3(x, -25), 15, UITheme_1.UITheme.text, 'center', 220, 88);
-                        this.createButton('投入 ¥10,000', new cc_1.Vec3(x, -112), new cc_1.Vec3(175, 44), () => this.tryExplorer(() => this.session.buyCashProduct(product.name, 1), () => this.showCashManagement(this.session.snapshot(), activeEvent)), state.stats.funds >= 1 ? 'primary' : 'ghost', false);
-                    });
-                    const held = state.cashManagement.holdings.slice(0, 3);
-                    held.forEach((holding, index) => this.createButton(`${holding.name}\n本金 ${this.money(holding.principal)} · ${holding.maturityYear}年到期\n提前赎回按活期计息`, new cc_1.Vec3(-270 + index * 270, -235), new cc_1.Vec3(250, 80), () => this.showActionConfirmation('提前赎回', `赎回「${holding.name}」，提前部分按活期利率结算。`, () => this.tryExplorer(() => this.session.redeemCashProduct(holding.id), () => this.showCashManagement(this.session.snapshot(), activeEvent)), () => this.showCashManagement(this.session.snapshot(), activeEvent)), 'ghost', false));
-                }
-                buttonFontSize(height) {
-                    if (height >= 75)
-                        return 16;
-                    if (height >= 54)
-                        return 17;
-                    return 15;
-                }
-                auditContained(parent, child, width, height) {
-                    const parentTransform = parent.getComponent(cc_1.UITransform);
-                    if (!parentTransform)
-                        return;
-                    const epsilon = 1;
-                    const outsideX = Math.abs(child.position.x) + width / 2 > parentTransform.width / 2 + epsilon;
-                    const outsideY = Math.abs(child.position.y) + height / 2 > parentTransform.height / 2 + epsilon;
-                    if (!outsideX && !outsideY)
-                        return;
-                    this.recordLayoutIssue(`${child.name} 超出 ${parent.name}：位置(${Math.round(child.position.x)}, ${Math.round(child.position.y)})，尺寸 ${Math.round(width)}×${Math.round(height)}`);
-                }
-                auditInteractiveOverlap(parent, node, position, size) {
-                    for (const other of this.interactiveRects) {
-                        if (other.parent !== parent)
-                            continue;
-                        const overlapX = Math.min(position.x + size.x / 2, other.x + other.width / 2) - Math.max(position.x - size.x / 2, other.x - other.width / 2);
-                        const overlapY = Math.min(position.y + size.y / 2, other.y + other.height / 2) - Math.max(position.y - size.y / 2, other.y - other.height / 2);
-                        if (overlapX > 1 && overlapY > 1)
-                            this.recordLayoutIssue(`${node.name} 与 ${other.node.name} 发生 ${Math.round(overlapX)}×${Math.round(overlapY)} 的按钮重叠`);
-                    }
-                    this.interactiveRects.push({ parent, node, x: position.x, y: position.y, width: size.x, height: size.y });
-                }
-                recordLayoutIssue(issue) {
-                    if (this.layoutIssues.includes(issue))
-                        return;
-                    this.layoutIssues.push(issue);
-                    console.warn(`[UI布局审计] ${issue}`);
-                }
-                armChoice(node, reset, select, confirm) {
-                    var _a;
-                    if (((_a = this.pendingChoice) === null || _a === void 0 ? void 0 : _a.node) === node) {
-                        const pending = this.pendingChoice;
-                        this.pendingChoice = undefined;
-                        pending.reset();
-                        confirm();
-                        return;
-                    }
-                    this.resetPendingChoice();
-                    select();
-                    this.pendingChoice = { node, reset };
-                }
-                resetPendingChoice() {
-                    var _a;
-                    const pending = this.pendingChoice;
-                    this.pendingChoice = undefined;
-                    if ((_a = pending === null || pending === void 0 ? void 0 : pending.node) === null || _a === void 0 ? void 0 : _a.isValid)
-                        pending.reset();
-                }
-                paintButton(node, size, kind, selected) {
-                    var _a;
-                    const graphics = (_a = node.getComponent(cc_1.Graphics)) !== null && _a !== void 0 ? _a : node.addComponent(cc_1.Graphics);
-                    graphics.clear();
-                    const fill = selected
-                        ? kind === 'primary' ? UITheme_1.UITheme.goldSoft : UITheme_1.UITheme.ink850
-                        : kind === 'primary' ? UITheme_1.UITheme.gold : kind === 'ghost' ? UITheme_1.UITheme.disabledSurface : UITheme_1.UITheme.surfaceRaised;
-                    const stroke = selected ? UITheme_1.UITheme.goldSoft : kind === 'primary' ? UITheme_1.UITheme.goldSoft : kind === 'ghost' ? UITheme_1.UITheme.disabledLine : UITheme_1.UITheme.line;
-                    const radius = size.y <= 52 ? 12 : 16;
-                    graphics.fillColor = fill;
-                    graphics.roundRect(-size.x / 2, -size.y / 2, size.x, size.y, radius);
-                    graphics.fill();
-                    graphics.strokeColor = stroke;
-                    graphics.lineWidth = selected ? 4 : 1;
-                    graphics.roundRect(-size.x / 2, -size.y / 2, size.x, size.y, radius);
-                    graphics.stroke();
-                }
-                createTalentButton(text, position, size, rarity, onClick) {
-                    const node = new cc_1.Node('TalentButton');
-                    node.addComponent(cc_1.UITransform).setContentSize(size.x, size.y);
-                    node.setPosition(position);
-                    const fill = rarity === 'legendary' ? new cc_1.Color(239, 221, 181) : rarity === 'rare' ? new cc_1.Color(232, 221, 197) : UITheme_1.UITheme.surfaceRaised;
-                    const stroke = rarity === 'legendary' ? UITheme_1.UITheme.goldSoft : rarity === 'rare' ? UITheme_1.UITheme.info : UITheme_1.UITheme.line;
-                    this.drawRoundedRect(node, size.x, size.y, 16, fill, stroke);
-                    const button = node.addComponent(cc_1.Button);
-                    button.transition = cc_1.Button.Transition.COLOR;
-                    button.target = node;
-                    button.normalColor = cc_1.Color.WHITE;
-                    button.pressedColor = stroke;
-                    node.on(cc_1.Node.EventType.TOUCH_END, () => this.armChoice(node, () => this.paintTalentButton(node, size, fill, stroke, false), () => this.paintTalentButton(node, size, fill, stroke, true), onClick), this);
-                    this.uiRoot.addChild(node);
-                    this.auditContained(this.uiRoot, node, size.x, size.y);
-                    this.auditInteractiveOverlap(this.uiRoot, node, position, size);
-                    const textWidth = size.x - 28;
-                    const textHeight = size.y - 20;
-                    this.createTextOn(node, text, cc_1.Vec3.ZERO, this.fitFontSize(text, textWidth, textHeight, 16, 13), UITheme_1.UITheme.text, 'center', textWidth, textHeight);
-                    Motion_1.Motion.screenEnter(node, .04);
-                    return node;
-                }
-                paintTalentButton(node, size, fill, stroke, selected) {
-                    var _a;
-                    const graphics = (_a = node.getComponent(cc_1.Graphics)) !== null && _a !== void 0 ? _a : node.addComponent(cc_1.Graphics);
-                    graphics.clear();
-                    graphics.fillColor = selected ? new cc_1.Color(Math.min(255, fill.r + 24), Math.min(255, fill.g + 24), Math.min(255, fill.b + 24), 255) : fill;
-                    graphics.roundRect(-size.x / 2, -size.y / 2, size.x, size.y, 16);
-                    graphics.fill();
-                    graphics.strokeColor = selected ? UITheme_1.UITheme.goldSoft : stroke;
-                    graphics.lineWidth = selected ? 4 : 1;
-                    graphics.roundRect(-size.x / 2, -size.y / 2, size.x, size.y, 16);
-                    graphics.stroke();
-                }
-                createTextButton(text, position, onClick) {
-                    const button = this.createText(text, position, 17, UITheme_1.UITheme.info, 'center', 150);
-                    button.on(cc_1.Node.EventType.TOUCH_END, onClick, this);
-                }
-                createTextButtonOn(parent, text, position, onClick) {
-                    const button = this.createTextOn(parent, text, position, 16, UITheme_1.UITheme.info, 'center', 380);
-                    button.on(cc_1.Node.EventType.TOUCH_END, onClick, this);
-                }
-                createFundsSlider(position, width, initial, onChange) {
-                    const node = new cc_1.Node('FundsSlider');
-                    const transform = node.addComponent(cc_1.UITransform);
-                    transform.setContentSize(width + 36, 52);
-                    node.setPosition(position);
-                    this.uiRoot.addChild(node);
-                    const graphics = node.addComponent(cc_1.Graphics);
-                    const paint = (fraction) => {
-                        const value = Math.max(0, Math.min(1, fraction));
-                        graphics.clear();
-                        graphics.fillColor = UITheme_1.UITheme.disabledSurface;
-                        graphics.roundRect(-width / 2, -6, width, 12, 6);
-                        graphics.fill();
-                        graphics.fillColor = UITheme_1.UITheme.gold;
-                        graphics.roundRect(-width / 2, -6, Math.max(12, width * value), 12, 6);
-                        graphics.fill();
-                        graphics.fillColor = UITheme_1.UITheme.goldSoft;
-                        graphics.circle(-width / 2 + width * value, 0, 16);
-                        graphics.fill();
-                    };
-                    const updateFromTouch = (event) => {
-                        const location = event.getUILocation();
-                        const local = transform.convertToNodeSpaceAR(new cc_1.Vec3(location.x, location.y, 0));
-                        const fraction = Math.max(0, Math.min(1, (local.x + width / 2) / width));
-                        paint(fraction);
-                        onChange(fraction);
-                    };
-                    node.on(cc_1.Node.EventType.TOUCH_START, updateFromTouch, this);
-                    node.on(cc_1.Node.EventType.TOUCH_MOVE, updateFromTouch, this);
-                    node.on(cc_1.Node.EventType.TOUCH_END, updateFromTouch, this);
-                    paint(initial);
-                    return node;
-                }
-                marketQuantityForFraction(maximum, lotSize, fraction) {
-                    if (maximum < lotSize || fraction <= 0)
-                        return 0;
-                    if (fraction >= .999)
-                        return maximum;
-                    return Math.max(lotSize, Math.floor(maximum * fraction / lotSize) * lotSize);
-                }
-                identitySummary(identity) {
-                    var _a;
-                    const bonuses = [...Object.entries(identity.attributeModifiers), ...Object.entries((_a = identity.skillModifiers) !== null && _a !== void 0 ? _a : {})].map(([key, value]) => `${this.nameOf(key)}+${value}`);
-                    const bonusText = bonuses.length ? ` · ${bonuses.join(' · ')}` : '';
-                    return `资源 ${this.money(identity.initialFamilyResources)} · 年资助 ${this.money(identity.familyAllowanceAnnual)}${bonusText}\n机会：${identity.opportunityFocus}`;
-                }
-                effectSummary(result) {
-                    var _a, _b, _c;
-                    const entries = [...Object.entries((_a = result.attributes) !== null && _a !== void 0 ? _a : {}), ...Object.entries((_b = result.skills) !== null && _b !== void 0 ? _b : {}), ...Object.entries((_c = result.stats) !== null && _c !== void 0 ? _c : {})];
-                    const visible = entries.filter(([, value]) => value !== 0).slice(0, 3).map(([key, value]) => `${this.nameOf(key)}${value > 0 ? '+' : ''}${value}`);
-                    return visible.join(' · ') || '开启特殊人生路径';
-                }
-                optionImpact(result) {
-                    var _a, _b;
-                    const changes = [];
-                    const append = (items, kind = 'value') => {
-                        Object.entries(items !== null && items !== void 0 ? items : {}).forEach(([key, value]) => {
-                            if (value === 0)
-                                return;
-                            changes.push(`${this.nameOf(key)}${value > 0 ? '+' : ''}${kind === 'money' ? this.money(value) : value}`);
-                        });
-                    };
-                    append(result.attributes);
-                    append(result.skills);
-                    Object.entries((_a = result.stats) !== null && _a !== void 0 ? _a : {}).forEach(([key, value]) => {
-                        if (!value)
-                            return;
-                        const moneyValue = key === 'funds' || key === 'familyResources';
-                        changes.push(`${this.nameOf(key)}${value > 0 ? '+' : ''}${moneyValue ? this.money(value) : value}`);
-                    });
-                    if (result.projectInvestment)
-                        changes.unshift(`项目买断-${this.money(result.projectInvestment.amount)}`);
-                    if ((_b = result.signalIds) === null || _b === void 0 ? void 0 : _b.length) {
-                        const names = result.signalIds.map((id) => this.opportunitySystem.signalText(id).replace(/[。！]/g, '')).join('；');
-                        changes.push(`行业观察：${names}`);
-                    }
-                    if (result.opportunity)
-                        changes.push(`关注方向：${this.opportunitySystem.chainName(result.opportunity.chainId)}`);
-                    return changes.join(' · ') || '当前状态保持不变';
-                }
-                sparkline(values) {
-                    if (values.length === 0)
-                        return '暂无';
-                    const blocks = '▁▂▃▄▅▆▇█';
-                    const min = Math.min(...values);
-                    const max = Math.max(...values);
-                    if (min === max)
-                        return values.map(() => '▄').join('');
-                    return values.map((value) => blocks[Math.min(7, Math.floor((value - min) / (max - min) * 7))]).join('');
-                }
-                marketRequirements(instrument) {
-                    var _a;
-                    const conditions = (_a = instrument.prerequisites) !== null && _a !== void 0 ? _a : [];
-                    if (conditions.length === 0)
-                        return '无额外条件';
-                    return conditions.map((condition) => {
-                        const match = condition.match(/^(attributes|skills|stats)\.([a-zA-Z]+)(>=|<=)(\d+)$/);
-                        if (match)
-                            return `${this.nameOf(match[2])}${match[3]}${match[4]}`;
-                        if (condition.startsWith('flags.'))
-                            return condition === 'flags.computer-intro' ? '先接触电脑与互联网信息' : '完成对应人生经历';
-                        return '满足对应能力条件';
-                    }).join('、');
-                }
-                focusName(focus) {
-                    return { study: '学习成长', work: '专注工作', rest: '游玩休息', social: '陪伴生活' }[focus];
-                }
-                focusSummary(state) {
-                    const forecast = this.session.financeForecast();
-                    const income = forecast.salaryIncome + forecast.projectCashflow + forecast.rentalIncome + forecast.fixedIncome + forecast.allowanceIncome + forecast.sideIncome;
-                    const expense = forecast.personalLivingExpense + forecast.discretionaryExpense + forecast.interestExpense;
-                    return {
-                        focus: `当前重心 · ${this.focusName(state.lifeFocus)}`,
-                        cashflow: `全年收入 ${this.money(income)} · 全年支出 ${this.money(expense)} · 年净现金流 ${this.signedMoney(forecast.netCashflow)}`,
-                        color: forecast.netCashflow < 0 ? UITheme_1.UITheme.loss : UITheme_1.UITheme.info,
-                    };
-                }
-                focusButtonLabel(state, focus) {
-                    if (state.age < 18)
-                        return {
-                            study: '学习成长\n升学分+2 · 知识+2\n压力+4',
-                            work: '实践劳动\n现金+¥1,500 · 学业-1\n商业/表达+1',
-                            rest: '游玩休息\n健康+3 · 幸福+5\n压力-8',
-                            social: '陪伴生活\n朋友关系+3 · 幸福+6\n压力-4',
-                        }[focus];
-                    if (state.career.track === 'unemployed')
-                        return {
-                            study: '学习成长\n学习+2 · 信息+1\n提高求职准备',
-                            work: '兼职实践\n年收入+¥12,000\n职业能力提升',
-                            rest: '游玩休息\n健康+3 · 幸福+5\n压力-8',
-                            social: '陪伴生活\n现金-¥4,000 · 幸福+6\n压力-4',
-                        }[focus];
-                    if (focus === 'study')
-                        return '学习成长\n工资×0.90 · 学习+2\n信息+1';
-                    if (focus === 'work')
-                        return '专注工作\n工资×1.25 · 压力+3\n职业技能提升';
-                    if (focus === 'rest')
-                        return '游玩休息\n工资×0.70 · 健康+3\n幸福+5';
-                    return '陪伴生活\n工资×0.85 · 现金-¥4,000\n幸福+6';
-                }
-                focusAdvice(state) {
-                    if (state.stats.health < 45 || state.stats.pressure >= 70 || state.stats.happiness < 35)
-                        return '优先休息，避免健康或幸福崩溃';
-                    if (state.career.track === 'unemployed')
-                        return '优先学习，提高毕业后的职业选择空间';
-                    if (state.finance.lastCashflow < 0 || state.stats.funds < state.finance.livingCostAnnual * 2)
-                        return '优先工作，先修复现金流';
-                    if (state.skills.information < 35 || state.skills.technology < 35)
-                        return '学习能提高未来行业与机会判断';
-                    if (state.stats.happiness < 50)
-                        return '陪伴生活能修复幸福感与压力';
-                    return '资源健康，可根据长期目标选择工作、学习或生活平衡';
-                }
-                currentGoal(state) {
-                    if (!state.flags.includes('high-school-placement'))
-                        return '通过成长选择提高升学评估，准备中考分流';
-                    if (!state.flags.includes('university-entry'))
-                        return '提高大学录取层级';
-                    if (!state.flags.includes('career-started'))
-                        return '完成学业并找到第一份工作';
-                    if (state.stats.funds < state.finance.livingCostAnnual)
-                        return '建立至少一年的现金储备';
-                    if (this.session.investmentAssetValue() <= 0)
-                        return '研究市场并建立第一项资产';
-                    if (state.finance.lastCashflow < 0)
-                        return '让年度现金流恢复为正';
-                    return '提升净资产，同时守住健康与幸福';
-                }
-                wealthMilestone(before, after) {
-                    const thresholds = [10, 50, 100, 500, 1000];
-                    const crossed = thresholds.find((threshold) => before < threshold && after >= threshold);
-                    return crossed === undefined ? undefined : `个人净资产首次达到 ${this.money(crossed)}`;
-                }
-                pressureRule(pressure) {
-                    if (pressure < 40)
-                        return '平稳（无额外损耗）';
-                    if (pressure < 60)
-                        return '紧绷（每年幸福 -1）';
-                    if (pressure < 80)
-                        return '高压（每年幸福 -4、健康 -4；收入可能下降）';
-                    return '濒临崩溃（每年幸福 -8、健康 -9、知识 -2；收入大幅下降）';
-                }
-                statusSummary(state) {
-                    const stats = state.stats;
-                    return `现金 ${this.money(stats.funds)}   健康 ${stats.health}   压力 ${stats.pressure}   幸福 ${stats.happiness}   知识 ${stats.knowledge}`;
-                }
-                money(amount) { return `¥${Math.round(amount * 10000).toLocaleString('zh-CN')}`; }
-                signedMoney(amount) { return `${amount >= 0 ? '+' : '-'}${this.money(Math.abs(amount))}`; }
-                signedPercent(rate) { return `${rate >= 0 ? '+' : ''}${Math.round(rate * 1000) / 10}%`; }
-                yuan(amount) { return `¥${amount.toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`; }
-                rarityName(rarity) { return { common: '普通', rare: '稀有', legendary: '传奇' }[rarity]; }
-                educationName(level) { return ({ primary: '小学', middle: '初中', high: '高中', vocational: '中专', college: '专科', undergraduate: '本科', 'first-tier': '一本', '211': '211', '985': '985', graduate: '研究生' })[level]; }
-                highSchoolName(track) { return track ? ({ vocational: '中专', general: '普高', key: '重点高中' })[track] : '未录取'; }
-                cityName(city) { return ({ rural: '农村', county: '县城', city: '普通城市', metropolis: '大城市' })[city]; }
-                majorName(major) { return ({ engineering: '计算机和工程', business: '商业和经济', media: '人文和传媒', research: '教育和研究', 'public-service': '公共管理', general: '综合方向' })[major]; }
-                careerName(track) { return ({ technology: '技术研发', product: '产品运营', sales: '销售商务', education: '教育研究', media: '内容传媒', 'public-service': '公共服务', unemployed: '待业/探索' })[track]; }
-                careerLevelName(level) { return ({ junior: '初级', middle: '中级', senior: '高级', core: '核心人物' })[level]; }
-                assetName(type) { return ({ savings: '储蓄', housing: '住房', emerging: '新兴资产', startup: '创业项目' })[type]; }
-                marketKindName(kind) { var _a; return (_a = { stock: '股票', fund: '基金', bond: '债券' }[kind]) !== null && _a !== void 0 ? _a : '投资品种'; }
-                nameOf(key) { var _a; return (_a = AbilityConfig_1.STAT_NAMES[key]) !== null && _a !== void 0 ? _a : '成长'; }
-                flagName(flag) {
-                    var _a;
-                    return (_a = {
-                        'middle-school': '进入初中',
-                        'high-school-placement': '完成中考分流',
-                        'university-entry': '进入大学阶段',
-                        'college-admission': '完成高考',
-                        'career-started': '开启职业路线',
-                        'computer-intro': '接触电脑与互联网',
-                        'market-risk-read': '开通交易账户',
-                        'startup-formalized': '正式创业',
-                        'benefactor': '获得关键引路人',
-                        'memory-boost': '前世感知变得清晰',
-                        'extra-signal': '获得额外时代信号',
-                        'event-rollback': '获得一次重新判断机会',
-                    }[flag]) !== null && _a !== void 0 ? _a : '完成一段新的人生经历';
-                }
             };
             exports_1("GameBootstrap", GameBootstrap);
             exports_1("GameBootstrap", GameBootstrap = __decorate([
@@ -3715,6 +2287,12 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./IdentityConfig.t
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -3837,9 +2415,15 @@ System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./I
 
 
 
-System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./GameEvents.ts", "./YearConfig.ts", "./InheritanceConfig.ts", "./DelayedEventQueue.ts", "./EventMatcher.ts", "./SaveManager.ts", "./EndingResolver.ts", "./LegacyManager.ts", "./ReportGenerator.ts", "./SeededRandom.ts", "./GameStateManager.ts", "./MarketSystem.ts", "./InvestmentMemoryManager.ts", "./EducationProgressionSystem.ts", "./FinanceSystem.ts", "./CareerSystem.ts", "./CitySystem.ts", "./HousingSystem.ts", "./FamilyUnlockManager.ts", "./IndustryProjectSystem.ts", "./WealthSystem.ts", "./OpenOpportunitySystem.ts", "./CashManagementSystem.ts"], function (exports_1, context_1) {
+
+
+
+
+
+
+System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./GameEvents.ts", "./YearConfig.ts", "./InheritanceConfig.ts", "./DelayedEventQueue.ts", "./EventMatcher.ts", "./SaveManager.ts", "./EndingResolver.ts", "./LegacyManager.ts", "./ReportGenerator.ts", "./SeededRandom.ts", "./GameStateManager.ts", "./MarketSystem.ts", "./InvestmentMemoryManager.ts", "./EducationProgressionSystem.ts", "./FinanceSystem.ts", "./CareerSystem.ts", "./CitySystem.ts", "./HousingSystem.ts", "./FamilyUnlockManager.ts", "./IndustryProjectSystem.ts", "./WealthSystem.ts", "./OpenOpportunitySystem.ts", "./CashManagementSystem.ts", "./AbilityConfig.ts"], function (exports_1, context_1) {
     "use strict";
-    var IdentityConfig_1, GameEvents_1, YearConfig_1, InheritanceConfig_1, DelayedEventQueue_1, EventMatcher_1, SaveManager_1, EndingResolver_1, LegacyManager_1, ReportGenerator_1, SeededRandom_1, GameStateManager_1, MarketSystem_1, InvestmentMemoryManager_1, EducationProgressionSystem_1, FinanceSystem_1, CareerSystem_1, CitySystem_1, HousingSystem_1, FamilyUnlockManager_1, IndustryProjectSystem_1, WealthSystem_1, OpenOpportunitySystem_1, CashManagementSystem_1, MAX_AGE, GameSession;
+    var IdentityConfig_1, GameEvents_1, YearConfig_1, InheritanceConfig_1, DelayedEventQueue_1, EventMatcher_1, SaveManager_1, EndingResolver_1, LegacyManager_1, ReportGenerator_1, SeededRandom_1, GameStateManager_1, MarketSystem_1, InvestmentMemoryManager_1, EducationProgressionSystem_1, FinanceSystem_1, CareerSystem_1, CitySystem_1, HousingSystem_1, FamilyUnlockManager_1, IndustryProjectSystem_1, WealthSystem_1, OpenOpportunitySystem_1, CashManagementSystem_1, AbilityConfig_1, MAX_AGE, GameSession;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [
@@ -3914,6 +2498,9 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
             },
             function (CashManagementSystem_1_1) {
                 CashManagementSystem_1 = CashManagementSystem_1_1;
+            },
+            function (AbilityConfig_1_1) {
+                AbilityConfig_1 = AbilityConfig_1_1;
             }
         ],
         execute: function () {
@@ -3989,13 +2576,13 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     if (!option)
                         throw new Error('该选项已经失效，请重新选择。');
                     if (this.currentEvent.id.startsWith('asset-acquisition-'))
-                        return this.resolveAcquisition(option);
+                        return this.resolveDynamic(this.currentEvent, option, () => this.resolveAcquisition(option));
                     if (this.currentEvent.id === 'market-signal')
-                        return this.resolveMarketSignal(option);
+                        return this.resolveDynamic(this.currentEvent, option, () => this.resolveMarketSignal(option));
                     if (this.currentEvent.id === 'financial-risk')
-                        return this.resolveFinancialRisk(option);
+                        return this.resolveDynamic(this.currentEvent, option, () => this.resolveFinancialRisk(option));
                     if (this.currentEvent.id === 'liquidity-crisis')
-                        return this.resolveLiquidityCrisis(option);
+                        return this.resolveDynamic(this.currentEvent, option, () => this.resolveLiquidityCrisis(option));
                     this.ensureCareerOptionEligible(option);
                     const cashCost = this.optionCashCost(option);
                     if (cashCost > this.state.stats.funds)
@@ -4055,14 +2642,29 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     return this.continueYears(this.random.int(1, 3));
                 }
                 continueYears(years) {
+                    var _a;
+                    var _b;
                     if (!this.state)
                         throw new Error('人生尚未开始。');
                     if (this.currentEvent)
                         throw new Error('请先处理当前事件。');
                     const requested = Math.max(1, Math.min(3, Math.floor(years)));
                     for (let index = 0; index < requested && !this.state.completed; index += 1) {
+                        const before = this.snapshot();
                         this.finishYear(1);
                         this.matchNextEvent(true);
+                        if (this.state.year > before.year) {
+                            const health = Math.round(this.state.stats.health - before.stats.health);
+                            const happiness = Math.round(this.state.stats.happiness - before.stats.happiness);
+                            const pressure = Math.round(this.state.stats.pressure - before.stats.pressure);
+                            const sign = (value) => `${value >= 0 ? '+' : ''}${value}`;
+                            const focus = { study: '学习', work: '工作与实践', rest: '休整', social: '生活与相聚' }[before.lifeFocus];
+                            const ledger = this.state.finance.history[this.state.finance.history.length - 1];
+                            const warning = this.state.liquidityCrisis ? '现金出现缺口，需要先处理流动性危机。' : this.state.stats.health < 30 ? '身体需要更多照顾，明年可以调整重心。' : this.state.stats.pressure > 70 ? '压力较高，记得为休息留出时间。' : '安排可以沿用，也可以在「打算」中重新选择。';
+                            (_a = (_b = this.state).annualReviews) !== null && _a !== void 0 ? _a : (_b.annualReviews = []);
+                            this.state.annualReviews.push({ year: before.year, age: before.age,
+                                text: `这一年，你把重心放在${focus}。\n现金变化 ${AbilityConfig_1.signedMoneyText(this.state.stats.funds - before.stats.funds)}\n健康 ${sign(health)} · 幸福 ${sign(happiness)} · 压力 ${sign(pressure)}\n${ledger ? `工资 ${AbilityConfig_1.signedMoneyText(ledger.salaryIncome)} · 生活支出 ${AbilityConfig_1.signedMoneyText(-ledger.livingExpense)} · 利息 ${AbilityConfig_1.signedMoneyText(-ledger.interestExpense)}\n` : ''}${warning}` });
+                        }
                         if (this.currentEvent)
                             break;
                     }
@@ -4093,7 +2695,7 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                             throw new Error(`这项恢复安排需要 ¥${Math.round(cost * 10000).toLocaleString('zh-CN')}。`);
                         this.stateManager.applyChange(this.state, change);
                         this.state.lastWellbeingYear = this.state.year;
-                    });
+                    }, { pause: '留出空白', care: '身心照护', connection: '与重要的人相聚' }[kind]);
                 }
                 treatYourself(kind) {
                     const choices = {
@@ -4109,7 +2711,7 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                         if (this.state.stats.funds < cost)
                             throw new Error(`这项消费需要 ¥${Math.round(cost * 10000).toLocaleString('zh-CN')}。`);
                         this.stateManager.applyChange(this.state, change);
-                    });
+                    }, { watch: '买一块喜欢的表', car: '买一辆车', trip: '去远处旅行' }[kind]);
                 }
                 getYearInfo() { return this.state ? YearConfig_1.getYearConfig(this.state.year) : undefined; }
                 marketInstruments() { return this.state ? this.market.instruments(this.state) : []; }
@@ -4149,6 +2751,7 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     throw new Error('人生尚未开始。'); this.finance.repayLoan(this.state, this.state.finance.loanBalance); this.save(); return this.snapshot(); }
                 financeForecast() { if (!this.state)
                     throw new Error('人生尚未开始。'); return this.finance.forecast(this.state); }
+                focusForecast(focus) { const preview = this.snapshot(); preview.lifeFocus = focus; return this.finance.forecast(preview); }
                 financialFreedom() { if (!this.state)
                     throw new Error('人生尚未开始。'); return this.finance.financialFreedom(this.state); }
                 loanRequirementText() { return this.state ? this.finance.loanRequirementText(this.state) : '人生尚未开始。'; }
@@ -4224,8 +2827,8 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                 redeemCashProduct(holdingId) { if (!this.state)
                     throw new Error('人生尚未开始。'); this.cashManagement.redeemEarly(this.state, holdingId); this.save(); return this.snapshot(); }
                 cashManagementValue() { return this.state ? this.cashManagement.totalValue(this.state) : 0; }
-                graduateSchool() { return this.useAnnualAction('major-action', '本年度的沉淀已使用；每年只能选择一项沉淀。', () => { this.education.applyGraduateSchool(this.state); this.finance.refresh(this.state); }); }
-                certificate(skill) { return this.useAnnualAction('major-action', '本年度的沉淀已使用；每年只能选择一项沉淀。', () => { this.education.applyCertificate(this.state, skill); this.finance.refresh(this.state); }); }
+                graduateSchool() { return this.useAnnualAction('major-action', '本年度的沉淀已使用；每年只能选择一项沉淀。', () => { this.education.applyGraduateSchool(this.state); this.finance.refresh(this.state); }, '研究生进修'); }
+                certificate(skill) { return this.useAnnualAction('major-action', '本年度的沉淀已使用；每年只能选择一项沉淀。', () => { this.education.applyCertificate(this.state, skill); this.finance.refresh(this.state); }, '职业考证'); }
                 hasMajorActionAvailable() { return !!this.state && this.state.annualActionYears['major-action'] !== this.state.year; }
                 marketPrice(instrumentId) {
                     if (!this.state)
@@ -4270,9 +2873,10 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     return JSON.parse(JSON.stringify(this.state));
                 }
                 resolve(event, option) {
-                    var _a;
+                    var _a, _b, _c, _d, _e;
                     if (!this.state)
                         return;
+                    const before = this.snapshot();
                     const outcome = this.pickOutcome(option);
                     const result = outcome ? this.mergeChanges(option.result, outcome.result) : option.result;
                     const startsCareer = this.state.career.track === 'unemployed' && !!((_a = result.career) === null || _a === void 0 ? void 0 : _a.track) && result.career.track !== 'unemployed';
@@ -4289,9 +2893,42 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     this.finance.refresh(this.state);
                     if (!this.state.triggeredEventIds.includes(event.id))
                         this.state.triggeredEventIds.push(event.id);
-                    this.state.lifeLog.push({ year: this.state.year, eventId: event.id, optionId: option.id });
+                    const requiredFlags = ((_b = event.prerequisites) !== null && _b !== void 0 ? _b : []).filter(item => item.startsWith('flags.')).map(item => item.slice(6));
+                    const cause = [...this.state.lifeLog].reverse().find(entry => { var _a, _b; return (_b = (_a = entry.result) === null || _a === void 0 ? void 0 : _a.addFlags) === null || _b === void 0 ? void 0 : _b.some(flag => requiredFlags.includes(flag)); });
+                    this.state.lifeLog.push({ year: this.state.year, eventId: event.id, optionId: option.id,
+                        title: event.title, choice: option.label, outcome: outcome === null || outcome === void 0 ? void 0 : outcome.text, result: this.recordedChange(before, result),
+                        cause: cause ? { year: cause.year, title: (_c = cause.title) !== null && _c !== void 0 ? _c : '早年的选择', choice: (_e = (_d = cause.choice) === null || _d === void 0 ? void 0 : _d.split('｜')[0]) !== null && _e !== void 0 ? _e : '一段经历' } : undefined });
                     this.currentEvent = undefined;
                     this.state.activeEventId = undefined;
+                }
+                resolveDynamic(event, option, action) {
+                    const before = this.snapshot();
+                    this.latestOutcome = undefined;
+                    action();
+                    if (!this.state)
+                        throw new Error('人生尚未开始。');
+                    const entry = this.state.lifeLog[this.state.lifeLog.length - 1];
+                    if (this.state.lifeLog.length > before.lifeLog.length && entry) {
+                        entry.title = event.title;
+                        entry.choice = option.label;
+                        entry.result = this.recordedChange(before, option.result);
+                        entry.outcome = this.latestOutcome;
+                    }
+                    this.save();
+                    return this.snapshot();
+                }
+                recordedChange(before, result = {}) {
+                    if (!this.state)
+                        return result;
+                    const actual = Object.assign(Object.assign({}, result), { attributes: {}, skills: {}, stats: {} });
+                    for (const group of ['attributes', 'skills', 'stats']) {
+                        for (const [key, value] of Object.entries(this.state[group])) {
+                            const amount = Math.round((value - before[group][key]) * 10000) / 10000;
+                            if (amount)
+                                actual[group][key] = amount;
+                        }
+                    }
+                    return actual;
                 }
                 pickOutcome(option) {
                     var _a;
@@ -4618,12 +3255,17 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                         this.saves.save(this.state);
                     }
                 }
-                useAnnualAction(key, repeatedMessage, action) {
+                useAnnualAction(key, repeatedMessage, action, title = '为自己安排时间') {
                     if (!this.state)
                         throw new Error('人生尚未开始。');
                     if (this.state.annualActionYears[key] === this.state.year)
                         throw new Error(repeatedMessage);
+                    const before = this.snapshot();
                     action();
+                    this.latestOutcome = undefined;
+                    const result = this.recordedChange(before);
+                    result.addFlags = this.state.flags.filter(flag => !before.flags.includes(flag));
+                    this.state.lifeLog.push({ year: this.state.year, eventId: `annual-action-${key}`, optionId: title, title, choice: title, result });
                     this.state.annualActionYears[key] = this.state.year;
                     this.save();
                     return this.snapshot();
@@ -4653,6 +3295,12 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -4928,6 +3576,12 @@ System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -4937,6 +3591,12 @@ System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, conte
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -5029,6 +3689,12 @@ System.register("chunks:///_virtual/GrowthSystem.ts",[], function (exports_1, co
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var HealthSystem;
@@ -5047,6 +3713,12 @@ System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -5233,6 +3905,12 @@ System.register("chunks:///_virtual/HousingSystem.ts",[], function (exports_1, c
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var IDENTITIES, STARTER_FAMILY_IDS;
@@ -5285,6 +3963,12 @@ System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, 
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -5404,6 +4088,12 @@ System.register("chunks:///_virtual/IndependentLifeEvents.ts",[], function (expo
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryProjectConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var IndustryProjectConfig_1, INDUSTRY_OPPORTUNITY_EVENTS;
@@ -5445,6 +4135,12 @@ System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryPr
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -5530,6 +4226,12 @@ System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (expo
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -5790,6 +4492,12 @@ System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjec
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var INHERITANCE_REWARDS;
@@ -5808,6 +4516,12 @@ System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -5877,6 +4591,12 @@ System.register("chunks:///_virtual/InvestmentMemoryManager.ts",["cc"], function
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -6011,6 +4731,12 @@ System.register("chunks:///_virtual/LaterLifeEvents.ts",[], function (exports_1,
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, LEGACY_KEY, LegacyManager;
@@ -6041,6 +4767,12 @@ System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -6176,6 +4908,12 @@ System.register("chunks:///_virtual/CashManagementSystem.ts",[], function (expor
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -6374,6 +5112,12 @@ System.register("chunks:///_virtual/YouthTemptationEvents.ts",[], function (expo
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/AnnualLifeEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var ANNUAL_LIFE_EVENTS;
@@ -6382,6 +5126,33 @@ System.register("chunks:///_virtual/AnnualLifeEvents.ts",[], function (exports_1
         setters: [],
         execute: function () {
             exports_1("ANNUAL_LIFE_EVENTS", ANNUAL_LIFE_EVENTS = [
+                {
+                    id: 'echo-training-project', title: '训练营里认识的人',
+                    description: '当年训练营里的一位同学再次联系你。他正在整理一份行业资料，想邀你一起完成。那次学习留下的，不只有笔记。',
+                    yearMin: 2011, yearMax: 2072, weight: 35, prerequisites: ['flags.annual-skill-training'], interaction: 'life-choice',
+                    options: [
+                        { id: 'collaborate', label: '一起完成资料', result: { skills: { information: 3, expression: 2 }, stats: { pressure: 3 }, addFlags: ['echo-training-collaborated'] } },
+                        { id: 'share', label: '分享笔记，保留自己的时间', result: { skills: { information: 1 }, stats: { happiness: 2 }, addFlags: ['echo-training-shared'] } },
+                    ],
+                },
+                {
+                    id: 'echo-contract-return', title: '老客户再次找来',
+                    description: '你曾接下的短期合作有了下文。对方认可那次交付，想再请你做一单，但你也记得赶工时被挤走的休息。',
+                    yearMin: 2015, yearMax: 2072, weight: 35, prerequisites: ['flags.annual-side-contract'], interaction: 'opportunity', declineAllowed: true,
+                    options: [
+                        { id: 'accept', label: '再合作一次', result: { stats: { funds: 4, pressure: 7, health: -2 }, skills: { business: 2 }, addFlags: ['echo-returning-client'] } },
+                        { id: 'refer', label: '介绍给朋友', result: { stats: { happiness: 3, pressure: -2 }, skills: { expression: 1 }, addFlags: ['echo-referred-client'] } },
+                    ],
+                },
+                {
+                    id: 'echo-family-tradition', title: '下一次相聚',
+                    description: '上次相聚后，家人又提起一起吃饭的约定。你可以把它变成一段固定的时间，也可以先用一通电话联系。',
+                    yearMin: 2010, yearMax: 2072, weight: 32, prerequisites: ['flags.social-support'], interaction: 'life-choice',
+                    options: [
+                        { id: 'visit', label: '留一个周末回家', result: { stats: { funds: -.3, happiness: 5, pressure: -3 }, addFlags: ['echo-family-tradition'] } },
+                        { id: 'call', label: '今晚打个电话', result: { stats: { happiness: 2, pressure: -1 }, addFlags: ['echo-family-call'] } },
+                    ],
+                },
                 {
                     id: 'annual-skill-invitation', title: '一个周末训练营', description: '行业朋友邀请你参加一个紧凑的周末训练营。它能补足短板，但会占用休息和一笔预算。',
                     yearMin: 2010, yearMax: 2072, weight: 28, repeatable: true, interaction: 'life-choice', options: [
@@ -6445,6 +5216,162 @@ System.register("chunks:///_virtual/AnnualLifeEvents.ts",[], function (exports_1
 
 
 
+
+
+
+
+
+
+System.register("chunks:///_virtual/LifePresentation.ts",["./AbilityConfig.ts"], function (exports_1, context_1) {
+    "use strict";
+    var AbilityConfig_1;
+    var __moduleName = context_1 && context_1.id;
+    function uncertaintyPreview(option) {
+        var _a;
+        if (!((_a = option.outcomes) === null || _a === void 0 ? void 0 : _a.length))
+            return '';
+        const ranges = [];
+        for (const group of ['stats', 'skills']) {
+            const keys = new Set();
+            option.outcomes.forEach(outcome => { var _a; return Object.keys((_a = outcome.result[group]) !== null && _a !== void 0 ? _a : {}).forEach(key => keys.add(key)); });
+            for (const key of keys) {
+                if (!AbilityConfig_1.STAT_NAMES[key])
+                    continue;
+                const values = option.outcomes.map(outcome => { var _a, _b; return (_b = (_a = outcome.result[group]) === null || _a === void 0 ? void 0 : _a[key]) !== null && _b !== void 0 ? _b : 0; });
+                const low = Math.min(...values), high = Math.max(...values);
+                const format = (value) => key === 'funds' || key === 'familyResources' ? AbilityConfig_1.signedMoneyText(value) : `${value >= 0 ? '+' : ''}${value}`;
+                ranges.push(`${AbilityConfig_1.STAT_NAMES[key]} ${format(low)}${low !== high ? '～' + format(high) : ''}`);
+            }
+        }
+        return ranges.length ? `可能的额外变化：${ranges.join(' · ')}\n具体结果在选择后揭晓。` : '后续结果有不确定性，作出选择后揭晓。';
+    }
+    exports_1("uncertaintyPreview", uncertaintyPreview);
+    function chapter(age) {
+        return age < 12 ? '童年的窗' : age < 22 ? '走向世界' : age < 35 ? '独自生长' : age < 55 ? '生活的重量' : '日子慢下来';
+    }
+    exports_1("chapter", chapter);
+    function situation(s) {
+        if (s.stats.health < 30)
+            return '身体已经亮起警报。下一步，也许该先照顾自己。';
+        if (s.stats.pressure > 70)
+            return '事情一件接着一件，你需要给生活留一点空隙。';
+        if (s.stats.happiness < 30)
+            return '日子照常向前，但你开始想找回自己的快乐。';
+        if (s.age < 12)
+            return '窗外的世界还很远，你的故事才刚刚开始。';
+        if (s.age < 18)
+            return '书桌前的每一次坚持，都在为未来多留一个选择。';
+        if (s.age < 22)
+            return '熟悉的路渐渐走到尽头，你开始决定自己的方向。';
+        if (s.age >= 55)
+            return '走过许多路以后，你开始在意日子本身的模样。';
+        if (s.career.track === 'unemployed')
+            return '下一站还没有确定，时间也留给了新的可能。';
+        if (s.lifeFocus === 'rest')
+            return '你把脚步放慢了一些，留出时间重新照看自己。';
+        if (s.lifeFocus === 'social')
+            return '工作之外，你也开始为生活里的相聚留出位置。';
+        return s.age < 35 ? '你正在建立自己的生活，也在学习如何安放野心。' : '生活有了积累。往后怎么过，仍然由你选择。';
+    }
+    exports_1("situation", situation);
+    function focusName(s, focus) {
+        if (focus === 'study')
+            return s.age < 22 ? '认真求学' : '继续学习';
+        if (focus === 'work')
+            return s.age < 18 ? '参与实践' : s.career.track === 'unemployed' ? '尝试兼职' : '专注事业';
+        if (focus === 'rest')
+            return '照顾自己';
+        return s.age < 18 ? '和朋友相处' : '留时间给生活';
+    }
+    exports_1("focusName", focusName);
+    return {
+        setters: [
+            function (AbilityConfig_1_1) {
+                AbilityConfig_1 = AbilityConfig_1_1;
+            }
+        ],
+        execute: function () {
+        }
+    };
+});
+
+
+
+
+
+System.register("chunks:///_virtual/LifeScene.ts",["cc"], function (exports_1, context_1) {
+    "use strict";
+    var cc_1, LifeScene;
+    var __moduleName = context_1 && context_1.id;
+    return {
+        setters: [
+            function (cc_1_1) {
+                cc_1 = cc_1_1;
+            }
+        ],
+        execute: function () {
+            LifeScene = class LifeScene {
+                static draw(parent, width, height, age, city = 'city') {
+                    const node = new cc_1.Node('LifeScene');
+                    node.layer = parent.layer;
+                    node.addComponent(cc_1.UITransform).setContentSize(width, height);
+                    parent.addChild(node);
+                    const g = node.addComponent(cc_1.Graphics);
+                    const color = (r, green, b) => new cc_1.Color(r, green, b, 255);
+                    const rect = (x, y, w, h, c, radius = 0) => {
+                        g.fillColor = c;
+                        g.roundRect(x, y, w, h, radius);
+                        g.fill();
+                    };
+                    const line = (x, y, x2, y2, c, size = 2) => {
+                        g.strokeColor = c;
+                        g.lineWidth = size;
+                        g.moveTo(x, y);
+                        g.lineTo(x2, y2);
+                        g.stroke();
+                    };
+                    const left = -width / 2, bottom = -height / 2;
+                    const night = age >= 22 && age < 55;
+                    rect(left, bottom, width, height, night ? color(28, 48, 56) : color(83, 113, 113), 12);
+                    const wx = left + width * .38, wy = bottom + height * .32, ww = width * .52, wh = height * .57;
+                    rect(wx - 8, wy - 8, ww + 16, wh + 16, color(20, 38, 44), 3);
+                    rect(wx, wy, ww, wh, night ? color(82, 117, 130) : color(190, 211, 203));
+                    for (let i = 0; i < 8; i++) {
+                        const bw = ww / 8 - 4, bh = wh * (.18 + ((i * 7 + 3) % 9) / 18) * (city === 'rural' ? .5 : 1);
+                        rect(wx + i * ww / 8, wy, bw, bh, night ? color(43, 72, 82) : color(133, 164, 157));
+                        if (night)
+                            for (let j = 0; j < 3; j++)
+                                rect(wx + i * ww / 8 + 5, wy + 9 + j * 12, 4, 5, color(186, 166, 117));
+                    }
+                    line(wx + ww / 2, wy, wx + ww / 2, wy + wh, color(28, 48, 56), 7);
+                    line(wx, wy + wh * .58, wx + ww, wy + wh * .58, color(28, 48, 56), 5);
+                    rect(left + 26, bottom + 26, width - 52, 15, color(154, 124, 92), 3);
+                    rect(left + 45, bottom + 8, 12, 18, color(78, 69, 58));
+                    rect(width / 2 - 57, bottom + 8, 12, 18, color(78, 69, 58));
+                    rect(left + 57, bottom + 42, 70, 7, color(211, 178, 108), 3);
+                    line(left + 91, bottom + 49, left + 104, bottom + height * .65, color(211, 178, 108), 5);
+                    rect(left + 66, bottom + height * .61, 91, 21, color(225, 198, 139), 8);
+                    rect(left + 170, bottom + 43, 100, 17, color(221, 217, 198), 2);
+                    line(left + 220, bottom + 44, left + 220, bottom + 58, color(158, 150, 132));
+                    rect(width / 2 - 106, bottom + 42, 24, 28, color(204, 205, 186), 5);
+                    if (age >= 55) {
+                        rect(left + 285, bottom + 41, 30, 26, color(168, 121, 92), 4);
+                        line(left + 300, bottom + 67, left + 300, bottom + 108, color(102, 148, 117), 5);
+                        rect(left + 276, bottom + 85, 24, 12, color(123, 163, 127), 6);
+                        rect(left + 301, bottom + 98, 24, 12, color(123, 163, 127), 6);
+                    }
+                    return node;
+                }
+            };
+            exports_1("LifeScene", LifeScene);
+        }
+    };
+});
+
+
+
+
+
 System.register("chunks:///_virtual/main",["./DeviceLayout.ts","./GameBootstrap.ts","./Motion.ts","./PortraitGameUI.ts","./StatChangeAnimator.ts","./UITheme.ts","./AbilityConfig.ts","./AchievementConfig.ts","./CareerPathEvents.ts","./EducationEvents.ts","./EndingConfig.ts","./EventTemplates.ts","./ExplorationConfig.ts","./FamilyOpportunityEvents.ts","./FutureTransitionEvents.ts","./GameEvents.ts","./IdentityConfig.ts","./IndependentLifeEvents.ts","./IndustryOpportunityEvents.ts","./IndustryProjectConfig.ts","./InheritanceConfig.ts","./LaterLifeEvents.ts","./MajorOpportunityEvents.ts","./MarketConfig.ts","./MarketInsightConfig.ts","./MidLifeEvents.ts","./OpportunityConfig.ts","./OpportunityEvents.ts","./StarterEvents.ts","./StartupConfig.ts","./YearConfig.ts","./GameSession.ts","./GameStateManager.ts","./GameTypes.ts","./SeededRandom.ts","./AchievementSystem.ts","./AssetSystem.ts","./CareerSystem.ts","./CitySystem.ts","./ConditionEvaluator.ts","./DelayedEventQueue.ts","./EducationProgressionSystem.ts","./EducationSystem.ts","./EndingResolver.ts","./EventMatcher.ts","./FamilyUnlockManager.ts","./FinanceSystem.ts","./GrowthSystem.ts","./HealthSystem.ts","./HousingSystem.ts","./IndustryProjectSystem.ts","./InvestmentMemoryManager.ts","./LegacyManager.ts","./MarketSystem.ts","./OpenOpportunitySystem.ts","./OpportunitySystem.ts","./ReportGenerator.ts","./RequirementFormatter.ts","./SaveManager.ts","./WealthSystem.ts"],(function(){return{setters:[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],execute:function(){}}}));
 
 System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exports_1, context_1) {
@@ -6472,6 +5399,12 @@ System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exp
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -6602,6 +5535,12 @@ System.register("chunks:///_virtual/MarketConfig.ts",[], function (exports_1, co
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var MARKET_INSIGHTS;
@@ -6617,6 +5556,12 @@ System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (export
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -6894,6 +5839,12 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts"], func
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], function (exports_1, context_1) {
     "use strict";
     var EventTemplates_1, MID_LIFE_EVENTS;
@@ -6912,6 +5863,12 @@ System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -6970,6 +5927,8 @@ System.register("chunks:///_virtual/Motion.ts",["cc"], function (exports_1, cont
                 }
                 static modalEnter(node) {
                     var _a;
+                    if (typeof globalThis.matchMedia === 'function' && globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches)
+                        return;
                     const opacity = (_a = node.getComponent(cc_1.UIOpacity)) !== null && _a !== void 0 ? _a : node.addComponent(cc_1.UIOpacity);
                     opacity.opacity = 0;
                     node.setScale(new cc_1.Vec3(.96, .96, 1));
@@ -7004,6 +5963,12 @@ System.register("chunks:///_virtual/Motion.ts",["cc"], function (exports_1, cont
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -7138,6 +6103,12 @@ System.register("chunks:///_virtual/OpenOpportunitySystem.ts",["./ExplorationCon
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var LIFE_CYCLE, OPPORTUNITY_CHAINS, SIGNALS;
@@ -7172,6 +6143,12 @@ System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -7313,6 +6290,12 @@ System.register("chunks:///_virtual/OpportunityEvents.ts",["./EventTemplates.ts"
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var OpportunityConfig_1, OpportunitySystem;
@@ -7378,9 +6361,15 @@ System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.
 
 
 
-System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.ts", "./StartupConfig.ts", "./ExplorationConfig.ts", "./OpenOpportunitySystem.ts", "./CareerSystem.ts", "./WealthSystem.ts", "./Motion.ts", "./UITheme.ts"], function (exports_1, context_1) {
+
+
+
+
+
+
+System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.ts", "./ExplorationConfig.ts", "./OpenOpportunitySystem.ts", "./CareerSystem.ts", "./WealthSystem.ts", "./Motion.ts", "./UITheme.ts", "./LifeScene.ts", "./LifePresentation.ts"], function (exports_1, context_1) {
     "use strict";
-    var cc_1, AbilityConfig_1, StartupConfig_1, ExplorationConfig_1, OpenOpportunitySystem_1, CareerSystem_1, WealthSystem_1, Motion_1, UITheme_1, CAREERS, EDUCATION, FOCUS, CITIES, PortraitGameUI;
+    var cc_1, AbilityConfig_1, ExplorationConfig_1, OpenOpportunitySystem_1, CareerSystem_1, WealthSystem_1, Motion_1, UITheme_1, LifeScene_1, LifePresentation_1, CAREERS, EDUCATION, FOCUS, CITIES, PortraitGameUI;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [
@@ -7389,9 +6378,6 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
             },
             function (AbilityConfig_1_1) {
                 AbilityConfig_1 = AbilityConfig_1_1;
-            },
-            function (StartupConfig_1_1) {
-                StartupConfig_1 = StartupConfig_1_1;
             },
             function (ExplorationConfig_1_1) {
                 ExplorationConfig_1 = ExplorationConfig_1_1;
@@ -7410,6 +6396,12 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
             },
             function (UITheme_1_1) {
                 UITheme_1 = UITheme_1_1;
+            },
+            function (LifeScene_1_1) {
+                LifeScene_1 = LifeScene_1_1;
+            },
+            function (LifePresentation_1_1) {
+                LifePresentation_1 = LifePresentation_1_1;
             }
         ],
         execute: function () {
@@ -7424,10 +6416,14 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     this.rollOffers = rollOffers;
                     this.cursor = 0;
                     this.viewportHeight = 0;
-                    this.activeTab = '人生';
+                    this.activeTab = '此刻';
                     this.offers = [];
                     this.refreshes = 3;
+                    this.familySection = 'overview';
+                    this.showAllHistory = false;
+                    this.showLockedFamilies = false;
                     this.revision = 0;
+                    this.scrollOffsets = new Map();
                     this.redraw = () => this.home();
                     this.toasts = [];
                     this.focusRows = {};
@@ -7439,6 +6435,22 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     this.root.getComponent(cc_1.UITransform).setContentSize(720, layout.designHeight);
                     this.root.setScale(1, 1, 1);
                     this.redraw();
+                }
+                audit() {
+                    const issues = [];
+                    const visit = (node) => {
+                        const t = node.getComponent(cc_1.UITransform);
+                        for (const child of node.children) {
+                            const c = child.getComponent(cc_1.UITransform);
+                            if (t && c && !['PortraitScroll', 'PortraitContent', 'PortraitModal', 'ModalScroll', 'ModalContent'].includes(node.name)) {
+                                if (Math.abs(child.position.x) + c.width / 2 > t.width / 2 + 1 || Math.abs(child.position.y) + c.height / 2 > t.height / 2 + 1)
+                                    issues.push(`元素越界：${child.name}`);
+                            }
+                            visit(child);
+                        }
+                    };
+                    visit(this.root);
+                    return { revision: this.revision, issues };
                 }
                 box(parent, width, height, x = 0, y = 0, color = UITheme_1.UITheme.surface) {
                     const node = new cc_1.Node('PortraitCard');
@@ -7455,7 +6467,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     const g = (_a = node.getComponent(cc_1.Graphics)) !== null && _a !== void 0 ? _a : node.addComponent(cc_1.Graphics);
                     g.clear();
                     g.fillColor = fill;
-                    g.roundRect(-t.width / 2, -t.height / 2, t.width, t.height, 18);
+                    g.roundRect(-t.width / 2, -t.height / 2, t.width, t.height, 12);
                     g.fill();
                     const borderedSurface = fill === UITheme_1.UITheme.surface || fill === UITheme_1.UITheme.ink850 || fill === UITheme_1.UITheme.disabledSurface || fill === UITheme_1.UITheme.surfaceRaised;
                     if (selected) {
@@ -7522,10 +6534,13 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     return label;
                 }
                 clearScreen() {
+                    var _a;
+                    if (this.pageKey && ((_a = this.scroll) === null || _a === void 0 ? void 0 : _a.node.isValid))
+                        this.scrollOffsets.set(this.pageKey, Math.max(0, this.scroll.getScrollOffset().y));
+                    this.pageKey = undefined;
                     this.activeModal = undefined;
                     this.toasts = [];
                     this.focusRows = {};
-                    this.focusForecastBody = undefined;
                     for (const child of [...this.root.children]) {
                         child.removeFromParent();
                         child.destroy();
@@ -7537,53 +6552,30 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     this.overlay.addComponent(cc_1.UITransform).setContentSize(720, this.layout.designHeight);
                     this.root.addChild(this.overlay);
                 }
-                paperOrnament(height) {
-                    const ornament = new cc_1.Node('PaperInkOrnament');
-                    ornament.layer = this.root.layer;
-                    ornament.addComponent(cc_1.UITransform).setContentSize(720, height);
-                    this.root.addChild(ornament);
-                    const g = ornament.addComponent(cc_1.Graphics);
-                    g.strokeColor = new cc_1.Color(156, 122, 46, 46);
-                    g.lineWidth = 1;
-                    const stroke = (points) => {
-                        const [first, ...rest] = points;
-                        g.moveTo(first[0], first[1]);
-                        rest.forEach(([x, y]) => g.lineTo(x, y));
-                    };
-                    const top = height / 2 - 32, bottom = -height / 2 + 32;
-                    stroke([[-320, top], [-264, top], [-244, top - 20], [-192, top - 20], [-174, top - 39]]);
-                    stroke([[-320, top - 29], [-282, top - 29], [-264, top - 46]]);
-                    stroke([[320, bottom], [264, bottom], [244, bottom + 20], [192, bottom + 20], [174, bottom + 39]]);
-                    stroke([[320, bottom + 29], [282, bottom + 29], [264, bottom + 46]]);
-                    g.stroke();
-                }
                 clickable(node, action, confirm = false, color = UITheme_1.UITheme.surface) {
                     const button = node.addComponent(cc_1.Button);
                     button.transition = cc_1.Button.Transition.NONE;
                     node.on(cc_1.Button.EventType.CLICK, () => {
-                        var _a;
-                        if (confirm && this.chosen !== node) {
-                            (_a = this.chosenReset) === null || _a === void 0 ? void 0 : _a.call(this);
-                            this.chosen = node;
-                            this.paint(node, color, true);
-                            this.chosenReset = () => { if (node.isValid)
-                                this.paint(node, color); };
-                            this.notify('已选择，再次点击确认。');
-                            return;
+                        var _a, _b;
+                        if (confirm) {
+                            const labels = node.children.map(child => child.getComponent(cc_1.Label)).filter((label) => !!label);
+                            this.openConfirmModal((_b = (_a = labels[0]) === null || _a === void 0 ? void 0 : _a.string) !== null && _b !== void 0 ? _b : '确认操作', labels.slice(1).map(label => label.string).join('\n') || '这项选择将立即生效。', () => { this.closeModal(); action(); }, () => this.closeModal());
                         }
-                        this.chosen = undefined;
-                        this.chosenReset = undefined;
-                        action();
+                        else
+                            action();
                     });
                 }
                 page(title, subtitle, tab, back, dock) {
+                    var _a;
                     this.revision++;
-                    this.chosen = undefined;
-                    this.chosenReset = undefined;
                     this.clearScreen();
+                    this.pageKey = `${title}:${title === '家底' ? this.familySection : ''}`;
+                    const savedOffset = (_a = this.scrollOffsets.get(this.pageKey)) !== null && _a !== void 0 ? _a : 0;
+                    const revision = this.revision;
+                    setTimeout(() => { var _a; if (this.root.isValid && revision === this.revision && ((_a = this.scroll) === null || _a === void 0 ? void 0 : _a.node.isValid))
+                        this.scroll.scrollToOffset(new cc_1.Vec2(0, Math.min(savedOffset, Math.max(0, this.cursor - this.viewportHeight))), 0); }, 0);
                     const h = this.layout.designHeight;
                     this.backdrop(h);
-                    this.paperOrnament(h);
                     const top = h / 2 - this.layout.safeTop;
                     this.text(this.root, title, 38, back ? 520 : 650, 64, back ? 40 : 0, top - 38, UITheme_1.UITheme.text, false, true);
                     if (back) {
@@ -7618,10 +6610,10 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     this.cursor = 8;
                     if (tab) {
                         this.activeTab = tab;
-                        ['人生', '投资', '资产'].forEach((name, i) => {
-                            const node = this.box(this.root, 210, 82, (i - 1) * 224, bottom + 43, name === tab ? UITheme_1.UITheme.gold : UITheme_1.UITheme.ink850);
-                            this.text(node, name, 29, 190, 56, 0, 0, name === tab ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.text, true);
-                            this.clickable(node, () => name === '人生' ? this.life() : name === '投资' ? this.investments() : this.assets());
+                        ['此刻', '打算', '家底', '足迹'].forEach((name, i) => {
+                            const node = this.box(this.root, 154, 78, (i - 1.5) * 168, bottom + 43, name === tab ? UITheme_1.UITheme.gold : UITheme_1.UITheme.ink850);
+                            this.text(node, name, 27, 140, 56, 0, 0, name === tab ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.text, true);
+                            this.clickable(node, () => name === '此刻' ? this.life() : name === '打算' ? this.plans() : name === '家底' ? this.assets() : this.archive());
                         });
                     }
                     if (dock) {
@@ -7639,7 +6631,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     const node = this.box(this.content, 648, height, 0, -this.cursor - height / 2, color);
                     this.text(node, title, 30, contentWidth, th, contentX, height / 2 - 18 - th / 2, muted ? UITheme_1.UITheme.muted : color === UITheme_1.UITheme.gold ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.text);
                     if (body)
-                        this.text(node, body, 26, contentWidth, bh, contentX, -height / 2 + 18 + bh / 2, muted ? UITheme_1.UITheme.quiet : color === UITheme_1.UITheme.gold ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.info);
+                        this.text(node, body, 26, contentWidth, bh, contentX, -height / 2 + 18 + bh / 2, muted ? UITheme_1.UITheme.quiet : color === UITheme_1.UITheme.gold ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.muted);
                     if (action) {
                         this.text(node, '›', 38, 32, 52, 286, 0, color === UITheme_1.UITheme.gold ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.muted, true);
                         this.clickable(node, action, confirm, color);
@@ -7689,10 +6681,12 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                             }
                             const educationDelta = Math.round((after.education.admissionScore - before.education.admissionScore) * 100) / 100;
                             const deltaText = [AbilityConfig_1.changeText(delta), educationDelta ? `升学评估 ${educationDelta > 0 ? '+' : ''}${educationDelta}` : ''].filter(Boolean).join(' · ');
-                            message = [this.session.getLatestOutcome(), deltaText || message].filter(Boolean).join('\n');
+                            message = [after.lifeLog.length > before.lifeLog.length ? this.session.getLatestOutcome() : undefined, deltaText || message].filter(Boolean).join('\n');
                         }
-                        if (message)
-                            this.notify(message, keepNotice);
+                        if (message && keepNotice)
+                            this.openMessage('选择留下的回声', message + '\n\n这次结果已保存在「足迹」。', () => this.closeModal(), '回到此刻');
+                        else if (message)
+                            this.notify(message);
                     }
                     catch (error) {
                         this.notify(error instanceof Error ? error.message : '暂时无法完成。');
@@ -7702,14 +6696,18 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     this.openConfirmModal(title, message, () => { this.closeModal(); action(); }, () => { this.closeModal(); back(); });
                 }
                 closeModal() {
-                    const modal = this.activeModal;
+                    var _a;
                     this.activeModal = undefined;
-                    if (modal === null || modal === void 0 ? void 0 : modal.isValid) {
-                        modal.removeFromParent();
-                        modal.destroy();
-                    }
+                    if (!((_a = this.overlay) === null || _a === void 0 ? void 0 : _a.isValid))
+                        return;
+                    for (const child of [...this.overlay.children])
+                        if (child.name === 'PortraitModal' || child.name === 'ModalVeil') {
+                            child.removeFromParent();
+                            child.destroy();
+                        }
                 }
                 modalVeil(onTap) {
+                    this.closeModal();
                     const veil = new cc_1.Node('ModalVeil');
                     veil.layer = this.root.layer;
                     const h = this.layout.designHeight;
@@ -7725,14 +6723,14 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     return veil;
                 }
                 createModal(width, height, footerHeight, title, date = '') {
-                    this.closeModal();
                     const modal = this.box(this.overlay, width, height, 0, 0, UITheme_1.UITheme.surface);
                     modal.name = 'PortraitModal';
                     this.activeModal = modal;
-                    const headerHeight = 96, contentHeight = height - headerHeight - footerHeight, innerWidth = width - 64;
-                    this.text(modal, title, 32, innerWidth - (date ? 120 : 0), 48, date ? -52 : 0, height / 2 - 42, UITheme_1.UITheme.text, false, true);
+                    const innerWidth = width - 64, headerHeight = this.modalHeaderHeight(title, width, date), contentHeight = Math.max(80, height - headerHeight - footerHeight);
+                    const titleH = this.measureText(modal, title, 32, innerWidth, true);
                     if (date)
-                        this.text(modal, date, 21, 116, 36, width / 2 - 88, height / 2 - 43, UITheme_1.UITheme.quiet, true);
+                        this.text(modal, date, 21, innerWidth, 32, 0, height / 2 - 27, UITheme_1.UITheme.gold);
+                    this.text(modal, title, 32, innerWidth, titleH, 0, height / 2 - (date ? 56 : 18) - titleH / 2, UITheme_1.UITheme.text, false, true);
                     const scrollNode = new cc_1.Node('ModalScroll');
                     scrollNode.layer = this.root.layer;
                     scrollNode.addComponent(cc_1.UITransform).setContentSize(innerWidth, contentHeight);
@@ -7756,17 +6754,21 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     return { modal, content, contentHeight };
                 }
                 addModalFooter(modal, width, height, primary, onPrimary, secondary, onSecondary) {
-                    const y = -height / 2 + 46;
-                    const cancel = this.box(modal, 210, 62, -112, y, UITheme_1.UITheme.surfaceRaised);
-                    this.text(cancel, secondary, 25, 182, 42, 0, 0, UITheme_1.UITheme.text, true);
-                    this.clickable(cancel, onSecondary, false, UITheme_1.UITheme.surfaceRaised);
-                    const accept = this.box(modal, 292, 62, 144, y, UITheme_1.UITheme.gold);
-                    this.text(accept, primary, 26, 258, 42, 0, 0, UITheme_1.UITheme.ink900, true, true);
-                    this.clickable(accept, onPrimary, false, UITheme_1.UITheme.gold);
+                    const y = -height / 2 + 48, w = (width - 80) / 2;
+                    const cancel = this.box(modal, w, 64, -(w + 16) / 2, y, UITheme_1.UITheme.surfaceRaised);
+                    this.text(cancel, secondary, 24, w - 20, 42, 0, 0, UITheme_1.UITheme.text, true);
+                    this.clickable(cancel, onSecondary);
+                    const accept = this.box(modal, w, 64, (w + 16) / 2, y, UITheme_1.UITheme.gold);
+                    accept.name = 'ConfirmAction';
+                    this.text(accept, primary, 24, w - 20, 42, 0, 0, UITheme_1.UITheme.ink900, true);
+                    this.clickable(accept, onPrimary);
+                }
+                modalHeaderHeight(title, width, date = '') {
+                    return this.measureText(this.overlay, title, 32, width - 64, true) + (date ? 74 : 36);
                 }
                 openConfirmModal(title, message, onConfirm, onCancel) {
                     this.modalVeil(onCancel);
-                    const width = 560, footerHeight = 100, headerHeight = 96, maxHeight = this.layout.designHeight - this.layout.safeTop - this.layout.safeBottom - 48;
+                    const width = 560, footerHeight = 100, headerHeight = this.modalHeaderHeight(title, 560), maxHeight = this.layout.designHeight - this.layout.safeTop - this.layout.safeBottom - 48;
                     const bodyHeight = this.measureText(this.overlay, message, 26, width - 64);
                     const height = Math.min(maxHeight, Math.max(250, headerHeight + footerHeight + bodyHeight + 34));
                     const { modal, content, contentHeight } = this.createModal(width, height, footerHeight, title);
@@ -7775,94 +6777,110 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     this.addModalFooter(modal, width, height, '确认', onConfirm, '再想想', onCancel);
                 }
                 openEventModal(event) {
-                    const preview = this.session.educationAdmissionPreview(event.id);
-                    const description = `${event.description}${preview ? `\n${preview}` : ''}`;
-                    const width = 640, innerWidth = width - 64, footerHeight = event.declineAllowed ? 94 : 0, headerHeight = 96;
-                    const bodyHeight = this.measureText(this.overlay, description, 26, innerWidth);
-                    const choices = event.options.map((option) => {
+                    const state = this.session.snapshot(), preview = this.session.educationAdmissionPreview(event.id);
+                    const width = 640, innerWidth = width - 64, footerHeight = 150, date = `${state.year} · ${state.age}岁`;
+                    const description = [event.description, preview].filter(Boolean).join('\n');
+                    const bodyHeight = this.measureText(this.overlay, description, 28, innerWidth);
+                    const choices = event.options.map(option => {
+                        var _a, _b;
                         const career = this.session.careerChoicePreview(option.id), funding = this.session.choiceFunding(option.id);
-                        const disabled = !!career && !career.eligible || funding.shortfall > 0 && !funding.offer.canBorrow;
-                        const body = career
-                            ? `${career.summary}\n年收入 ${AbilityConfig_1.moneyText(career.totalIncome)}\n年开支 ${AbilityConfig_1.moneyText(career.annualExpense)} · 年结余 ${AbilityConfig_1.signedMoneyText(career.netCashflow)}${career.eligible ? '' : `\n尚需：${career.unmet.join('、')}`}`
-                            : funding.shortfall > 0 ? funding.offer.canBorrow ? `可使用贷款 ${AbilityConfig_1.moneyText(funding.shortfall)} 参与` : '现金与可用贷款不足' : '';
+                        const familyCost = Math.max(0, -((_b = (_a = option.result.stats) === null || _a === void 0 ? void 0 : _a.familyResources) !== null && _b !== void 0 ? _b : 0));
+                        const disabled = !!career && !career.eligible || funding.shortfall > 0 && !funding.offer.canBorrow || familyCost > state.stats.familyResources;
                         const title = option.label.split('｜')[0];
-                        const titleHeight = this.measureText(this.overlay, title, 28, innerWidth - 32, true);
-                        const detailHeight = body ? this.measureText(this.overlay, body, 24, innerWidth - 32) : 0;
-                        return { option, funding, disabled, title, body, titleHeight, detailHeight, height: Math.max(76, titleHeight + (body ? detailHeight + 40 : 32)) };
+                        const details = [funding.cost ? `确定支出 ${AbilityConfig_1.moneyText(funding.cost)}` : '', familyCost ? `家庭资源支出 ${AbilityConfig_1.moneyText(familyCost)}` : '',
+                            AbilityConfig_1.changeText(option.result), LifePresentation_1.uncertaintyPreview(option),
+                            career ? `${career.summary}\n预计年收入 ${AbilityConfig_1.moneyText(career.totalIncome)} · 年结余 ${AbilityConfig_1.signedMoneyText(career.netCashflow)}${career.eligible ? '' : `\n尚需：${career.unmet.join('、')}`}` : '',
+                            funding.shortfall > 0 ? funding.offer.canBorrow ? `需借款 ${AbilityConfig_1.moneyText(funding.shortfall)} · 年利息约 ${AbilityConfig_1.moneyText(funding.offer.annualInterest)}` : '现金与可用贷款不足' : '',
+                            familyCost > state.stats.familyResources ? '家庭资源不足' : ''].filter(Boolean).join('\n');
+                        const titleHeight = this.measureText(this.overlay, title, 28, innerWidth - 40, true);
+                        const detailHeight = details ? this.measureText(this.overlay, details, 25, innerWidth - 40) : 0;
+                        return { option, title, details, disabled, funding, titleHeight, detailHeight, height: titleHeight + detailHeight + (details ? 48 : 36) };
                     });
-                    const naturalHeight = bodyHeight + 18 + choices.reduce((sum, choice) => sum + choice.height + 12, 0);
-                    const maxHeight = this.layout.designHeight - this.layout.safeTop - this.layout.safeBottom - 48;
-                    const height = Math.min(maxHeight, Math.max(260, headerHeight + footerHeight + naturalHeight));
-                    const dismiss = () => { if (event.declineAllowed)
-                        this.attempt(() => this.session.declineCurrentEvent(), () => this.life()); };
-                    this.modalVeil(event.declineAllowed ? dismiss : undefined);
-                    const { modal, content, contentHeight } = this.createModal(width, height, footerHeight, event.title, `${this.session.snapshot().year}年`);
-                    if (event.forced) {
-                        const tag = this.box(modal, 38, 128, -width / 2 - 14, height / 2 - 86, UITheme_1.UITheme.gold);
-                        tag.name = 'FateTag';
-                        this.text(tag, '命运岔口', 20, 28, 112, 0, 0, UITheme_1.UITheme.ink900, true, true);
-                    }
+                    const naturalHeight = bodyHeight + 22 + choices.reduce((sum, c) => sum + c.height + 14, 0);
+                    const height = Math.min(this.layout.designHeight - this.layout.safeTop - this.layout.safeBottom - 48, this.modalHeaderHeight(event.title, width, date) + footerHeight + naturalHeight + 12);
+                    this.modalVeil();
+                    const { modal, content, contentHeight } = this.createModal(width, height, footerHeight, event.title, date);
+                    let selected, selectedNode;
+                    const summary = this.text(modal, '先选一项，再确认。选择前可以反复比较。', 22, width - 64, 40, 0, -height / 2 + 120, UITheme_1.UITheme.muted, true);
                     let cursor = 0;
-                    this.text(content, description, 26, innerWidth, bodyHeight, 0, -cursor - bodyHeight / 2, UITheme_1.UITheme.muted);
-                    cursor += bodyHeight + 18;
+                    this.text(content, description, 28, innerWidth, bodyHeight, 0, -bodyHeight / 2, UITheme_1.UITheme.text);
+                    cursor += bodyHeight + 22;
                     for (const choice of choices) {
-                        const card = this.box(content, innerWidth, choice.height, 0, -cursor - choice.height / 2, choice.disabled ? UITheme_1.UITheme.disabledSurface : UITheme_1.UITheme.ink900);
-                        this.text(card, choice.title, 28, innerWidth - 32, choice.titleHeight, 0, choice.height / 2 - 18 - choice.titleHeight / 2, choice.disabled ? UITheme_1.UITheme.quiet : UITheme_1.UITheme.text, false, true);
-                        if (choice.body)
-                            this.text(card, choice.body, 24, innerWidth - 32, choice.detailHeight, 0, -choice.height / 2 + 18 + choice.detailHeight / 2, choice.disabled ? UITheme_1.UITheme.quiet : UITheme_1.UITheme.goldSoft);
+                        const card = this.box(content, innerWidth, choice.height, 0, -cursor - choice.height / 2, choice.disabled ? UITheme_1.UITheme.disabledSurface : UITheme_1.UITheme.surfaceRaised);
+                        card.name = 'EventChoice';
+                        this.text(card, choice.title, 28, innerWidth - 40, choice.titleHeight, 0, choice.height / 2 - 18 - choice.titleHeight / 2, choice.disabled ? UITheme_1.UITheme.quiet : UITheme_1.UITheme.text, false, true);
+                        if (choice.details)
+                            this.text(card, choice.details, 25, innerWidth - 40, choice.detailHeight, 0, -choice.height / 2 + 18 + choice.detailHeight / 2, choice.disabled ? UITheme_1.UITheme.muted : UITheme_1.UITheme.info);
                         if (!choice.disabled)
                             this.clickable(card, () => {
-                                var _a;
-                                if (choice.funding.shortfall > 0) {
-                                    this.closeModal();
-                                    this.confirm('贷款参与', `借款 ${AbilityConfig_1.moneyText(choice.funding.shortfall)}\n预计年利息 ${AbilityConfig_1.moneyText(choice.funding.offer.annualInterest)}`, () => this.attempt(() => this.session.chooseWithLoan(choice.option.id), () => this.life(), AbilityConfig_1.changeText(choice.option.result), true), () => this.life());
-                                }
-                                else {
-                                    this.closeModal();
-                                    this.attempt(() => this.session.choose(choice.option.id), () => this.life(), ((_a = choice.option.outcomes) === null || _a === void 0 ? void 0 : _a.length) ? undefined : AbilityConfig_1.changeText(choice.option.result), true);
-                                }
-                            }, true, UITheme_1.UITheme.ink900);
-                        cursor += choice.height + 12;
+                                if (selectedNode)
+                                    this.paint(selectedNode, UITheme_1.UITheme.surfaceRaised);
+                                selected = choice;
+                                selectedNode = card;
+                                this.paint(card, UITheme_1.UITheme.surfaceRaised, true);
+                                summary.string = choice.funding.cost ? `已选 · 支付 ${AbilityConfig_1.moneyText(choice.funding.cost)}${choice.funding.shortfall > 0 ? '（含借款）' : ''}` : `已选 · ${choice.title.slice(0, 18)}`;
+                            });
+                        cursor += choice.height + 14;
                     }
                     content.getComponent(cc_1.UITransform).height = Math.max(contentHeight, cursor);
+                    const commit = () => {
+                        if (!selected) {
+                            summary.string = '请先选择上方的一项行动。';
+                            return;
+                        }
+                        const choice = selected;
+                        const apply = () => this.attempt(() => choice.funding.shortfall > 0 ? this.session.chooseWithLoan(choice.option.id) : this.session.choose(choice.option.id), () => this.life(), undefined, true);
+                        if (choice.funding.shortfall > 0)
+                            this.openConfirmModal('借款参与这次选择', `借款 ${AbilityConfig_1.moneyText(choice.funding.shortfall)}\n年利息约 ${AbilityConfig_1.moneyText(choice.funding.offer.annualInterest)}\n总支出 ${AbilityConfig_1.moneyText(choice.funding.cost)}`, () => { this.closeModal(); apply(); }, () => this.openEventModal(event));
+                        else {
+                            this.closeModal();
+                            apply();
+                        }
+                    };
+                    this.addModalFooter(modal, width, height, '确认选择', commit, '稍后再看', () => this.closeModal());
                     if (event.declineAllowed) {
-                        const decline = this.box(modal, width - 64, 58, 0, -height / 2 + 42, UITheme_1.UITheme.surfaceRaised);
-                        this.text(decline, '暂不参与', 25, width - 100, 38, 0, 0, UITheme_1.UITheme.muted, true);
-                        this.clickable(decline, dismiss, false, UITheme_1.UITheme.surfaceRaised);
+                        const decline = this.box(content, innerWidth, 70, 0, -cursor - 35, UITheme_1.UITheme.surfaceInset);
+                        this.text(decline, '放弃这次机会', 25, innerWidth - 32, 40, 0, 0, UITheme_1.UITheme.muted, true);
+                        this.clickable(decline, () => this.openConfirmModal('放弃这次机会', event.title + '：放弃后本次机会将结束。', () => this.attempt(() => this.session.declineCurrentEvent(), () => this.life()), () => this.openEventModal(event)));
+                        content.getComponent(cc_1.UITransform).height = Math.max(contentHeight, cursor + 86);
                     }
                 }
+                openMessage(title, message, action, label = '继续生活') {
+                    this.modalVeil();
+                    const width = 620, footer = 100;
+                    const bodyHeight = this.measureText(this.overlay, message, 28, width - 64);
+                    const height = Math.min(this.layout.designHeight - this.layout.safeTop - this.layout.safeBottom - 48, this.modalHeaderHeight(title, width) + bodyHeight + footer + 32);
+                    const { modal, content, contentHeight } = this.createModal(width, height, footer, title);
+                    this.text(content, message, 28, width - 64, bodyHeight, 0, -bodyHeight / 2, UITheme_1.UITheme.text);
+                    content.getComponent(cc_1.UITransform).height = Math.max(contentHeight, bodyHeight + 16);
+                    const button = this.box(modal, width - 64, 70, 0, -height / 2 + 48, UITheme_1.UITheme.gold);
+                    button.name = 'ConfirmAction';
+                    this.text(button, label, 28, width - 100, 46, 0, 0, UITheme_1.UITheme.ink900, true);
+                    this.clickable(button, () => { this.closeModal(); action(); });
+                }
                 openReceipt(before, after, close) {
-                    this.modalVeil(close);
-                    const width = 480, height = 330, { modal, content } = this.createModal(width, height, 0, `${before.year}年结算`);
-                    const a = WealthSystem_1.wealthBreakdown(before), b = WealthSystem_1.wealthBreakdown(after), delta = b.netWorth - a.netWorth;
-                    this.text(content, '净资产', 23, width - 64, 34, 0, -30, UITheme_1.UITheme.muted, true);
-                    this.text(content, AbilityConfig_1.moneyText(b.netWorth), 44, width - 64, 66, 0, -86, UITheme_1.UITheme.gold, true, true);
-                    this.text(content, `本年 ${AbilityConfig_1.signedMoneyText(delta)}`, 26, width - 64, 42, 0, -140, delta >= 0 ? UITheme_1.UITheme.gain : UITheme_1.UITheme.loss, true);
-                    this.text(content, `现金 ${AbilityConfig_1.moneyText(after.stats.funds)} · 贷款 ${AbilityConfig_1.moneyText(after.finance.loanBalance)}`, 22, width - 64, 36, 0, -188, UITheme_1.UITheme.muted, true);
-                    const progress = this.box(modal, width - 64, 6, 0, -height / 2 + 26, UITheme_1.UITheme.gold);
-                    Motion_1.Motion.progress(progress, 1.35);
-                    Motion_1.Motion.autoCard(modal, close, 1.2);
-                    this.clickable(modal, close);
+                    var _a, _b;
+                    const review = (_a = after.annualReviews) === null || _a === void 0 ? void 0 : _a.find(item => item.year === before.year);
+                    this.openMessage(`${before.year}年 · 这一年`, (_b = review === null || review === void 0 ? void 0 : review.text) !== null && _b !== void 0 ? _b : `现金变化 ${AbilityConfig_1.signedMoneyText(after.stats.funds - before.stats.funds)}\n健康 ${Math.round(after.stats.health)} · 幸福 ${Math.round(after.stats.happiness)}\n详细收支已记入家底。`, close);
                 }
                 home() {
                     this.redraw = () => this.home();
                     this.revision++;
-                    this.chosen = undefined;
-                    this.chosenReset = undefined;
                     this.clearScreen();
                     const h = this.layout.designHeight;
                     this.backdrop(h);
-                    this.paperOrnament(h);
                     const top = h / 2 - this.layout.safeTop, bottom = -h / 2 + this.layout.safeBottom;
                     const hero = (top + bottom) / 2;
-                    this.text(this.root, '编年', 20, 360, 36, 0, hero + 156, UITheme_1.UITheme.gold, true, true);
-                    this.text(this.root, '重新活一次', 48, 620, 84, 0, hero + 82, UITheme_1.UITheme.text, true, true);
-                    this.text(this.root, '如果人生可以重启，你会如何书写下一页？', 25, 600, 52, 0, hero + 14, UITheme_1.UITheme.muted, true);
-                    const start = this.box(this.root, 500, 96, 0, hero - 94, UITheme_1.UITheme.gold);
+                    this.text(this.root, 'RESTART LIFE', 20, 360, 36, 0, hero + 245, UITheme_1.UITheme.gold, true, true);
+                    this.text(this.root, '重来', 64, 620, 84, 0, hero + 170, UITheme_1.UITheme.text, true, true);
+                    this.text(this.root, '在时代的变化里，重新选择自己的人生。', 25, 600, 52, 0, hero + 103, UITheme_1.UITheme.muted, true);
+                    const art = LifeScene_1.LifeScene.draw(this.root, 600, 174, 28);
+                    art.setPosition(0, hero - 27);
+                    const start = this.box(this.root, 500, 86, 0, hero - 171, UITheme_1.UITheme.gold);
                     this.text(start, '开始重来', 33, 430, 64, 0, 0, UITheme_1.UITheme.ink900, true, true);
                     this.clickable(start, () => { this.refreshes = 3; this.selected = undefined; this.selectedOffer = undefined; this.families(); });
                     if (this.session.hasContinuableSave()) {
-                        const resume = this.box(this.root, 500, 76, 0, hero - 192, UITheme_1.UITheme.surface);
+                        const resume = this.box(this.root, 500, 76, 0, hero - 267, UITheme_1.UITheme.surface);
                         this.text(resume, '继续人生', 28, 430, 54, 0, 0, UITheme_1.UITheme.text, true);
                         this.clickable(resume, () => this.attempt(() => this.session.tryRestore(), () => this.life()));
                     }
@@ -7871,37 +6889,54 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                         this.text(archive, '人生档案', 22, 230, 40, 0, 0, UITheme_1.UITheme.info, true);
                         this.clickable(archive, () => { this.session.loadArchive(); this.archive(); });
                     }
-                    this.text(this.root, '每一次选择，都会在多年后留下回声。', 19, 560, 40, 0, bottom + 126, UITheme_1.UITheme.quiet, true);
                     this.createOverlay();
                 }
                 families() {
-                    var _a;
+                    var _a, _b, _c, _d;
                     this.redraw = () => this.families();
-                    this.page('选择家庭', this.selected ? `已选择：${this.selected.name}` : '不同起点，拥有不同的资源与机遇。', undefined, () => this.home(), this.selected ? {
-                        text: `确认选择「${this.selected.name}」`, action: () => { this.offers = this.rollOffers(); this.selectedOffer = undefined; this.talents(); },
+                    this.page('你从怎样的生活出发', '01 / 起点     →     02 / 天赋     →     03 / 人生', undefined, () => this.home(), this.selected ? {
+                        text: `从「${this.selected.name}」出发`, action: () => { this.offers = this.rollOffers(); this.selectedOffer = undefined; this.talents(); },
                     } : undefined);
-                    if (!this.selected)
-                        this.row('选择一个家庭', '点选卡片后，在底部确认进入天赋选择。', undefined, UITheme_1.UITheme.ink850);
-                    for (const { identity, unlocked, requirement } of this.session.familyUnlockStatuses()) {
-                        const node = this.row(`${unlocked ? '' : '🔒 '}${identity.name}`, unlocked ? `家庭资源 ${AbilityConfig_1.moneyText(identity.initialFamilyResources)} · 每年零用钱 ${AbilityConfig_1.moneyText(identity.familyAllowanceAnnual)}\n${identity.opportunityFocus}` : requirement, unlocked ? () => { this.selected = identity; this.families(); } : undefined, unlocked ? UITheme_1.UITheme.surface : UITheme_1.UITheme.disabledSurface, false, !unlocked);
-                        if (((_a = this.selected) === null || _a === void 0 ? void 0 : _a.id) === identity.id)
+                    const scene = this.box(this.content, 648, 180, 0, -this.cursor - 90, UITheme_1.UITheme.ink900);
+                    LifeScene_1.LifeScene.draw(scene, 648, 180, 8, (_b = (_a = this.selected) === null || _a === void 0 ? void 0 : _a.region) !== null && _b !== void 0 ? _b : 'rural');
+                    this.cursor += 198;
+                    this.row('有些起点无法选择，这一次可以', '家庭带来不同的资源和机会。长大以后，你仍然可以走向自己的方向。');
+                    const descriptions = {
+                        'migrant-rural': '家人常年为生计奔忙。你更早学会安排事情，也需要珍惜手里的每一份资源。',
+                        'small-town': '熟悉的街道和邻里陪你长大。日子相对安稳，远方的机会需要自己寻找。',
+                        'county-business': '你在店铺的忙碌中长大。生意教会你看人识货，也让收入多了一些波动。',
+                        'metro-salaried': '企业、学校和通勤组成日常。你更容易接触城市的信息与职业机会。',
+                        'scholar-family': '书本与讨论是家里的日常。教育和科研的门，会更早向你打开。',
+                        'wealthy-business': '家族积累让你站得更高。商业网络与资金，给了你更大的选择空间。',
+                    };
+                    const families = this.session.familyUnlockStatuses();
+                    for (const { identity, unlocked, requirement } of families) {
+                        if (!unlocked && !this.showLockedFamilies)
+                            continue;
+                        const node = this.row(`${unlocked ? '' : '锁定 · '}${identity.name}`, unlocked ? `${(_c = descriptions[identity.id]) !== null && _c !== void 0 ? _c : identity.opportunityFocus}\n家庭资源 ${AbilityConfig_1.moneyText(identity.initialFamilyResources)} · 年零用钱 ${AbilityConfig_1.moneyText(identity.familyAllowanceAnnual)}` : requirement, unlocked ? () => { this.selected = identity; this.families(); } : undefined, unlocked ? UITheme_1.UITheme.surface : UITheme_1.UITheme.disabledSurface);
+                        if (((_d = this.selected) === null || _d === void 0 ? void 0 : _d.id) === identity.id)
                             this.paint(node, UITheme_1.UITheme.surface, true);
                     }
+                    const locked = families.filter(item => !item.unlocked).length;
+                    if (locked)
+                        this.row(this.showLockedFamilies ? '收起其他起点' : `还有 ${locked} 种人生起点`, '完成人生目标后解锁，点击查看条件。', () => { this.showLockedFamilies = !this.showLockedFamilies; this.families(); });
                 }
                 talents() {
                     var _a;
                     this.redraw = () => this.talents();
-                    this.page('选择天赋', this.selectedOffer ? `已选择：${this.selectedOffer.talent.name}` : `普通80% · 稀有18% · 传奇2%  |  刷新剩余${this.refreshes}/3`, undefined, () => this.families(), this.selectedOffer ? {
+                    this.page('选择天赋', this.selectedOffer ? `已选择：${this.selectedOffer.talent.name}` : `选择你的长处 · 可刷新 ${this.refreshes} 次`, undefined, () => this.families(), this.selectedOffer ? {
                         text: `确认天赋「${this.selectedOffer.talent.name}」`, action: () => {
                             if (!this.selected || !this.selectedOffer)
                                 return;
                             this.inheritanceChoices = undefined;
-                            this.session.start(this.selected.id);
-                            this.session.applyStartup(this.selectedOffer.talent, this.selectedOffer.defect);
-                            this.life();
+                            const begin = () => { this.session.start(this.selected.id); this.session.applyStartup(this.selectedOffer.talent, this.selectedOffer.defect); this.life(); };
+                            if (this.session.hasContinuableSave())
+                                this.openConfirmModal('开始另一种人生', '当前未结束的人生会被新存档替换。', begin, () => this.closeModal());
+                            else
+                                begin();
                         },
                     } : undefined);
-                    this.row('能力有什么用？', '点击查看入职、收入与升学的具体关联。', () => this.abilities(true));
+                    this.row('先认识你的可能性', '天赋会影响起点，往后的路由每一次选择决定。', () => this.abilities(true));
                     for (const { talent, defect } of this.offers) {
                         const rarity = { common: '普通', rare: '稀有', legendary: '传奇' }[talent.rarity];
                         const color = talent.rarity === 'legendary' ? new cc_1.Color(239, 221, 181) : talent.rarity === 'rare' ? new cc_1.Color(232, 221, 197) : UITheme_1.UITheme.surface;
@@ -7916,97 +6951,109 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 }
                 abilities(startup = false) {
                     this.redraw = () => this.abilities(startup);
-                    this.page('能力与用途', '了解你的长处，选择适合自己的道路。', startup ? undefined : '人生', () => startup ? this.talents() : this.life());
+                    this.page('能力与用途', '了解你的长处，选择适合自己的道路。', startup ? undefined : '此刻', () => startup ? this.talents() : this.life());
                     const state = startup ? undefined : this.session.snapshot();
                     for (const a of AbilityConfig_1.ABILITIES)
                         this.row(`${a.name}${state ? ` ${AbilityConfig_1.abilityValue(state, a)} / 100` : ''}`, a.use);
                     this.row(`知识${state ? ` ${Math.round(state.stats.knowledge)}` : ''}`, '用于继续教育与复杂判断；教育研究岗位要求40。升学录取只看公开的升学评估。');
+                    if (state)
+                        this.row('身心状态', `健康 ${Math.round(state.stats.health)} · 压力 ${Math.round(state.stats.pressure)} · 幸福 ${Math.round(state.stats.happiness)}`);
                     this.row('健康 · 压力 · 幸福', '健康影响工作收入，过低会触发结局；压力过高会损耗健康和幸福；幸福耗尽会结束人生。');
                 }
                 life() {
-                    var _a, _b;
+                    var _a, _b, _c, _d;
                     this.redraw = () => this.life();
-                    let state = this.session.snapshot();
+                    const state = this.session.snapshot();
                     if (state.completed) {
                         this.ending();
                         return;
                     }
-                    let event = this.session.getCurrentEvent();
-                    let notice = '';
-                    if (event && (event.informational || event.interaction === 'information')) {
-                        notice = `${event.title}\n${event.description}${AbilityConfig_1.changeText(event.options[0].result) ? `\n${AbilityConfig_1.changeText(event.options[0].result)}` : ''}`;
-                        state = this.session.choose(event.options[0].id);
-                        event = this.session.getCurrentEvent();
-                    }
+                    const event = this.session.getCurrentEvent();
                     const forecast = this.session.financeForecast();
-                    const freedom = this.session.financialFreedom();
-                    this.page(`${state.year}年 · ${state.age}岁`, `现金 ${AbilityConfig_1.moneyText(state.stats.funds)} · 预计年现金流 ${AbilityConfig_1.signedMoneyText(forecast.netCashflow)} · 贷款 ${AbilityConfig_1.moneyText(state.finance.loanBalance)}`, '人生', undefined, !event ? { text: '度过这一年', action: () => this.advance() } : undefined);
-                    this.row(`健康 ${Math.round(state.stats.health)} · 压力 ${Math.round(state.stats.pressure)} · 幸福 ${Math.round(state.stats.happiness)}`, `升学评估 ${state.education.admissionScore}/100 · 985 75 · 211 65\n${EDUCATION[state.education.level]}${state.flags.includes('graduate-school') ? ' · 研究生学位' : ''} · ${CAREERS[state.career.track]} · ${CITIES[state.education.city]}`);
-                    if (event) {
-                        if (notice)
-                            this.notify(notice);
-                        this.openEventModal(event);
-                        return;
-                    }
+                    this.page(`${state.year} · ${state.age}岁`, `${EDUCATION[state.education.level]} · ${state.age < 22 ? LifePresentation_1.chapter(state.age) : CAREERS[state.career.track]} · ${CITIES[state.education.city]}`, '此刻', undefined, { text: event ? (event.informational || event.interaction === 'information' ? '阅读今年的消息' : '作出今年的选择') : '度过这一年', action: () => event ? this.openEventModal(event) : this.advance() });
+                    const profile = this.box(this.root, 96, 60, 275, this.layout.designHeight / 2 - this.layout.safeTop - 38, UITheme_1.UITheme.surfaceRaised);
+                    this.text(profile, '档案', 25, 80, 42, 0, 0, UITheme_1.UITheme.gold, true);
+                    this.clickable(profile, () => this.abilities());
+                    this.overlay.removeFromParent();
+                    this.root.addChild(this.overlay);
+                    this.metrics([['现金', AbilityConfig_1.moneyText(state.stats.funds)], ['健康', `${Math.round(state.stats.health)}`], ['幸福', `${Math.round(state.stats.happiness)}`]]);
+                    this.scene(state);
+                    if (event)
+                        this.row(event.informational || event.interaction === 'information' ? '时代来信 · ' + event.title : '今年的岔路 · ' + event.title, event.description.length > 65 ? event.description.slice(0, 65) + '…' : event.description, () => this.openEventModal(event), UITheme_1.UITheme.surfaceRaised);
                     else {
                         const year = this.session.getYearInfo();
-                        this.row((_a = year === null || year === void 0 ? void 0 : year.headline) !== null && _a !== void 0 ? _a : '新的一年', (_b = year === null || year === void 0 ? void 0 : year.summary) !== null && _b !== void 0 ? _b : '选择今年的生活重心。');
-                        const forecastRow = this.row(`预计年净现金流 ${AbilityConfig_1.signedMoneyText(forecast.netCashflow)}`, this.focusForecastText(state));
-                        this.focusForecastBody = forecastRow.children.map((child) => child.getComponent(cc_1.Label)).find((label) => !!label && label.string.startsWith('工资'));
-                        const majorActionAvailable = this.session.hasMajorActionAvailable();
-                        this.row(majorActionAvailable ? '留出空白' : '留出空白已使用', majorActionAvailable ? '免费 · 压力-5 · 幸福+2 · 健康+1' : '本年度沉淀次数已用完', majorActionAvailable ? () => this.attempt(() => this.session.recoverWellbeing('pause'), () => this.life(), '压力 −5 · 幸福 +2 · 健康 +1') : undefined, majorActionAvailable ? UITheme_1.UITheme.surfaceRaised : UITheme_1.UITheme.disabledSurface, true, !majorActionAvailable);
-                        this.focusRows = {};
-                        const focusDescriptions = this.focusDescriptions(state);
-                        Object.keys(FOCUS).forEach((focus) => {
-                            this.focusRows[focus] = this.row(`${state.lifeFocus === focus ? '● ' : ''}${this.focusTitle(state, focus)}`, focusDescriptions[focus], () => this.setLifeFocus(focus), state.lifeFocus === focus ? UITheme_1.UITheme.gold : UITheme_1.UITheme.surface);
-                        });
+                        this.row((_a = year === null || year === void 0 ? void 0 : year.headline) !== null && _a !== void 0 ? _a : '这一年，按自己的节奏', (_b = year === null || year === void 0 ? void 0 : year.summary) !== null && _b !== void 0 ? _b : '世界继续变化，你也有自己的步调。');
                     }
-                    this.row('能力与用途', '查看当前能力和岗位门槛', () => this.abilities());
-                    this.row('沉淀', this.session.hasMajorActionAvailable() ? '本年可选择 1 项：休整、奖励自己、考证或考研' : '本年沉淀已使用', () => this.growth());
-                    this.row('职业方向', '查看入职要求和晋升进度', () => this.careers());
-                    this.row('人生档案', '', () => this.archive());
-                    if (notice)
-                        this.notify(notice);
+                    if (state.stats.health < 30 || state.stats.pressure > 70 || state.stats.happiness < 30)
+                        this.row('先照看一下自己', `健康 ${Math.round(state.stats.health)} · 压力 ${Math.round(state.stats.pressure)} · 幸福 ${Math.round(state.stats.happiness)}。在「打算」中调整重心或休整。`, () => this.plans(), UITheme_1.UITheme.surfaceInset);
+                    else if (forecast.netCashflow < 0)
+                        this.row('今年的开支超过收入', `预计年结余 ${AbilityConfig_1.signedMoneyText(forecast.netCashflow)}，请在「家底」中查看收支。`, () => this.assets(), UITheme_1.UITheme.surfaceInset);
+                    this.row(`今年打算 · ${LifePresentation_1.focusName(state, state.lifeFocus)}`, '安排会沿用到下一年，可随时调整。', () => this.plans());
+                    const last = state.lifeLog[state.lifeLog.length - 1];
+                    if (last)
+                        this.row('刚刚留下的足迹', `${(_c = last.title) !== null && _c !== void 0 ? _c : '一次选择'} · ${(_d = last.choice) !== null && _d !== void 0 ? _d : '查看记录'}`, () => this.archive());
                 }
-                focusTitle(state, focus) { return focus === 'work' && state.career.track === 'unemployed' ? '兼职实践' : FOCUS[focus]; }
+                metrics(items) {
+                    const height = 106, width = 648 / items.length;
+                    const group = this.box(this.content, 648, height, 0, -this.cursor - height / 2, UITheme_1.UITheme.ink900);
+                    group.name = 'LifeMetrics';
+                    items.forEach(([label, value], i) => {
+                        const x = -324 + width * (i + .5);
+                        this.text(group, label, 22, width - 16, 32, x, 29, UITheme_1.UITheme.muted, true);
+                        this.text(group, value, 30, width - 16, 46, x, -16, UITheme_1.UITheme.text, true);
+                    });
+                    this.cursor += height + 12;
+                    this.content.getComponent(cc_1.UITransform).height = Math.max(this.viewportHeight, this.cursor);
+                }
+                scene(state) {
+                    const h = this.viewportHeight < 680 ? 230 : 300, artHeight = h - 110, node = this.box(this.content, 648, h, 0, -this.cursor - h / 2, UITheme_1.UITheme.ink900);
+                    node.name = 'LifeSceneModule';
+                    const art = LifeScene_1.LifeScene.draw(node, 648, artHeight, state.age, state.education.city);
+                    art.setPosition(0, 55);
+                    this.text(node, LifePresentation_1.chapter(state.age), 22, 590, 32, 0, h / 2 - artHeight - 22, UITheme_1.UITheme.gold);
+                    this.text(node, LifePresentation_1.situation(state), 25, 590, 76, 0, h / 2 - artHeight - 68, UITheme_1.UITheme.text);
+                    this.cursor += h + 18;
+                    this.content.getComponent(cc_1.UITransform).height = Math.max(this.viewportHeight, this.cursor);
+                }
+                plans() {
+                    this.redraw = () => this.plans();
+                    const state = this.session.snapshot();
+                    this.page('打算', `${LifePresentation_1.chapter(state.age)} · 为想要的生活留出时间`, '打算');
+                    this.row('今年的重心', '选择即生效，不消耗年度行动；下一年自动沿用。');
+                    const descriptions = this.focusDescriptions(state), focuses = Object.keys(FOCUS);
+                    const bodies = focuses.map(focus => `${descriptions[focus]}\n年结余 ${AbilityConfig_1.signedMoneyText(this.session.focusForecast(focus).netCashflow)}`);
+                    const cardH = Math.max(...bodies.map(body => this.measureText(this.content, body, 26, 270))) + 88;
+                    const grid = this.box(this.content, 648, cardH * 2 + 16, 0, -this.cursor - cardH - 8, UITheme_1.UITheme.ink900);
+                    grid.name = 'FocusComparison';
+                    focuses.forEach((focus, i) => {
+                        const selected = state.lifeFocus === focus;
+                        const card = this.box(grid, 316, cardH, i % 2 === 0 ? -166 : 166, i < 2 ? (cardH + 16) / 2 : -(cardH + 16) / 2, selected ? UITheme_1.UITheme.gold : UITheme_1.UITheme.surface);
+                        this.text(card, `${selected ? '● ' : ''}${LifePresentation_1.focusName(state, focus)}`, 28, 278, 44, 0, cardH / 2 - 36, selected ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.text);
+                        const bodyH = this.measureText(card, bodies[i], 26, 270);
+                        this.text(card, bodies[i], 26, 270, bodyH, 0, -cardH / 2 + 18 + bodyH / 2, selected ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.muted);
+                        this.clickable(card, () => this.setLifeFocus(focus));
+                    });
+                    this.cursor += cardH * 2 + 38;
+                    this.row('收支会随安排变化', '上方结余按当前状态估算，实际结果仍受事件和年度变化影响。', () => this.assets());
+                    this.row(this.session.hasMajorActionAvailable() ? '年度行动 · 还可以做一件事' : '年度行动 · 今年已完成', '休整、照护或职业进修，共用本年一次行动。', () => this.growth());
+                    if (state.age < 22)
+                        this.row('求学方向', `升学评估 ${Math.round(state.education.admissionScore)}/100 · 985 75 · 211 65\n学习能力与知识可通过学习重心积累。`, () => this.abilities());
+                    else
+                        this.row('事业的下一步', CAREERS[state.career.track], () => this.careers());
+                    this.row('换一座城市生活', `当前在${CITIES[state.education.city]} · 先看搬迁成本`, () => this.cities());
+                    this.row('认识自己的长处', '能力、用途与具体门槛', () => this.abilities());
+                }
+                focusTitle(state, focus) { return LifePresentation_1.focusName(state, focus); }
                 focusDescriptions(state) {
-                    return { study: '提升学习与知识，增加压力。', work: state.career.track === 'unemployed' ? '兼职积累商业与实践经验，每年获得兼职收入。' : '提高工作收入与本职能力，增加压力。', rest: '恢复健康、降低压力、提高幸福。', social: '提高幸福、降低压力；成年后增加游玩开支。' };
+                    return state.age < 18 ? { study: '提升学习与知识，增加压力。', work: '提升商业与管理，升学评估下降。', rest: '恢复身心，升学评估下降。', social: '提升幸福与表达，升学评估下降。' }
+                        : { study: '提升学习与知识，增加压力。', work: '提升收入与能力，增加压力。', rest: '恢复健康与幸福，降低压力。', social: '增加生活开支，提升幸福与表达。' };
                 }
                 focusForecastText(state) {
                     const forecast = this.session.financeForecast(), freedom = this.session.financialFreedom();
                     return `工资 ${AbilityConfig_1.moneyText(forecast.salaryIncome)} · 项目 ${AbilityConfig_1.signedMoneyText(forecast.projectCashflow)}\n房租 ${AbilityConfig_1.moneyText(forecast.rentalIncome)} · 固收 ${AbilityConfig_1.moneyText(forecast.fixedIncome)} · 补助/兼职 ${AbilityConfig_1.moneyText(forecast.allowanceIncome + forecast.sideIncome)}\n生活开支 ${AbilityConfig_1.moneyText(forecast.personalLivingExpense)} · 重心开支 ${AbilityConfig_1.moneyText(forecast.discretionaryExpense)} · 贷款利息 ${AbilityConfig_1.moneyText(forecast.interestExpense)}\n财富自由度 ${(freedom.rate * 100).toFixed(0)}% · ${freedom.label} · 安全垫 ${freedom.safetyMonths}个月${forecast.familyCoveredExpense ? `\n家庭另承担生活费 ${AbilityConfig_1.moneyText(forecast.familyCoveredExpense)}` : ''}`;
                 }
                 setLifeFocus(focus) {
-                    var _a;
-                    try {
-                        const state = this.session.setLifeFocus(focus);
-                        if (!Object.keys(this.focusRows).length) {
-                            this.life();
-                            return;
-                        }
-                        for (const item of Object.keys(FOCUS)) {
-                            const row = this.focusRows[item];
-                            if (!(row === null || row === void 0 ? void 0 : row.isValid)) {
-                                this.life();
-                                return;
-                            }
-                            const selected = item === state.lifeFocus;
-                            this.paint(row, selected ? UITheme_1.UITheme.gold : UITheme_1.UITheme.surface);
-                            const labels = row.children.map((child) => child.getComponent(cc_1.Label)).filter((label) => !!label);
-                            if (labels[0]) {
-                                labels[0].string = `${selected ? '● ' : ''}${this.focusTitle(state, item)}`;
-                                labels[0].color = selected ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.text;
-                            }
-                            if (labels[1])
-                                labels[1].color = selected ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.info;
-                        }
-                        if ((_a = this.focusForecastBody) === null || _a === void 0 ? void 0 : _a.isValid)
-                            this.focusForecastBody.string = this.focusForecastText(state);
-                        this.notify(`今年重心已设为「${this.focusTitle(state, focus)}」`);
-                    }
-                    catch (error) {
-                        this.notify(error instanceof Error ? error.message : '暂时无法完成。');
-                    }
+                    this.attempt(() => this.session.setLifeFocus(focus), () => this.plans(), `今年打算：${LifePresentation_1.focusName(this.session.snapshot(), focus)}`);
                 }
                 advance() {
                     const before = this.session.snapshot();
@@ -8021,7 +7068,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 careers() {
                     this.redraw = () => this.careers();
                     const s = this.session.snapshot();
-                    this.page('职业方向', CAREERS[s.career.track], '人生', () => this.life());
+                    this.page('职业方向', CAREERS[s.career.track], '打算', () => this.plans());
                     const promotion = this.session.promotionRequirement();
                     if (promotion)
                         this.row('晋升进度', `${promotion.next ? `本级任职 ${promotion.years} / ${promotion.requiredYears}年` : '已到最高职级'}\n${promotion.guaranteed ? '下一年将自动晋升。' : '满足年限后随机触发；四年未晋升则下一年自动生效。'}\n晋升后基础年薪 +15%。`);
@@ -8034,31 +7081,34 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 }
                 growth() {
                     this.redraw = () => this.growth();
-                    const s = this.session.snapshot();
-                    this.page('沉淀', this.session.hasMajorActionAvailable() ? '每年只可选择一项：休整、奖励自己或提升职业工资。' : '今年已完成沉淀，明年继续。', '人生', () => this.life());
-                    const certificateSkill = s.career.track === 'technology' ? 'technology' : s.career.track === 'product' || s.career.track === 'sales' ? 'business' : s.career.track === 'public-service' ? 'management' : s.career.track === 'education' ? 'learning' : 'expression';
-                    const certificateCount = s.flags.filter((flag) => flag.startsWith('certificate-')).length;
-                    const graduateComplete = s.flags.includes('graduate-school') || s.education.level === 'graduate';
-                    this.row('身心照护', '¥15,000 · 压力-14 · 健康+6 · 幸福+3', () => this.attempt(() => this.session.recoverWellbeing('care'), () => this.life(), '压力 −14 · 健康 +6 · 幸福 +3'), UITheme_1.UITheme.surface, true);
-                    this.row('买一块喜欢的表', '¥20,000 · 幸福+4 · 压力-1', () => this.attempt(() => this.session.treatYourself('watch'), () => this.life(), '为自己留下一点奖励'), UITheme_1.UITheme.surface, true);
-                    this.row(`职业考证 ${certificateCount}/2`, '¥15,000 · 获得后工资+5%', () => this.attempt(() => this.session.certificate(certificateSkill), () => this.life(), '职业证书已获得，工资 +5%'), UITheme_1.UITheme.surface, true);
-                    this.row(`研究生进修${graduateComplete ? '（已完成）' : ''}`, `当前：${EDUCATION[s.education.level]}\n¥80,000 · 工资+5%`, () => this.confirm('研究生进修', '通过门槛后将花费 ¥80,000，并获得 5% 工资加成。', () => this.attempt(() => this.session.graduateSchool(), () => this.life()), () => this.growth()));
-                    this.row('买一辆车', '¥120,000 · 幸福+8 · 压力-3', () => this.attempt(() => this.session.treatYourself('car'), () => this.life(), '为生活增加了一份从容'), UITheme_1.UITheme.surface, true);
-                    this.row('条件说明', '职业考证：知识≥35且对应职业能力≥30\n考研：本科毕业、知识≥60、学习≥45');
+                    const s = this.session.snapshot(), available = this.session.hasMajorActionAvailable();
+                    this.page('留一点时间给自己', available ? '今年还可以安排一件事。' : '今年已经安排过了，明年再继续。', '打算', () => this.plans());
+                    const offer = (title, body, cost, action, eligible = true, reason = '') => {
+                        const enabled = available && s.stats.funds >= cost && eligible;
+                        this.row(title, `${body}${!available ? '\n本年行动已使用' : s.stats.funds < cost ? '\n可用现金不足' : !eligible ? '\n' + reason : ''}`, enabled ? () => this.attempt(action, () => this.plans(), '这项安排已完成。', true) : undefined, enabled ? UITheme_1.UITheme.surface : UITheme_1.UITheme.disabledSurface, enabled);
+                    };
+                    offer('留出空白', '免费 · 压力-5 · 幸福+2 · 健康+1', 0, () => this.session.recoverWellbeing('pause'));
+                    offer('身心照护', '支付 ¥15,000 · 压力-14 · 健康+6 · 幸福+3', 1.5, () => this.session.recoverWellbeing('care'));
+                    offer('与重要的人相聚', '支付 ¥8,000 · 幸福+8 · 压力-7', .8, () => this.session.recoverWellbeing('connection'));
+                    if (s.age < 18) {
+                        this.row('往后的可能性', '成年后的职业进修和生活安排，会在这里出现。');
+                        return;
+                    }
+                    const skill = s.career.track === 'technology' ? 'technology' : s.career.track === 'product' || s.career.track === 'sales' ? 'business' : s.career.track === 'public-service' ? 'management' : s.career.track === 'education' ? 'learning' : 'expression';
+                    const certificates = s.flags.filter(flag => flag.startsWith('certificate-')).length;
+                    offer(`职业考证 ${certificates}/2`, '支付 ¥15,000 · 工资+5%', 1.5, () => this.session.certificate(skill), certificates < 2 && s.stats.knowledge >= 35 && s.skills[skill] >= 30, '需要知识35、对应职业能力30，且证书未达上限。');
+                    const bachelor = ['undergraduate', 'first-tier', '211', '985'].includes(s.education.level);
+                    offer('研究生进修', '支付 ¥80,000 · 工资+5%', 8, () => this.session.graduateSchool(), bachelor && !s.flags.includes('graduate-school') && s.stats.knowledge >= 60 && s.skills.learning >= 45, '需要本科、知识60、学习45，且尚未完成研究生进修。');
+                    offer('买一块喜欢的表', '支付 ¥20,000 · 幸福+4 · 压力-1', 2, () => this.session.treatYourself('watch'));
+                    offer('去远处旅行', '支付 ¥40,000 · 幸福+6 · 压力-4', 4, () => this.session.treatYourself('trip'));
+                    offer('买一辆车', '支付 ¥120,000 · 幸福+8 · 压力-3', 12, () => this.session.treatYourself('car'));
                 }
-                investments() {
-                    this.redraw = () => this.investments();
-                    this.page('投资', '寻找机会，也看清每一笔投入。', '投资');
-                    this.row('交易所', '股票行情、买卖与持仓收益', () => this.market(false), UITheme_1.UITheme.gold);
-                    this.row(`项目投资${this.session.hasNewProjectListings() ? ' · 新项目' : ''}`, this.session.hasNewProjectListings() ? '市场有新的限时项目报价' : '持有项目获得现金流，等待收购或择机出售', () => this.projects(false));
-                    this.row('我的持仓', '', () => this.market(true));
-                    this.row('我的项目', '', () => this.projects(true));
-                }
+                investments() { this.familySection = 'market'; this.assets(); }
                 market(heldOnly) {
                     var _a;
                     this.redraw = () => this.market(heldOnly);
                     const s = this.session.snapshot();
-                    this.page(heldOnly ? '我的持仓' : '交易所', `现金 ${AbilityConfig_1.moneyText(s.stats.funds)} · 持仓 ${AbilityConfig_1.moneyText(this.session.marketValue())}`, '投资', () => this.investments());
+                    this.page(heldOnly ? '我的持仓' : '交易所', `现金 ${AbilityConfig_1.moneyText(s.stats.funds)} · 持仓 ${AbilityConfig_1.moneyText(this.session.marketValue())}`, '家底', () => this.investments());
                     this.row(heldOnly ? '查看全部行情' : `我的持仓 ${s.market.positions.length}`, '', () => this.market(!heldOnly));
                     let list = this.session.marketInstruments();
                     if (heldOnly)
@@ -8075,7 +7125,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     this.redraw = () => this.stock(item, heldOnly);
                     const s = this.session.snapshot();
                     const price = this.session.marketPrice(item.id);
-                    this.page(item.name, `${price.toFixed(2)}元/${item.kind === 'stock' ? '股' : '份'}`, '投资', () => this.market(heldOnly));
+                    this.page(item.name, `${price.toFixed(2)}元/${item.kind === 'stock' ? '股' : '份'}`, '家底', () => this.market(heldOnly));
                     this.row((_a = item.sector) !== null && _a !== void 0 ? _a : '公开市场', item.description);
                     const history = this.session.marketHistory(item.id, 6);
                     if (history.length > 1) {
@@ -8112,15 +7162,15 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     const s = this.session.snapshot(), price = this.session.marketPrice(item.id), lot = this.session.marketLotSize(item.id);
                     const max = Math.floor(s.stats.funds * 10000 / price / lot) * lot;
                     let quantity = Math.floor(max * .25 / lot) * lot;
-                    this.page(`买入${item.name}`, `每${item.kind === 'stock' ? '股' : '份'} ${price.toFixed(2)}元 · 现金 ${AbilityConfig_1.moneyText(s.stats.funds)}`, '投资', () => this.stock(item, heldOnly));
+                    this.page(`买入${item.name}`, `每${item.kind === 'stock' ? '股' : '份'} ${price.toFixed(2)}元 · 现金 ${AbilityConfig_1.moneyText(s.stats.funds)}`, '家底', () => this.stock(item, heldOnly));
                     this.row('投入比例', '拖动下方滑条，拉满为当前现金可买的最大数量。');
-                    const selection = this.row('买入 0股\n支付 ¥0');
+                    const selection = this.row('买入 0股\n支付 ¥0\n交易后现金 ¥0');
                     const label = selection.children[0].getComponent(cc_1.Label);
                     const bar = this.box(this.content, 648, 100, 0, -this.cursor - 50, UITheme_1.UITheme.ink850);
                     this.cursor += 124;
                     const track = this.box(bar, 570, 12, 0, 0, UITheme_1.UITheme.line);
                     const thumb = this.box(bar, 34, 50, 0, 0, UITheme_1.UITheme.gold);
-                    const update = (fraction) => { quantity = Math.floor(max * fraction / lot) * lot; thumb.setPosition(-285 + 570 * fraction, 0); label.string = `买入 ${quantity}${item.kind === 'stock' ? '股' : '份'}\n支付 ${AbilityConfig_1.moneyText(price * quantity / 10000)}`; };
+                    const update = (fraction) => { quantity = Math.floor(max * fraction / lot) * lot; thumb.setPosition(-285 + 570 * fraction, 0); label.string = `买入 ${quantity}${item.kind === 'stock' ? '股' : '份'}\n支付 ${AbilityConfig_1.moneyText(price * quantity / 10000)}\n交易后现金 ${AbilityConfig_1.moneyText(s.stats.funds - price * quantity / 10000)}`; };
                     const slide = (event) => { event.propagationStopped = true; const p = event.getUILocation(); const local = track.getComponent(cc_1.UITransform).convertToNodeSpaceAR(new cc_1.Vec3(p.x, p.y)); update(Math.max(0, Math.min(1, (local.x + 285) / 570))); };
                     bar.on(cc_1.Node.EventType.TOUCH_START, slide);
                     bar.on(cc_1.Node.EventType.TOUCH_MOVE, slide);
@@ -8138,7 +7188,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     }
                     const max = Math.floor(position.quantity / lot) * lot;
                     let quantity = Math.floor(max * .5 / lot) * lot;
-                    this.page(`卖出${item.name}`, `当前持有 ${position.quantity}${item.kind === 'stock' ? '股' : '份'}`, '投资', () => this.stock(item, heldOnly));
+                    this.page(`卖出${item.name}`, `当前持有 ${position.quantity}${item.kind === 'stock' ? '股' : '份'}`, '家底', () => this.stock(item, heldOnly));
                     this.row('卖出比例', '拖动下方滑条，拉满为全部持仓。');
                     const selection = this.row('卖出 0股\n到账 ¥0');
                     const label = selection.children[0].getComponent(cc_1.Label);
@@ -8158,7 +7208,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     this.redraw = () => this.projects(owned);
                     const s = this.session.snapshot();
                     this.session.markProjectListingsRead();
-                    this.page(owned ? '我的项目' : '项目投资', `现金 ${AbilityConfig_1.moneyText(s.stats.funds)} · 同时最多持有5个项目`, '投资', () => this.investments());
+                    this.page(owned ? '我的项目' : '项目投资', `现金 ${AbilityConfig_1.moneyText(s.stats.funds)} · 同时最多持有5个项目`, '家底', () => this.investments());
                     this.row(owned ? '寻找项目' : '查看我的项目', '', () => this.projects(!owned));
                     if (owned) {
                         if (!s.industryProjects.length)
@@ -8182,24 +7232,42 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 }
                 assets() {
                     this.redraw = () => this.assets();
-                    const s = this.session.snapshot(), w = WealthSystem_1.wealthBreakdown(s);
-                    this.page('资产', `个人净资产 ${AbilityConfig_1.moneyText(w.netWorth)}`, '资产');
-                    this.row('资产构成', `现金 ${AbilityConfig_1.moneyText(w.cash)} · 活期/定期 ${AbilityConfig_1.moneyText(w.cashManagement)}\n股票与基金 ${AbilityConfig_1.moneyText(w.securities)} · 项目 ${AbilityConfig_1.moneyText(w.industryProjects)}\n房产 ${AbilityConfig_1.moneyText(w.housing)} · 其他投资 ${AbilityConfig_1.moneyText(w.otherAssets)}\n减去贷款 ${AbilityConfig_1.moneyText(w.debt)}`);
-                    this.row('我的持仓', '', () => this.market(true));
-                    this.row('我的项目', '', () => this.projects(true));
-                    const housing = ExplorationConfig_1.EXPLORATION_ACTIONS.find((a) => a.domain === 'housing');
-                    const unlocked = new OpenOpportunitySystem_1.OpenOpportunitySystem().isAvailable(s, housing);
-                    this.row(unlocked ? '房产市场' : '房产市场 · 尚未开放', unlocked ? '查看房价与已持有住房' : '现金首次达到25万元后永久开放。', unlocked ? () => this.housing() : undefined);
-                    this.row('贷款与还款', `贷款余额 ${AbilityConfig_1.moneyText(s.finance.loanBalance)}`, () => this.loans());
-                    this.row('现金管理', `活期 ${AbilityConfig_1.moneyText(s.cashManagement.demandBalance)} · 定期/理财 ${s.cashManagement.holdings.length} 笔`, () => this.cashManagement());
-                    this.row('年度收支', '逐年查看收入、开支与结余', () => this.ledger());
-                    this.row('城市迁移', `当前：${CITIES[s.education.city]}`, () => this.cities());
+                    const s = this.session.snapshot(), w = WealthSystem_1.wealthBreakdown(s), f = this.session.financeForecast(), freedom = this.session.financialFreedom();
+                    this.page('家底', '让每一次投入，都有生活的余地。', '家底');
+                    this.metrics([['可用现金', AbilityConfig_1.moneyText(w.cash)], ['预计年结余', AbilityConfig_1.signedMoneyText(f.netCashflow)], ['安全垫', `${freedom.safetyMonths}个月`]]);
+                    const switcher = this.box(this.content, 648, 72, 0, -this.cursor - 36, UITheme_1.UITheme.ink900);
+                    ['overview', 'market', 'holdings'].forEach((key, i) => {
+                        const item = this.box(switcher, 204, 64, (i - 1) * 216, 0, this.familySection === key ? UITheme_1.UITheme.gold : UITheme_1.UITheme.surface);
+                        this.text(item, ['生活账本', '寻找机会', '我的持有'][i], 25, 190, 42, 0, 0, this.familySection === key ? UITheme_1.UITheme.ink900 : UITheme_1.UITheme.text, true);
+                        this.clickable(item, () => { this.familySection = key; this.assets(); });
+                    });
+                    this.cursor += 92;
+                    if (this.familySection === 'market') {
+                        this.row('公开市场', s.age < 18 ? '18岁后可以交易；现在可以了解市场。' : '股票、基金与债券 · 行情和走势', () => this.market(false));
+                        this.row('项目机会', this.session.hasNewProjectListings() ? '今年有新的项目报价，先了解现金流和退出成本。' : '查看可参与的项目与条件。', () => this.projects(false));
+                        const housing = ExplorationConfig_1.EXPLORATION_ACTIONS.find(a => a.domain === 'housing');
+                        const unlocked = new OpenOpportunitySystem_1.OpenOpportunitySystem().isAvailable(s, housing);
+                        this.row(unlocked ? '房产市场' : '房产市场 · 尚未开放', unlocked ? '购买成本、租金与退出折价' : '现金首次达到25万元后永久开放。', unlocked ? () => this.housing() : undefined);
+                    }
+                    else if (this.familySection === 'holdings') {
+                        this.row('我的持仓', `${s.market.positions.length} 项 · 市值 ${AbilityConfig_1.moneyText(w.securities)}`, () => this.market(true));
+                        this.row('我的项目', `${s.industryProjects.length} 项 · 估值 ${AbilityConfig_1.moneyText(w.industryProjects)}`, () => this.projects(true));
+                        this.row('我的房产', `${s.housingHoldings.length} 套 · 估值 ${AbilityConfig_1.moneyText(w.housing)}`, () => this.housing());
+                        this.row('现金管理', `活期与定期 ${AbilityConfig_1.moneyText(w.cashManagement)}`, () => this.cashManagement());
+                    }
+                    else {
+                        this.row('生活的底气', `个人净资产 ${AbilityConfig_1.moneyText(w.netWorth)}\n贷款 ${AbilityConfig_1.moneyText(w.debt)} · 预计年利息 ${AbilityConfig_1.moneyText(f.interestExpense)}\n${f.netCashflow < 0 ? '预计开支高于收入，请留意现金储备。' : '预计收入可以覆盖本年开支。'}`);
+                        this.row('年度收支', `预计工资 ${AbilityConfig_1.moneyText(f.salaryIncome)} · 生活开支 ${AbilityConfig_1.moneyText(f.personalLivingExpense)}\n查看已结算年份的真实账目`, () => this.ledger());
+                        this.row('贷款与还款', `贷款余额 ${AbilityConfig_1.moneyText(s.finance.loanBalance)}`, () => this.loans());
+                        this.row('现金管理', `活期 ${AbilityConfig_1.moneyText(s.cashManagement.demandBalance)} · 定期/理财 ${s.cashManagement.holdings.length} 笔`, () => this.cashManagement());
+                        this.row('资产构成', `现金 ${AbilityConfig_1.moneyText(w.cash)} · 存款 ${AbilityConfig_1.moneyText(w.cashManagement)}\n证券 ${AbilityConfig_1.moneyText(w.securities)} · 项目 ${AbilityConfig_1.moneyText(w.industryProjects)}\n房产 ${AbilityConfig_1.moneyText(w.housing)} · 其他 ${AbilityConfig_1.moneyText(w.otherAssets)}\n减去负债 ${AbilityConfig_1.moneyText(w.debt)}`);
+                    }
                 }
                 loans() {
                     this.redraw = () => this.loans();
                     const s = this.session.snapshot();
                     const f = this.session.financeForecast();
-                    this.page('贷款与还款', `现金 ${AbilityConfig_1.moneyText(s.stats.funds)} · 贷款 ${AbilityConfig_1.moneyText(s.finance.loanBalance)}`, '资产', () => this.assets());
+                    this.page('贷款与还款', `现金 ${AbilityConfig_1.moneyText(s.stats.funds)} · 贷款 ${AbilityConfig_1.moneyText(s.finance.loanBalance)}`, '家底', () => this.assets());
                     this.row('贷款情况', `年利息 ${AbilityConfig_1.moneyText(f.interestExpense)}\n${this.session.loanRequirementText()}`);
                     if (s.finance.loanBalance > 0) {
                         this.row('全部还款', AbilityConfig_1.moneyText(s.finance.loanBalance), () => this.confirm('结清贷款', `支付 ${AbilityConfig_1.moneyText(s.finance.loanBalance)}，贷款归零。`, () => this.attempt(() => this.session.repayAllLoan(), () => this.loans(), '贷款已结清'), () => this.loans()), UITheme_1.UITheme.gold);
@@ -8211,7 +7279,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 ledger() {
                     this.redraw = () => this.ledger();
                     const s = this.session.snapshot();
-                    this.page('年度收支', '记录每一年的现金流。', '资产', () => this.assets());
+                    this.page('年度收支', '记录每一年的现金流。', '家底', () => this.assets());
                     if (!s.finance.history.length)
                         this.row('尚未完成年度结算');
                     for (const r of [...s.finance.history].reverse())
@@ -8220,7 +7288,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 housing() {
                     this.redraw = () => this.housing();
                     const s = this.session.snapshot();
-                    this.page('房产市场', `${CITIES[s.education.city]} · 买卖税费均为3%`, '资产', () => this.assets());
+                    this.page('房产市场', `${CITIES[s.education.city]} · 买卖税费均为3%`, '家底', () => this.assets());
                     for (const p of this.session.housingProducts()) {
                         const price = this.session.housingPrice(p.id), cost = price + Math.round(price * .03 * 10) / 10;
                         this.row(p.name, `${p.description}\n房价 ${AbilityConfig_1.moneyText(price)} · 含税总额 ${AbilityConfig_1.moneyText(cost)}`, () => this.confirm('购买住房', `${p.name}\n含税总额 ${AbilityConfig_1.moneyText(cost)}`, () => this.attempt(() => this.session.buyHousing(p.id), () => this.housing()), () => this.housing()));
@@ -8231,7 +7299,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 cashManagement() {
                     this.redraw = () => this.cashManagement();
                     const s = this.session.snapshot();
-                    this.page('现金管理', `现金 ${AbilityConfig_1.moneyText(s.stats.funds)} · 活期 ${AbilityConfig_1.moneyText(s.cashManagement.demandBalance)}`, '资产', () => this.assets());
+                    this.page('现金管理', `现金 ${AbilityConfig_1.moneyText(s.stats.funds)} · 活期 ${AbilityConfig_1.moneyText(s.cashManagement.demandBalance)}`, '家底', () => this.assets());
                     this.row('活期存款', `年利率 ${(s.cashManagement.demandRate * 100).toFixed(1)}% · 随存随取`, () => this.confirm('转入活期', '转入 ¥10,000，随时可取。', () => this.attempt(() => this.session.depositDemand(1), () => this.cashManagement()), () => this.cashManagement()));
                     if (s.cashManagement.demandBalance >= 1)
                         this.row('取出活期', `当前活期 ${AbilityConfig_1.moneyText(s.cashManagement.demandBalance)}`, () => this.attempt(() => this.session.withdrawDemand(Math.min(1, s.cashManagement.demandBalance)), () => this.cashManagement()));
@@ -8243,7 +7311,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 cities() {
                     this.redraw = () => this.cities();
                     const s = this.session.snapshot();
-                    this.page('城市迁移', `当前：${CITIES[s.education.city]}`, '资产', () => this.assets());
+                    this.page('城市迁移', `当前：${CITIES[s.education.city]}`, '打算', () => this.plans());
                     for (const city of Object.keys(CITIES)) {
                         const p = this.session.migrationPreview(city);
                         this.row(CITIES[city], `搬迁总成本 ${AbilityConfig_1.moneyText(p.total)}\n迁移后年度生活费 ${AbilityConfig_1.moneyText(p.annualAfter)}`, city === s.education.city ? undefined : () => this.confirm('确认迁移', `支付 ${AbilityConfig_1.moneyText(p.total)}，迁往${CITIES[city]}。`, () => this.attempt(() => this.session.migrateCity(city), () => this.cities()), () => this.cities()));
@@ -8253,22 +7321,54 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     var _a, _b, _c, _d;
                     this.redraw = () => this.archive();
                     const s = this.session.snapshot(), report = this.session.getReport();
-                    this.page('人生档案', `${s.year}年 · ${s.age}岁`, s.completed ? undefined : '人生', () => s.completed ? this.home() : this.life());
-                    this.row((_b = (_a = StartupConfig_1.TALENTS.find((t) => t.id === s.talentId)) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : '这一生', `${EDUCATION[s.education.level]} · ${CAREERS[s.career.track]}\n${(_c = report === null || report === void 0 ? void 0 : report.oneLineReview) !== null && _c !== void 0 ? _c : ''}`);
-                    for (const entry of [...((_d = report === null || report === void 0 ? void 0 : report.timeline) !== null && _d !== void 0 ? _d : [])].reverse())
-                        this.row(`${entry.year} · ${entry.event}`, entry.choice);
+                    this.page('足迹', `${s.year}年 · 走过的路，都留在这里`, s.completed ? undefined : '足迹', s.completed ? () => this.ending() : undefined);
+                    this.row(LifePresentation_1.chapter(s.age), (_a = report === null || report === void 0 ? void 0 : report.oneLineReview) !== null && _a !== void 0 ? _a : '你的故事才刚刚开始。');
+                    this.row('返回首页', '当前进度已自动保存，可随时继续。', () => this.home());
+                    this.row('每一年的变化', `${(_c = (_b = s.annualReviews) === null || _b === void 0 ? void 0 : _b.length) !== null && _c !== void 0 ? _c : 0} 份年度回顾 · 可反复阅读`, () => this.yearReviews());
+                    const timeline = (_d = report === null || report === void 0 ? void 0 : report.timeline) !== null && _d !== void 0 ? _d : [];
+                    if (!timeline.length)
+                        this.row('第一页还在等待', '作出第一个选择后，这里会记下你的决定和结果。');
+                    const entries = this.showAllHistory ? timeline : timeline.slice(-8);
+                    let currentChapter = '';
+                    for (const entry of [...entries].reverse()) {
+                        const name = LifePresentation_1.chapter(entry.age);
+                        if (name !== currentChapter) {
+                            this.row(name, '', undefined, UITheme_1.UITheme.surfaceInset);
+                            currentChapter = name;
+                        }
+                        this.row(`${entry.age}岁 · ${entry.event}`, `${entry.choice.split('｜')[0]}\n${entry.impact}${entry.cause ? `\n来自 ${entry.cause.year} 年：${entry.cause.title} / ${entry.cause.choice}` : ''}`);
+                    }
+                    if (timeline.length > 8)
+                        this.row(this.showAllHistory ? '只看最近的足迹' : `展开全部 ${timeline.length} 次选择`, '', () => { this.showAllHistory = !this.showAllHistory; this.archive(); });
+                }
+                yearReviews() {
+                    var _a, _b;
+                    this.redraw = () => this.yearReviews();
+                    const s = this.session.snapshot();
+                    this.page('每一年的变化', '结果留在这里，不必急着读完。', s.completed ? undefined : '足迹', () => this.archive());
+                    if (!((_a = s.annualReviews) === null || _a === void 0 ? void 0 : _a.length))
+                        this.row('还没有年度回顾', '新完成的年份会记录身心与现金变化。旧年份的收支仍可在年度账本中查看。');
+                    for (const review of [...((_b = s.annualReviews) !== null && _b !== void 0 ? _b : [])].reverse())
+                        this.row(`${review.year}年 · ${review.age}岁`, review.text);
+                    this.row('查看年度账本', '收入、生活费、利息与其他收支', () => this.ledger());
                 }
                 ending() {
-                    var _a, _b, _c, _d, _e, _f, _g, _h;
+                    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
                     this.redraw = () => this.ending();
-                    const s = this.session.snapshot();
-                    this.page('人生回望', `${(_b = (_a = s.ending) === null || _a === void 0 ? void 0 : _a.title) !== null && _b !== void 0 ? _b : '一生的回声'} · ${(_d = (_c = s.ending) === null || _c === void 0 ? void 0 : _c.score) !== null && _d !== void 0 ? _d : 0}分`);
-                    this.row((_f = (_e = s.ending) === null || _e === void 0 ? void 0 : _e.title) !== null && _f !== void 0 ? _f : '人生结束', (_g = this.session.getReport()) === null || _g === void 0 ? void 0 : _g.oneLineReview);
-                    this.row('带往下一世', '选择一枚记忆，在下一次重来时生效。');
-                    (_h = this.inheritanceChoices) !== null && _h !== void 0 ? _h : (this.inheritanceChoices = this.session.getInheritanceChoices());
+                    const s = this.session.snapshot(), report = this.session.getReport();
+                    this.page('这一生，你走到了这里', (_b = (_a = s.ending) === null || _a === void 0 ? void 0 : _a.title) !== null && _b !== void 0 ? _b : '一生的回声');
+                    this.scene(s);
+                    this.row((_d = (_c = s.ending) === null || _c === void 0 ? void 0 : _c.title) !== null && _d !== void 0 ? _d : '人生回望', (_g = (_f = (_e = s.ending) === null || _e === void 0 ? void 0 : _e.description) !== null && _f !== void 0 ? _f : report === null || report === void 0 ? void 0 : report.oneLineReview) !== null && _g !== void 0 ? _g : '每一次选择，都留下了痕迹。');
+                    this.metrics([['健康', `${Math.round(s.stats.health)}`], ['幸福', `${Math.round(s.stats.happiness)}`], ['净资产', AbilityConfig_1.moneyText(WealthSystem_1.wealthBreakdown(s).netWorth)]]);
+                    this.row('得到与付出', `${(_h = report === null || report === void 0 ? void 0 : report.biggestSuccess) !== null && _h !== void 0 ? _h : ''}\n${(_j = report === null || report === void 0 ? void 0 : report.biggestRegret) !== null && _j !== void 0 ? _j : ''}`);
+                    const turns = ((_k = report === null || report === void 0 ? void 0 : report.timeline) !== null && _k !== void 0 ? _k : []).filter(entry => entry.cause || entry.impact && entry.impact !== '历史记录未保留具体结果。').slice(-3);
+                    for (const entry of turns)
+                        this.row(`${entry.age}岁 · 回望这个决定`, `${entry.event}\n你选择了：${entry.choice.split('｜')[0]}\n${entry.impact}`);
+                    this.row('下一次，试着换一个选择', '从足迹中回看曾经的岔路。新的起点与天赋，会带来不同的条件和机会。', () => this.archive());
+                    this.row('带走一枚记忆', '选择后开启下一段旅程。记忆的效果会在新的起点生效。');
+                    (_l = this.inheritanceChoices) !== null && _l !== void 0 ? _l : (this.inheritanceChoices = this.session.getInheritanceChoices());
                     for (const reward of this.inheritanceChoices)
                         this.row(reward.name, reward.description, () => { this.session.chooseInheritance(reward); this.home(); }, UITheme_1.UITheme.surface, true);
-                    this.row('查看人生档案', '', () => this.archive());
                 }
             };
             exports_1("PortraitGameUI", PortraitGameUI);
@@ -8311,9 +7411,15 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
 
 
 
-System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./OpportunitySystem.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
+
+
+
+
+
+
+System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./OpportunitySystem.ts", "./WealthSystem.ts", "./AbilityConfig.ts"], function (exports_1, context_1) {
     "use strict";
-    var GameEvents_1, OpportunitySystem_1, WealthSystem_1, ReportGenerator;
+    var GameEvents_1, OpportunitySystem_1, WealthSystem_1, AbilityConfig_1, ReportGenerator;
     var __moduleName = context_1 && context_1.id;
     function assetsWord(state) { const value = WealthSystem_1.totalAssetValue(state); return value >= 200 ? '资产自由' : value >= 80 ? '稳健布局' : '脚踏实地'; }
     return {
@@ -8326,6 +7432,9 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
             },
             function (WealthSystem_1_1) {
                 WealthSystem_1 = WealthSystem_1_1;
+            },
+            function (AbilityConfig_1_1) {
+                AbilityConfig_1 = AbilityConfig_1_1;
             }
         ],
         execute: function () {
@@ -8339,16 +7448,17 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
                     const sacrifice = [...dimensions].sort((a, b) => a[1] - b[1])[0][0];
                     const opportunities = state.opportunities.filter((item) => item.entered).map((item) => this.opportunities.chainName(item.chainId));
                     const timeline = state.lifeLog.map((entry) => {
-                        var _a, _b;
+                        var _a, _b, _c, _d;
                         const event = GameEvents_1.GAME_EVENTS.find((item) => item.id === entry.eventId);
                         const choice = event === null || event === void 0 ? void 0 : event.options.find((item) => item.id === entry.optionId);
                         const dynamic = this.dynamicTimelineEntry(entry.eventId, entry.optionId);
                         return {
                             year: entry.year,
                             age: entry.year - 1992,
-                            event: (_a = event === null || event === void 0 ? void 0 : event.title) !== null && _a !== void 0 ? _a : dynamic.event,
-                            choice: (_b = choice === null || choice === void 0 ? void 0 : choice.label) !== null && _b !== void 0 ? _b : dynamic.choice,
-                            impact: dynamic.impact,
+                            event: (_b = (_a = entry.title) !== null && _a !== void 0 ? _a : event === null || event === void 0 ? void 0 : event.title) !== null && _b !== void 0 ? _b : dynamic.event,
+                            choice: (_d = (_c = entry.choice) !== null && _c !== void 0 ? _c : choice === null || choice === void 0 ? void 0 : choice.label) !== null && _d !== void 0 ? _d : dynamic.choice,
+                            impact: entry.result ? [entry.outcome, AbilityConfig_1.changeText(entry.result) || '你作出了这个选择，生活继续向前。'].filter(Boolean).join('\n') : event ? '历史记录未保留具体结果。' : dynamic.impact,
+                            cause: entry.cause,
                         };
                     });
                     const keywords = [state.identityId.includes('rural') ? '小镇成长' : '人生重启', state.skills.technology >= 70 ? '技术极客' : state.skills.business >= 70 ? '商业嗅觉' : '持续积累', assetsWord(state), state.stats.health <= 30 ? '透支警醒' : state.stats.happiness >= 70 ? '内心丰盛' : '继续前行'].filter((word, index, array) => array.indexOf(word) === index).slice(0, 5);
@@ -8368,6 +7478,12 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -8449,6 +7565,12 @@ System.register("chunks:///_virtual/RequirementFormatter.ts",[], function (expor
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -8705,6 +7827,12 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, context_1) {
     "use strict";
     var SeededRandom;
@@ -8731,6 +7859,12 @@ System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, co
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -8858,6 +7992,12 @@ System.register("chunks:///_virtual/StarterEvents.ts",["./EventTemplates.ts"], f
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var TALENTS, NO_DEFECT, DEFECTS;
@@ -8924,6 +8064,12 @@ System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, c
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -9066,6 +8212,12 @@ System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exp
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, UITheme;
@@ -9078,22 +8230,22 @@ System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, con
         ],
         execute: function () {
             exports_1("UITheme", UITheme = {
-                ink900: new cc_1.Color(244, 237, 222, 255),
-                ink850: new cc_1.Color(236, 227, 207, 255),
-                surface: new cc_1.Color(251, 246, 234, 255),
-                surfaceRaised: new cc_1.Color(247, 240, 224, 255),
-                surfaceInset: new cc_1.Color(239, 230, 211, 255),
-                disabledSurface: new cc_1.Color(227, 218, 199, 255),
+                ink900: new cc_1.Color(246, 247, 244, 255),
+                ink850: new cc_1.Color(235, 239, 235, 255),
+                surface: new cc_1.Color(255, 255, 252, 255),
+                surfaceRaised: new cc_1.Color(230, 240, 236, 255),
+                surfaceInset: new cc_1.Color(239, 235, 222, 255),
+                disabledSurface: new cc_1.Color(230, 232, 228, 255),
                 disabledLine: new cc_1.Color(207, 195, 172, 255),
-                line: new cc_1.Color(216, 205, 180, 255),
+                line: new cc_1.Color(216, 225, 219, 255),
                 lineStrong: new cc_1.Color(190, 172, 140, 255),
-                gold: new cc_1.Color(181, 67, 42, 255),
-                goldSoft: new cc_1.Color(210, 134, 96, 255),
+                gold: new cc_1.Color(31, 93, 87, 255),
+                goldSoft: new cc_1.Color(53, 105, 97, 255),
                 cinnabar: new cc_1.Color(181, 67, 42, 255),
                 cinnabarSoft: new cc_1.Color(210, 134, 96, 255),
-                text: new cc_1.Color(43, 38, 32, 255),
-                muted: new cc_1.Color(110, 100, 85, 255),
-                quiet: new cc_1.Color(167, 156, 134, 255),
+                text: new cc_1.Color(30, 45, 44, 255),
+                muted: new cc_1.Color(91, 108, 102, 255),
+                quiet: new cc_1.Color(113, 127, 121, 255),
                 gain: new cc_1.Color(62, 124, 91, 255),
                 loss: new cc_1.Color(181, 67, 42, 255),
                 info: new cc_1.Color(70, 100, 126, 255),
@@ -9107,12 +8259,18 @@ System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, con
                 radiusCard: 18,
                 radiusModal: 22,
                 touchTarget: 44,
-                serif: 'Noto Serif SC',
-                sans: 'Noto Sans SC',
+                serif: 'Microsoft YaHei',
+                sans: 'Microsoft YaHei',
             });
         }
     };
 });
+
+
+
+
+
+
 
 
 
@@ -9245,6 +8403,12 @@ System.register("chunks:///_virtual/WealthSystem.ts",["./MarketConfig.ts", "./Ca
 
 
 
+
+
+
+
+
+
 System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var KEY_YEARS, YEARS;
@@ -9287,6 +8451,12 @@ System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, cont
         }
     };
 });
+
+
+
+
+
+
 
 
 
