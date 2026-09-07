@@ -85,6 +85,8 @@ System.register("chunks:///_virtual/AbilityConfig.ts",[], function (exports_1, c
 
 
 
+
+
 System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var a, ACHIEVEMENTS;
@@ -97,6 +99,8 @@ System.register("chunks:///_virtual/AchievementConfig.ts",[], function (exports_
         }
     };
 });
+
+
 
 
 
@@ -205,6 +209,8 @@ System.register("chunks:///_virtual/AchievementSystem.ts",["./AchievementConfig.
 
 
 
+
+
 System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var AssetSystem;
@@ -225,6 +231,8 @@ System.register("chunks:///_virtual/AssetSystem.ts",[], function (exports_1, con
         }
     };
 });
+
+
 
 
 
@@ -330,6 +338,8 @@ System.register("chunks:///_virtual/CareerPathEvents.ts",[], function (exports_1
         }
     };
 });
+
+
 
 
 
@@ -499,6 +509,8 @@ System.register("chunks:///_virtual/CareerSystem.ts",[], function (exports_1, co
 
 
 
+
+
 System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var GrowthSystem_1, LIVING_COST, MOVE_BASE, CitySystem;
@@ -549,6 +561,8 @@ System.register("chunks:///_virtual/CitySystem.ts",["./GrowthSystem.ts"], functi
         }
     };
 });
+
+
 
 
 
@@ -674,6 +688,8 @@ System.register("chunks:///_virtual/ConditionEvaluator.ts",["./WealthSystem.ts"]
 
 
 
+
+
 System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_1, context_1) {
     "use strict";
     var DelayedEventQueue;
@@ -737,14 +753,20 @@ System.register("chunks:///_virtual/DelayedEventQueue.ts",[], function (exports_
 
 
 
+
+
 System.register("chunks:///_virtual/DeviceLayout.ts",[], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function calculateDeviceLayout(width, height, mobile, top = 0, bottom = 0) {
         width = Math.max(1, width);
         height = Math.max(1, height);
-        const portrait = mobile || (width < 900 && height > width);
-        return { width, height, portrait, designHeight: Math.max(960, Math.round(720 * height / width)), safeTop: Math.max(24, top * 720 / width), safeBottom: Math.max(20, bottom * 720 / width) };
+        const desktop = !mobile && width >= 900 && width > height;
+        const formFactor = desktop ? 'desktop' : Math.min(width, height) >= 600 ? 'tablet' : 'phone';
+        const designWidth = formFactor === 'desktop' ? 1280 : formFactor === 'tablet' ? 960 : 720;
+        const designHeight = formFactor === 'desktop' ? Math.max(720, Math.round(designWidth * height / width)) : Math.max(formFactor === 'tablet' ? 900 : 960, Math.round(designWidth * height / width));
+        return { width, height, portrait: formFactor !== 'desktop', formFactor, designWidth, designHeight,
+            safeTop: Math.max(formFactor === 'desktop' ? 16 : 24, top * designWidth / width), safeBottom: Math.max(formFactor === 'desktop' ? 16 : 20, bottom * designWidth / width) };
     }
     exports_1("calculateDeviceLayout", calculateDeviceLayout);
     function readDeviceLayout(mobile) {
@@ -762,8 +784,7 @@ System.register("chunks:///_virtual/DeviceLayout.ts",[], function (exports_1, co
                 top = Math.max(top, (_s = menu.bottom) !== null && _s !== void 0 ? _s : ('top' in menu ? ((_t = menu.top) !== null && _t !== void 0 ? _t : 0) + ((_u = menu.height) !== null && _u !== void 0 ? _u : 0) : 0));
         }
         catch (_v) { }
-        const stageWidth = mini ? width : Math.min(width, height * .75);
-        return calculateDeviceLayout(stageWidth, height, mobile || !!mini, top, bottom);
+        return calculateDeviceLayout(width, height, mobile || !!mini, top, bottom);
     }
     exports_1("readDeviceLayout", readDeviceLayout);
     return {
@@ -772,6 +793,8 @@ System.register("chunks:///_virtual/DeviceLayout.ts",[], function (exports_1, co
         }
     };
 });
+
+
 
 
 
@@ -907,6 +930,8 @@ System.register("chunks:///_virtual/EducationEvents.ts",["./EventTemplates.ts"],
         }
     };
 });
+
+
 
 
 
@@ -1113,6 +1138,8 @@ System.register("chunks:///_virtual/EducationProgressionSystem.ts",["./Education
 
 
 
+
+
 System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var LEVEL_RANK, EducationSystem;
@@ -1136,6 +1163,8 @@ System.register("chunks:///_virtual/EducationSystem.ts",[], function (exports_1,
         }
     };
 });
+
+
 
 
 
@@ -1206,6 +1235,8 @@ System.register("chunks:///_virtual/EndingConfig.ts",[], function (exports_1, co
         }
     };
 });
+
+
 
 
 
@@ -1326,6 +1357,8 @@ System.register("chunks:///_virtual/EndingResolver.ts",["./EndingConfig.ts", "./
 
 
 
+
+
 System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"], function (exports_1, context_1) {
     "use strict";
     var ConditionEvaluator_1, EventMatcher;
@@ -1374,6 +1407,8 @@ System.register("chunks:///_virtual/EventMatcher.ts",["./ConditionEvaluator.ts"]
         }
     };
 });
+
+
 
 
 
@@ -1523,6 +1558,8 @@ System.register("chunks:///_virtual/EventTemplates.ts",[], function (exports_1, 
 
 
 
+
+
 System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var EXPLORATION_ACTIONS;
@@ -1539,6 +1576,8 @@ System.register("chunks:///_virtual/ExplorationConfig.ts",[], function (exports_
         }
     };
 });
+
+
 
 
 
@@ -1726,6 +1765,8 @@ System.register("chunks:///_virtual/FamilyOpportunityEvents.ts",[], function (ex
 
 
 
+
+
 System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityConfig.ts", "./WealthSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var cc_1, IdentityConfig_1, WealthSystem_1, FAMILY_UNLOCK_KEY, CAREER_RANK, FamilyUnlockManager;
@@ -1793,6 +1834,8 @@ System.register("chunks:///_virtual/FamilyUnlockManager.ts",["cc", "./IdentityCo
         }
     };
 });
+
+
 
 
 
@@ -2114,6 +2157,8 @@ System.register("chunks:///_virtual/FinanceSystem.ts",["./EducationProgressionSy
 
 
 
+
+
 System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var FUTURE_TRANSITION_EVENTS;
@@ -2138,6 +2183,8 @@ System.register("chunks:///_virtual/FutureTransitionEvents.ts",[], function (exp
         }
     };
 });
+
+
 
 
 
@@ -2329,6 +2376,8 @@ System.register("chunks:///_virtual/GameBootstrap.ts",["cc", "./GameSession.ts",
 
 
 
+
+
 System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./IndependentLifeEvents.ts", "./OpportunityEvents.ts", "./YouthTemptationEvents.ts", "./LaterLifeEvents.ts", "./FutureTransitionEvents.ts", "./FamilyOpportunityEvents.ts", "./CareerPathEvents.ts", "./AnnualLifeEvents.ts"], function (exports_1, context_1) {
     "use strict";
     var EducationEvents_1, IndependentLifeEvents_1, OpportunityEvents_1, YouthTemptationEvents_1, LaterLifeEvents_1, FutureTransitionEvents_1, FamilyOpportunityEvents_1, CareerPathEvents_1, AnnualLifeEvents_1, GAME_EVENTS;
@@ -2379,6 +2428,8 @@ System.register("chunks:///_virtual/GameEvents.ts",["./EducationEvents.ts", "./I
         }
     };
 });
+
+
 
 
 
@@ -2558,6 +2609,14 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
                     return this.random.next() * 100;
                 }
                 getLatestOutcome() { return this.latestOutcome; }
+                completeTutorial() {
+                    if (!this.state)
+                        throw new Error('人生尚未开始。');
+                    if (!this.state.flags.includes('tutorial-seen'))
+                        this.state.flags.push('tutorial-seen');
+                    this.save();
+                    return this.snapshot();
+                }
                 applyStartup(talent, defect) {
                     if (!this.state)
                         throw new Error('人生尚未开始。');
@@ -3337,6 +3396,8 @@ System.register("chunks:///_virtual/GameSession.ts",["./IdentityConfig.ts", "./G
 
 
 
+
+
 System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "./AssetSystem.ts", "./HealthSystem.ts", "./OpportunitySystem.ts", "./FinanceSystem.ts", "./HousingSystem.ts", "./IndustryProjectSystem.ts", "./CareerSystem.ts", "./GrowthSystem.ts", "./CashManagementSystem.ts"], function (exports_1, context_1) {
     "use strict";
     var __rest = (this && this.__rest) || function (s, e) {
@@ -3582,6 +3643,8 @@ System.register("chunks:///_virtual/GameStateManager.ts",["./SeededRandom.ts", "
 
 
 
+
+
 System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -3591,6 +3654,8 @@ System.register("chunks:///_virtual/GameTypes.ts",[], function (exports_1, conte
         }
     };
 });
+
+
 
 
 
@@ -3695,6 +3760,8 @@ System.register("chunks:///_virtual/GrowthSystem.ts",[], function (exports_1, co
 
 
 
+
+
 System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, context_1) {
     "use strict";
     var HealthSystem;
@@ -3713,6 +3780,8 @@ System.register("chunks:///_virtual/HealthSystem.ts",[], function (exports_1, co
         }
     };
 });
+
+
 
 
 
@@ -3911,6 +3980,8 @@ System.register("chunks:///_virtual/HousingSystem.ts",[], function (exports_1, c
 
 
 
+
+
 System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var IDENTITIES, STARTER_FAMILY_IDS;
@@ -3963,6 +4034,8 @@ System.register("chunks:///_virtual/IdentityConfig.ts",[], function (exports_1, 
         }
     };
 });
+
+
 
 
 
@@ -4094,6 +4167,8 @@ System.register("chunks:///_virtual/IndependentLifeEvents.ts",[], function (expo
 
 
 
+
+
 System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryProjectConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var IndustryProjectConfig_1, INDUSTRY_OPPORTUNITY_EVENTS;
@@ -4135,6 +4210,8 @@ System.register("chunks:///_virtual/IndustryOpportunityEvents.ts",["./IndustryPr
         }
     };
 });
+
+
 
 
 
@@ -4226,6 +4303,8 @@ System.register("chunks:///_virtual/IndustryProjectConfig.ts",[], function (expo
         }
     };
 });
+
+
 
 
 
@@ -4498,6 +4577,8 @@ System.register("chunks:///_virtual/IndustryProjectSystem.ts",["./IndustryProjec
 
 
 
+
+
 System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var INHERITANCE_REWARDS;
@@ -4516,6 +4597,8 @@ System.register("chunks:///_virtual/InheritanceConfig.ts",[], function (exports_
         }
     };
 });
+
+
 
 
 
@@ -4591,6 +4674,8 @@ System.register("chunks:///_virtual/InvestmentMemoryManager.ts",["cc"], function
         }
     };
 });
+
+
 
 
 
@@ -4737,6 +4822,8 @@ System.register("chunks:///_virtual/LaterLifeEvents.ts",[], function (exports_1,
 
 
 
+
+
 System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, LEGACY_KEY, LegacyManager;
@@ -4767,6 +4854,8 @@ System.register("chunks:///_virtual/LegacyManager.ts",["cc"], function (exports_
         }
     };
 });
+
+
 
 
 
@@ -4908,6 +4997,8 @@ System.register("chunks:///_virtual/CashManagementSystem.ts",[], function (expor
         }
     };
 });
+
+
 
 
 
@@ -5118,6 +5209,8 @@ System.register("chunks:///_virtual/YouthTemptationEvents.ts",[], function (expo
 
 
 
+
+
 System.register("chunks:///_virtual/AnnualLifeEvents.ts",[], function (exports_1, context_1) {
     "use strict";
     var ANNUAL_LIFE_EVENTS;
@@ -5222,6 +5315,8 @@ System.register("chunks:///_virtual/AnnualLifeEvents.ts",[], function (exports_1
 
 
 
+
+
 System.register("chunks:///_virtual/LifePresentation.ts",["./AbilityConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var AbilityConfig_1;
@@ -5294,6 +5389,8 @@ System.register("chunks:///_virtual/LifePresentation.ts",["./AbilityConfig.ts"],
         }
     };
 });
+
+
 
 
 
@@ -5372,6 +5469,8 @@ System.register("chunks:///_virtual/LifeScene.ts",["cc"], function (exports_1, c
 
 
 
+
+
 System.register("chunks:///_virtual/main",["./DeviceLayout.ts","./GameBootstrap.ts","./Motion.ts","./PortraitGameUI.ts","./StatChangeAnimator.ts","./UITheme.ts","./AbilityConfig.ts","./AchievementConfig.ts","./CareerPathEvents.ts","./EducationEvents.ts","./EndingConfig.ts","./EventTemplates.ts","./ExplorationConfig.ts","./FamilyOpportunityEvents.ts","./FutureTransitionEvents.ts","./GameEvents.ts","./IdentityConfig.ts","./IndependentLifeEvents.ts","./IndustryOpportunityEvents.ts","./IndustryProjectConfig.ts","./InheritanceConfig.ts","./LaterLifeEvents.ts","./MajorOpportunityEvents.ts","./MarketConfig.ts","./MarketInsightConfig.ts","./MidLifeEvents.ts","./OpportunityConfig.ts","./OpportunityEvents.ts","./StarterEvents.ts","./StartupConfig.ts","./YearConfig.ts","./GameSession.ts","./GameStateManager.ts","./GameTypes.ts","./SeededRandom.ts","./AchievementSystem.ts","./AssetSystem.ts","./CareerSystem.ts","./CitySystem.ts","./ConditionEvaluator.ts","./DelayedEventQueue.ts","./EducationProgressionSystem.ts","./EducationSystem.ts","./EndingResolver.ts","./EventMatcher.ts","./FamilyUnlockManager.ts","./FinanceSystem.ts","./GrowthSystem.ts","./HealthSystem.ts","./HousingSystem.ts","./IndustryProjectSystem.ts","./InvestmentMemoryManager.ts","./LegacyManager.ts","./MarketSystem.ts","./OpenOpportunitySystem.ts","./OpportunitySystem.ts","./ReportGenerator.ts","./RequirementFormatter.ts","./SaveManager.ts","./WealthSystem.ts"],(function(){return{setters:[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],execute:function(){}}}));
 
 System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exports_1, context_1) {
@@ -5399,6 +5498,8 @@ System.register("chunks:///_virtual/MajorOpportunityEvents.ts",[], function (exp
         }
     };
 });
+
+
 
 
 
@@ -5541,6 +5642,8 @@ System.register("chunks:///_virtual/MarketConfig.ts",[], function (exports_1, co
 
 
 
+
+
 System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var MARKET_INSIGHTS;
@@ -5556,6 +5659,8 @@ System.register("chunks:///_virtual/MarketInsightConfig.ts",[], function (export
         }
     };
 });
+
+
 
 
 
@@ -5845,6 +5950,8 @@ System.register("chunks:///_virtual/MarketSystem.ts",["./MarketConfig.ts"], func
 
 
 
+
+
 System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], function (exports_1, context_1) {
     "use strict";
     var EventTemplates_1, MID_LIFE_EVENTS;
@@ -5863,6 +5970,8 @@ System.register("chunks:///_virtual/MidLifeEvents.ts",["./EventTemplates.ts"], f
         }
     };
 });
+
+
 
 
 
@@ -5963,6 +6072,8 @@ System.register("chunks:///_virtual/Motion.ts",["cc"], function (exports_1, cont
         }
     };
 });
+
+
 
 
 
@@ -6109,6 +6220,8 @@ System.register("chunks:///_virtual/OpenOpportunitySystem.ts",["./ExplorationCon
 
 
 
+
+
 System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var LIFE_CYCLE, OPPORTUNITY_CHAINS, SIGNALS;
@@ -6143,6 +6256,8 @@ System.register("chunks:///_virtual/OpportunityConfig.ts",[], function (exports_
         }
     };
 });
+
+
 
 
 
@@ -6296,6 +6411,8 @@ System.register("chunks:///_virtual/OpportunityEvents.ts",["./EventTemplates.ts"
 
 
 
+
+
 System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var OpportunityConfig_1, OpportunitySystem;
@@ -6325,6 +6442,8 @@ System.register("chunks:///_virtual/OpportunitySystem.ts",["./OpportunityConfig.
         }
     };
 });
+
+
 
 
 
@@ -6431,8 +6550,8 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 resize(layout) {
                     this.layout = layout;
                     cc_1.view.setFrameSize(layout.width, layout.height);
-                    cc_1.view.setDesignResolutionSize(720, layout.designHeight, cc_1.ResolutionPolicy.SHOW_ALL);
-                    this.root.getComponent(cc_1.UITransform).setContentSize(720, layout.designHeight);
+                    cc_1.view.setDesignResolutionSize(layout.designWidth, layout.designHeight, cc_1.ResolutionPolicy.SHOW_ALL);
+                    this.root.getComponent(cc_1.UITransform).setContentSize(layout.designWidth, layout.designHeight);
                     this.root.setScale(1, 1, 1);
                     this.redraw();
                 }
@@ -6486,11 +6605,11 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 backdrop(height) {
                     const node = new cc_1.Node('PortraitPaperBackground');
                     node.layer = this.root.layer;
-                    node.addComponent(cc_1.UITransform).setContentSize(720, height);
+                    node.addComponent(cc_1.UITransform).setContentSize(this.layout.designWidth, height);
                     this.root.addChild(node);
                     const g = node.addComponent(cc_1.Graphics);
                     g.fillColor = UITheme_1.UITheme.ink900;
-                    g.roundRect(-360, -height / 2, 720, height, 0);
+                    g.roundRect(-this.layout.designWidth / 2, -height / 2, this.layout.designWidth, height, 0);
                     g.fill();
                 }
                 measureText(parent, value, size, width, serif = false) {
@@ -6549,7 +6668,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 createOverlay() {
                     this.overlay = new cc_1.Node('PortraitOverlay');
                     this.overlay.layer = this.root.layer;
-                    this.overlay.addComponent(cc_1.UITransform).setContentSize(720, this.layout.designHeight);
+                    this.overlay.addComponent(cc_1.UITransform).setContentSize(this.layout.designWidth, this.layout.designHeight);
                     this.root.addChild(this.overlay);
                 }
                 clickable(node, action, confirm = false, color = UITheme_1.UITheme.surface) {
@@ -6608,6 +6727,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     scroller.addChild(this.content);
                     this.scroll.content = this.content;
                     this.cursor = 8;
+                    this.createOverlay();
                     if (tab) {
                         this.activeTab = tab;
                         ['此刻', '打算', '家底', '足迹'].forEach((name, i) => {
@@ -6621,7 +6741,19 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                         this.text(node, dock.text, 30, 600, 60, 0, 0, UITheme_1.UITheme.ink900, true);
                         this.clickable(node, dock.action);
                     }
-                    this.createOverlay();
+                    if (this.layout.formFactor === 'desktop')
+                        this.desktopRail(title, subtitle);
+                }
+                desktopRail(title, subtitle) {
+                    const x = 470, h = this.layout.designHeight;
+                    const rail = this.box(this.root, 230, 278, -x, 12, UITheme_1.UITheme.ink850);
+                    rail.name = 'DesktopContextRail';
+                    this.text(rail, '重来', 33, 180, 50, 0, 95, UITheme_1.UITheme.gold, true, true);
+                    this.text(rail, '人生不是一张报表。\n每年只做一个决定，\n然后看看它留下什么。', 22, 178, 118, 0, 2, UITheme_1.UITheme.muted, true);
+                    const guide = this.box(this.root, 230, 170, x, -h / 2 + 126, UITheme_1.UITheme.surfaceRaised);
+                    guide.name = 'DesktopGuideRail';
+                    this.text(guide, title, 24, 178, 76, 0, 38, UITheme_1.UITheme.text, true, true);
+                    this.text(guide, subtitle, 18, 178, 62, 0, -35, UITheme_1.UITheme.muted, true);
                 }
                 row(title, body = '', action, color = UITheme_1.UITheme.surface, confirm = false, muted = false) {
                     const contentWidth = action ? 540 : 596;
@@ -6708,14 +6840,16 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                 }
                 modalVeil(onTap) {
                     this.closeModal();
+                    this.overlay.removeFromParent();
+                    this.root.addChild(this.overlay);
                     const veil = new cc_1.Node('ModalVeil');
                     veil.layer = this.root.layer;
-                    const h = this.layout.designHeight;
-                    veil.addComponent(cc_1.UITransform).setContentSize(720, h);
+                    const h = this.layout.designHeight, w = this.layout.designWidth;
+                    veil.addComponent(cc_1.UITransform).setContentSize(w, h);
                     this.overlay.addChild(veil);
                     const g = veil.addComponent(cc_1.Graphics);
                     g.fillColor = new cc_1.Color(36, 30, 23, 153);
-                    g.roundRect(-360, -h / 2, 720, h, 0);
+                    g.roundRect(-w / 2, -h / 2, w, h, 0);
                     g.fill();
                     veil.addComponent(cc_1.BlockInputEvents);
                     if (onTap)
@@ -6788,8 +6922,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                         const disabled = !!career && !career.eligible || funding.shortfall > 0 && !funding.offer.canBorrow || familyCost > state.stats.familyResources;
                         const title = option.label.split('｜')[0];
                         const details = [funding.cost ? `确定支出 ${AbilityConfig_1.moneyText(funding.cost)}` : '', familyCost ? `家庭资源支出 ${AbilityConfig_1.moneyText(familyCost)}` : '',
-                            AbilityConfig_1.changeText(option.result), LifePresentation_1.uncertaintyPreview(option),
-                            career ? `${career.summary}\n预计年收入 ${AbilityConfig_1.moneyText(career.totalIncome)} · 年结余 ${AbilityConfig_1.signedMoneyText(career.netCashflow)}${career.eligible ? '' : `\n尚需：${career.unmet.join('、')}`}` : '',
+                            career && !career.eligible ? `尚需：${career.unmet.join('、')}` : '',
                             funding.shortfall > 0 ? funding.offer.canBorrow ? `需借款 ${AbilityConfig_1.moneyText(funding.shortfall)} · 年利息约 ${AbilityConfig_1.moneyText(funding.offer.annualInterest)}` : '现金与可用贷款不足' : '',
                             familyCost > state.stats.familyResources ? '家庭资源不足' : ''].filter(Boolean).join('\n');
                         const titleHeight = this.measureText(this.overlay, title, 28, innerWidth - 40, true);
@@ -6801,7 +6934,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     this.modalVeil();
                     const { modal, content, contentHeight } = this.createModal(width, height, footerHeight, event.title, date);
                     let selected, selectedNode;
-                    const summary = this.text(modal, '先选一项，再确认。选择前可以反复比较。', 22, width - 64, 40, 0, -height / 2 + 120, UITheme_1.UITheme.muted, true);
+                    const summary = this.text(modal, '选择后揭晓结果。', 22, width - 64, 40, 0, -height / 2 + 120, UITheme_1.UITheme.muted, true);
                     let cursor = 0;
                     this.text(content, description, 28, innerWidth, bodyHeight, 0, -bodyHeight / 2, UITheme_1.UITheme.text);
                     cursor += bodyHeight + 22;
@@ -6818,7 +6951,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                                 selected = choice;
                                 selectedNode = card;
                                 this.paint(card, UITheme_1.UITheme.surfaceRaised, true);
-                                summary.string = choice.funding.cost ? `已选 · 支付 ${AbilityConfig_1.moneyText(choice.funding.cost)}${choice.funding.shortfall > 0 ? '（含借款）' : ''}` : `已选 · ${choice.title.slice(0, 18)}`;
+                                summary.string = choice.funding.cost ? `已选 · 支付 ${AbilityConfig_1.moneyText(choice.funding.cost)}${choice.funding.shortfall > 0 ? '（含借款）' : ''}` : '已选，确认后继续。';
                             });
                         cursor += choice.height + 14;
                     }
@@ -6974,8 +7107,6 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     const profile = this.box(this.root, 96, 60, 275, this.layout.designHeight / 2 - this.layout.safeTop - 38, UITheme_1.UITheme.surfaceRaised);
                     this.text(profile, '档案', 25, 80, 42, 0, 0, UITheme_1.UITheme.gold, true);
                     this.clickable(profile, () => this.abilities());
-                    this.overlay.removeFromParent();
-                    this.root.addChild(this.overlay);
                     this.metrics([['现金', AbilityConfig_1.moneyText(state.stats.funds)], ['健康', `${Math.round(state.stats.health)}`], ['幸福', `${Math.round(state.stats.happiness)}`]]);
                     this.scene(state);
                     if (event)
@@ -6992,6 +7123,11 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     const last = state.lifeLog[state.lifeLog.length - 1];
                     if (last)
                         this.row('刚刚留下的足迹', `${(_c = last.title) !== null && _c !== void 0 ? _c : '一次选择'} · ${(_d = last.choice) !== null && _d !== void 0 ? _d : '查看记录'}`, () => this.archive());
+                    if (!state.flags.includes('tutorial-seen') && state.lifeLog.length === 0)
+                        this.openTutorial();
+                }
+                openTutorial() {
+                    this.openMessage('欢迎来到《重来》', '「此刻」查看正在发生的事。\n「打算」安排今年的重心。\n「家底」管理现金、负债与机会。\n「足迹」回看已经做出的选择。\n\n处理完今年的事件后，点击「度过这一年」继续。健康、关系、事业和财富都会改变你的人生。', () => { this.session.completeTutorial(); }, '开始人生');
                 }
                 metrics(items) {
                     const height = 106, width = 648 / items.length;
@@ -7059,7 +7195,7 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
                     const before = this.session.snapshot();
                     try {
                         const after = this.session.continueYears(1);
-                        this.openReceipt(before, after, () => { this.closeModal(); this.life(); });
+                        this.openReceipt(before, after, () => this.life());
                     }
                     catch (error) {
                         this.notify(error instanceof Error ? error.message : '暂时无法完成。');
@@ -7417,6 +7553,8 @@ System.register("chunks:///_virtual/PortraitGameUI.ts",["cc", "./AbilityConfig.t
 
 
 
+
+
 System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./OpportunitySystem.ts", "./WealthSystem.ts", "./AbilityConfig.ts"], function (exports_1, context_1) {
     "use strict";
     var GameEvents_1, OpportunitySystem_1, WealthSystem_1, AbilityConfig_1, ReportGenerator;
@@ -7520,6 +7658,8 @@ System.register("chunks:///_virtual/ReportGenerator.ts",["./GameEvents.ts", "./O
 
 
 
+
+
 System.register("chunks:///_virtual/RequirementFormatter.ts",[], function (exports_1, context_1) {
     "use strict";
     var RequirementFormatter;
@@ -7565,6 +7705,8 @@ System.register("chunks:///_virtual/RequirementFormatter.ts",[], function (expor
         }
     };
 });
+
+
 
 
 
@@ -7833,6 +7975,8 @@ System.register("chunks:///_virtual/SaveManager.ts",["cc", "./EducationProgressi
 
 
 
+
+
 System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, context_1) {
     "use strict";
     var SeededRandom;
@@ -7859,6 +8003,8 @@ System.register("chunks:///_virtual/SeededRandom.ts",[], function (exports_1, co
         }
     };
 });
+
+
 
 
 
@@ -7998,6 +8144,8 @@ System.register("chunks:///_virtual/StarterEvents.ts",["./EventTemplates.ts"], f
 
 
 
+
+
 System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var TALENTS, NO_DEFECT, DEFECTS;
@@ -8064,6 +8212,8 @@ System.register("chunks:///_virtual/StartupConfig.ts",[], function (exports_1, c
         }
     };
 });
+
+
 
 
 
@@ -8218,6 +8368,8 @@ System.register("chunks:///_virtual/StatChangeAnimator.ts",["cc"], function (exp
 
 
 
+
+
 System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, context_1) {
     "use strict";
     var cc_1, UITheme;
@@ -8265,6 +8417,8 @@ System.register("chunks:///_virtual/UITheme.ts",["cc"], function (exports_1, con
         }
     };
 });
+
+
 
 
 
@@ -8409,6 +8563,8 @@ System.register("chunks:///_virtual/WealthSystem.ts",["./MarketConfig.ts", "./Ca
 
 
 
+
+
 System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, context_1) {
     "use strict";
     var KEY_YEARS, YEARS;
@@ -8451,6 +8607,8 @@ System.register("chunks:///_virtual/YearConfig.ts",[], function (exports_1, cont
         }
     };
 });
+
+
 
 
 

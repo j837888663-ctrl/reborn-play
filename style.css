@@ -12,7 +12,6 @@ body { position: fixed; inset: 0; font-family: "Microsoft YaHei", "Noto Sans SC"
 body, canvas, div { outline: none; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
 
 #GameDiv { position: fixed; inset: 0; width: 100vw !important; height: 100dvh !important; margin: 0; overflow: hidden; background: #F6F7F4; }
-@media (min-aspect-ratio: 3/4) { #GameDiv { max-width: 75dvh; margin-inline: auto; box-shadow: 0 0 80px rgba(30,45,44,.08); } }
 #Cocos3dGameContainer, #GameCanvas { width: 100% !important; height: 100% !important; }
 #GameCanvas { display: block; background: #F6F7F4; touch-action: none; }
 
