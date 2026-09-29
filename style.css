@@ -15,10 +15,11 @@ body, canvas, div { outline: none; user-select: none; -webkit-user-select: none;
 #Cocos3dGameContainer, #GameCanvas { width: 100% !important; height: 100% !important; }
 #GameCanvas { display: block; background: #F6F7F4; touch-action: none; }
 
-#boot-screen { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: calc(20px + var(--safe-top)) calc(20px + var(--safe-right)) calc(20px + var(--safe-bottom)) calc(20px + var(--safe-left)); background: #F9FBFB; opacity: 1; transition: opacity .24s ease; overflow: hidden; }
+#boot-screen { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: calc(20px + var(--safe-top)) calc(20px + var(--safe-right)) calc(20px + var(--safe-bottom)) calc(20px + var(--safe-left)); background: #F9FBFB url('./ui-art/scenes/world-village.png') center / cover; opacity: 1; transition: opacity .24s ease; overflow: hidden; }
+#boot-screen::before { content: ''; position: absolute; inset: 0; background: rgba(249,251,251,.86); }
 #boot-screen.is-ready { opacity: 0; pointer-events: none; }
 .boot-card { position: relative; z-index: 1; width: min(78vw, 360px); padding: 34px 28px 30px; text-align: center; }
-.boot-mark { width: 72px; height: 72px; margin: 0 auto 14px; display: block; object-fit: contain; }
+.boot-mark { width: 88px; height: 88px; padding: 6px; margin: 0 auto 14px; display: block; object-fit: contain; overflow: visible; }
 .boot-title { color: #113940; font-size: 32px; font-weight: 700; letter-spacing: 0; }
 .boot-message { min-height: 22px; margin-top: 12px; color: #5B6C66; font-size: 14px; }
 .boot-track { height: 4px; margin-top: 20px; overflow: hidden; border-radius: 99px; background: rgba(43,38,32,.12); }
